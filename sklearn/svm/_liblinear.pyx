@@ -138,7 +138,7 @@ def train_wrap(
         len_w = (nr_class) * nr_feature
         len_alpha = (nr_class) * nr_datapoints
         w = np.empty((nr_class, nr_feature), order='F')
-        #alpha = np.empty((nr_datapoints, nr_class), order='F')
+        #alpha = np.empty((nr_class, nr_datapoints), order='F')
         alpha = np.empty((nr_datapoints, nr_class), order='F')
         copy_w(&w[0, 0], model, len_w)
         copy_alpha(&alpha[0, 0], model, len_alpha)

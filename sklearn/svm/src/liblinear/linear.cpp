@@ -2527,8 +2527,8 @@ model* train(const problem *prob, const parameter *param, BlasFunctions *blas_fu
 		if(param->solver_type == MCSVM_CS)
 		{
 			model_->w=Malloc(double, n*nr_class);
-			model_->alpha=Malloc(double, l*nr_class);
-			model_->n_iter=Malloc(int, 1);
+			model_->alpha = Malloc(double, l*nr_class); //new double[l*nr_class];
+			model_->n_iter = Malloc(int, 1);
 			for(i=0;i<nr_class;i++)
 				for(j=start[i];j<start[i]+count[i];j++)
 					sub_prob.y[j] = i;

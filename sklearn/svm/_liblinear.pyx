@@ -116,9 +116,10 @@ def train_wrap(
     free_parameter(param)
     # destroy_param(param)  don't call this or it will destroy class_weight_label and class_weight
 
-    # coef matrix holder created as fortran since that's what's used in liblinear
+    # coef matrix holder created as fortran since that's what's used in liblinear #EDIT PLACE
     cdef float64_t[::1, :] w
     cdef float64_t[::1, :] alpha
+    cdef int32_t[::1] perm
     cdef int nr_class = get_nr_class(model)
 
     cdef int labels_ = nr_class
@@ -139,17 +140,19 @@ def train_wrap(
         len_alpha = (nr_class) * nr_datapoints
         w = np.empty((nr_class, nr_feature), order='F')
         copy_w(&w[0, 0], model, len_w)
-        if solver_type==4:
+        if solver_type==4: # EDIT PLACE
             #alpha = np.empty((nr_class, nr_datapoints), order='F')
             alpha = np.empty((nr_datapoints, nr_class), order='F')
             copy_alpha(&alpha[0, 0], model, len_alpha)
-
+            
+            perm = np.empty(nr_datapoints, order='F', dtype=np.intc)
+            copy_perm(&perm[0], model, nr_datapoints)
     free_and_destroy_model(&model)
 
     if solver_type == 4: #solver is Crammer-Singer
-        return w.base, alpha.base, n_iter.base
+        return w.base, alpha.base, perm.base, n_iter.base
     
-    return w.base, None, n_iter.base
+    return w.base, None, None, n_iter.base
 
 
 def set_verbosity_wrap(int verbosity):

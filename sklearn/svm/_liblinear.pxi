@@ -29,9 +29,10 @@ cdef extern from "linear.h":
     void destroy_param (parameter *)
 
 
-cdef extern from "liblinear_helper.c":
+cdef extern from "liblinear_helper.c": # EDIT PLACE
     void copy_w(void *, model *, int)
     void copy_alpha(void *, model *, int)
+    void copy_perm(void *, model *, int)
     parameter *set_parameter(int, double, double, int, char *, char *, int, int, double)
     problem *set_problem (char *, int, int, int, int, double, char *, char *)
     problem *csr_set_problem (char *, int, char *, char *, int, int, int, double, char *, char *)

@@ -2528,10 +2528,15 @@ model* train(const problem *prob, const parameter *param, BlasFunctions *blas_fu
 		{
 			model_->w=Malloc(double, n*nr_class);
 			model_->alpha = Malloc(double, l*nr_class); //new double[l*nr_class];
+			model_->perm = Malloc(int, l); //EDIT PLACE
 			model_->n_iter = Malloc(int, 1);
 			for(i=0;i<nr_class;i++)
 				for(j=start[i];j<start[i]+count[i];j++)
 					sub_prob.y[j] = i;
+			for(int k=0; k<l;k++)
+			{
+				model_->perm[k]=perm[k];
+			}
 			Solver_MCSVM_CS Solver(&sub_prob, nr_class, weighted_C, param->eps);
 			model_->n_iter[0]=Solver.Solve(model_->w, model_->alpha);
 		}
@@ -2999,8 +3004,10 @@ void free_model_content(struct model *model_ptr)
 {
 	if(model_ptr->w != NULL)
 		free(model_ptr->w);
-	if(model_ptr->alpha != NULL)
+	if(model_ptr->alpha != NULL) // EDIT PLACE
 		free(model_ptr->alpha);
+	if(model_ptr->perm != NULL)
+		free(model_ptr->perm);
 	if(model_ptr->label != NULL)
 		free(model_ptr->label);
 	if(model_ptr->n_iter != NULL)

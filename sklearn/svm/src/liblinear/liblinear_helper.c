@@ -206,6 +206,11 @@ void copy_alpha(void *data, struct model *model, int len)
     memcpy(data, model->alpha, len * sizeof(double));
 }
 
+void copy_perm(void *data, struct model *model, int len) //EDIT PLACE
+{
+    memcpy(data, model->perm, len*sizeof(int));
+}
+
 double get_bias(struct model *model)
 {
     return model->bias;

@@ -495,7 +495,7 @@ class Solver_MCSVM_CS
 	public:
 		Solver_MCSVM_CS(const problem *prob, int nr_class, double *C, double eps=0.1, int max_iter=100000);
 		~Solver_MCSVM_CS();
-		int Solve(double *w);
+		int Solve(double *w, double* alpha);
 	private:
 		void solve_sub_problem(double A_i, int yi, double C_yi, int active_i, double *alpha_new);
 		bool be_shrunk(int i, int m, int yi, double alpha_i, double minG);
@@ -573,11 +573,11 @@ bool Solver_MCSVM_CS::be_shrunk(int i, int m, int yi, double alpha_i, double min
 	return false;
 }
 
-int Solver_MCSVM_CS::Solve(double *w)
+int Solver_MCSVM_CS::Solve(double *w, double* alpha)
 {
 	int i, m, s;
 	int iter = 0;
-	double *alpha =  new double[l*nr_class];
+	//double *alpha =  new double[l*nr_class];
 	double *alpha_new = new double[nr_class];
 	int *index = new int[l];
 	double *QD = new double[l];
@@ -774,7 +774,6 @@ int Solver_MCSVM_CS::Solve(double *w)
 	info("Objective value = %lf\n",v);
 	info("nSV = %d\n",nSV);
 
-	delete [] alpha;
 	delete [] alpha_new;
 	delete [] index;
 	delete [] QD;
@@ -2528,12 +2527,13 @@ model* train(const problem *prob, const parameter *param, BlasFunctions *blas_fu
 		if(param->solver_type == MCSVM_CS)
 		{
 			model_->w=Malloc(double, n*nr_class);
+			model_->alpha=Malloc(double, l*nr_class);
 			model_->n_iter=Malloc(int, 1);
 			for(i=0;i<nr_class;i++)
 				for(j=start[i];j<start[i]+count[i];j++)
 					sub_prob.y[j] = i;
 			Solver_MCSVM_CS Solver(&sub_prob, nr_class, weighted_C, param->eps);
-			model_->n_iter[0]=Solver.Solve(model_->w);
+			model_->n_iter[0]=Solver.Solve(model_->w, model_->alpha);
 		}
 		else
 		{
@@ -2999,6 +2999,8 @@ void free_model_content(struct model *model_ptr)
 {
 	if(model_ptr->w != NULL)
 		free(model_ptr->w);
+	if(model_ptr->alpha != NULL)
+		free(model_ptr->alpha);
 	if(model_ptr->label != NULL)
 		free(model_ptr->label);
 	if(model_ptr->n_iter != NULL)

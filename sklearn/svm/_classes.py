@@ -317,7 +317,7 @@ class LinearSVC(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):
             self.dual, self.loss, self.penalty, self.multi_class, X
         )
 
-        self.coef_, self.intercept_, n_iter_ = _fit_liblinear(
+        self.coef_, self.intercept_, self.alpha_, n_iter_ = _fit_liblinear(
             X,
             y,
             self.C,

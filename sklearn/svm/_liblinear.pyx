@@ -31,6 +31,7 @@ def train_wrap(
     cdef model *model
     cdef char_const_ptr error_msg
     cdef int len_w
+    cdef int len_alpha
     cdef bint X_has_type_float64 = X.dtype == np.float64
     cdef char * X_data_bytes_ptr
     cdef const float64_t[::1] X_data_64
@@ -105,6 +106,7 @@ def train_wrap(
     blas_functions.scal = _scal[double]
     blas_functions.nrm2 = _nrm2[double]
 
+
     # early return
     with nogil:
         model = train(problem, param, &blas_functions)
@@ -116,6 +118,7 @@ def train_wrap(
 
     # coef matrix holder created as fortran since that's what's used in liblinear
     cdef float64_t[::1, :] w
+    cdef float64_t[::1, :] alpha
     cdef int nr_class = get_nr_class(model)
 
     cdef int labels_ = nr_class
@@ -125,6 +128,7 @@ def train_wrap(
     get_n_iter(model, <int *> &n_iter[0])
 
     cdef int nr_feature = get_nr_feature(model)
+    cdef int nr_datapoints = X.shape[0]
     if bias > 0:
         nr_feature = nr_feature + 1
     if nr_class == 2 and solver_type != 4:  # solver is not Crammer-Singer
@@ -132,12 +136,19 @@ def train_wrap(
         copy_w(&w[0, 0], model, nr_feature)
     else:
         len_w = (nr_class) * nr_feature
+        len_alpha = (nr_class) * nr_datapoints
         w = np.empty((nr_class, nr_feature), order='F')
+        #alpha = np.empty((nr_datapoints, nr_class), order='F')
+        alpha = np.empty((nr_datapoints, nr_class), order='F')
         copy_w(&w[0, 0], model, len_w)
+        copy_alpha(&alpha[0, 0], model, len_alpha)
 
     free_and_destroy_model(&model)
 
-    return w.base, n_iter.base
+    if not (nr_class == 2 and solver_type != 4): #solver is Crammer-Singer
+        return w.base, alpha.base, n_iter.base
+    
+    return w.base, None, n_iter.base
 
 
 def set_verbosity_wrap(int verbosity):

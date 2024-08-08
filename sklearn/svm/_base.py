@@ -1215,7 +1215,7 @@ def _fit_liblinear(
     sample_weight = _check_sample_weight(sample_weight, X, dtype=np.float64)
 
     solver_type = _get_liblinear_solver_type(multi_class, penalty, loss, dual)
-    raw_coef_, n_iter_ = liblinear.train_wrap(
+    raw_coef_, alpha_, n_iter_ = liblinear.train_wrap(
         X,
         y_ind,
         sp.issparse(X),
@@ -1247,4 +1247,4 @@ def _fit_liblinear(
         coef_ = raw_coef_
         intercept_ = 0.0
 
-    return coef_, intercept_, n_iter_
+    return coef_, intercept_, alpha_, n_iter_

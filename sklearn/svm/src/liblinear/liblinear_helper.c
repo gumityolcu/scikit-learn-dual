@@ -201,6 +201,11 @@ void copy_w(void *data, struct model *model, int len)
     memcpy(data, model->w, len * sizeof(double));
 }
 
+void copy_alpha(void *data, struct model *model, int len)
+{
+    memcpy(data, model->alpha, len * sizeof(double));
+}
+
 double get_bias(struct model *model)
 {
     return model->bias;

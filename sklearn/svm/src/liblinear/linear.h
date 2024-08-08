@@ -44,6 +44,7 @@ struct model
 	int nr_class;		/* number of classes */
 	int nr_feature;
 	double *w;
+	double *alpha;
 	int *label;		/* label of each class */
 	double bias;
 	int *n_iter;    /* no. of iterations of each class */

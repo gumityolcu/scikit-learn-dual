@@ -142,7 +142,7 @@ def train_wrap(
         copy_w(&w[0, 0], model, len_w)
         if solver_type==4: # EDIT PLACE
             #alpha = np.empty((nr_class, nr_datapoints), order='F')
-            alpha = np.empty((nr_datapoints, nr_class), order='F')
+            alpha = np.empty((nr_class, nr_datapoints), order='F')
             copy_alpha(&alpha[0, 0], model, len_alpha)
             
             perm = np.empty(nr_datapoints, order='F', dtype=np.intc)

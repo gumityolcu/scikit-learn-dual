@@ -1247,4 +1247,4 @@ def _fit_liblinear(
         coef_ = raw_coef_
         intercept_ = 0.0
 
-    return coef_, intercept_, alpha_, perm_, n_iter_ # EDIT PLACE
+    return coef_, intercept_, alpha_[:,perm_.argsort()], n_iter_ # EDIT PLACE

@@ -316,8 +316,8 @@ class LinearSVC(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):
         _dual = _validate_dual_parameter(
             self.dual, self.loss, self.penalty, self.multi_class, X
         )
-
-        self.coef_, self.intercept_, self.alpha_, self.perm_, n_iter_ = _fit_liblinear(
+        # EDIT PLACE
+        self.coef_, self.intercept_, self.alpha_, n_iter_ = _fit_liblinear(
             X,
             y,
             self.C,

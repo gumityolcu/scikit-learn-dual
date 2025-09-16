@@ -1,5 +1,5 @@
 """
-The :mod:`sklearn.model_selection._search` includes utilities to fine-tune the
+The :mod:`sklearn_dual.model_selection._search` includes utilities to fine-tune the
 parameters of an estimator.
 """
 
@@ -1167,7 +1167,7 @@ class BaseSearchCV(MetaEstimatorMixin, BaseEstimator, metaclass=ABCMeta):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__)
@@ -1495,7 +1495,7 @@ class GridSearchCV(BaseSearchCV):
     train_test_split : Utility function to split the data into a development
         set usable for fitting a GridSearchCV instance and an evaluation set
         for its final evaluation.
-    sklearn.metrics.make_scorer : Make a scorer from a performance metric or
+    sklearn_dual.metrics.make_scorer : Make a scorer from a performance metric or
         loss function.
 
     Notes

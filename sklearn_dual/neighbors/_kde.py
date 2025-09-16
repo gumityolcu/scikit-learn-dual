@@ -59,7 +59,7 @@ class KernelDensity(BaseEstimator):
         documentation of `scipy.spatial.distance
         <https://docs.scipy.org/doc/scipy/reference/spatial.distance.html>`_ and
         the metrics listed in
-        :class:`~sklearn.metrics.pairwise.distance_metrics` for valid metric
+        :class:`~sklearn_dual.metrics.pairwise.distance_metrics` for valid metric
         values.
 
         Not all metrics are valid with all algorithms: refer to the
@@ -110,9 +110,9 @@ class KernelDensity(BaseEstimator):
 
     See Also
     --------
-    sklearn.neighbors.KDTree : K-dimensional tree for fast generalized N-point
+    sklearn_dual.neighbors.KDTree : K-dimensional tree for fast generalized N-point
         problems.
-    sklearn.neighbors.BallTree : Ball tree for fast generalized N-point
+    sklearn_dual.neighbors.BallTree : Ball tree for fast generalized N-point
         problems.
 
     Examples
@@ -202,7 +202,7 @@ class KernelDensity(BaseEstimator):
 
         y : None
             Ignored. This parameter exists only for compatibility with
-            :class:`~sklearn.pipeline.Pipeline`.
+            :class:`~sklearn_dual.pipeline.Pipeline`.
 
         sample_weight : array-like of shape (n_samples,), default=None
             List of sample weights attached to the data X.
@@ -294,7 +294,7 @@ class KernelDensity(BaseEstimator):
 
         y : None
             Ignored. This parameter exists only for compatibility with
-            :class:`~sklearn.pipeline.Pipeline`.
+            :class:`~sklearn_dual.pipeline.Pipeline`.
 
         Returns
         -------

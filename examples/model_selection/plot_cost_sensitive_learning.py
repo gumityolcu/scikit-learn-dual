@@ -16,7 +16,7 @@ In addition, a cost-matrix is provided that specifies the cost of
 misclassification. Specifically, misclassifying a "bad" credit as "good" is five
 times more costly on average than misclassifying a "good" credit as "bad".
 
-We use the :class:`~sklearn.model_selection.TunedThresholdClassifierCV` to select the
+We use the :class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` to select the
 cut-off point of the decision function that minimizes the provided business
 cost.
 
@@ -43,7 +43,7 @@ case, the business metric depends on the amount of each individual transaction.
 # -----------------------------------------------------
 #
 # In this first section, we illustrate the use of the
-# :class:`~sklearn.model_selection.TunedThresholdClassifierCV` in a setting of
+# :class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` in a setting of
 # cost-sensitive learning when the gains and costs associated to each entry of the
 # confusion matrix are constant. We use the problematic presented in [2]_ using the
 # "Statlog" German credit dataset [1]_.
@@ -55,7 +55,7 @@ case, the business metric depends on the amount of each individual transaction.
 import sklearn_dual
 from sklearn_dual.datasets import fetch_openml
 
-sklearn.set_config(transform_output="pandas")
+sklearn_dual.set_config(transform_output="pandas")
 
 german_credit = fetch_openml(data_id=31, as_frame=True, parser="pandas")
 X, y = german_credit.data, german_credit.target
@@ -118,7 +118,7 @@ def fpr_score(y, y_pred, neg_label, pos_label):
 # provide the indication of the "positive label" to the metrics.
 #
 # We therefore need to define a scikit-learn scorer using
-# :func:`~sklearn.metrics.make_scorer` where the information is passed. We store all
+# :func:`~sklearn_dual.metrics.make_scorer` where the information is passed. We store all
 # the custom scorers in a dictionary. To use them, we need to pass the fitted model,
 # the data and the target on which we want to evaluate the predictive model.
 from sklearn_dual.metrics import make_scorer, precision_score, recall_score
@@ -182,7 +182,7 @@ scoring["credit_gain"] = make_scorer(
 # Vanilla predictive model
 # ^^^^^^^^^^^^^^^^^^^^^^^^
 #
-# We use :class:`~sklearn.ensemble.HistGradientBoostingClassifier` as a predictive model
+# We use :class:`~sklearn_dual.ensemble.HistGradientBoostingClassifier` as a predictive model
 # that natively handles categorical features and missing values.
 from sklearn_dual.ensemble import HistGradientBoostingClassifier
 
@@ -257,7 +257,7 @@ print(f"Business defined metric: {scoring['credit_gain'](model, X_test, y_test)}
 # the optimal one, we need to compute the cost-gain using the business metric for all
 # possible cut-off points and choose the best. This strategy can be quite tedious to
 # implement by hand, but the
-# :class:`~sklearn.model_selection.TunedThresholdClassifierCV` class is here to help us.
+# :class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` class is here to help us.
 # It automatically computes the cost-gain for all possible cut-off points and optimizes
 # for the `scoring`.
 #
@@ -266,7 +266,7 @@ print(f"Business defined metric: {scoring['credit_gain'](model, X_test, y_test)}
 # Tuning the cut-off point
 # ^^^^^^^^^^^^^^^^^^^^^^^^
 #
-# We use :class:`~sklearn.model_selection.TunedThresholdClassifierCV` to tune the
+# We use :class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` to tune the
 # cut-off point. We need to provide the business metric to optimize as well as the
 # positive label. Internally, the optimum cut-off point is chosen such that it maximizes
 # the business metric via cross-validation. By default a 5-fold stratified
@@ -394,7 +394,7 @@ print(f"Business defined metric: {scoring['credit_gain'](tuned_model, X_test, y_
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 #
 # In the above experiment, we used the default setting of the
-# :class:`~sklearn.model_selection.TunedThresholdClassifierCV`. In particular, the
+# :class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV`. In particular, the
 # cut-off point is tuned using a 5-fold stratified cross-validation. Also, the
 # underlying predictive model is refitted on the entire training data once the cut-off
 # point is chosen.
@@ -425,7 +425,7 @@ plot_roc_pr_curves(model, tuned_model, title=title)
 #
 # This option should therefore be used with caution. One needs to make sure that the
 # data provided at fitting time to the
-# :class:`~sklearn.model_selection.TunedThresholdClassifierCV` is not the same as the
+# :class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` is not the same as the
 # data used to train the underlying classifier. This could happen sometimes when the
 # idea is just to tune the predictive model on a completely new validation set without a
 # costly complete refit.
@@ -524,10 +524,10 @@ def business_metric(y_true, y_pred, amount):
 # %%
 # From this business metric, we create a scikit-learn scorer that given a fitted
 # classifier and a test set compute the business metric. In this regard, we use
-# the :func:`~sklearn.metrics.make_scorer` factory. The variable `amount` is an
+# the :func:`~sklearn_dual.metrics.make_scorer` factory. The variable `amount` is an
 # additional metadata to be passed to the scorer and we need to use
 # :ref:`metadata routing <metadata_routing>` to take into account this information.
-sklearn.set_config(enable_metadata_routing=True)
+sklearn_dual.set_config(enable_metadata_routing=True)
 business_scorer = make_scorer(business_metric).set_score_request(amount=True)
 
 # %%
@@ -617,7 +617,7 @@ print(
 #
 # Now the question is: is our model optimum for the type of decision that we want to do?
 # Up to now, we did not optimize the decision threshold. We use the
-# :class:`~sklearn.model_selection.TunedThresholdClassifierCV` to optimize the decision
+# :class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` to optimize the decision
 # given our business scorer. To avoid a nested cross-validation, we will use the
 # best estimator found during the previous grid-search.
 tuned_model = TunedThresholdClassifierCV(
@@ -630,7 +630,7 @@ tuned_model = TunedThresholdClassifierCV(
 # %%
 # Since our business scorer requires the amount of each transaction, we need to pass
 # this information in the `fit` method. The
-# :class:`~sklearn.model_selection.TunedThresholdClassifierCV` is in charge of
+# :class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` is in charge of
 # automatically dispatching this metadata to the underlying scorer.
 tuned_model.fit(data_train, target_train, amount=amount_train)
 
@@ -654,11 +654,11 @@ print(
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 #
 # In the previous example, we used the
-# :class:`~sklearn.model_selection.TunedThresholdClassifierCV` to find the optimal
+# :class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` to find the optimal
 # decision threshold. However, in some cases, we might have some prior knowledge about
 # the problem at hand and we might be happy to set the decision threshold manually.
 #
-# The class :class:`~sklearn.model_selection.FixedThresholdClassifier` allows us to
+# The class :class:`~sklearn_dual.model_selection.FixedThresholdClassifier` allows us to
 # manually set the decision threshold. At prediction time, it behave as the previous
 # tuned model but no search is performed during the fitting process.
 #

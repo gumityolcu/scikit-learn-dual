@@ -4,13 +4,13 @@ Lasso model selection via information criteria
 ==============================================
 
 This example reproduces the example of Fig. 2 of [ZHT2007]_. A
-:class:`~sklearn.linear_model.LassoLarsIC` estimator is fit on a
+:class:`~sklearn_dual.linear_model.LassoLarsIC` estimator is fit on a
 diabetes dataset and the AIC and the BIC criteria are used to select
 the best model.
 
 .. note::
     It is important to note that the optimization to find `alpha` with
-    :class:`~sklearn.linear_model.LassoLarsIC` relies on the AIC or BIC
+    :class:`~sklearn_dual.linear_model.LassoLarsIC` relies on the AIC or BIC
     criteria that are computed in-sample, thus on the training set directly.
     This approach differs from the cross-validation procedure. For a comparison
     of the two approaches, you can refer to the following example:
@@ -37,7 +37,7 @@ X.head()
 
 # %%
 # Scikit-learn provides an estimator called
-# :class:`~sklearn.linear_model.LassoLarsIC` that uses either Akaike's
+# :class:`~sklearn_dual.linear_model.LassoLarsIC` that uses either Akaike's
 # information criterion (AIC) or the Bayesian information criterion (BIC) to
 # select the best model. Before fitting
 # this model, we will scale the dataset.

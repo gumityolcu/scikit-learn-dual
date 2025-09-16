@@ -497,7 +497,7 @@ def test_stacking_classifier_sample_weight_fit_param():
     stacker.fit(X_iris, y_iris, sample_weight=np.ones(X_iris.shape[0]))
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 @pytest.mark.parametrize(
     "stacker, X, y",
     [

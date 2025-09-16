@@ -4,7 +4,7 @@ Custom refit strategy of a grid search with cross-validation
 ============================================================
 
 This examples shows how a classifier is optimized by cross-validation,
-which is done using the :class:`~sklearn.model_selection.GridSearchCV` object
+which is done using the :class:`~sklearn_dual.model_selection.GridSearchCV` object
 on a development set that comprises only half of the available labeled data.
 
 The performance of the selected hyper-parameters and trained model is
@@ -60,11 +60,11 @@ scores = ["precision", "recall"]
 
 # %%
 # We can also define a function to be passed to the `refit` parameter of the
-# :class:`~sklearn.model_selection.GridSearchCV` instance. It will implement the
+# :class:`~sklearn_dual.model_selection.GridSearchCV` instance. It will implement the
 # custom strategy to select the best candidate from the `cv_results_` attribute
-# of the :class:`~sklearn.model_selection.GridSearchCV`. Once the candidate is
+# of the :class:`~sklearn_dual.model_selection.GridSearchCV`. Once the candidate is
 # selected, it is automatically refitted by the
-# :class:`~sklearn.model_selection.GridSearchCV` instance.
+# :class:`~sklearn_dual.model_selection.GridSearchCV` instance.
 #
 # Here, the strategy is to short-list the models which are the best in terms of
 # precision and recall. From the selected models, we finally select the fastest

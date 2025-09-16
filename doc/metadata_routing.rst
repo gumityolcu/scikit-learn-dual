@@ -1,4 +1,4 @@
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 .. TODO: update doc/conftest.py once document is updated and examples run.
 
@@ -15,8 +15,8 @@ Metadata Routing
   enable it by setting the ``enable_metadata_routing`` flag to
   ``True``::
 
-    >>> import sklearn
-    >>> sklearn.set_config(enable_metadata_routing=True)
+    >>> import sklearn_dual
+    >>> sklearn_dual.set_config(enable_metadata_routing=True)
 
   Note that the methods and requirements introduced in this document are only
   relevant if you want to pass :term:`metadata` (e.g. ``sample_weight``) to a method.
@@ -65,11 +65,11 @@ within the different :term:`consumers <consumer>`.
 The examples in this section require the following imports and data::
 
   >>> import numpy as np
-  >>> from sklearn.metrics import make_scorer, accuracy_score
-  >>> from sklearn.linear_model import LogisticRegressionCV, LogisticRegression
-  >>> from sklearn.model_selection import cross_validate, GridSearchCV, GroupKFold
-  >>> from sklearn.feature_selection import SelectKBest
-  >>> from sklearn.pipeline import make_pipeline
+  >>> from sklearn_dual.metrics import make_scorer, accuracy_score
+  >>> from sklearn_dual.linear_model import LogisticRegressionCV, LogisticRegression
+  >>> from sklearn_dual.model_selection import cross_validate, GridSearchCV, GroupKFold
+  >>> from sklearn_dual.feature_selection import SelectKBest
+  >>> from sklearn_dual.pipeline import make_pipeline
   >>> n_samples, n_features = 100, 4
   >>> rng = np.random.RandomState(42)
   >>> X = rng.rand(n_samples, n_features)
@@ -259,7 +259,7 @@ The issue can be fixed by explicitly setting the request value::
 At the end of the **Usage Examples** section, we disable the configuration flag for
 metadata routing::
 
-    >>> sklearn.set_config(enable_metadata_routing=False)
+    >>> sklearn_dual.set_config(enable_metadata_routing=False)
 
 .. _metadata_routing_models:
 
@@ -274,54 +274,54 @@ meta-estimators and tools which support and don't yet support metadata routing.
 
 Meta-estimators and functions supporting metadata routing:
 
-- :class:`sklearn.calibration.CalibratedClassifierCV`
-- :class:`sklearn.compose.ColumnTransformer`
-- :class:`sklearn.compose.TransformedTargetRegressor`
-- :class:`sklearn.covariance.GraphicalLassoCV`
-- :class:`sklearn.ensemble.StackingClassifier`
-- :class:`sklearn.ensemble.StackingRegressor`
-- :class:`sklearn.ensemble.VotingClassifier`
-- :class:`sklearn.ensemble.VotingRegressor`
-- :class:`sklearn.ensemble.BaggingClassifier`
-- :class:`sklearn.ensemble.BaggingRegressor`
-- :class:`sklearn.feature_selection.SelectFromModel`
-- :class:`sklearn.feature_selection.SequentialFeatureSelector`
-- :class:`sklearn.impute.IterativeImputer`
-- :class:`sklearn.linear_model.ElasticNetCV`
-- :class:`sklearn.linear_model.LarsCV`
-- :class:`sklearn.linear_model.LassoCV`
-- :class:`sklearn.linear_model.LassoLarsCV`
-- :class:`sklearn.linear_model.LogisticRegressionCV`
-- :class:`sklearn.linear_model.MultiTaskElasticNetCV`
-- :class:`sklearn.linear_model.MultiTaskLassoCV`
-- :class:`sklearn.linear_model.OrthogonalMatchingPursuitCV`
-- :class:`sklearn.linear_model.RANSACRegressor`
-- :class:`sklearn.linear_model.RidgeClassifierCV`
-- :class:`sklearn.linear_model.RidgeCV`
-- :class:`sklearn.model_selection.GridSearchCV`
-- :class:`sklearn.model_selection.HalvingGridSearchCV`
-- :class:`sklearn.model_selection.HalvingRandomSearchCV`
-- :class:`sklearn.model_selection.RandomizedSearchCV`
-- :class:`sklearn.model_selection.permutation_test_score`
-- :func:`sklearn.model_selection.cross_validate`
-- :func:`sklearn.model_selection.cross_val_score`
-- :func:`sklearn.model_selection.cross_val_predict`
-- :class:`sklearn.model_selection.learning_curve`
-- :class:`sklearn.model_selection.validation_curve`
-- :class:`sklearn.multiclass.OneVsOneClassifier`
-- :class:`sklearn.multiclass.OneVsRestClassifier`
-- :class:`sklearn.multiclass.OutputCodeClassifier`
-- :class:`sklearn.multioutput.ClassifierChain`
-- :class:`sklearn.multioutput.MultiOutputClassifier`
-- :class:`sklearn.multioutput.MultiOutputRegressor`
-- :class:`sklearn.multioutput.RegressorChain`
-- :class:`sklearn.pipeline.FeatureUnion`
-- :class:`sklearn.pipeline.Pipeline`
-- :class:`sklearn.semi_supervised.SelfTrainingClassifier`
+- :class:`sklearn_dual.calibration.CalibratedClassifierCV`
+- :class:`sklearn_dual.compose.ColumnTransformer`
+- :class:`sklearn_dual.compose.TransformedTargetRegressor`
+- :class:`sklearn_dual.covariance.GraphicalLassoCV`
+- :class:`sklearn_dual.ensemble.StackingClassifier`
+- :class:`sklearn_dual.ensemble.StackingRegressor`
+- :class:`sklearn_dual.ensemble.VotingClassifier`
+- :class:`sklearn_dual.ensemble.VotingRegressor`
+- :class:`sklearn_dual.ensemble.BaggingClassifier`
+- :class:`sklearn_dual.ensemble.BaggingRegressor`
+- :class:`sklearn_dual.feature_selection.SelectFromModel`
+- :class:`sklearn_dual.feature_selection.SequentialFeatureSelector`
+- :class:`sklearn_dual.impute.IterativeImputer`
+- :class:`sklearn_dual.linear_model.ElasticNetCV`
+- :class:`sklearn_dual.linear_model.LarsCV`
+- :class:`sklearn_dual.linear_model.LassoCV`
+- :class:`sklearn_dual.linear_model.LassoLarsCV`
+- :class:`sklearn_dual.linear_model.LogisticRegressionCV`
+- :class:`sklearn_dual.linear_model.MultiTaskElasticNetCV`
+- :class:`sklearn_dual.linear_model.MultiTaskLassoCV`
+- :class:`sklearn_dual.linear_model.OrthogonalMatchingPursuitCV`
+- :class:`sklearn_dual.linear_model.RANSACRegressor`
+- :class:`sklearn_dual.linear_model.RidgeClassifierCV`
+- :class:`sklearn_dual.linear_model.RidgeCV`
+- :class:`sklearn_dual.model_selection.GridSearchCV`
+- :class:`sklearn_dual.model_selection.HalvingGridSearchCV`
+- :class:`sklearn_dual.model_selection.HalvingRandomSearchCV`
+- :class:`sklearn_dual.model_selection.RandomizedSearchCV`
+- :class:`sklearn_dual.model_selection.permutation_test_score`
+- :func:`sklearn_dual.model_selection.cross_validate`
+- :func:`sklearn_dual.model_selection.cross_val_score`
+- :func:`sklearn_dual.model_selection.cross_val_predict`
+- :class:`sklearn_dual.model_selection.learning_curve`
+- :class:`sklearn_dual.model_selection.validation_curve`
+- :class:`sklearn_dual.multiclass.OneVsOneClassifier`
+- :class:`sklearn_dual.multiclass.OneVsRestClassifier`
+- :class:`sklearn_dual.multiclass.OutputCodeClassifier`
+- :class:`sklearn_dual.multioutput.ClassifierChain`
+- :class:`sklearn_dual.multioutput.MultiOutputClassifier`
+- :class:`sklearn_dual.multioutput.MultiOutputRegressor`
+- :class:`sklearn_dual.multioutput.RegressorChain`
+- :class:`sklearn_dual.pipeline.FeatureUnion`
+- :class:`sklearn_dual.pipeline.Pipeline`
+- :class:`sklearn_dual.semi_supervised.SelfTrainingClassifier`
 
 Meta-estimators and tools not supporting metadata routing yet:
 
-- :class:`sklearn.ensemble.AdaBoostClassifier`
-- :class:`sklearn.ensemble.AdaBoostRegressor`
-- :class:`sklearn.feature_selection.RFE`
-- :class:`sklearn.feature_selection.RFECV`
+- :class:`sklearn_dual.ensemble.AdaBoostClassifier`
+- :class:`sklearn_dual.ensemble.AdaBoostRegressor`
+- :class:`sklearn_dual.feature_selection.RFE`
+- :class:`sklearn_dual.feature_selection.RFECV`

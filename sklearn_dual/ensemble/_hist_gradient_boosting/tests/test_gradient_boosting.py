@@ -869,7 +869,7 @@ def test_early_stopping_with_sample_weights(monkeypatch):
         return mock_scorer
 
     monkeypatch.setattr(
-        sklearn.ensemble._hist_gradient_boosting.gradient_boosting,
+        sklearn_dual.ensemble._hist_gradient_boosting.gradient_boosting,
         "check_scoring",
         mock_check_scoring,
     )
@@ -1593,7 +1593,7 @@ def get_different_bitness_node_ndarray(node_ndarray):
     new_dtype_for_indexing_fields = np.int64 if _IS_32BIT else np.int32
 
     # field names in Node struct with np.intp types (see
-    # sklearn/ensemble/_hist_gradient_boosting/common.pyx)
+    # sklearn_dual/ensemble/_hist_gradient_boosting/common.pyx)
     indexing_field_names = ["feature_idx"]
 
     new_dtype_dict = {

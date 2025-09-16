@@ -62,7 +62,7 @@ X = np.concatenate([X, random_state.randn(n_samples, 200 * n_features)], axis=1)
 # Classification and ROC analysis
 # -------------------------------
 #
-# Here we run a :class:`~sklearn.svm.SVC` classifier with cross-validation and
+# Here we run a :class:`~sklearn_dual.svm.SVC` classifier with cross-validation and
 # plot the ROC curves fold-wise. Notice that the baseline to define the chance
 # level (dashed ROC curve) is a classifier that would always predict the most
 # frequent class.

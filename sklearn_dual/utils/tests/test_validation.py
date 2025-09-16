@@ -167,7 +167,7 @@ def test_memmap():
 
     asflt = lambda x: as_float_array(x, copy=False)
 
-    with NamedTemporaryFile(prefix="sklearn-test") as tmp:
+    with NamedTemporaryFile(prefix="sklearn_dual-test") as tmp:
         M = np.memmap(tmp, shape=(10, 10), dtype=np.float32)
         M[:] = 0
 
@@ -252,7 +252,7 @@ def test_check_array_links_to_imputer_doc_only_for_X(input_name, retype):
     extended_msg = (
         f"\n{estimator.__class__.__name__} does not accept missing values"
         " encoded as NaN natively. For supervised learning, you might want"
-        " to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor"
+        " to consider sklearn_dual.ensemble.HistGradientBoostingClassifier and Regressor"
         " which accept missing values encoded as NaNs natively."
         " Alternatively, it is possible to preprocess the"
         " data, for instance by using an imputer transformer in a pipeline"
@@ -885,7 +885,7 @@ def test_check_is_fitted_with_is_fitted():
             self._is_fitted = True
             return self
 
-        def __sklearn_is_fitted__(self):
+        def __sklearn_dual_is_fitted__(self):
             return hasattr(self, "_is_fitted") and self._is_fitted
 
     with pytest.raises(NotFittedError):
@@ -1021,9 +1021,9 @@ def test_suppress_validation():
     X = np.array([0, np.inf])
     with pytest.raises(ValueError):
         assert_all_finite(X)
-    sklearn.set_config(assume_finite=True)
+    sklearn_dual.set_config(assume_finite=True)
     assert_all_finite(X)
-    sklearn.set_config(assume_finite=False)
+    sklearn_dual.set_config(assume_finite=False)
     with pytest.raises(ValueError):
         assert_all_finite(X)
 

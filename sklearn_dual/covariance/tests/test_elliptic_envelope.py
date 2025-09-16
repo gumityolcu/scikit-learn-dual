@@ -1,5 +1,5 @@
 """
-Testing for Elliptic Envelope algorithm (sklearn.covariance.elliptic_envelope).
+Testing for Elliptic Envelope algorithm (sklearn_dual.covariance.elliptic_envelope).
 """
 
 import numpy as np

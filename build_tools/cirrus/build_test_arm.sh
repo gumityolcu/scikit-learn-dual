@@ -49,7 +49,7 @@ mamba list
 # Changing directory not to have module resolution use scikit-learn source
 # directory but to the installed package.
 cd /tmp
-python -c "import sklearn; sklearn.show_versions()"
-python -m threadpoolctl --import sklearn
+python -c "import sklearn_dual; sklearn_dual.show_versions()"
+python -m threadpoolctl --import sklearn_dual
 # Test using as many workers as available cores
-pytest --pyargs -n $N_CORES sklearn
+pytest --pyargs -n $N_CORES sklearn_dual

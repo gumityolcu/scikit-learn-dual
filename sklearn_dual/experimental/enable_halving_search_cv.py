@@ -4,8 +4,8 @@ The API and results of these estimators might change without any deprecation
 cycle.
 
 Importing this file dynamically sets the
-:class:`~sklearn.model_selection.HalvingRandomSearchCV` and
-:class:`~sklearn.model_selection.HalvingGridSearchCV` as attributes of the
+:class:`~sklearn_dual.model_selection.HalvingRandomSearchCV` and
+:class:`~sklearn_dual.model_selection.HalvingGridSearchCV` as attributes of the
 `model_selection` module::
 
     >>> # explicitly require this experimental feature

@@ -4,7 +4,7 @@ A demo of the Spectral Biclustering algorithm
 =============================================
 
 This example demonstrates how to generate a checkerboard dataset and bicluster
-it using the :class:`~sklearn.cluster.SpectralBiclustering` algorithm. The
+it using the :class:`~sklearn_dual.cluster.SpectralBiclustering` algorithm. The
 spectral biclustering algorithm is specifically designed to cluster data by
 simultaneously considering both the rows (samples) and columns (features) of a
 matrix. It aims to identify patterns not only between samples but also within
@@ -25,7 +25,7 @@ plot the biclusters found.
 # Generate sample data
 # --------------------
 # We generate the sample data using the
-# :func:`~sklearn.datasets.make_checkerboard` function. Each pixel within
+# :func:`~sklearn_dual.datasets.make_checkerboard` function. Each pixel within
 # `shape=(300, 300)` represents with it's color a value from a uniform
 # distribution. The noise is added from a normal distribution, where the value
 # chosen for `noise` is the standard deviation.
@@ -47,7 +47,7 @@ _ = plt.show()
 
 # %%
 # We shuffle the data and the goal is to reconstruct it afterwards using
-# :class:`~sklearn.cluster.SpectralBiclustering`.
+# :class:`~sklearn_dual.cluster.SpectralBiclustering`.
 import numpy as np
 
 # Creating lists of shuffled row and column indices
@@ -91,7 +91,7 @@ print(f"consensus score: {score:.1f}")
 # Plotting results
 # ----------------
 # Now, we rearrange the data based on the row and column labels assigned by the
-# :class:`~sklearn.cluster.SpectralBiclustering` model in ascending order and
+# :class:`~sklearn_dual.cluster.SpectralBiclustering` model in ascending order and
 # plot again. The `row_labels_` range from 0 to 3, while the `column_labels_`
 # range from 0 to 2, representing a total of 4 clusters per row and 3 clusters
 # per column.

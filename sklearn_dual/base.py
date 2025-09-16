@@ -45,7 +45,7 @@ def clone(estimator, *, safe=True):
     with the same parameters that has not been fitted on any data.
 
     .. versionchanged:: 1.3
-        Delegates to `estimator.__sklearn_clone__` if the method exists.
+        Delegates to `estimator.__sklearn_dual_clone__` if the method exists.
 
     Parameters
     ----------
@@ -54,7 +54,7 @@ def clone(estimator, *, safe=True):
         The estimator or group of estimators to be cloned.
     safe : bool, default=True
         If safe is False, clone will fall back to a deep copy on objects
-        that are not estimators. Ignored if `estimator.__sklearn_clone__`
+        that are not estimators. Ignored if `estimator.__sklearn_dual_clone__`
         exists.
 
     Returns
@@ -86,13 +86,13 @@ def clone(estimator, *, safe=True):
     >>> classifier is cloned_classifier
     False
     """
-    if hasattr(estimator, "__sklearn_clone__") and not inspect.isclass(estimator):
-        return estimator.__sklearn_clone__()
+    if hasattr(estimator, "__sklearn_dual_clone__") and not inspect.isclass(estimator):
+        return estimator.__sklearn_dual_clone__()
     return _clone_parametrized(estimator, safe=safe)
 
 
 def _clone_parametrized(estimator, *, safe=True):
-    """Default implementation of clone. See :func:`sklearn.base.clone` for details."""
+    """Default implementation of clone. See :func:`sklearn_dual.base.clone` for details."""
 
     estimator_type = type(estimator)
     if estimator_type is dict:
@@ -140,11 +140,11 @@ def _clone_parametrized(estimator, *, safe=True):
                 "either does not set or modifies parameter %s" % (estimator, name)
             )
 
-    # _sklearn_output_config is used by `set_output` to configure the output
+    # _sklearn_dual_output_config is used by `set_output` to configure the output
     # container of an estimator.
-    if hasattr(estimator, "_sklearn_output_config"):
-        new_object._sklearn_output_config = copy.deepcopy(
-            estimator._sklearn_output_config
+    if hasattr(estimator, "_sklearn_dual_output_config"):
+        new_object._sklearn_dual_output_config = copy.deepcopy(
+            estimator._sklearn_dual_output_config
         )
     return new_object
 
@@ -252,7 +252,7 @@ class BaseEstimator(_HTMLDocumentationLinkMixin, _MetadataRequester):
         """Set the parameters of this estimator.
 
         The method works on simple estimators as well as on nested objects
-        (such as :class:`~sklearn.pipeline.Pipeline`). The latter have
+        (such as :class:`~sklearn_dual.pipeline.Pipeline`). The latter have
         parameters of the form ``<component>__<parameter>`` so that it's
         possible to update each component of a nested object.
 
@@ -292,7 +292,7 @@ class BaseEstimator(_HTMLDocumentationLinkMixin, _MetadataRequester):
 
         return self
 
-    def __sklearn_clone__(self):
+    def __sklearn_dual_clone__(self):
         return _clone_parametrized(self)
 
     def __repr__(self, N_CHAR_MAX=700):
@@ -351,7 +351,7 @@ class BaseEstimator(_HTMLDocumentationLinkMixin, _MetadataRequester):
         if getattr(self, "__slots__", None):
             raise TypeError(
                 "You cannot use `__slots__` in objects inheriting from "
-                "`sklearn.base.BaseEstimator`."
+                "`sklearn_dual.base.BaseEstimator`."
             )
 
         try:
@@ -364,20 +364,20 @@ class BaseEstimator(_HTMLDocumentationLinkMixin, _MetadataRequester):
             # Python < 3.11
             state = self.__dict__.copy()
 
-        if type(self).__module__.startswith("sklearn."):
-            return dict(state.items(), _sklearn_version=__version__)
+        if type(self).__module__.startswith("sklearn_dual."):
+            return dict(state.items(), _sklearn_dual_version=__version__)
         else:
             return state
 
     def __setstate__(self, state):
-        if type(self).__module__.startswith("sklearn."):
-            pickle_version = state.pop("_sklearn_version", "pre-0.18")
+        if type(self).__module__.startswith("sklearn_dual."):
+            pickle_version = state.pop("_sklearn_dual_version", "pre-0.18")
             if pickle_version != __version__:
                 warnings.warn(
                     InconsistentVersionWarning(
                         estimator_name=self.__class__.__name__,
-                        current_sklearn_version=__version__,
-                        original_sklearn_version=pickle_version,
+                        current_sklearn_dual_version=__version__,
+                        original_sklearn_dual_version=pickle_version,
                     ),
                 )
         try:
@@ -592,8 +592,8 @@ class BaseEstimator(_HTMLDocumentationLinkMixin, _MetadataRequester):
             `n_features_in_` are checked.
 
         **check_params : kwargs
-            Parameters passed to :func:`sklearn.utils.check_array` or
-            :func:`sklearn.utils.check_X_y`. Ignored if validate_separately
+            Parameters passed to :func:`sklearn_dual.utils.check_array` or
+            :func:`sklearn_dual.utils.check_X_y`. Ignored if validate_separately
             is not False.
 
             `estimator=self` is automatically added to these params to generate
@@ -706,7 +706,7 @@ class ClassifierMixin:
     This mixin defines the following functionality:
 
     - `_estimator_type` class attribute defaulting to `"classifier"`;
-    - `score` method that default to :func:`~sklearn.metrics.accuracy_score`.
+    - `score` method that default to :func:`~sklearn_dual.metrics.accuracy_score`.
     - enforce that `fit` requires `y` to be passed through the `requires_y` tag.
 
     Read more in the :ref:`User Guide <rolling_your_own_estimator>`.
@@ -773,7 +773,7 @@ class RegressorMixin:
     This mixin defines the following functionality:
 
     - `_estimator_type` class attribute defaulting to `"regressor"`;
-    - `score` method that default to :func:`~sklearn.metrics.r2_score`.
+    - `score` method that default to :func:`~sklearn_dual.metrics.r2_score`.
     - enforce that `fit` requires `y` to be passed through the `requires_y` tag.
 
     Read more in the :ref:`User Guide <rolling_your_own_estimator>`.
@@ -837,10 +837,10 @@ class RegressorMixin:
         -----
         The :math:`R^2` score used when calling ``score`` on a regressor uses
         ``multioutput='uniform_average'`` from version 0.23 to keep consistent
-        with default value of :func:`~sklearn.metrics.r2_score`.
+        with default value of :func:`~sklearn_dual.metrics.r2_score`.
         This influences the ``score`` method of all the multioutput
         regressors (except for
-        :class:`~sklearn.multioutput.MultiOutputRegressor`).
+        :class:`~sklearn_dual.multioutput.MultiOutputRegressor`).
         """
 
         from .metrics import r2_score
@@ -1105,7 +1105,7 @@ class OneToOneFeatureMixin:
     """Provides `get_feature_names_out` for simple transformers.
 
     This mixin assumes there's a 1-to-1 correspondence between input features
-    and output features, such as :class:`~sklearn.preprocessing.StandardScaler`.
+    and output features, such as :class:`~sklearn_dual.preprocessing.StandardScaler`.
 
     Examples
     --------
@@ -1148,8 +1148,8 @@ class ClassNamePrefixFeaturesOutMixin:
     """Mixin class for transformers that generate their own names by prefixing.
 
     This mixin is useful when the transformer needs to generate its own feature
-    names out, such as :class:`~sklearn.decomposition.PCA`. For example, if
-    :class:`~sklearn.decomposition.PCA` outputs 3 features, then the generated feature
+    names out, such as :class:`~sklearn_dual.decomposition.PCA`. For example, if
+    :class:`~sklearn_dual.decomposition.PCA` outputs 3 features, then the generated feature
     names out are: `["pca0", "pca1", "pca2"]`.
 
     This mixin assumes that a `_n_features_out` attribute is defined when the

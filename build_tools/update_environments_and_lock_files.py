@@ -10,7 +10,7 @@ Two scenarios where this script can be useful:
   script when when the automated PR fails and for example some packages need to
   be pinned. You can add the pins to this script, run it, and open a PR with
   the changes.
-- bump minimum dependencies in sklearn/_min_dependencies.py. Running this
+- bump minimum dependencies in sklearn_dual/_min_dependencies.py. Running this
   script will update both the CI environment files and associated lock files.
   You can then open a PR with the changes.
 - pin some packages to an older version by adding them to the
@@ -27,7 +27,7 @@ with pip.
 
 To run this script you need:
 - conda-lock. The version should match the one used in the CI in
-  sklearn/_min_dependencies.py
+  sklearn_dual/_min_dependencies.py
 - pip-tools
 
 To only update the environment and lock files for specific builds, you can use
@@ -474,7 +474,7 @@ def get_package_with_constraint(package_name, build_metadata, uses_pip=False):
     comment = ""
     if constraint == "min":
         constraint = execute_command(
-            [sys.executable, "sklearn/_min_dependencies.py", package_name]
+            [sys.executable, "sklearn_dual/_min_dependencies.py", package_name]
         ).strip()
         comment = "  # min"
 
@@ -650,7 +650,7 @@ def write_all_pip_lock_files(build_metadata_list):
 def check_conda_lock_version():
     # Check that the installed conda-lock version is consistent with _min_dependencies.
     expected_conda_lock_version = execute_command(
-        [sys.executable, "sklearn/_min_dependencies.py", "conda-lock"]
+        [sys.executable, "sklearn_dual/_min_dependencies.py", "conda-lock"]
     ).strip()
 
     installed_conda_lock_version = version("conda-lock")

@@ -5,7 +5,7 @@ Evaluation of outlier detection estimators
 
 This example compares two outlier detection algorithms, namely
 :ref:`local_outlier_factor` (LOF) and :ref:`isolation_forest` (IForest), on
-real-world datasets available in :class:`sklearn.datasets`. The goal is to show
+real-world datasets available in :class:`sklearn_dual.datasets`. The goal is to show
 that different algorithms perform well on different datasets and contrast their
 training speed and sensitivity to hyperparameters.
 
@@ -13,7 +13,7 @@ The algorithms are trained (without labels) on the whole dataset assumed to
 contain outliers.
 
 1. The ROC curves are computed using knowledge of the ground-truth labels
-and displayed using :class:`~sklearn.metrics.RocCurveDisplay`.
+and displayed using :class:`~sklearn_dual.metrics.RocCurveDisplay`.
 
 2. The performance is assessed in terms of the ROC-AUC.
 """
@@ -27,16 +27,16 @@ and displayed using :class:`~sklearn.metrics.RocCurveDisplay`.
 #
 # Different outlier detection models require different preprocessing. In the
 # presence of categorical variables,
-# :class:`~sklearn.preprocessing.OrdinalEncoder` is often a good strategy for
-# tree-based models such as :class:`~sklearn.ensemble.IsolationForest`, whereas
-# neighbors-based models such as :class:`~sklearn.neighbors.LocalOutlierFactor`
+# :class:`~sklearn_dual.preprocessing.OrdinalEncoder` is often a good strategy for
+# tree-based models such as :class:`~sklearn_dual.ensemble.IsolationForest`, whereas
+# neighbors-based models such as :class:`~sklearn_dual.neighbors.LocalOutlierFactor`
 # would be impacted by the ordering induced by ordinal encoding. To avoid
 # inducing an ordering, on should rather use
-# :class:`~sklearn.preprocessing.OneHotEncoder`.
+# :class:`~sklearn_dual.preprocessing.OneHotEncoder`.
 #
 # Neighbors-based models may also require scaling of the numerical features (see
 # for instance :ref:`neighbors_scaling`). In the presence of outliers, a good
-# option is to use a :class:`~sklearn.preprocessing.RobustScaler`.
+# option is to use a :class:`~sklearn_dual.preprocessing.RobustScaler`.
 
 from sklearn_dual.compose import ColumnTransformer
 from sklearn_dual.ensemble import IsolationForest
@@ -101,7 +101,7 @@ def fit_predict(estimator, X):
 # the data, the targets are modified to consist of two classes: 0 representing
 # inliers and 1 representing outliers. Due to computational constraints of the
 # scikit-learn documentation, the sample size of some datasets is reduced using
-# a stratified :class:`~sklearn.model_selection.train_test_split`.
+# a stratified :class:`~sklearn_dual.model_selection.train_test_split`.
 #
 # Furthermore, we set `n_neighbors` to match the expected number of anomalies
 # `expected_n_anomalies = n_samples * expected_anomaly_fraction`. This is a good
@@ -225,7 +225,7 @@ print(f"{n_samples} datapoints with {y.sum()} anomalies ({anomaly_frac:.02%})")
 
 # %%
 # The dataset contains 46 categorical features. In this case it is easier use a
-# :class:`~sklearn.compose.make_column_selector` to find them instead of passing
+# :class:`~sklearn_dual.compose.make_column_selector` to find them instead of passing
 # a list made by hand.
 
 # %%
@@ -401,17 +401,17 @@ for model_idx, (linestyle, preprocessor) in enumerate(
 _ = ax.set_title("Fixed n_neighbors with varying preprocessing\non forestcover dataset")
 
 # %%
-# On the one hand, :class:`~sklearn.preprocessing.RobustScaler` scales each
+# On the one hand, :class:`~sklearn_dual.preprocessing.RobustScaler` scales each
 # feature independently by using the interquartile range (IQR) by default, which
 # is the range between the 25th and 75th percentiles of the data. It centers the
 # data by subtracting the median and then scale it by dividing by the IQR. The
 # IQR is robust to outliers: the median and interquartile range are less
 # affected by extreme values than the range, the mean and the standard
-# deviation. Furthermore, :class:`~sklearn.preprocessing.RobustScaler` does not
+# deviation. Furthermore, :class:`~sklearn_dual.preprocessing.RobustScaler` does not
 # squash marginal outlier values, contrary to
-# :class:`~sklearn.preprocessing.StandardScaler`.
+# :class:`~sklearn_dual.preprocessing.StandardScaler`.
 #
-# On the other hand, :class:`~sklearn.preprocessing.MinMaxScaler` scales each
+# On the other hand, :class:`~sklearn_dual.preprocessing.MinMaxScaler` scales each
 # feature individually such that its range maps into the range between zero and
 # one. If there are outliers in the data, they can skew it towards either the
 # minimum or maximum values, leading to a completely different distribution of
@@ -419,8 +419,8 @@ _ = ax.set_title("Fixed n_neighbors with varying preprocessing\non forestcover d
 # almost together as a result.
 #
 # We also evaluated no preprocessing at all (by passing `None` to the pipeline),
-# :class:`~sklearn.preprocessing.StandardScaler` and
-# :class:`~sklearn.preprocessing.SplineTransformer`. Please refer to their
+# :class:`~sklearn_dual.preprocessing.StandardScaler` and
+# :class:`~sklearn_dual.preprocessing.SplineTransformer`. Please refer to their
 # respective documentation for more details.
 #
 # Note that the optimal preprocessing depends on the dataset, as shown below:

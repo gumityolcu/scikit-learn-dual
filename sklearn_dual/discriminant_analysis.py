@@ -50,7 +50,7 @@ def _cov(X, shrinkage=None, covariance_estimator=None):
         the covariance matrices instead of relying on the empirical
         covariance estimator (with potential shrinkage).
         The object should have a fit method and a ``covariance_`` attribute
-        like the estimators in :mod:`sklearn.covariance``.
+        like the estimators in :mod:`sklearn_dual.covariance``.
         if None the shrinkage parameter drives the estimate.
 
         .. versionadded:: 0.24
@@ -150,7 +150,7 @@ def _class_cov(X, y, priors, shrinkage=None, covariance_estimator=None):
         the covariance matrices instead of relying the empirical
         covariance estimator (with potential shrinkage).
         The object should have a fit method and a ``covariance_`` attribute
-        like the estimators in sklearn.covariance.
+        like the estimators in sklearn_dual.covariance.
         If None, the shrinkage parameter drives the estimate.
 
         .. versionadded:: 0.24
@@ -189,8 +189,8 @@ class LinearDiscriminantAnalysis(
     .. versionadded:: 0.17
 
     For a comparison between
-    :class:`~sklearn.discriminant_analysis.LinearDiscriminantAnalysis`
-    and :class:`~sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis`, see
+    :class:`~sklearn_dual.discriminant_analysis.LinearDiscriminantAnalysis`
+    and :class:`~sklearn_dual.discriminant_analysis.QuadraticDiscriminantAnalysis`, see
     :ref:`sphx_glr_auto_examples_classification_plot_lda_qda.py`.
 
     Read more in the :ref:`User Guide <lda_qda>`.
@@ -256,7 +256,7 @@ class LinearDiscriminantAnalysis(
         the covariance matrices instead of relying on the empirical
         covariance estimator (with potential shrinkage).
         The object should have a fit method and a ``covariance_`` attribute
-        like the estimators in :mod:`sklearn.covariance`.
+        like the estimators in :mod:`sklearn_dual.covariance`.
         if None the shrinkage parameter drives the estimate.
 
         This should be left to None if `shrinkage` is used.
@@ -390,7 +390,7 @@ class LinearDiscriminantAnalysis(
             the covariance matrices instead of relying the empirical
             covariance estimator (with potential shrinkage).
             The object should have a fit method and a ``covariance_`` attribute
-            like the estimators in sklearn.covariance.
+            like the estimators in sklearn_dual.covariance.
             if None the shrinkage parameter drives the estimate.
 
             .. versionadded:: 0.24
@@ -444,7 +444,7 @@ class LinearDiscriminantAnalysis(
             the covariance matrices instead of relying the empirical
             covariance estimator (with potential shrinkage).
             The object should have a fit method and a ``covariance_`` attribute
-            like the estimators in sklearn.covariance.
+            like the estimators in sklearn_dual.covariance.
             if None the shrinkage parameter drives the estimate.
 
             .. versionadded:: 0.24
@@ -771,8 +771,8 @@ class QuadraticDiscriminantAnalysis(ClassifierMixin, BaseEstimator):
     .. versionadded:: 0.17
 
     For a comparison between
-    :class:`~sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis`
-    and :class:`~sklearn.discriminant_analysis.LinearDiscriminantAnalysis`, see
+    :class:`~sklearn_dual.discriminant_analysis.QuadraticDiscriminantAnalysis`
+    and :class:`~sklearn_dual.discriminant_analysis.LinearDiscriminantAnalysis`, see
     :ref:`sphx_glr_auto_examples_classification_plot_lda_qda.py`.
 
     Read more in the :ref:`User Guide <lda_qda>`.

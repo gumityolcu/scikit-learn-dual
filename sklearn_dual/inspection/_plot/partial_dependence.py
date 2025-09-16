@@ -30,8 +30,8 @@ class PartialDependenceDisplay:
     referred to as: Individual Condition Expectation (ICE).
 
     It is recommended to use
-    :func:`~sklearn.inspection.PartialDependenceDisplay.from_estimator` to create a
-    :class:`~sklearn.inspection.PartialDependenceDisplay`. All parameters are
+    :func:`~sklearn_dual.inspection.PartialDependenceDisplay.from_estimator` to create a
+    :class:`~sklearn_dual.inspection.PartialDependenceDisplay`. All parameters are
     stored as attributes.
 
     Read more in
@@ -43,7 +43,7 @@ class PartialDependenceDisplay:
     Parameters
     ----------
     pd_results : list of Bunch
-        Results of :func:`~sklearn.inspection.partial_dependence` for
+        Results of :func:`~sklearn_dual.inspection.partial_dependence` for
         ``features``.
 
     features : list of (int,) or list of (int, int)
@@ -305,8 +305,8 @@ class PartialDependenceDisplay:
 
         .. warning::
 
-            For :class:`~sklearn.ensemble.GradientBoostingClassifier` and
-            :class:`~sklearn.ensemble.GradientBoostingRegressor`, the
+            For :class:`~sklearn_dual.ensemble.GradientBoostingClassifier` and
+            :class:`~sklearn_dual.ensemble.GradientBoostingRegressor`, the
             `'recursion'` method (used by default) will not account for the `init`
             predictor of the boosting process. In practice, this will produce
             the same values as `'brute'` up to a constant offset in the target
@@ -315,10 +315,10 @@ class PartialDependenceDisplay:
             partial dependence values are incorrect for `'recursion'` because the
             offset will be sample-dependent. It is preferable to use the `'brute'`
             method. Note that this only applies to
-            :class:`~sklearn.ensemble.GradientBoostingClassifier` and
-            :class:`~sklearn.ensemble.GradientBoostingRegressor`, not to
-            :class:`~sklearn.ensemble.HistGradientBoostingClassifier` and
-            :class:`~sklearn.ensemble.HistGradientBoostingRegressor`.
+            :class:`~sklearn_dual.ensemble.GradientBoostingClassifier` and
+            :class:`~sklearn_dual.ensemble.GradientBoostingRegressor`, not to
+            :class:`~sklearn_dual.ensemble.HistGradientBoostingClassifier` and
+            :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`.
 
         .. versionadded:: 1.0
 
@@ -405,12 +405,12 @@ class PartialDependenceDisplay:
 
             - `'recursion'` is only supported for some tree-based estimators
               (namely
-              :class:`~sklearn.ensemble.GradientBoostingClassifier`,
-              :class:`~sklearn.ensemble.GradientBoostingRegressor`,
-              :class:`~sklearn.ensemble.HistGradientBoostingClassifier`,
-              :class:`~sklearn.ensemble.HistGradientBoostingRegressor`,
-              :class:`~sklearn.tree.DecisionTreeRegressor`,
-              :class:`~sklearn.ensemble.RandomForestRegressor`
+              :class:`~sklearn_dual.ensemble.GradientBoostingClassifier`,
+              :class:`~sklearn_dual.ensemble.GradientBoostingRegressor`,
+              :class:`~sklearn_dual.ensemble.HistGradientBoostingClassifier`,
+              :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`,
+              :class:`~sklearn_dual.tree.DecisionTreeRegressor`,
+              :class:`~sklearn_dual.ensemble.RandomForestRegressor`
               but is more efficient in terms of speed.
               With this method, the target response of a
               classifier is always the decision function, not the predicted
@@ -505,7 +505,7 @@ class PartialDependenceDisplay:
 
         Returns
         -------
-        display : :class:`~sklearn.inspection.PartialDependenceDisplay`
+        display : :class:`~sklearn_dual.inspection.PartialDependenceDisplay`
 
         See Also
         --------
@@ -1200,8 +1200,8 @@ class PartialDependenceDisplay:
 
         Returns
         -------
-        display : :class:`~sklearn.inspection.PartialDependenceDisplay`
-            Returns a :class:`~sklearn.inspection.PartialDependenceDisplay`
+        display : :class:`~sklearn_dual.inspection.PartialDependenceDisplay`
+            Returns a :class:`~sklearn_dual.inspection.PartialDependenceDisplay`
             object that contains the partial dependence plots.
         """
 

@@ -4,9 +4,9 @@ Recursive feature elimination
 =============================
 
 This example demonstrates how Recursive Feature Elimination
-(:class:`~sklearn.feature_selection.RFE`) can be used to determine the
+(:class:`~sklearn_dual.feature_selection.RFE`) can be used to determine the
 importance of individual pixels for classifying handwritten digits.
-:class:`~sklearn.feature_selection.RFE` recursively removes the least
+:class:`~sklearn_dual.feature_selection.RFE` recursively removes the least
 significant features, assigning ranks based on their importance, where higher
 `ranking_` values denote lower importance. The ranking is visualized using both
 shades of blue and pixel annotations for clarity. As expected, pixels positioned

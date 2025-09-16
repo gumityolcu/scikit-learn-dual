@@ -4,7 +4,7 @@ Plotting Learning Curves and Checking Models' Scalability
 =========================================================
 
 In this example, we show how to use the class
-:class:`~sklearn.model_selection.LearningCurveDisplay` to easily plot learning
+:class:`~sklearn_dual.model_selection.LearningCurveDisplay` to easily plot learning
 curves. In addition, we give an interpretation to the learning curves obtained
 for a naive Bayes and SVM classifiers.
 
@@ -35,7 +35,7 @@ naive_bayes = GaussianNB()
 svc = SVC(kernel="rbf", gamma=0.001)
 
 # %%
-# The :meth:`~sklearn.model_selection.LearningCurveDisplay.from_estimator`
+# The :meth:`~sklearn_dual.model_selection.LearningCurveDisplay.from_estimator`
 # displays the learning curve given the dataset and the predictive model to
 # analyze. To get an estimate of the scores uncertainty, this method uses
 # a cross-validation procedure.
@@ -86,9 +86,9 @@ for ax_idx, estimator in enumerate([naive_bayes, svc]):
 # In addition to these learning curves, it is also possible to look at the
 # scalability of the predictive models in terms of training and scoring times.
 #
-# The :class:`~sklearn.model_selection.LearningCurveDisplay` class does not
+# The :class:`~sklearn_dual.model_selection.LearningCurveDisplay` class does not
 # provide such information. We need to resort to the
-# :func:`~sklearn.model_selection.learning_curve` function instead and make
+# :func:`~sklearn_dual.model_selection.learning_curve` function instead and make
 # the plot manually.
 
 # %%

@@ -3,7 +3,7 @@
 Introducing the `set_output` API
 ================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 This example will demonstrate the `set_output` API to configure transformers to
 output pandas DataFrames. `set_output` can be configured per estimator by calling

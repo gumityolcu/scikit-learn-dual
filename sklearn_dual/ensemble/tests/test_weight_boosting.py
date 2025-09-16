@@ -1,4 +1,4 @@
-"""Testing for the boost module (sklearn.ensemble.boost)."""
+"""Testing for the boost module (sklearn_dual.ensemble.boost)."""
 
 import re
 

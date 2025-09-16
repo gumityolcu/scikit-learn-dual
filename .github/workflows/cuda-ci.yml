@@ -36,10 +36,10 @@ jobs:
       - name: Install scikit-learn
         run: |
           source "${HOME}/conda/etc/profile.d/conda.sh"
-          conda activate sklearn
+          conda activate sklearn_dual
           pip install --verbose --no-build-isolation --config-settings editable-verbose=true --editable .
       - name: Run array API tests
         run: |
           source "${HOME}/conda/etc/profile.d/conda.sh"
-          conda activate sklearn
+          conda activate sklearn_dual
           SCIPY_ARRAY_API=1 pytest -k 'array_api'

@@ -1,5 +1,5 @@
 """
-Testing for Multi-layer Perceptron module (sklearn.neural_network)
+Testing for Multi-layer Perceptron module (sklearn_dual.neural_network)
 """
 
 # Authors: The scikit-learn developers
@@ -774,7 +774,7 @@ def test_n_iter_no_change():
         assert max_iter > clf.n_iter_
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 def test_n_iter_no_change_inf():
     # test n_iter_no_change using binary data set
     # the fitting process should go to max_iter iterations

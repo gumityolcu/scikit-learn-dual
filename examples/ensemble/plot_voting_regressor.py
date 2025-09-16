@@ -3,7 +3,7 @@
 Plot individual and voting regression predictions
 =================================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 A voting regressor is an ensemble meta-estimator that fits several base
 regressors, each on the whole dataset. Then it averages the individual

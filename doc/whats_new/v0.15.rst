@@ -1,6 +1,6 @@
 .. include:: _contributors.rst
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 ============
 Version 0.15
@@ -46,7 +46,7 @@ Bug fixes
 - Performance optimization in :class:`isotonic.IsotonicRegression`.
   By Robert Bradshaw.
 
-- ``nose`` is non-longer a runtime dependency to import ``sklearn``, only for
+- ``nose`` is non-longer a runtime dependency to import ``sklearn_dual``, only for
   running the tests. By `Joel Nothman`_.
 
 - Many documentation and website fixes by `Joel Nothman`_, `Lars Buitinck`_
@@ -194,7 +194,7 @@ Enhancements
   modules. By `Arnaud Joly`_
 
 - The ``img_to_graph`` and ``grid_tograph`` functions in
-  :mod:`sklearn.feature_extraction.image` now return ``np.ndarray``
+  :mod:`sklearn_dual.feature_extraction.image` now return ``np.ndarray``
   instead of ``np.matrix`` when ``return_as=np.ndarray``.  See the
   Notes section for more information on compatibility.
 
@@ -207,16 +207,16 @@ Enhancements
   threading backend of joblib 0.8 and releasing the GIL in the tree fitting
   Cython code.  By `Olivier Grisel`_ and `Gilles Louppe`_.
 
-- Speed improvement of the `sklearn.ensemble.gradient_boosting` module.
+- Speed improvement of the `sklearn_dual.ensemble.gradient_boosting` module.
   By `Gilles Louppe`_ and `Peter Prettenhofer`_.
 
-- Various enhancements to the `sklearn.ensemble.gradient_boosting`
+- Various enhancements to the `sklearn_dual.ensemble.gradient_boosting`
   module: a ``warm_start`` argument to fit additional trees,
   a ``max_leaf_nodes`` argument to fit GBM style trees,
   a ``monitor`` fit argument to inspect the estimator during training, and
   refactoring of the verbose code. By `Peter Prettenhofer`_.
 
-- Faster `sklearn.ensemble.ExtraTrees` by caching feature values.
+- Faster `sklearn_dual.ensemble.ExtraTrees` by caching feature values.
   By `Arnaud Joly`_.
 
 - Faster depth-based tree building algorithm such as decision tree,
@@ -369,7 +369,7 @@ Bug fixes
 API changes summary
 -------------------
 
-- `sklearn.hmm` is deprecated. Its removal is planned
+- `sklearn_dual.hmm` is deprecated. Its removal is planned
   for the 0.17 release.
 
 - Use of `covariance.EllipticEnvelop` has now been removed after

@@ -3,7 +3,7 @@
 Target Encoder's Internal Cross fitting
 =======================================
 
-.. currentmodule:: sklearn.preprocessing
+.. currentmodule:: sklearn_dual.preprocessing
 
 The :class:`TargetEncoder` replaces each category of a categorical feature with
 the shrunk mean of the target variable for that category. This method is useful
@@ -99,7 +99,7 @@ import sklearn_dual
 from sklearn_dual.linear_model import Ridge
 
 # Configure transformers to always output DataFrames
-sklearn.set_config(transform_output="pandas")
+sklearn_dual.set_config(transform_output="pandas")
 
 ridge = Ridge(alpha=1e-6, solver="lsqr", fit_intercept=False)
 
@@ -189,6 +189,6 @@ _ = ax.set(
 # :term:`cross fitting`. It is important to use
 # :meth:`TargetEncoder.fit_transform` to encode training data before passing it
 # to a machine learning model. When a :class:`TargetEncoder` is a part of a
-# :class:`~sklearn.pipeline.Pipeline` and the pipeline is fitted, the pipeline
+# :class:`~sklearn_dual.pipeline.Pipeline` and the pipeline is fitted, the pipeline
 # will correctly call :meth:`TargetEncoder.fit_transform` and use
 # :term:`cross fitting` when encoding the training data.

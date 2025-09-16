@@ -1,5 +1,5 @@
 """
-Testing for Isolation Forest algorithm (sklearn.ensemble.iforest).
+Testing for Isolation Forest algorithm (sklearn_dual.ensemble.iforest).
 """
 
 # Authors: The scikit-learn developers
@@ -256,7 +256,7 @@ def test_iforest_warm_start():
 # mock get_chunk_n_rows to actually test more than one chunk (here one
 # chunk has 3 rows):
 @patch(
-    "sklearn.ensemble._iforest.get_chunk_n_rows",
+    "sklearn_dual.ensemble._iforest.get_chunk_n_rows",
     side_effect=Mock(**{"return_value": 3}),
 )
 @pytest.mark.parametrize("contamination, n_predict_calls", [(0.25, 3), ("auto", 2)])
@@ -269,7 +269,7 @@ def test_iforest_chunks_works1(
 
 # idem with chunk_size = 10 rows
 @patch(
-    "sklearn.ensemble._iforest.get_chunk_n_rows",
+    "sklearn_dual.ensemble._iforest.get_chunk_n_rows",
     side_effect=Mock(**{"return_value": 10}),
 )
 @pytest.mark.parametrize("contamination, n_predict_calls", [(0.25, 3), ("auto", 2)])

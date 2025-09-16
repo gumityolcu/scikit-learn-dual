@@ -10,7 +10,7 @@ probability estimate of 0.5 or a decision score of 0.0. However, this default st
 may not be optimal for the task at hand.
 
 This example shows how to use the
-:class:`~sklearn.model_selection.TunedThresholdClassifierCV` to tune the decision
+:class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` to tune the decision
 threshold, depending on a metric of interest.
 """
 
@@ -23,7 +23,7 @@ threshold, depending on a metric of interest.
 #
 # To illustrate the tuning of the decision threshold, we will use the diabetes dataset.
 # This dataset is available on OpenML: https://www.openml.org/d/37. We use the
-# :func:`~sklearn.datasets.fetch_openml` function to fetch this dataset.
+# :func:`~sklearn_dual.datasets.fetch_openml` function to fetch this dataset.
 from sklearn_dual.datasets import fetch_openml
 
 diabetes = fetch_openml(data_id=37, as_frame=True, parser="pandas")
@@ -66,7 +66,7 @@ model
 # Cross-validation allows us to study the variance of the decision threshold across
 # different splits of the data. However, the dataset is rather small and it would be
 # detrimental to use more than 5 folds to evaluate the dispersion. Therefore, we use
-# a :class:`~sklearn.model_selection.RepeatedStratifiedKFold` where we apply several
+# a :class:`~sklearn_dual.model_selection.RepeatedStratifiedKFold` where we apply several
 # repetitions of 5-fold cross-validation.
 import pandas as pd
 
@@ -104,13 +104,13 @@ cv_results_vanilla_model[cv_scores].aggregate(["mean", "std"]).T
 # threshold might not be optimal. If our interest is to maximize the balanced accuracy,
 # we should select another threshold that would maximize this metric.
 #
-# The :class:`~sklearn.model_selection.TunedThresholdClassifierCV` meta-estimator allows
+# The :class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` meta-estimator allows
 # to tune the decision threshold of a classifier given a metric of interest.
 #
 # Tuning the decision threshold
 # -----------------------------
 #
-# We create a :class:`~sklearn.model_selection.TunedThresholdClassifierCV` and
+# We create a :class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` and
 # configure it to maximize the balanced accuracy. We evaluate the model using the same
 # cross-validation strategy as previously.
 from sklearn_dual.model_selection import TunedThresholdClassifierCV

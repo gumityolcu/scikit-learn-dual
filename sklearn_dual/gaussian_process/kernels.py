@@ -2248,10 +2248,10 @@ def _approx_fprime(xk, f, epsilon, args=()):
 
 
 class PairwiseKernel(Kernel):
-    """Wrapper for kernels in sklearn.metrics.pairwise.
+    """Wrapper for kernels in sklearn_dual.metrics.pairwise.
 
     A thin wrapper around the functionality of the kernels in
-    sklearn.metrics.pairwise.
+    sklearn_dual.metrics.pairwise.
 
     Note: Evaluation of eval_gradient is not analytic but numeric and all
           kernels support only isotropic distances. The parameter gamma is

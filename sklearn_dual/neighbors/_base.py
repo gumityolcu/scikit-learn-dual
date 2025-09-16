@@ -64,7 +64,7 @@ VALID_METRICS = dict(
     ball_tree=BallTree.valid_metrics,
     kd_tree=KDTree.valid_metrics,
     # The following list comes from the
-    # sklearn.metrics.pairwise doc string
+    # sklearn_dual.metrics.pairwise doc string
     brute=sorted(set(PAIRWISE_DISTANCE_FUNCTIONS).union(SCIPY_METRICS)),
 )
 
@@ -215,7 +215,7 @@ def sort_graph_by_row_values(graph, copy=False, warn_when_not_sorted=True):
         raised.
 
     warn_when_not_sorted : bool, default=True
-        If True, a :class:`~sklearn.exceptions.EfficiencyWarning` is raised
+        If True, a :class:`~sklearn_dual.exceptions.EfficiencyWarning` is raised
         when the input graph is not sorted by row values.
 
     Returns
@@ -245,7 +245,7 @@ def sort_graph_by_row_values(graph, copy=False, warn_when_not_sorted=True):
         warnings.warn(
             (
                 "Precomputed sparse input was not sorted by row values. Use the"
-                " function sklearn.neighbors.sort_graph_by_row_values to sort the input"
+                " function sklearn_dual.neighbors.sort_graph_by_row_values to sort the input"
                 " by row values, with warn_when_not_sorted=False to remove this"
                 " warning."
             ),
@@ -451,7 +451,7 @@ class NeighborsBase(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
         ):
             raise ValueError(
                 "Metric '%s' not valid. Use "
-                "sorted(sklearn.neighbors.VALID_METRICS['%s']) "
+                "sorted(sklearn_dual.neighbors.VALID_METRICS['%s']) "
                 "to get valid options. "
                 "Metric can also be a callable function." % (self.metric, alg_check)
             )
@@ -588,7 +588,7 @@ class NeighborsBase(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
             ):
                 raise ValueError(
                     "Metric '%s' not valid for sparse input. "
-                    "Use sorted(sklearn.neighbors."
+                    "Use sorted(sklearn_dual.neighbors."
                     "VALID_METRICS_SPARSE['brute']) "
                     "to get valid options. "
                     "Metric can also be a callable function." % (self.effective_metric_)
@@ -700,7 +700,7 @@ class KNeighborsMixin:
     def _kneighbors_reduce_func(self, dist, start, n_neighbors, return_distance):
         """Reduce a chunk of distances to the nearest neighbors.
 
-        Callback to :func:`sklearn.metrics.pairwise.pairwise_distances_chunked`
+        Callback to :func:`sklearn_dual.metrics.pairwise.pairwise_distances_chunked`
 
         Parameters
         ----------
@@ -1024,7 +1024,7 @@ class RadiusNeighborsMixin:
     def _radius_neighbors_reduce_func(self, dist, start, radius, return_distance):
         """Reduce a chunk of distances to the nearest neighbors.
 
-        Callback to :func:`sklearn.metrics.pairwise.pairwise_distances_chunked`
+        Callback to :func:`sklearn_dual.metrics.pairwise.pairwise_distances_chunked`
 
         Parameters
         ----------

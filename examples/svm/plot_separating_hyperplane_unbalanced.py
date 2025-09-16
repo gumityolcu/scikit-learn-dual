@@ -10,7 +10,7 @@ We first find the separating plane with a plain SVC and then plot
 (dashed) the separating hyperplane with automatically correction for
 unbalanced classes.
 
-.. currentmodule:: sklearn.linear_model
+.. currentmodule:: sklearn_dual.linear_model
 
 .. note::
 

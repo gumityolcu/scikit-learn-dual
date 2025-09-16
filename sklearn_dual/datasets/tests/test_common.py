@@ -88,12 +88,12 @@ def check_as_frame(
 
 
 def _skip_network_tests():
-    return os.environ.get("SKLEARN_SKIP_NETWORK_TESTS", "1") == "1"
+    return os.environ.get("sklearn_dual_SKIP_NETWORK_TESTS", "1") == "1"
 
 
 def _generate_func_supporting_param(param, dataset_type=("load", "fetch")):
     markers_fetch = FETCH_PYTEST_MARKERS.get(param, {})
-    for name, obj in inspect.getmembers(sklearn.datasets):
+    for name, obj in inspect.getmembers(sklearn_dual.datasets):
         if not inspect.isfunction(obj):
             continue
 

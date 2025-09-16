@@ -3,8 +3,8 @@ Comparison between grid search and successive halving
 =====================================================
 
 This example compares the parameter search performed by
-:class:`~sklearn.model_selection.HalvingGridSearchCV` and
-:class:`~sklearn.model_selection.GridSearchCV`.
+:class:`~sklearn_dual.model_selection.HalvingGridSearchCV` and
+:class:`~sklearn_dual.model_selection.GridSearchCV`.
 
 """
 
@@ -23,10 +23,10 @@ from sklearn_dual.model_selection import GridSearchCV, HalvingGridSearchCV
 from sklearn_dual.svm import SVC
 
 # %%
-# We first define the parameter space for an :class:`~sklearn.svm.SVC`
+# We first define the parameter space for an :class:`~sklearn_dual.svm.SVC`
 # estimator, and compute the time required to train a
-# :class:`~sklearn.model_selection.HalvingGridSearchCV` instance, as well as a
-# :class:`~sklearn.model_selection.GridSearchCV` instance.
+# :class:`~sklearn_dual.model_selection.HalvingGridSearchCV` instance, as well as a
+# :class:`~sklearn_dual.model_selection.GridSearchCV` instance.
 
 rng = np.random.RandomState(0)
 X, y = datasets.make_classification(n_samples=1000, random_state=rng)
@@ -121,12 +121,12 @@ plt.show()
 
 # %%
 # The heatmaps show the mean test score of the parameter combinations for an
-# :class:`~sklearn.svm.SVC` instance. The
-# :class:`~sklearn.model_selection.HalvingGridSearchCV` also shows the
+# :class:`~sklearn_dual.svm.SVC` instance. The
+# :class:`~sklearn_dual.model_selection.HalvingGridSearchCV` also shows the
 # iteration at which the combinations where last used. The combinations marked
 # as ``0`` were only evaluated at the first iteration, while the ones with
 # ``5`` are the parameter combinations that are considered the best ones.
 #
-# We can see that the :class:`~sklearn.model_selection.HalvingGridSearchCV`
+# We can see that the :class:`~sklearn_dual.model_selection.HalvingGridSearchCV`
 # class is able to find parameter combinations that are just as accurate as
-# :class:`~sklearn.model_selection.GridSearchCV`, in much less time.
+# :class:`~sklearn_dual.model_selection.GridSearchCV`, in much less time.

@@ -953,7 +953,7 @@ def test_get_feature_names_out(estimator):
 
 def test_cd_work_on_joblib_memmapped_data(monkeypatch):
     monkeypatch.setattr(
-        sklearn.decomposition._dict_learning,
+        sklearn_dual.decomposition._dict_learning,
         "Parallel",
         partial(Parallel, max_nbytes=100),
     )

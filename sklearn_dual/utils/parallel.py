@@ -28,8 +28,8 @@ def _with_config(delayed_func, config):
     else:
         warnings.warn(
             (
-                "`sklearn.utils.parallel.Parallel` needs to be used in "
-                "conjunction with `sklearn.utils.parallel.delayed` instead of "
+                "`sklearn_dual.utils.parallel.Parallel` needs to be used in "
+                "conjunction with `sklearn_dual.utils.parallel.delayed` instead of "
                 "`joblib.delayed` to correctly propagate the scikit-learn "
                 "configuration to the joblib workers."
             ),
@@ -82,14 +82,14 @@ def delayed(function):
     """Decorator used to capture the arguments of a function.
 
     This alternative to `joblib.delayed` is meant to be used in conjunction
-    with `sklearn.utils.parallel.Parallel`. The latter captures the scikit-
-    learn configuration by calling `sklearn.get_config()` in the current
+    with `sklearn_dual.utils.parallel.Parallel`. The latter captures the scikit-
+    learn configuration by calling `sklearn_dual.get_config()` in the current
     thread, prior to dispatching the first task. The captured configuration is
     then propagated and enabled for the duration of the execution of the
     delayed function in the joblib workers.
 
     .. versionchanged:: 1.3
-       `delayed` was moved from `sklearn.utils.fixes` to `sklearn.utils.parallel`
+       `delayed` was moved from `sklearn_dual.utils.fixes` to `sklearn_dual.utils.parallel`
        in scikit-learn 1.3.
 
     Parameters
@@ -127,8 +127,8 @@ class _FuncWrapper:
         if config is None:
             warnings.warn(
                 (
-                    "`sklearn.utils.parallel.delayed` should be used with"
-                    " `sklearn.utils.parallel.Parallel` to make it possible to"
+                    "`sklearn_dual.utils.parallel.delayed` should be used with"
+                    " `sklearn_dual.utils.parallel.Parallel` to make it possible to"
                     " propagate the scikit-learn configuration of the current thread to"
                     " the joblib workers."
                 ),

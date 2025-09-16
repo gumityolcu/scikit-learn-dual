@@ -19,7 +19,7 @@ repos:
     rev: v1.9.0
     hooks:
      -  id: mypy
-        files: sklearn/
+        files: sklearn_dual/
         additional_dependencies: [pytest==6.2.4]
 -   repo: https://github.com/MarcoGorelli/cython-lint
     rev: v0.15.0

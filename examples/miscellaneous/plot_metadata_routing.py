@@ -3,7 +3,7 @@
 Metadata Routing
 ================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 This document shows how you can use the :ref:`metadata routing mechanism
 <metadata_routing>` in scikit-learn to route metadata to the estimators,
@@ -13,7 +13,7 @@ To better understand the following document, we need to introduce two concepts:
 routers and consumers. A router is an object which forwards some given data and
 metadata to other objects. In most cases, a router is a :term:`meta-estimator`,
 i.e. an estimator which takes another estimator as a parameter. A function such
-as :func:`sklearn.model_selection.cross_validate` which takes an estimator as a
+as :func:`sklearn_dual.model_selection.cross_validate` which takes an estimator as a
 parameter and forwards data and metadata, is also a router.
 
 A consumer, on the other hand, is an object which accepts and uses some given

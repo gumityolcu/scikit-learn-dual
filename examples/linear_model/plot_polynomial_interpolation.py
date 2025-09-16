@@ -7,7 +7,7 @@ This example demonstrates how to approximate a function with polynomials up to
 degree ``degree`` by using ridge regression. We show two different ways given
 ``n_samples`` of 1d points ``x_i``:
 
-- :class:`~sklearn.preprocessing.PolynomialFeatures` generates all monomials
+- :class:`~sklearn_dual.preprocessing.PolynomialFeatures` generates all monomials
   up to ``degree``. This gives us the so called Vandermonde matrix with
   ``n_samples`` rows and ``degree + 1`` columns::
 
@@ -19,7 +19,7 @@ degree ``degree`` by using ridge regression. We show two different ways given
   (the points raised to some power). The matrix is akin to (but different from)
   the matrix induced by a polynomial kernel.
 
-- :class:`~sklearn.preprocessing.SplineTransformer` generates B-spline basis
+- :class:`~sklearn_dual.preprocessing.SplineTransformer` generates B-spline basis
   functions. A basis function of a B-spline is a piece-wise polynomial function
   of degree ``degree`` that is non-zero only between ``degree+1`` consecutive
   knots. Given ``n_knots`` number of knots, this results in matrix of

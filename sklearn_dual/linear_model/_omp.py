@@ -373,7 +373,7 @@ def orthogonal_mp(
     OrthogonalMatchingPursuit : Orthogonal Matching Pursuit model.
     orthogonal_mp_gram : Solve OMP problems using Gram matrix and the product X.T * y.
     lars_path : Compute Least Angle Regression or Lasso path using LARS algorithm.
-    sklearn.decomposition.sparse_encode : Sparse coding.
+    sklearn_dual.decomposition.sparse_encode : Sparse coding.
 
     Notes
     -----
@@ -550,7 +550,7 @@ def orthogonal_mp_gram(
     orthogonal_mp : Solves n_targets Orthogonal Matching Pursuit problems.
     lars_path : Compute Least Angle Regression or Lasso path using
         LARS algorithm.
-    sklearn.decomposition.sparse_encode : Generic sparse coding.
+    sklearn_dual.decomposition.sparse_encode : Generic sparse coding.
         Each column of the result is the solution to a Lasso problem.
 
     Notes
@@ -702,7 +702,7 @@ class OrthogonalMatchingPursuit(MultiOutputMixin, RegressorMixin, LinearModel):
     lars_path : Compute Least Angle Regression or Lasso path using LARS algorithm.
     Lars : Least Angle Regression model a.k.a. LAR.
     LassoLars : Lasso model fit with Least Angle Regression a.k.a. Lars.
-    sklearn.decomposition.sparse_encode : Generic sparse coding.
+    sklearn_dual.decomposition.sparse_encode : Generic sparse coding.
         Each column of the result is the solution to a Lasso problem.
     OrthogonalMatchingPursuitCV : Cross-validated
         Orthogonal Matching Pursuit model (OMP).
@@ -922,7 +922,7 @@ class OrthogonalMatchingPursuitCV(RegressorMixin, LinearModel):
         - :term:`CV splitter`,
         - An iterable yielding (train, test) splits as arrays of indices.
 
-        For integer/None inputs, :class:`~sklearn.model_selection.KFold` is used.
+        For integer/None inputs, :class:`~sklearn_dual.model_selection.KFold` is used.
 
         Refer :ref:`User Guide <cross_validation>` for the various
         cross-validation strategies that can be used here.
@@ -977,7 +977,7 @@ class OrthogonalMatchingPursuitCV(RegressorMixin, LinearModel):
     OrthogonalMatchingPursuit : Orthogonal Matching Pursuit model (OMP).
     LarsCV : Cross-validated Least Angle Regression model.
     LassoLarsCV : Cross-validated Lasso model fit with Least Angle Regression.
-    sklearn.decomposition.sparse_encode : Generic sparse coding.
+    sklearn_dual.decomposition.sparse_encode : Generic sparse coding.
         Each column of the result is the solution to a Lasso problem.
 
     Notes
@@ -1044,7 +1044,7 @@ class OrthogonalMatchingPursuitCV(RegressorMixin, LinearModel):
             .. versionadded:: 1.4
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -1109,7 +1109,7 @@ class OrthogonalMatchingPursuitCV(RegressorMixin, LinearModel):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
 

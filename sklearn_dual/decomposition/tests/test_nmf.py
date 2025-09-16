@@ -504,7 +504,7 @@ def test_special_sparse_dot(csr_container):
     assert_array_equal(WH_safe.shape, X_csr.shape)
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 @pytest.mark.parametrize("csr_container", CSR_CONTAINERS)
 def test_nmf_multiplicative_update_sparse(csr_container):
     # Compare sparse and dense input in multiplicative update NMF
@@ -710,7 +710,7 @@ def test_nmf_regularization(Estimator, solver):
     ) ** 2.0 + (linalg.norm(H_regul)) ** 2.0
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 @pytest.mark.parametrize("solver", ("cd", "mu"))
 def test_nmf_decreasing(solver):
     # test that the objective function is decreasing at each iteration

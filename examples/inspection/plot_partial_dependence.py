@@ -17,8 +17,8 @@ feature for each :term:`sample` separately, with one line per sample.
 Only one feature of interest is supported for ICE plots.
 
 This example shows how to obtain partial dependence and ICE plots from a
-:class:`~sklearn.neural_network.MLPRegressor` and a
-:class:`~sklearn.ensemble.HistGradientBoostingRegressor` trained on the
+:class:`~sklearn_dual.neural_network.MLPRegressor` and a
+:class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor` trained on the
 bike sharing dataset. The example is inspired by [1]_.
 
 .. [1] `Molnar, Christoph. "Interpretable machine learning.
@@ -155,16 +155,16 @@ for ax, (idx, df) in zip(axs, average_bike_rentals.groupby("year")):
 # ----------------------------------------
 #
 # Since we later use two different models, a
-# :class:`~sklearn.neural_network.MLPRegressor` and a
-# :class:`~sklearn.ensemble.HistGradientBoostingRegressor`, we create two different
+# :class:`~sklearn_dual.neural_network.MLPRegressor` and a
+# :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`, we create two different
 # preprocessors, specific for each model.
 #
 # Preprocessor for the neural network model
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-# We will use a :class:`~sklearn.preprocessing.QuantileTransformer` to scale the
+# We will use a :class:`~sklearn_dual.preprocessing.QuantileTransformer` to scale the
 # numerical features and encode the categorical features with a
-# :class:`~sklearn.preprocessing.OneHotEncoder`.
+# :class:`~sklearn_dual.preprocessing.OneHotEncoder`.
 from sklearn_dual.compose import ColumnTransformer
 from sklearn_dual.preprocessing import OneHotEncoder, QuantileTransformer
 
@@ -182,7 +182,7 @@ mlp_preprocessor
 #
 # For the gradient boosting model, we leave the numerical features as-is and only
 # encode the categorical features using a
-# :class:`~sklearn.preprocessing.OrdinalEncoder`.
+# :class:`~sklearn_dual.preprocessing.OrdinalEncoder`.
 from sklearn_dual.preprocessing import OrdinalEncoder
 
 hgbdt_preprocessor = ColumnTransformer(
@@ -208,7 +208,7 @@ hgbdt_preprocessor
 # Multi-layer perceptron
 # ~~~~~~~~~~~~~~~~~~~~~~
 #
-# Let's fit a :class:`~sklearn.neural_network.MLPRegressor` and compute
+# Let's fit a :class:`~sklearn_dual.neural_network.MLPRegressor` and compute
 # single-variable partial dependence plots.
 from time import time
 
@@ -292,7 +292,7 @@ _ = display.figure_.suptitle(
 # Gradient boosting
 # ~~~~~~~~~~~~~~~~~
 #
-# Let's now fit a :class:`~sklearn.ensemble.HistGradientBoostingRegressor` and
+# Let's now fit a :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor` and
 # compute the partial dependence on the same features. We also use the
 # specific preprocessor we created for this model.
 from sklearn_dual.ensemble import HistGradientBoostingRegressor
@@ -352,8 +352,8 @@ _ = display.figure_.suptitle(
 # trend for the humidity features. The number of bike rentals is decreasing when the
 # humidity increases. Finally, we see the same trend for the wind speed feature. The
 # number of bike rentals is decreasing when the wind speed is increasing for both
-# models. We also observe that :class:`~sklearn.neural_network.MLPRegressor` has much
-# smoother predictions than :class:`~sklearn.ensemble.HistGradientBoostingRegressor`.
+# models. We also observe that :class:`~sklearn_dual.neural_network.MLPRegressor` has much
+# smoother predictions than :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`.
 #
 # Now, we will look at the partial dependence plots for the categorical features.
 #
@@ -433,7 +433,7 @@ _ = display.figure_.suptitle("ICE and PDP representations", fontsize=16)
 # PDPs with two features of interest enable us to visualize interactions among them.
 # However, ICEs cannot be plotted in an easy manner and thus interpreted. We will show
 # the representation of available in
-# :meth:`~sklearn.inspection.PartialDependenceDisplay.from_estimator` that is a 2D
+# :meth:`~sklearn_dual.inspection.PartialDependenceDisplay.from_estimator` that is a 2D
 # heatmap.
 print("Computing partial dependence plots...")
 features_info = {

@@ -21,7 +21,7 @@ foreach ext_name, ext_dict : cluster_extension_metadata
     dependencies: [np_dep, openmp_dep],
     override_options : ext_dict.get('override_options', []),
     cython_args: cython_args,
-    subdir: 'sklearn/cluster',
+    subdir: 'sklearn_dual/cluster',
     install: true
   )
 endforeach

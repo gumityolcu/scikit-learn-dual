@@ -9,10 +9,10 @@ The module structure is the following:
   for all the estimators in the module. Regression and classification
   only differ from each other in the loss function that is optimized.
 
-- :class:`~sklearn.ensemble.AdaBoostClassifier` implements adaptive boosting
+- :class:`~sklearn_dual.ensemble.AdaBoostClassifier` implements adaptive boosting
   (AdaBoost-SAMME) for classification problems.
 
-- :class:`~sklearn.ensemble.AdaBoostRegressor` implements adaptive boosting
+- :class:`~sklearn_dual.ensemble.AdaBoostRegressor` implements adaptive boosting
   (AdaBoost.R2) for regression problems.
 """
 
@@ -281,7 +281,7 @@ class BaseWeightBoosting(BaseEnsemble, metaclass=ABCMeta):
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
         Returns
         -------
@@ -355,7 +355,7 @@ class AdaBoostClassifier(
         The base estimator from which the boosted ensemble is built.
         Support for sample weighting is required, as well as proper
         ``classes_`` and ``n_classes_`` attributes. If ``None``, then
-        the base estimator is :class:`~sklearn.tree.DecisionTreeClassifier`
+        the base estimator is :class:`~sklearn_dual.tree.DecisionTreeClassifier`
         initialized with `max_depth=1`.
 
         .. versionadded:: 1.2
@@ -420,7 +420,7 @@ class AdaBoostClassifier(
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
     n_features_in_ : int
         Number of features seen during :term:`fit`.
@@ -446,7 +446,7 @@ class AdaBoostClassifier(
         classification is a special case where only a single regression tree is
         induced.
 
-    sklearn.tree.DecisionTreeClassifier : A non-parametric supervised learning
+    sklearn_dual.tree.DecisionTreeClassifier : A non-parametric supervised learning
         method used for classification.
         Creates a model that predicts the value of a target variable by
         learning simple decision rules inferred from the data features.
@@ -984,7 +984,7 @@ class AdaBoostRegressor(_RoutingNotSupportedMixin, RegressorMixin, BaseWeightBoo
     estimator : object, default=None
         The base estimator from which the boosted ensemble is built.
         If ``None``, then the base estimator is
-        :class:`~sklearn.tree.DecisionTreeRegressor` initialized with
+        :class:`~sklearn_dual.tree.DecisionTreeRegressor` initialized with
         `max_depth=3`.
 
         .. versionadded:: 1.2
@@ -1037,7 +1037,7 @@ class AdaBoostRegressor(_RoutingNotSupportedMixin, RegressorMixin, BaseWeightBoo
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
     n_features_in_ : int
         Number of features seen during :term:`fit`.
@@ -1054,7 +1054,7 @@ class AdaBoostRegressor(_RoutingNotSupportedMixin, RegressorMixin, BaseWeightBoo
     --------
     AdaBoostClassifier : An AdaBoost classifier.
     GradientBoostingRegressor : Gradient Boosting Classification Tree.
-    sklearn.tree.DecisionTreeRegressor : A decision tree regressor.
+    sklearn_dual.tree.DecisionTreeRegressor : A decision tree regressor.
 
     References
     ----------
@@ -1077,7 +1077,7 @@ class AdaBoostRegressor(_RoutingNotSupportedMixin, RegressorMixin, BaseWeightBoo
     >>> regr.score(X, y)
     0.9771...
 
-    For a detailed example of utilizing :class:`~sklearn.ensemble.AdaBoostRegressor`
+    For a detailed example of utilizing :class:`~sklearn_dual.ensemble.AdaBoostRegressor`
     to fit a sequence of decision trees as weak learners, please refer to
     :ref:`sphx_glr_auto_examples_ensemble_plot_adaboost_regression.py`.
     """

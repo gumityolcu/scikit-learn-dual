@@ -13,7 +13,7 @@ South America. The two species are:
    also known as the Forest Small Rice Rat, a rodent that lives in Peru,
    Colombia, Ecuador, Peru, and Venezuela.
 
-The dataset is not a typical dataset since a :class:`~sklearn.datasets.base.Bunch`
+The dataset is not a typical dataset since a :class:`~sklearn_dual.datasets.base.Bunch`
 containing the attributes `data` and `target` is not returned. Instead, we have
 information allowing to create a "density" map of the different species.
 

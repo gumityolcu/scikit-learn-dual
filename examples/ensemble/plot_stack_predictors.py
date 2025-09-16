@@ -3,7 +3,7 @@
 Combine predictors using stacking
 =================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 Stacking refers to a method to blend estimators. In this strategy, some
 estimators are individually fitted on some training data while a final
@@ -158,7 +158,7 @@ linear_preprocessor
 # .. note::
 #    Although we will make new pipelines with the processors which we wrote in
 #    the previous section for the 3 learners, the final estimator
-#    :class:`~sklearn.linear_model.RidgeCV()` does not need preprocessing of
+#    :class:`~sklearn_dual.linear_model.RidgeCV()` does not need preprocessing of
 #    the data as it will be fed with the already preprocessed output from the 3
 #    learners.
 

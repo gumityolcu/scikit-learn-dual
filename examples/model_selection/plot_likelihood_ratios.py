@@ -3,7 +3,7 @@
 Class Likelihood Ratios to measure classification performance
 =============================================================
 
-This example demonstrates the :func:`~sklearn.metrics.class_likelihood_ratios`
+This example demonstrates the :func:`~sklearn_dual.metrics.class_likelihood_ratios`
 function, which computes the positive and negative likelihood ratios (`LR+`,
 `LR-`) to assess the predictive power of a binary classifier. As we will see,
 these metrics are independent of the proportion between classes in the test set,
@@ -96,7 +96,7 @@ def extract_score(cv_results):
 
 
 # %%
-# We first validate the :class:`~sklearn.linear_model.LogisticRegression` model
+# We first validate the :class:`~sklearn_dual.linear_model.LogisticRegression` model
 # with default hyperparameters as used in the previous section.
 
 from sklearn_dual.model_selection import cross_validate
@@ -132,7 +132,7 @@ extract_score(cross_validate(estimator, X, y, scoring=scoring, cv=10))
 # false positives, leading to an undefined `LR+` that by no means should be
 # interpreted as an infinite `LR+` (the classifier perfectly identifying
 # positive cases). In such situation the
-# :func:`~sklearn.metrics.class_likelihood_ratios` function returns `nan` and
+# :func:`~sklearn_dual.metrics.class_likelihood_ratios` function returns `nan` and
 # raises a warning by default. Indeed, the value of `LR-` helps us discard this
 # model.
 #
@@ -159,10 +159,10 @@ extract_score(cross_validate(estimator, X, y, scoring=scoring, cv=10))
 # :ref:`sphx_glr_auto_examples_svm_plot_separating_hyperplane_unbalanced.py` for
 # a study of the boundary decision for unbalanced classes).
 #
-# Here we train a :class:`~sklearn.linear_model.LogisticRegression` base model
+# Here we train a :class:`~sklearn_dual.linear_model.LogisticRegression` base model
 # on a case-control study with a prevalence of 50%. It is then evaluated over
 # populations with varying prevalence. We use the
-# :func:`~sklearn.datasets.make_classification` function to ensure the
+# :func:`~sklearn_dual.datasets.make_classification` function to ensure the
 # data-generating process is always the same as shown in the plots below. The
 # label `1` corresponds to the positive class "disease", whereas the label `0`
 # stands for "no-disease".

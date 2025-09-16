@@ -547,7 +547,7 @@ plt.subplots_adjust(left=0.3)
 #
 # Above, we limited this regularization to a very little amount. Regularization
 # improves the conditioning of the problem and reduces the variance of the
-# estimates. :class:`~sklearn.linear_model.RidgeCV` applies cross validation
+# estimates. :class:`~sklearn_dual.linear_model.RidgeCV` applies cross validation
 # in order to determine which value of the regularization parameter (`alpha`)
 # is best suited for prediction.
 
@@ -649,7 +649,7 @@ _ = plt.title("Co-variations of coefficients for AGE and EXPERIENCE across folds
 # when we dropped the AGE column in a previous ridge estimation.
 #
 # Lasso models (see the :ref:`lasso` User Guide section) estimates sparse
-# coefficients. :class:`~sklearn.linear_model.LassoCV` applies cross
+# coefficients. :class:`~sklearn_dual.linear_model.LassoCV` applies cross
 # validation in order to determine which value of the regularization parameter
 # (`alpha`) is best suited for the model estimation.
 

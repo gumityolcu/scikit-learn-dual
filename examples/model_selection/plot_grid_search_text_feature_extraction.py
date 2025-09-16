@@ -8,7 +8,7 @@ automatically downloaded, cached and reused for the document classification
 example.
 
 In this example, we tune the hyperparameters of a particular classifier using a
-:class:`~sklearn.model_selection.RandomizedSearchCV`. For a demo on the
+:class:`~sklearn_dual.model_selection.RandomizedSearchCV`. For a demo on the
 performance of some other classifiers, see the
 :ref:`sphx_glr_auto_examples_text_plot_document_classification_20newsgroups.py`
 notebook.
@@ -22,7 +22,7 @@ notebook.
 # ------------
 # We load two categories from the training set. You can adjust the number of
 # categories by adding their names to the list or setting `categories=None` when
-# calling the dataset loader :func:`~sklearn.datasets.fetch_20newsgroups` to get
+# calling the dataset loader :func:`~sklearn_dual.datasets.fetch_20newsgroups` to get
 # the 20 of them.
 
 from sklearn_dual.datasets import fetch_20newsgroups
@@ -73,10 +73,10 @@ pipeline
 
 # %%
 # We define a grid of hyperparameters to be explored by the
-# :class:`~sklearn.model_selection.RandomizedSearchCV`. Using a
-# :class:`~sklearn.model_selection.GridSearchCV` instead would explore all the
+# :class:`~sklearn_dual.model_selection.RandomizedSearchCV`. Using a
+# :class:`~sklearn_dual.model_selection.GridSearchCV` instead would explore all the
 # possible combinations on the grid, which can be costly to compute, whereas the
-# parameter `n_iter` of the :class:`~sklearn.model_selection.RandomizedSearchCV`
+# parameter `n_iter` of the :class:`~sklearn_dual.model_selection.RandomizedSearchCV`
 # controls the number of different random combination that are evaluated. Notice
 # that setting `n_iter` larger than the number of possible combinations in a
 # grid would lead to repeating already-explored combinations. We search for the

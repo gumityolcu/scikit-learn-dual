@@ -196,7 +196,7 @@ def check_supervised_y_no_nan(name, estimator_orig):
         y = _enforce_estimator_tags_y(estimator, y)
 
         module_name = estimator.__module__
-        if module_name.startswith("sklearn.") and not (
+        if module_name.startswith("sklearn_dual.") and not (
             "test_" in module_name or module_name.endswith("_testing")
         ):
             # In scikit-learn we want the error message to mention the input
@@ -549,7 +549,7 @@ def parametrize_with_checks(estimators):
 
     >>> @parametrize_with_checks([LogisticRegression(),
     ...                           DecisionTreeRegressor()])
-    ... def test_sklearn_compatible_estimator(estimator, check):
+    ... def test_sklearn_dual_compatible_estimator(estimator, check):
     ...     check(estimator)
 
     """
@@ -591,7 +591,7 @@ def check_estimator(estimator=None, generate_only=False):
     independently and report the checks that are failing.
 
     scikit-learn provides a pytest specific decorator,
-    :func:`~sklearn.utils.estimator_checks.parametrize_with_checks`, making it
+    :func:`~sklearn_dual.utils.estimator_checks.parametrize_with_checks`, making it
     easier to test multiple estimators.
 
     Parameters
@@ -2087,12 +2087,12 @@ def check_estimators_pickle(name, estimator_orig, readonly_memmap=False):
         # No need to touch the file system in that case.
         pickled_estimator = pickle.dumps(estimator)
         module_name = estimator.__module__
-        if module_name.startswith("sklearn.") and not (
+        if module_name.startswith("sklearn_dual.") and not (
             "test_" in module_name or module_name.endswith("_testing")
         ):
-            # strict check for sklearn estimators that are not implemented in test
+            # strict check for sklearn_dual estimators that are not implemented in test
             # modules.
-            assert b"_sklearn_version" in pickled_estimator
+            assert b"_sklearn_dual_version" in pickled_estimator
         unpickled_estimator = pickle.loads(pickled_estimator)
 
     result = dict()
@@ -4091,7 +4091,7 @@ def check_dataframe_column_names_consistency(name, estimator_orig):
             "error",
             message="X does not have valid feature names",
             category=UserWarning,
-            module="sklearn",
+            module="sklearn_dual",
         )
         estimator.fit(X, y)
 
@@ -4104,10 +4104,10 @@ def check_dataframe_column_names_consistency(name, estimator_orig):
     assert estimator.feature_names_in_.dtype == object
     assert_array_equal(estimator.feature_names_in_, names)
 
-    # Only check sklearn estimators for feature_names_in_ in docstring
+    # Only check sklearn_dual estimators for feature_names_in_ in docstring
     module_name = estimator_orig.__module__
     if (
-        module_name.startswith("sklearn.")
+        module_name.startswith("sklearn_dual.")
         and not ("test_" in module_name or module_name.endswith("_testing"))
         and ("feature_names_in_" not in (estimator_orig.__doc__))
     ):
@@ -4139,7 +4139,7 @@ def check_dataframe_column_names_consistency(name, estimator_orig):
                 "error",
                 message="X does not have valid feature names",
                 category=UserWarning,
-                module="sklearn",
+                module="sklearn_dual",
             )
             method(X)  # works without UserWarning for valid features
 

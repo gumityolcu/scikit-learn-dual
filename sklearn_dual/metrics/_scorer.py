@@ -1,11 +1,11 @@
 """
-The :mod:`sklearn.metrics.scorer` submodule implements a flexible
+The :mod:`sklearn_dual.metrics.scorer` submodule implements a flexible
 interface for model selection and evaluation using
 arbitrary score functions.
 
 A scorer object is a callable that can be passed to
-:class:`~sklearn.model_selection.GridSearchCV` or
-:func:`sklearn.model_selection.cross_val_score` as the ``scoring``
+:class:`~sklearn_dual.model_selection.GridSearchCV` or
+:func:`sklearn_dual.model_selection.cross_val_score` as the ``scoring``
 parameter, to specify how a model should be evaluated.
 
 The signature of the call is ``(estimator, X, y)`` where ``estimator``
@@ -318,7 +318,7 @@ class _BaseScorer(_MetadataRequester):
             raise RuntimeError(
                 "This method is only available when metadata routing is enabled."
                 " You can enable it using"
-                " sklearn.set_config(enable_metadata_routing=True)."
+                " sklearn_dual.set_config(enable_metadata_routing=True)."
             )
 
         self._warn_overlap(
@@ -395,7 +395,7 @@ def get_scorer(scoring):
     """Get a scorer from string.
 
     Read more in the :ref:`User Guide <scoring_parameter>`.
-    :func:`~sklearn.metrics.get_scorer_names` can be used to retrieve the names
+    :func:`~sklearn_dual.metrics.get_scorer_names` can be used to retrieve the names
     of all available scorers.
 
     Parameters
@@ -438,7 +438,7 @@ def get_scorer(scoring):
         except KeyError:
             raise ValueError(
                 "%r is not a valid scoring value. "
-                "Use sklearn.metrics.get_scorer_names() "
+                "Use sklearn_dual.metrics.get_scorer_names() "
                 "to get valid options." % scoring
             )
     else:
@@ -505,7 +505,7 @@ class _PassthroughScorer(_MetadataRequester):
             raise RuntimeError(
                 "This method is only available when metadata routing is enabled."
                 " You can enable it using"
-                " sklearn.set_config(enable_metadata_routing=True)."
+                " sklearn_dual.set_config(enable_metadata_routing=True)."
             )
 
         for param, alias in kwargs.items():
@@ -522,7 +522,7 @@ def _check_multimetric_scoring(estimator, scoring):
 
     Parameters
     ----------
-    estimator : sklearn estimator instance
+    estimator : sklearn_dual estimator instance
         The estimator for which the scoring will be applied.
 
     scoring : list, tuple or dict
@@ -930,7 +930,7 @@ _SCORERS = dict(
 def get_scorer_names():
     """Get the names of all available scorers.
 
-    These names can be passed to :func:`~sklearn.metrics.get_scorer` to
+    These names can be passed to :func:`~sklearn_dual.metrics.get_scorer` to
     retrieve the scorer object.
 
     Returns
@@ -1061,9 +1061,9 @@ def check_scoring(estimator=None, scoring=None, *, allow_none=False, raise_exc=T
         module = getattr(scoring, "__module__", None)
         if (
             hasattr(module, "startswith")
-            and module.startswith("sklearn.metrics.")
-            and not module.startswith("sklearn.metrics._scorer")
-            and not module.startswith("sklearn.metrics.tests.")
+            and module.startswith("sklearn_dual.metrics.")
+            and not module.startswith("sklearn_dual.metrics._scorer")
+            and not module.startswith("sklearn_dual.metrics.tests.")
         ):
             raise ValueError(
                 "scoring value %r looks like it is a metric "

@@ -596,7 +596,7 @@ class HashingVectorizer(
     :ref:`sphx_glr_auto_examples_text_plot_hashing_vs_dict_vectorizer.py`.
 
     For an example of document clustering and comparison with
-    :class:`~sklearn.feature_extraction.text.TfidfVectorizer`, see
+    :class:`~sklearn_dual.feature_extraction.text.TfidfVectorizer`, see
     :ref:`sphx_glr_auto_examples_text_plot_document_clustering.py`.
 
     Read more in the :ref:`User Guide <text_feature_extraction>`.
@@ -891,7 +891,7 @@ class HashingVectorizer(
             constructor argument) which will be tokenized and hashed.
         y : any
             Ignored. This parameter exists only for compatibility with
-            sklearn.pipeline.Pipeline.
+            sklearn_dual.pipeline.Pipeline.
 
         Returns
         -------
@@ -1528,7 +1528,7 @@ class TfidfTransformer(
           similarity between two vectors is their dot product when l2 norm has
           been applied.
         - 'l1': Sum of absolute values of vector elements is 1.
-          See :func:`~sklearn.preprocessing.normalize`.
+          See :func:`~sklearn_dual.preprocessing.normalize`.
         - None: No normalization.
 
     use_idf : bool, default=True
@@ -1725,7 +1725,7 @@ class TfidfVectorizer(CountVectorizer):
     :ref:`sphx_glr_auto_examples_text_plot_hashing_vs_dict_vectorizer.py`.
 
     For an example of document clustering and comparison with
-    :class:`~sklearn.feature_extraction.text.HashingVectorizer`, see
+    :class:`~sklearn_dual.feature_extraction.text.HashingVectorizer`, see
     :ref:`sphx_glr_auto_examples_text_plot_document_clustering.py`.
 
     Read more in the :ref:`User Guide <text_feature_extraction>`.
@@ -1867,7 +1867,7 @@ class TfidfVectorizer(CountVectorizer):
           similarity between two vectors is their dot product when l2 norm has
           been applied.
         - 'l1': Sum of absolute values of vector elements is 1.
-          See :func:`~sklearn.preprocessing.normalize`.
+          See :func:`~sklearn_dual.preprocessing.normalize`.
         - None: No normalization.
 
     use_idf : bool, default=True

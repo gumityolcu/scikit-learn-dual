@@ -3,7 +3,7 @@
 An example of K-Means++ initialization
 ===========================================================
 
-An example to show the output of the :func:`sklearn.cluster.kmeans_plusplus`
+An example to show the output of the :func:`sklearn_dual.cluster.kmeans_plusplus`
 function for generating initial seeds for clustering.
 
 K-Means++ is used as the default initialization for :ref:`k_means`.

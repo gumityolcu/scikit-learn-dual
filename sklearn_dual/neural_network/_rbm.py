@@ -98,9 +98,9 @@ class BernoulliRBM(ClassNamePrefixFeaturesOutMixin, TransformerMixin, BaseEstima
 
     See Also
     --------
-    sklearn.neural_network.MLPRegressor : Multi-layer Perceptron regressor.
-    sklearn.neural_network.MLPClassifier : Multi-layer Perceptron classifier.
-    sklearn.decomposition.PCA : An unsupervised linear dimensionality
+    sklearn_dual.neural_network.MLPRegressor : Multi-layer Perceptron regressor.
+    sklearn_dual.neural_network.MLPClassifier : Multi-layer Perceptron classifier.
+    sklearn_dual.decomposition.PCA : An unsupervised linear dimensionality
         reduction model.
 
     References

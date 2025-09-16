@@ -68,7 +68,7 @@ est = HistGradientBoostingClassifier(
     verbose=verbose,
 )
 
-fit(est, X, y, "sklearn")
+fit(est, X, y, "sklearn_dual")
 predict(est, X)
 
 if args.lightgbm:

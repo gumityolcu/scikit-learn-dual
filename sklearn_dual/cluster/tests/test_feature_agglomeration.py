@@ -1,5 +1,5 @@
 """
-Tests for sklearn.cluster._feature_agglomeration
+Tests for sklearn_dual.cluster._feature_agglomeration
 """
 
 import warnings

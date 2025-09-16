@@ -699,7 +699,7 @@ def test_isotonic_regression_output_predict():
     pd = pytest.importorskip("pandas")
     X, y = make_regression(n_samples=10, n_features=1, random_state=42)
     regressor = IsotonicRegression()
-    with sklearn.config_context(transform_output="pandas"):
+    with sklearn_dual.config_context(transform_output="pandas"):
         regressor.fit(X, y)
         X_trans = regressor.transform(X)
         y_pred = regressor.predict(X)

@@ -29,7 +29,7 @@ class TargetEncoder(OneToOneFeatureMixin, _BaseEncoder):
     When the target type is "multiclass", encodings are based
     on the conditional probability estimate for each class. The target is first
     binarized using the "one-vs-all" scheme via
-    :class:`~sklearn.preprocessing.LabelBinarizer`, then the average target
+    :class:`~sklearn_dual.preprocessing.LabelBinarizer`, then the average target
     value for each class and each category is used for encoding, resulting in
     `n_features` * `n_classes` encoded output features.
 
@@ -68,7 +68,7 @@ class TargetEncoder(OneToOneFeatureMixin, _BaseEncoder):
         Type of target.
 
         - `"auto"` : Type of target is inferred with
-          :func:`~sklearn.utils.multiclass.type_of_target`.
+          :func:`~sklearn_dual.utils.multiclass.type_of_target`.
         - `"continuous"` : Continuous target
         - `"binary"` : Binary target
         - `"multiclass"` : Multiclass target
@@ -76,7 +76,7 @@ class TargetEncoder(OneToOneFeatureMixin, _BaseEncoder):
         .. note::
             The type of target inferred with `"auto"` may not be the desired target
             type used for modeling. For example, if the target consisted of integers
-            between 0 and 100, then :func:`~sklearn.utils.multiclass.type_of_target`
+            between 0 and 100, then :func:`~sklearn_dual.utils.multiclass.type_of_target`
             will infer the target as `"multiclass"`. In this case, setting
             `target_type="continuous"` will specify the target as a regression
             problem. The `target_type_` attribute gives the target type used by the

@@ -4,7 +4,7 @@
 Permutation feature importance
 ==============================
 
-.. currentmodule:: sklearn.inspection
+.. currentmodule:: sklearn_dual.inspection
 
 Permutation feature importance is a model inspection technique that measures the
 contribution of each feature to a :term:`fitted` model's statistical performance
@@ -36,7 +36,7 @@ providing a measure of the variance in the estimated feature importances for the
 specific trained model.
 
 The figure below shows the permutation feature importance of a
-:class:`~sklearn.ensemble.RandomForestClassifier` trained on an augmented
+:class:`~sklearn_dual.ensemble.RandomForestClassifier` trained on an augmented
 version of the titanic dataset that contains a `random_cat` and a `random_num`
 features, i.e. a categrical and a numerical feature that are not correlated in
 any way with the target variable:
@@ -63,9 +63,9 @@ importances.
 
 Let's consider the following trained regression model::
 
-  >>> from sklearn.datasets import load_diabetes
-  >>> from sklearn.model_selection import train_test_split
-  >>> from sklearn.linear_model import Ridge
+  >>> from sklearn_dual.datasets import load_diabetes
+  >>> from sklearn_dual.model_selection import train_test_split
+  >>> from sklearn_dual.linear_model import Ridge
   >>> diabetes = load_diabetes()
   >>> X_train, X_val, y_train, y_val = train_test_split(
   ...     diabetes.data, diabetes.target, random_state=0)
@@ -79,7 +79,7 @@ significantly larger than the chance level. This makes it possible to use the
 :func:`permutation_importance` function to probe which features are most
 predictive::
 
-  >>> from sklearn.inspection import permutation_importance
+  >>> from sklearn_dual.inspection import permutation_importance
   >>> r = permutation_importance(model, X_val, y_val,
   ...                            n_repeats=30,
   ...                            random_state=0)
@@ -204,7 +204,7 @@ lower reported importance value for both features, though they might *actually*
 be important.
 
 The figure below shows the permutation feature importance of a
-:class:`~sklearn.ensemble.RandomForestClassifier` trained using the
+:class:`~sklearn_dual.ensemble.RandomForestClassifier` trained using the
 :ref:`breast_cancer_dataset`, which contains strongly correlated features. A
 naive interpretation would suggest that all features are unimportant:
 

@@ -35,7 +35,7 @@ class DictVectorizer(TransformerMixin, BaseEstimator):
     when feature values are of type string. If categorical features are
     represented as numeric values such as int or iterables of strings, the
     DictVectorizer can be followed by
-    :class:`~sklearn.preprocessing.OneHotEncoder` to complete
+    :class:`~sklearn_dual.preprocessing.OneHotEncoder` to complete
     binary one-hot encoding.
 
     Features that do not occur in a sample (mapping) will have a zero value
@@ -72,7 +72,7 @@ class DictVectorizer(TransformerMixin, BaseEstimator):
     See Also
     --------
     FeatureHasher : Performs vectorization using only a hash function.
-    sklearn.preprocessing.OrdinalEncoder : Handles nominal/categorical
+    sklearn_dual.preprocessing.OrdinalEncoder : Handles nominal/categorical
         features encoded as columns of arbitrary data types.
 
     Examples

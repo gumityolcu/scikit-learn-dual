@@ -97,7 +97,7 @@ class PolynomialCountSketch(
     RBFSampler : Approximate a RBF kernel feature map using random Fourier
         features.
     SkewedChi2Sampler : Approximate feature map for "skewed chi-squared" kernel.
-    sklearn.metrics.pairwise.kernel_metrics : List of built-in kernels.
+    sklearn_dual.metrics.pairwise.kernel_metrics : List of built-in kernels.
 
     Examples
     --------
@@ -291,7 +291,7 @@ class RBFSampler(ClassNamePrefixFeaturesOutMixin, TransformerMixin, BaseEstimato
     PolynomialCountSketch : Polynomial kernel approximation via Tensor Sketch.
     SkewedChi2Sampler : Approximate feature map for
         "skewed chi-squared" kernel.
-    sklearn.metrics.pairwise.kernel_metrics : List of built-in kernels.
+    sklearn_dual.metrics.pairwise.kernel_metrics : List of built-in kernels.
 
     Notes
     -----
@@ -455,8 +455,8 @@ class SkewedChi2Sampler(
     RBFSampler : Approximate a RBF kernel feature map using random Fourier
         features.
     SkewedChi2Sampler : Approximate feature map for "skewed chi-squared" kernel.
-    sklearn.metrics.pairwise.chi2_kernel : The exact chi squared kernel.
-    sklearn.metrics.pairwise.kernel_metrics : List of built-in kernels.
+    sklearn_dual.metrics.pairwise.chi2_kernel : The exact chi squared kernel.
+    sklearn_dual.metrics.pairwise.kernel_metrics : List of built-in kernels.
 
     References
     ----------
@@ -606,9 +606,9 @@ class AdditiveChi2Sampler(TransformerMixin, BaseEstimator):
     SkewedChi2Sampler : A Fourier-approximation to a non-additive variant of
         the chi squared kernel.
 
-    sklearn.metrics.pairwise.chi2_kernel : The exact chi squared kernel.
+    sklearn_dual.metrics.pairwise.chi2_kernel : The exact chi squared kernel.
 
-    sklearn.metrics.pairwise.additive_chi2_kernel : The exact additive chi
+    sklearn_dual.metrics.pairwise.additive_chi2_kernel : The exact additive chi
         squared kernel.
 
     Notes
@@ -838,7 +838,7 @@ class Nystroem(ClassNamePrefixFeaturesOutMixin, TransformerMixin, BaseEstimator)
     gamma : float, default=None
         Gamma parameter for the RBF, laplacian, polynomial, exponential chi2
         and sigmoid kernels. Interpretation of the default value is left to
-        the kernel; see the documentation for sklearn.metrics.pairwise.
+        the kernel; see the documentation for sklearn_dual.metrics.pairwise.
         Ignored by other kernels.
 
     coef0 : float, default=None
@@ -904,7 +904,7 @@ class Nystroem(ClassNamePrefixFeaturesOutMixin, TransformerMixin, BaseEstimator)
     RBFSampler : Approximate a RBF kernel feature map using random Fourier
         features.
     SkewedChi2Sampler : Approximate feature map for "skewed chi-squared" kernel.
-    sklearn.metrics.pairwise.kernel_metrics : List of built-in kernels.
+    sklearn_dual.metrics.pairwise.kernel_metrics : List of built-in kernels.
 
     References
     ----------

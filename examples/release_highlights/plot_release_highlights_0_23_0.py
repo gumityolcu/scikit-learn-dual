@@ -4,7 +4,7 @@
 Release Highlights for scikit-learn 0.23
 ========================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 We are pleased to announce the release of scikit-learn 0.23! Many bug fixes
 and improvements were added, as well as some new key features. We detail
@@ -26,12 +26,12 @@ or with conda::
 # -----------------------------------------------------------------
 # Long-awaited Generalized Linear Models with non-normal loss functions are now
 # available. In particular, three new regressors were implemented:
-# :class:`~sklearn.linear_model.PoissonRegressor`,
-# :class:`~sklearn.linear_model.GammaRegressor`, and
-# :class:`~sklearn.linear_model.TweedieRegressor`. The Poisson regressor can be
+# :class:`~sklearn_dual.linear_model.PoissonRegressor`,
+# :class:`~sklearn_dual.linear_model.GammaRegressor`, and
+# :class:`~sklearn_dual.linear_model.TweedieRegressor`. The Poisson regressor can be
 # used to model positive integer counts, or relative frequencies. Read more in
 # the :ref:`User Guide <Generalized_linear_regression>`. Additionally,
-# :class:`~sklearn.ensemble.HistGradientBoostingRegressor` supports a new
+# :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor` supports a new
 # 'poisson' loss as well.
 
 import numpy as np
@@ -88,7 +88,7 @@ clf
 ##############################################################################
 # Scalability and stability improvements to KMeans
 # ------------------------------------------------
-# The :class:`~sklearn.cluster.KMeans` estimator was entirely re-worked, and it
+# The :class:`~sklearn_dual.cluster.KMeans` estimator was entirely re-worked, and it
 # is now significantly faster and more stable. In addition, the Elkan algorithm
 # is now compatible with sparse matrices. The estimator uses OpenMP based
 # parallelism instead of relying on joblib, so the `n_jobs` parameter has no
@@ -112,8 +112,8 @@ print(completeness_score(kmeans.predict(X_test), y_test))
 # Improvements to the histogram-based Gradient Boosting estimators
 # ----------------------------------------------------------------
 # Various improvements were made to
-# :class:`~sklearn.ensemble.HistGradientBoostingClassifier` and
-# :class:`~sklearn.ensemble.HistGradientBoostingRegressor`. On top of the
+# :class:`~sklearn_dual.ensemble.HistGradientBoostingClassifier` and
+# :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`. On top of the
 # Poisson loss mentioned above, these estimators now support :ref:`sample
 # weights <sw_hgbdt>`. Also, an automatic early-stopping criterion was added:
 # early-stopping is enabled by default when the number of samples exceeds 10k.
@@ -170,8 +170,8 @@ plt.show()
 ##############################################################################
 # Sample-weight support for Lasso and ElasticNet
 # ----------------------------------------------
-# The two linear regressors :class:`~sklearn.linear_model.Lasso` and
-# :class:`~sklearn.linear_model.ElasticNet` now support sample weights.
+# The two linear regressors :class:`~sklearn_dual.linear_model.Lasso` and
+# :class:`~sklearn_dual.linear_model.ElasticNet` now support sample weights.
 
 from sklearn_dual.model_selection import train_test_split
 from sklearn_dual.datasets import make_regression

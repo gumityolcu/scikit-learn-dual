@@ -314,7 +314,7 @@ def test_1d_tree_nodes_values(
     TreeRegressor, monotonic_sign, depth_first_builder, criterion, global_random_seed
 ):
     # Adaptation from test_nodes_values in test_monotonic_constraints.py
-    # in sklearn.ensemble._hist_gradient_boosting
+    # in sklearn_dual.ensemble._hist_gradient_boosting
     # Build a single tree with only one feature, and make sure the node
     # values respect the monotonicity constraints.
 

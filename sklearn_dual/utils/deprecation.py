@@ -21,7 +21,7 @@ class deprecated:
     --------
     >>> from sklearn_dual.utils import deprecated
     >>> deprecated()
-    <sklearn.utils.deprecation.deprecated object at ...>
+    <sklearn_dual.utils.deprecation.deprecated object at ...>
     >>> @deprecated()
     ... def some_function(): pass
 

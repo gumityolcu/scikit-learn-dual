@@ -3,7 +3,7 @@
 Comparing Target Encoder with Other Encoders
 ============================================
 
-.. currentmodule:: sklearn.preprocessing
+.. currentmodule:: sklearn_dual.preprocessing
 
 The :class:`TargetEncoder` uses the value of the target to encode each
 categorical feature. In this example, we will compare three different approaches
@@ -54,7 +54,7 @@ _ = y.hist()
 # Training and Evaluating Pipelines with Different Encoders
 # =========================================================
 # In this section, we will evaluate pipelines with
-# :class:`~sklearn.ensemble.HistGradientBoostingRegressor` with different encoding
+# :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor` with different encoding
 # strategies. First, we list out the encoders we will be using to preprocess
 # the categorical features:
 from sklearn_dual.compose import ColumnTransformer
@@ -120,7 +120,7 @@ for name, categorical_preprocessor in categorical_preprocessors:
 # Native Categorical Feature Support
 # ==================================
 # In this section, we build and evaluate a pipeline that uses native categorical
-# feature support in :class:`~sklearn.ensemble.HistGradientBoostingRegressor`,
+# feature support in :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`,
 # which only supports up to 255 unique categories. In our dataset, the most of
 # the categorical features have more than 255 unique categories:
 n_unique_categories = df[categorical_features].nunique().sort_values(ascending=False)
@@ -217,12 +217,12 @@ for subset, ax in zip(["test", "train"], [ax1, ax2]):
 #   set only);
 # - The ordinal encoding imposes an arbitrary order to the features which are then
 #   treated as numerical values by the
-#   :class:`~sklearn.ensemble.HistGradientBoostingRegressor`. Since this
+#   :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`. Since this
 #   model groups numerical features in 256 bins per feature, many unrelated categories
 #   can be grouped together and as a result overall pipeline can underfit;
 # - When using the target encoder, the same binning happens, but since the encoded
 #   values are statistically ordered by marginal association with the target variable,
-#   the binning use by the :class:`~sklearn.ensemble.HistGradientBoostingRegressor`
+#   the binning use by the :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`
 #   makes sense and leads to good results: the combination of smoothed target
 #   encoding and binning works as a good regularizing strategy against
 #   overfitting while not limiting the expressiveness of the pipeline too much.

@@ -478,7 +478,7 @@ def multilabel_confusion_matrix(
     The `multilabel_confusion_matrix` calculates class-wise or sample-wise
     multilabel confusion matrices, and in multiclass tasks, labels are
     binarized under a one-vs-rest way; while
-    :func:`~sklearn.metrics.confusion_matrix` calculates one confusion matrix
+    :func:`~sklearn_dual.metrics.confusion_matrix` calculates one confusion matrix
     for confusion between every two classes.
 
     Examples
@@ -2922,7 +2922,7 @@ def log_loss(y_true, y_pred, *, normalize=True, sample_weight=None, labels=None)
         the probabilities provided are assumed to be that of the
         positive class. The labels in ``y_pred`` are assumed to be
         ordered alphabetically, as done by
-        :class:`~sklearn.preprocessing.LabelBinarizer`.
+        :class:`~sklearn_dual.preprocessing.LabelBinarizer`.
 
         `y_pred` values are clipped to `[eps, 1-eps]` where `eps` is the machine
         precision for `y_pred`'s dtype.
@@ -3363,7 +3363,7 @@ def d2_log_loss_score(y_true, y_pred, *, sample_weight=None, labels=None):
         the probabilities provided are assumed to be that of the
         positive class. The labels in ``y_pred`` are assumed to be
         ordered alphabetically, as done by
-        :class:`~sklearn.preprocessing.LabelBinarizer`.
+        :class:`~sklearn_dual.preprocessing.LabelBinarizer`.
 
     sample_weight : array-like of shape (n_samples,), default=None
         Sample weights.

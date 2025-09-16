@@ -2,7 +2,7 @@
 ==================================================
 Multilabel classification using a classifier chain
 ==================================================
-This example shows how to use :class:`~sklearn.multioutput.ClassifierChain` to solve
+This example shows how to use :class:`~sklearn_dual.multioutput.ClassifierChain` to solve
 a multilabel classification problem.
 
 The most naive strategy to solve such a task is to independently train a binary
@@ -10,7 +10,7 @@ classifier on each label (i.e. each column of the target variable). At predictio
 time, the ensemble of binary classifiers is used to assemble multitask prediction.
 
 This strategy does not allow to model relationship between different tasks. The
-:class:`~sklearn.multioutput.ClassifierChain` is the meta-estimator (i.e. an estimator
+:class:`~sklearn_dual.multioutput.ClassifierChain` is the meta-estimator (i.e. an estimator
 taking an inner estimator) that implements a more advanced strategy. The ensemble
 of binary classifiers are used as a chain where the prediction of a classifier in the
 chain is used as a feature for training the next classifier on a new label. Therefore,
@@ -48,15 +48,15 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_
 # %%
 # Fit models
 # ----------
-# We fit :class:`~sklearn.linear_model.LogisticRegression` wrapped by
-# :class:`~sklearn.multiclass.OneVsRestClassifier` and ensemble of multiple
-# :class:`~sklearn.multioutput.ClassifierChain`.
+# We fit :class:`~sklearn_dual.linear_model.LogisticRegression` wrapped by
+# :class:`~sklearn_dual.multiclass.OneVsRestClassifier` and ensemble of multiple
+# :class:`~sklearn_dual.multioutput.ClassifierChain`.
 #
 # LogisticRegression wrapped by OneVsRestClassifier
 # **************************************************
-# Since by default :class:`~sklearn.linear_model.LogisticRegression` can't
+# Since by default :class:`~sklearn_dual.linear_model.LogisticRegression` can't
 # handle data with multiple targets, we need to use
-# :class:`~sklearn.multiclass.OneVsRestClassifier`.
+# :class:`~sklearn_dual.multiclass.OneVsRestClassifier`.
 # After fitting the model we calculate Jaccard similarity.
 
 from sklearn_dual.linear_model import LogisticRegression
@@ -142,11 +142,11 @@ plt.show()
 # ----------------------
 # There are three main takeaways from this plot:
 #
-# - Independent model wrapped by :class:`~sklearn.multiclass.OneVsRestClassifier`
+# - Independent model wrapped by :class:`~sklearn_dual.multiclass.OneVsRestClassifier`
 #   performs worse than the ensemble of classifier chains and some of individual chains.
 #   This is caused by the fact that the logistic regression doesn't model relationship
 #   between the labels.
-# - :class:`~sklearn.multioutput.ClassifierChain` takes advantage of correlation
+# - :class:`~sklearn_dual.multioutput.ClassifierChain` takes advantage of correlation
 #   among labels but due to random nature of labels ordering, it could yield worse
 #   result than an independent model.
 # - An ensemble of chains performs better because it not only captures relationship

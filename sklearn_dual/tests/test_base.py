@@ -422,7 +422,7 @@ def test_clone_pandas_dataframe():
 
 
 def test_clone_protocol():
-    """Checks that clone works with `__sklearn_clone__` protocol."""
+    """Checks that clone works with `__sklearn_dual_clone__` protocol."""
 
     class FrozenEstimator(BaseEstimator):
         def __init__(self, fitted_estimator):
@@ -431,7 +431,7 @@ def test_clone_protocol():
         def __getattr__(self, name):
             return getattr(self.fitted_estimator, name)
 
-        def __sklearn_clone__(self):
+        def __sklearn_dual_clone__(self):
             return self
 
         def fit(self, *args, **kwargs):
@@ -469,7 +469,7 @@ def test_pickle_version_warning_is_not_raised_with_matching_version():
     iris = datasets.load_iris()
     tree = DecisionTreeClassifier().fit(iris.data, iris.target)
     tree_pickle = pickle.dumps(tree)
-    assert b"_sklearn_version" in tree_pickle
+    assert b"_sklearn_dual_version" in tree_pickle
 
     with warnings.catch_warnings():
         warnings.simplefilter("error")
@@ -483,7 +483,7 @@ def test_pickle_version_warning_is_not_raised_with_matching_version():
 
 class TreeBadVersion(DecisionTreeClassifier):
     def __getstate__(self):
-        return dict(self.__dict__.items(), _sklearn_version="something")
+        return dict(self.__dict__.items(), _sklearn_dual_version="something")
 
 
 pickle_error_message = (
@@ -502,7 +502,7 @@ def test_pickle_version_warning_is_issued_upon_different_version():
     message = pickle_error_message.format(
         estimator="TreeBadVersion",
         old_version="something",
-        current_version=sklearn.__version__,
+        current_version=sklearn_dual.__version__,
     )
     with pytest.warns(UserWarning, match=message) as warning_record:
         pickle.loads(tree_pickle_other)
@@ -510,8 +510,8 @@ def test_pickle_version_warning_is_issued_upon_different_version():
     message = warning_record.list[0].message
     assert isinstance(message, InconsistentVersionWarning)
     assert message.estimator_name == "TreeBadVersion"
-    assert message.original_sklearn_version == "something"
-    assert message.current_sklearn_version == sklearn.__version__
+    assert message.original_sklearn_dual_version == "something"
+    assert message.current_sklearn_dual_version == sklearn_dual.__version__
 
 
 class TreeNoVersion(DecisionTreeClassifier):
@@ -525,24 +525,24 @@ def test_pickle_version_warning_is_issued_when_no_version_info_in_pickle():
     tree = TreeNoVersion().fit(iris.data, iris.target)
 
     tree_pickle_noversion = pickle.dumps(tree)
-    assert b"_sklearn_version" not in tree_pickle_noversion
+    assert b"_sklearn_dual_version" not in tree_pickle_noversion
     message = pickle_error_message.format(
         estimator="TreeNoVersion",
         old_version="pre-0.18",
-        current_version=sklearn.__version__,
+        current_version=sklearn_dual.__version__,
     )
     # check we got the warning about using pre-0.18 pickle
     with pytest.warns(UserWarning, match=message):
         pickle.loads(tree_pickle_noversion)
 
 
-def test_pickle_version_no_warning_is_issued_with_non_sklearn_estimator():
+def test_pickle_version_no_warning_is_issued_with_non_sklearn_dual_estimator():
     iris = datasets.load_iris()
     tree = TreeNoVersion().fit(iris.data, iris.target)
     tree_pickle_noversion = pickle.dumps(tree)
     try:
         module_backup = TreeNoVersion.__module__
-        TreeNoVersion.__module__ = "notsklearn"
+        TreeNoVersion.__module__ = "notsklearn_dual"
 
         with warnings.catch_warnings():
             warnings.simplefilter("error")
@@ -580,13 +580,13 @@ def test_pickling_when_getstate_is_overwritten_by_mixin():
     assert estimator_restored._restored
 
 
-def test_pickling_when_getstate_is_overwritten_by_mixin_outside_of_sklearn():
+def test_pickling_when_getstate_is_overwritten_by_mixin_outside_of_sklearn_dual():
     try:
         estimator = MultiInheritanceEstimator()
         text = "this attribute should not be pickled"
         estimator._attribute_not_pickled = text
         old_mod = type(estimator).__module__
-        type(estimator).__module__ = "notsklearn"
+        type(estimator).__module__ = "notsklearn_dual"
 
         serialized = estimator.__getstate__()
         assert serialized == {"_attribute_not_pickled": None, "attribute_pickled": 5}
@@ -851,7 +851,7 @@ def test_estimator_empty_instance_dict(estimator):
     ``AttributeError``. Non-regression test for gh-25188.
     """
     state = estimator.__getstate__()
-    expected = {"_sklearn_version": sklearn.__version__}
+    expected = {"_sklearn_dual_version": sklearn_dual.__version__}
     assert state == expected
 
     # this should not raise
@@ -869,7 +869,7 @@ def test_estimator_getstate_using_slots_error_message():
 
     msg = (
         "You cannot use `__slots__` in objects inheriting from "
-        "`sklearn.base.BaseEstimator`"
+        "`sklearn_dual.base.BaseEstimator`"
     )
 
     with pytest.raises(TypeError, match=msg):

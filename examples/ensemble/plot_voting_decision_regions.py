@@ -3,7 +3,7 @@
 Plot the decision boundaries of a VotingClassifier
 ==================================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 Plot the decision boundaries of a :class:`~ensemble.VotingClassifier` for two
 features of the Iris dataset.

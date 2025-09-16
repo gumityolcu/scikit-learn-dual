@@ -3,7 +3,7 @@
 Post pruning decision trees with cost complexity pruning
 ========================================================
 
-.. currentmodule:: sklearn.tree
+.. currentmodule:: sklearn_dual.tree
 
 The :class:`DecisionTreeClassifier` provides parameters such as
 ``min_samples_leaf`` and ``max_depth`` to prevent a tree from overfiting. Cost

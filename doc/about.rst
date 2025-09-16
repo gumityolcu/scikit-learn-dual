@@ -139,7 +139,7 @@ project <1309.0238>`, Buitinck *et al.*, 2013.
 
 Bibtex entry::
 
-  @inproceedings{sklearn_api,
+  @inproceedings{sklearn_dual_api,
     author    = {Lars Buitinck and Gilles Louppe and Mathieu Blondel and
                   Fabian Pedregosa and Andreas Mueller and Olivier Grisel and
                   Vlad Niculae and Peter Prettenhofer and Alexandre Gramfort

@@ -46,12 +46,12 @@ def setup_loading_other_datasets():
     except ImportError:
         raise SkipTest("Skipping loading_other_datasets.rst, pandas not installed")
 
-    # checks SKLEARN_SKIP_NETWORK_TESTS to see if test should run
-    run_network_tests = environ.get("SKLEARN_SKIP_NETWORK_TESTS", "1") == "0"
+    # checks sklearn_dual_SKIP_NETWORK_TESTS to see if test should run
+    run_network_tests = environ.get("sklearn_dual_SKIP_NETWORK_TESTS", "1") == "0"
     if not run_network_tests:
         raise SkipTest(
             "Skipping loading_other_datasets.rst, tests can be "
-            "enabled by setting SKLEARN_SKIP_NETWORK_TESTS=0"
+            "enabled by setting sklearn_dual_SKIP_NETWORK_TESTS=0"
         )
 
 

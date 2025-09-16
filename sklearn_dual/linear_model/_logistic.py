@@ -634,7 +634,7 @@ def _log_reg_scoring_path(
         A string (see :ref:`scoring_parameter`) or
         a scorer callable object / function with signature
         ``scorer(estimator, X, y)``. For a list of scoring functions
-        that can be used, look at :mod:`sklearn.metrics`.
+        that can be used, look at :mod:`sklearn_dual.metrics`.
 
     fit_intercept : bool
         If False, then the bias term is set to zero. Else the last
@@ -931,7 +931,7 @@ class LogisticRegression(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):
         .. note::
            'sag' and 'saga' fast convergence is only guaranteed on features
            with approximately the same scale. You can preprocess the data with
-           a scaler from :mod:`sklearn.preprocessing`.
+           a scaler from :mod:`sklearn_dual.preprocessing`.
 
         .. seealso::
            Refer to the User Guide for more information regarding
@@ -968,7 +968,7 @@ class LogisticRegression(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):
            From then on, the recommended 'multinomial' will always be used for
            `n_classes >= 3`.
            Solvers that do not support 'multinomial' will raise an error.
-           Use `sklearn.multiclass.OneVsRestClassifier(LogisticRegression())` if you
+           Use `sklearn_dual.multiclass.OneVsRestClassifier(LogisticRegression())` if you
            still want to use OvR.
 
     verbose : int, default=0
@@ -1469,7 +1469,7 @@ class LogisticRegressionCV(LogisticRegression, LinearClassifierMixin, BaseEstima
 
     For the grid of `Cs` values and `l1_ratios` values, the best hyperparameter
     is selected by the cross-validator
-    :class:`~sklearn.model_selection.StratifiedKFold`, but it can be changed
+    :class:`~sklearn_dual.model_selection.StratifiedKFold`, but it can be changed
     using the :term:`cv` parameter. The 'newton-cg', 'sag', 'saga' and 'lbfgs'
     solvers can warm-start the coefficients (see :term:`Glossary<warm_start>`).
 
@@ -1491,7 +1491,7 @@ class LogisticRegressionCV(LogisticRegression, LinearClassifierMixin, BaseEstima
     cv : int or cross-validation generator, default=None
         The default cross-validation generator used is Stratified K-Folds.
         If an integer is provided, then it is the number of folds used.
-        See the module :mod:`sklearn.model_selection` module for the
+        See the module :mod:`sklearn_dual.model_selection` module for the
         list of possible cross-validation objects.
 
         .. versionchanged:: 0.22
@@ -1519,7 +1519,7 @@ class LogisticRegressionCV(LogisticRegression, LinearClassifierMixin, BaseEstima
         A string (see :ref:`scoring_parameter`) or
         a scorer callable object / function with signature
         ``scorer(estimator, X, y)``. For a list of scoring functions
-        that can be used, look at :mod:`sklearn.metrics`. The
+        that can be used, look at :mod:`sklearn_dual.metrics`. The
         default scoring option used is 'accuracy'.
 
     solver : {'lbfgs', 'liblinear', 'newton-cg', 'newton-cholesky', 'sag', 'saga'}, \
@@ -1561,7 +1561,7 @@ class LogisticRegressionCV(LogisticRegression, LinearClassifierMixin, BaseEstima
         .. note::
            'sag' and 'saga' fast convergence is only guaranteed on features
            with approximately the same scale. You can preprocess the data with
-           a scaler from :mod:`sklearn.preprocessing`.
+           a scaler from :mod:`sklearn_dual.preprocessing`.
 
         .. versionadded:: 0.17
            Stochastic Average Gradient descent solver.
@@ -1637,7 +1637,7 @@ class LogisticRegressionCV(LogisticRegression, LinearClassifierMixin, BaseEstima
            From then on, the recommended 'multinomial' will always be used for
            `n_classes >= 3`.
            Solvers that do not support 'multinomial' will raise an error.
-           Use `sklearn.multiclass.OneVsRestClassifier(LogisticRegressionCV())` if you
+           Use `sklearn_dual.multiclass.OneVsRestClassifier(LogisticRegressionCV())` if you
            still want to use OvR.
 
     random_state : int, RandomState instance, default=None
@@ -2245,7 +2245,7 @@ class LogisticRegressionCV(LogisticRegression, LinearClassifierMixin, BaseEstima
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
 

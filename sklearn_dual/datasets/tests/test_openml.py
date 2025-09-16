@@ -30,7 +30,7 @@ from sklearn_dual.utils._testing import (
     assert_array_equal,
 )
 
-OPENML_TEST_DATA_MODULE = "sklearn.datasets.tests.data.openml"
+OPENML_TEST_DATA_MODULE = "sklearn_dual.datasets.tests.data.openml"
 # if True, urlopen will be monkey patched to only use local files
 test_offline = True
 
@@ -62,7 +62,7 @@ class _MockHTTPResponse:
 
 
 # Disable the disk-based cache when testing `fetch_openml`:
-# the mock data in sklearn/datasets/tests/data/openml/ is not always consistent
+# the mock data in sklearn_dual/datasets/tests/data/openml/ is not always consistent
 # with the version on openml.org. If one were to load the dataset outside of
 # the tests, it may result in data that does not represent openml.org.
 fetch_openml = partial(fetch_openml_orig, data_home=None)
@@ -184,7 +184,7 @@ def _monkey_patch_webbased_functions(context, data_id, gzip_response):
 
     # XXX: Global variable
     if test_offline:
-        context.setattr(sklearn.datasets._openml, "urlopen", _mock_urlopen)
+        context.setattr(sklearn_dual.datasets._openml, "urlopen", _mock_urlopen)
 
 
 ###############################################################################
@@ -1343,7 +1343,7 @@ def test_open_openml_url_cache(monkeypatch, gzip_response, tmpdir):
     data_id = 61
 
     _monkey_patch_webbased_functions(monkeypatch, data_id, gzip_response)
-    openml_path = sklearn.datasets._openml._DATA_FILE.format(data_id)
+    openml_path = sklearn_dual.datasets._openml._DATA_FILE.format(data_id)
     cache_directory = str(tmpdir.mkdir("scikit_learn_data"))
     # first fill the cache
     response1 = _open_openml_url(openml_path, cache_directory)
@@ -1358,7 +1358,7 @@ def test_open_openml_url_cache(monkeypatch, gzip_response, tmpdir):
 @pytest.mark.parametrize("write_to_disk", [True, False])
 def test_open_openml_url_unlinks_local_path(monkeypatch, tmpdir, write_to_disk):
     data_id = 61
-    openml_path = sklearn.datasets._openml._DATA_FILE.format(data_id)
+    openml_path = sklearn_dual.datasets._openml._DATA_FILE.format(data_id)
     cache_directory = str(tmpdir.mkdir("scikit_learn_data"))
     location = _get_local_path(openml_path, cache_directory)
 
@@ -1368,7 +1368,7 @@ def test_open_openml_url_unlinks_local_path(monkeypatch, tmpdir, write_to_disk):
                 f.write("")
         raise ValueError("Invalid request")
 
-    monkeypatch.setattr(sklearn.datasets._openml, "urlopen", _mock_urlopen)
+    monkeypatch.setattr(sklearn_dual.datasets._openml, "urlopen", _mock_urlopen)
 
     with pytest.raises(ValueError, match="Invalid request"):
         _open_openml_url(openml_path, cache_directory)
@@ -1378,7 +1378,7 @@ def test_open_openml_url_unlinks_local_path(monkeypatch, tmpdir, write_to_disk):
 
 def test_retry_with_clean_cache(tmpdir):
     data_id = 61
-    openml_path = sklearn.datasets._openml._DATA_FILE.format(data_id)
+    openml_path = sklearn_dual.datasets._openml._DATA_FILE.format(data_id)
     cache_directory = str(tmpdir.mkdir("scikit_learn_data"))
     location = _get_local_path(openml_path, cache_directory)
     os.makedirs(os.path.dirname(location))
@@ -1401,7 +1401,7 @@ def test_retry_with_clean_cache(tmpdir):
 
 def test_retry_with_clean_cache_http_error(tmpdir):
     data_id = 61
-    openml_path = sklearn.datasets._openml._DATA_FILE.format(data_id)
+    openml_path = sklearn_dual.datasets._openml._DATA_FILE.format(data_id)
     cache_directory = str(tmpdir.mkdir("scikit_learn_data"))
 
     @_retry_with_clean_cache(openml_path, cache_directory)
@@ -1436,7 +1436,7 @@ def test_fetch_openml_cache(monkeypatch, gzip_response, tmpdir):
         parser="liac-arff",
     )
 
-    monkeypatch.setattr(sklearn.datasets._openml, "urlopen", _mock_urlopen_raise)
+    monkeypatch.setattr(sklearn_dual.datasets._openml, "urlopen", _mock_urlopen_raise)
 
     X_cached, y_cached = fetch_openml(
         data_id=data_id,
@@ -1483,7 +1483,7 @@ def test_fetch_openml_verify_checksum(monkeypatch, as_frame, cache, tmpdir, pars
     # Requests are already mocked by monkey_patch_webbased_functions.
     # We want to reuse that mock for all requests except file download,
     # hence creating a thin mock over the original mock
-    mocked_openml_url = sklearn.datasets._openml.urlopen
+    mocked_openml_url = sklearn_dual.datasets._openml.urlopen
 
     def swap_file_mock(request, *args, **kwargs):
         url = request.get_full_url()
@@ -1494,11 +1494,11 @@ def test_fetch_openml_verify_checksum(monkeypatch, as_frame, cache, tmpdir, pars
         else:
             return mocked_openml_url(request)
 
-    monkeypatch.setattr(sklearn.datasets._openml, "urlopen", swap_file_mock)
+    monkeypatch.setattr(sklearn_dual.datasets._openml, "urlopen", swap_file_mock)
 
     # validate failed checksum
     with pytest.raises(ValueError) as exc:
-        sklearn.datasets.fetch_openml(
+        sklearn_dual.datasets.fetch_openml(
             data_id=data_id, cache=False, as_frame=as_frame, parser=parser
         )
     # exception message should have file-path
@@ -1512,7 +1512,7 @@ def test_open_openml_url_retry_on_network_error(monkeypatch):
         )
 
     monkeypatch.setattr(
-        sklearn.datasets._openml, "urlopen", _mock_urlopen_network_error
+        sklearn_dual.datasets._openml, "urlopen", _mock_urlopen_network_error
     )
 
     invalid_openml_url = "invalid-url"
@@ -1545,7 +1545,7 @@ def test_fetch_openml_with_ignored_feature(monkeypatch, gzip_response, parser):
     data_id = 62
     _monkey_patch_webbased_functions(monkeypatch, data_id, gzip_response)
 
-    dataset = sklearn.datasets.fetch_openml(
+    dataset = sklearn_dual.datasets.fetch_openml(
         data_id=data_id, cache=False, as_frame=False, parser=parser
     )
     assert dataset is not None

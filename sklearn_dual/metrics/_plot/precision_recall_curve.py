@@ -11,9 +11,9 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
     """Precision Recall visualization.
 
     It is recommend to use
-    :func:`~sklearn.metrics.PrecisionRecallDisplay.from_estimator` or
-    :func:`~sklearn.metrics.PrecisionRecallDisplay.from_predictions` to create
-    a :class:`~sklearn.metrics.PrecisionRecallDisplay`. All parameters are
+    :func:`~sklearn_dual.metrics.PrecisionRecallDisplay.from_estimator` or
+    :func:`~sklearn_dual.metrics.PrecisionRecallDisplay.from_predictions` to create
+    a :class:`~sklearn_dual.metrics.PrecisionRecallDisplay`. All parameters are
     stored as attributes.
 
     Read more in the :ref:`User Guide <visualizations>`.
@@ -72,7 +72,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
 
     Notes
     -----
-    The average precision (cf. :func:`~sklearn.metrics.average_precision_score`) in
+    The average precision (cf. :func:`~sklearn_dual.metrics.average_precision_score`) in
     scikit-learn is computed without any interpolation. To be consistent with
     this metric, the precision-recall curve is plotted without any
     interpolation as well (step-wise style).
@@ -162,12 +162,12 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
 
         Returns
         -------
-        display : :class:`~sklearn.metrics.PrecisionRecallDisplay`
+        display : :class:`~sklearn_dual.metrics.PrecisionRecallDisplay`
             Object that stores computed values.
 
         Notes
         -----
-        The average precision (cf. :func:`~sklearn.metrics.average_precision_score`)
+        The average precision (cf. :func:`~sklearn_dual.metrics.average_precision_score`)
         in scikit-learn is computed without any interpolation. To be consistent
         with this metric, the precision-recall curve is plotted without any
         interpolation as well (step-wise style).
@@ -257,7 +257,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
         Parameters
         ----------
         estimator : estimator instance
-            Fitted classifier or a fitted :class:`~sklearn.pipeline.Pipeline`
+            Fitted classifier or a fitted :class:`~sklearn_dual.pipeline.Pipeline`
             in which the last estimator is a classifier.
 
         X : {array-like, sparse matrix} of shape (n_samples, n_features)
@@ -312,7 +312,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
 
         Returns
         -------
-        display : :class:`~sklearn.metrics.PrecisionRecallDisplay`
+        display : :class:`~sklearn_dual.metrics.PrecisionRecallDisplay`
 
         See Also
         --------
@@ -321,7 +321,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
 
         Notes
         -----
-        The average precision (cf. :func:`~sklearn.metrics.average_precision_score`)
+        The average precision (cf. :func:`~sklearn_dual.metrics.average_precision_score`)
         in scikit-learn is computed without any interpolation. To be consistent
         with this metric, the precision-recall curve is plotted without any
         interpolation as well (step-wise style).
@@ -434,7 +434,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
 
         Returns
         -------
-        display : :class:`~sklearn.metrics.PrecisionRecallDisplay`
+        display : :class:`~sklearn_dual.metrics.PrecisionRecallDisplay`
 
         See Also
         --------
@@ -443,7 +443,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
 
         Notes
         -----
-        The average precision (cf. :func:`~sklearn.metrics.average_precision_score`)
+        The average precision (cf. :func:`~sklearn_dual.metrics.average_precision_score`)
         in scikit-learn is computed without any interpolation. To be consistent
         with this metric, the precision-recall curve is plotted without any
         interpolation as well (step-wise style).

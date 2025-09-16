@@ -21,8 +21,8 @@ def _get_guide(*refs, is_developer=False):
 def _get_submodule(module_name, submodule_name):
     """Get the submodule docstring and automatically add the hook.
 
-    `module_name` is e.g. `sklearn.feature_extraction`, and `submodule_name` is e.g.
-    `image`, so we get the docstring and hook for `sklearn.feature_extraction.image`
+    `module_name` is e.g. `sklearn_dual.feature_extraction`, and `submodule_name` is e.g.
+    `image`, so we get the docstring and hook for `sklearn_dual.feature_extraction.image`
     submodule. `module_name` is used to reset the current module because autosummary
     automatically changes the current module.
     """
@@ -76,17 +76,17 @@ Essentially, the rendered page would look like the following:
 |---------------------------------------------------------------------------------|
 
 Hooks will be automatically generated for each module and each section. For a module,
-e.g., `sklearn.feature_extraction`, the hook would be `feature_extraction_ref`; for a
-section, e.g., "From text" under `sklearn.feature_extraction`, the hook would be
+e.g., `sklearn_dual.feature_extraction`, the hook would be `feature_extraction_ref`; for a
+section, e.g., "From text" under `sklearn_dual.feature_extraction`, the hook would be
 `feature_extraction_ref-from-text`. However, note that a better way is to refer using
-the :mod: directive, e.g., :mod:`sklearn.feature_extraction` for the module and
-:mod:`sklearn.feature_extraction.text` for the section. Only in case that a section
+the :mod: directive, e.g., :mod:`sklearn_dual.feature_extraction` for the module and
+:mod:`sklearn_dual.feature_extraction.text` for the section. Only in case that a section
 is not a particular submodule does the hook become useful, e.g., the "Loaders" section
-under `sklearn.datasets`.
+under `sklearn_dual.datasets`.
 """
 
 API_REFERENCE = {
-    "sklearn": {
+    "sklearn_dual": {
         "short_summary": "Settings and information tools.",
         "description": None,
         "sections": [
@@ -101,7 +101,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.base": {
+    "sklearn_dual.base": {
         "short_summary": "Base classes and utility functions.",
         "description": None,
         "sections": [
@@ -127,7 +127,7 @@ API_REFERENCE = {
             }
         ],
     },
-    "sklearn.calibration": {
+    "sklearn_dual.calibration": {
         "short_summary": "Probability calibration.",
         "description": _get_guide("calibration"),
         "sections": [
@@ -141,7 +141,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.cluster": {
+    "sklearn_dual.cluster": {
         "short_summary": "Clustering.",
         "description": _get_guide("clustering", "biclustering"),
         "sections": [
@@ -177,7 +177,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.compose": {
+    "sklearn_dual.compose": {
         "short_summary": "Composite estimators.",
         "description": _get_guide("combining_estimators"),
         "sections": [
@@ -192,7 +192,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.covariance": {
+    "sklearn_dual.covariance": {
         "short_summary": "Covariance estimation.",
         "description": _get_guide("covariance"),
         "sections": [
@@ -217,7 +217,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.cross_decomposition": {
+    "sklearn_dual.cross_decomposition": {
         "short_summary": "Cross decomposition.",
         "description": _get_guide("cross_decomposition"),
         "sections": [
@@ -227,7 +227,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.datasets": {
+    "sklearn_dual.datasets": {
         "short_summary": "Datasets.",
         "description": _get_guide("datasets"),
         "sections": [
@@ -288,7 +288,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.decomposition": {
+    "sklearn_dual.decomposition": {
         "short_summary": "Matrix decomposition.",
         "description": _get_guide("decompositions"),
         "sections": [
@@ -318,7 +318,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.discriminant_analysis": {
+    "sklearn_dual.discriminant_analysis": {
         "short_summary": "Discriminant analysis.",
         "description": _get_guide("lda_qda"),
         "sections": [
@@ -331,7 +331,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.dummy": {
+    "sklearn_dual.dummy": {
         "short_summary": "Dummy estimators.",
         "description": _get_guide("model_evaluation"),
         "sections": [
@@ -341,7 +341,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.ensemble": {
+    "sklearn_dual.ensemble": {
         "short_summary": "Ensemble methods.",
         "description": _get_guide("ensemble"),
         "sections": [
@@ -370,7 +370,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.exceptions": {
+    "sklearn_dual.exceptions": {
         "short_summary": "Exceptions and warnings.",
         "description": None,
         "sections": [
@@ -389,7 +389,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.experimental": {
+    "sklearn_dual.experimental": {
         "short_summary": "Experimental tools.",
         "description": None,
         "sections": [
@@ -399,7 +399,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.feature_extraction": {
+    "sklearn_dual.feature_extraction": {
         "short_summary": "Feature extraction.",
         "description": _get_guide("feature_extraction"),
         "sections": [
@@ -409,7 +409,7 @@ API_REFERENCE = {
             },
             {
                 "title": "From images",
-                "description": _get_submodule("sklearn.feature_extraction", "image"),
+                "description": _get_submodule("sklearn_dual.feature_extraction", "image"),
                 "autosummary": [
                     "image.PatchExtractor",
                     "image.extract_patches_2d",
@@ -420,7 +420,7 @@ API_REFERENCE = {
             },
             {
                 "title": "From text",
-                "description": _get_submodule("sklearn.feature_extraction", "text"),
+                "description": _get_submodule("sklearn_dual.feature_extraction", "text"),
                 "autosummary": [
                     "text.CountVectorizer",
                     "text.HashingVectorizer",
@@ -430,7 +430,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.feature_selection": {
+    "sklearn_dual.feature_selection": {
         "short_summary": "Feature selection.",
         "description": _get_guide("feature_selection"),
         "sections": [
@@ -459,7 +459,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.gaussian_process": {
+    "sklearn_dual.gaussian_process": {
         "short_summary": "Gaussian processes.",
         "description": _get_guide("gaussian_process"),
         "sections": [
@@ -472,7 +472,7 @@ API_REFERENCE = {
             },
             {
                 "title": "Kernels",
-                "description": _get_submodule("sklearn.gaussian_process", "kernels"),
+                "description": _get_submodule("sklearn_dual.gaussian_process", "kernels"),
                 "autosummary": [
                     "kernels.CompoundKernel",
                     "kernels.ConstantKernel",
@@ -492,7 +492,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.impute": {
+    "sklearn_dual.impute": {
         "short_summary": "Imputation.",
         "description": _get_guide("impute"),
         "sections": [
@@ -507,7 +507,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.inspection": {
+    "sklearn_dual.inspection": {
         "short_summary": "Inspection.",
         "description": _get_guide("inspection"),
         "sections": [
@@ -521,7 +521,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.isotonic": {
+    "sklearn_dual.isotonic": {
         "short_summary": "Isotonic regression.",
         "description": _get_guide("isotonic"),
         "sections": [
@@ -535,7 +535,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.kernel_approximation": {
+    "sklearn_dual.kernel_approximation": {
         "short_summary": "Isotonic regression.",
         "description": _get_guide("kernel_approximation"),
         "sections": [
@@ -551,7 +551,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.kernel_ridge": {
+    "sklearn_dual.kernel_ridge": {
         "short_summary": "Kernel ridge regression.",
         "description": _get_guide("kernel_ridge"),
         "sections": [
@@ -561,7 +561,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.linear_model": {
+    "sklearn_dual.linear_model": {
         "short_summary": "Generalized linear models.",
         "description": (
             _get_guide("linear_model")
@@ -593,7 +593,7 @@ API_REFERENCE = {
                     "procedures, but any estimator using a L1 or elastic-net penalty "
                     "also performs variable selection: typically "
                     ":class:`~linear_model.SGDRegressor` or "
-                    ":class:`~sklearn.linear_model.SGDClassifier` with an appropriate "
+                    ":class:`~sklearn_dual.linear_model.SGDClassifier` with an appropriate "
                     "penalty."
                 ),
                 "autosummary": [
@@ -671,7 +671,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.manifold": {
+    "sklearn_dual.manifold": {
         "short_summary": "Manifold learning.",
         "description": _get_guide("manifold"),
         "sections": [
@@ -691,7 +691,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.metrics": {
+    "sklearn_dual.metrics": {
         "short_summary": "Metrics.",
         "description": _get_guide("model_evaluation", "metrics"),
         "sections": [
@@ -775,7 +775,7 @@ API_REFERENCE = {
             {
                 "title": "Clustering metrics",
                 "description": (
-                    _get_submodule("sklearn.metrics", "cluster")
+                    _get_submodule("sklearn_dual.metrics", "cluster")
                     + "\n\n"
                     + _get_guide("clustering_evaluation")
                 ),
@@ -810,7 +810,7 @@ API_REFERENCE = {
             {
                 "title": "Pairwise metrics",
                 "description": (
-                    _get_submodule("sklearn.metrics", "pairwise")
+                    _get_submodule("sklearn_dual.metrics", "pairwise")
                     + "\n\n"
                     + _get_guide("metrics")
                 ),
@@ -854,7 +854,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.mixture": {
+    "sklearn_dual.mixture": {
         "short_summary": "Gaussian mixture models.",
         "description": _get_guide("mixture"),
         "sections": [
@@ -864,7 +864,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.model_selection": {
+    "sklearn_dual.model_selection": {
         "short_summary": "Model selection.",
         "description": _get_guide("cross_validation", "grid_search", "learning_curve"),
         "sections": [
@@ -925,7 +925,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.multiclass": {
+    "sklearn_dual.multiclass": {
         "short_summary": "Multiclass classification.",
         "description": _get_guide("multiclass_classification"),
         "sections": [
@@ -939,7 +939,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.multioutput": {
+    "sklearn_dual.multioutput": {
         "short_summary": "Multioutput regression and classification.",
         "description": _get_guide(
             "multilabel_classification",
@@ -958,7 +958,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.naive_bayes": {
+    "sklearn_dual.naive_bayes": {
         "short_summary": "Naive Bayes.",
         "description": _get_guide("naive_bayes"),
         "sections": [
@@ -974,7 +974,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.neighbors": {
+    "sklearn_dual.neighbors": {
         "short_summary": "Nearest neighbors.",
         "description": _get_guide("neighbors"),
         "sections": [
@@ -1001,7 +1001,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.neural_network": {
+    "sklearn_dual.neural_network": {
         "short_summary": "Neural network models.",
         "description": _get_guide(
             "neural_networks_supervised", "neural_networks_unsupervised"
@@ -1013,7 +1013,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.pipeline": {
+    "sklearn_dual.pipeline": {
         "short_summary": "Pipeline.",
         "description": _get_guide("combining_estimators"),
         "sections": [
@@ -1028,7 +1028,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.preprocessing": {
+    "sklearn_dual.preprocessing": {
         "short_summary": "Preprocessing and normalization.",
         "description": _get_guide("preprocessing"),
         "sections": [
@@ -1068,7 +1068,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.random_projection": {
+    "sklearn_dual.random_projection": {
         "short_summary": "Random projection.",
         "description": _get_guide("random_projection"),
         "sections": [
@@ -1082,7 +1082,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.semi_supervised": {
+    "sklearn_dual.semi_supervised": {
         "short_summary": "Semi-supervised learning.",
         "description": _get_guide("semi_supervised"),
         "sections": [
@@ -1096,7 +1096,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.svm": {
+    "sklearn_dual.svm": {
         "short_summary": "Support vector machines.",
         "description": _get_guide("svm"),
         "sections": [
@@ -1115,7 +1115,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.tree": {
+    "sklearn_dual.tree": {
         "short_summary": "Decision trees.",
         "description": _get_guide("tree"),
         "sections": [
@@ -1138,7 +1138,7 @@ API_REFERENCE = {
             },
         ],
     },
-    "sklearn.utils": {
+    "sklearn_dual.utils": {
         "short_summary": "Utilities.",
         "description": _get_guide("developers-utils", is_developer=True),
         "sections": [
@@ -1163,7 +1163,7 @@ API_REFERENCE = {
             },
             {
                 "title": "Input and parameter validation",
-                "description": _get_submodule("sklearn.utils", "validation"),
+                "description": _get_submodule("sklearn_dual.utils", "validation"),
                 "autosummary": [
                     "check_X_y",
                     "check_array",
@@ -1179,12 +1179,12 @@ API_REFERENCE = {
             },
             {
                 "title": "Meta-estimators",
-                "description": _get_submodule("sklearn.utils", "metaestimators"),
+                "description": _get_submodule("sklearn_dual.utils", "metaestimators"),
                 "autosummary": ["metaestimators.available_if"],
             },
             {
                 "title": "Weight handling based on class labels",
-                "description": _get_submodule("sklearn.utils", "class_weight"),
+                "description": _get_submodule("sklearn_dual.utils", "class_weight"),
                 "autosummary": [
                     "class_weight.compute_class_weight",
                     "class_weight.compute_sample_weight",
@@ -1192,7 +1192,7 @@ API_REFERENCE = {
             },
             {
                 "title": "Dealing with multiclass target in classifiers",
-                "description": _get_submodule("sklearn.utils", "multiclass"),
+                "description": _get_submodule("sklearn_dual.utils", "multiclass"),
                 "autosummary": [
                     "multiclass.is_multilabel",
                     "multiclass.type_of_target",
@@ -1201,7 +1201,7 @@ API_REFERENCE = {
             },
             {
                 "title": "Optimal mathematical operations",
-                "description": _get_submodule("sklearn.utils", "extmath"),
+                "description": _get_submodule("sklearn_dual.utils", "extmath"),
                 "autosummary": [
                     "extmath.density",
                     "extmath.fast_logdet",
@@ -1213,7 +1213,7 @@ API_REFERENCE = {
             },
             {
                 "title": "Working with sparse matrices and arrays",
-                "description": _get_submodule("sklearn.utils", "sparsefuncs"),
+                "description": _get_submodule("sklearn_dual.utils", "sparsefuncs"),
                 "autosummary": [
                     "sparsefuncs.incr_mean_variance_axis",
                     "sparsefuncs.inplace_column_scale",
@@ -1226,7 +1226,7 @@ API_REFERENCE = {
             },
             {
                 "title": None,
-                "description": _get_submodule("sklearn.utils", "sparsefuncs_fast"),
+                "description": _get_submodule("sklearn_dual.utils", "sparsefuncs_fast"),
                 "autosummary": [
                     "sparsefuncs_fast.inplace_csr_row_normalize_l1",
                     "sparsefuncs_fast.inplace_csr_row_normalize_l2",
@@ -1234,23 +1234,23 @@ API_REFERENCE = {
             },
             {
                 "title": "Working with graphs",
-                "description": _get_submodule("sklearn.utils", "graph"),
+                "description": _get_submodule("sklearn_dual.utils", "graph"),
                 "autosummary": ["graph.single_source_shortest_path_length"],
             },
             {
                 "title": "Random sampling",
-                "description": _get_submodule("sklearn.utils", "random"),
+                "description": _get_submodule("sklearn_dual.utils", "random"),
                 "autosummary": ["random.sample_without_replacement"],
             },
             {
                 "title": "Auxiliary functions that operate on arrays",
-                "description": _get_submodule("sklearn.utils", "arrayfuncs"),
+                "description": _get_submodule("sklearn_dual.utils", "arrayfuncs"),
                 "autosummary": ["arrayfuncs.min_pos"],
             },
             {
                 "title": "Metadata routing",
                 "description": (
-                    _get_submodule("sklearn.utils", "metadata_routing")
+                    _get_submodule("sklearn_dual.utils", "metadata_routing")
                     + "\n\n"
                     + _get_guide("metadata_routing")
                 ),
@@ -1264,7 +1264,7 @@ API_REFERENCE = {
             },
             {
                 "title": "Discovering scikit-learn objects",
-                "description": _get_submodule("sklearn.utils", "discovery"),
+                "description": _get_submodule("sklearn_dual.utils", "discovery"),
                 "autosummary": [
                     "discovery.all_displays",
                     "discovery.all_estimators",
@@ -1273,7 +1273,7 @@ API_REFERENCE = {
             },
             {
                 "title": "API compatibility checkers",
-                "description": _get_submodule("sklearn.utils", "estimator_checks"),
+                "description": _get_submodule("sklearn_dual.utils", "estimator_checks"),
                 "autosummary": [
                     "estimator_checks.check_estimator",
                     "estimator_checks.parametrize_with_checks",
@@ -1281,7 +1281,7 @@ API_REFERENCE = {
             },
             {
                 "title": "Parallel computing",
-                "description": _get_submodule("sklearn.utils", "parallel"),
+                "description": _get_submodule("sklearn_dual.utils", "parallel"),
                 "autosummary": [
                     "parallel.Parallel",
                     "parallel.delayed",
@@ -1313,8 +1313,8 @@ following:
 |     More versions...                     |
 |------------------------------------------|
 
-Note that the autosummary here assumes that the current module is `sklearn`, i.e., if
-`sklearn.utils.Memory` is deprecated, one should put `utils.Memory` in the "entries"
+Note that the autosummary here assumes that the current module is `sklearn_dual`, i.e., if
+`sklearn_dual.utils.Memory` is deprecated, one should put `utils.Memory` in the "entries"
 slot of the autosummary block.
 
 Example:

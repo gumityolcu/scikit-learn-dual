@@ -1,5 +1,5 @@
 """
-General tests for all estimators in sklearn.
+General tests for all estimators in sklearn_dual.
 """
 
 # Authors: The scikit-learn developers
@@ -201,18 +201,18 @@ def test_class_weight_balanced_linear_classifiers(name, Classifier):
     "enable_hist_gradient_boosting anymore"
 )
 def test_import_all_consistency():
-    sklearn_path = [os.path.dirname(sklearn.__file__)]
+    sklearn_dual_path = [os.path.dirname(sklearn_dual.__file__)]
     # Smoke test to check that any name in a __all__ list is actually defined
     # in the namespace of the module or package.
     pkgs = pkgutil.walk_packages(
-        path=sklearn_path, prefix="sklearn.", onerror=lambda _: None
+        path=sklearn_dual_path, prefix="sklearn_dual.", onerror=lambda _: None
     )
     submods = [modname for _, modname, _ in pkgs]
-    for modname in submods + ["sklearn"]:
+    for modname in submods + ["sklearn_dual"]:
         if ".tests." in modname:
             continue
         # Avoid test suite depending on build dependencies, for example Cython
-        if "sklearn._build_utils" in modname:
+        if "sklearn_dual._build_utils" in modname:
             continue
         package = __import__(modname, fromlist="dummy")
         for name in getattr(package, "__all__", ()):
@@ -222,14 +222,14 @@ def test_import_all_consistency():
 
 
 def test_root_import_all_completeness():
-    sklearn_path = [os.path.dirname(sklearn.__file__)]
+    sklearn_dual_path = [os.path.dirname(sklearn_dual.__file__)]
     EXCEPTIONS = ("utils", "tests", "base", "conftest")
     for _, modname, _ in pkgutil.walk_packages(
-        path=sklearn_path, onerror=lambda _: None
+        path=sklearn_dual_path, onerror=lambda _: None
     ):
         if "." in modname or modname.startswith("_") or modname in EXCEPTIONS:
             continue
-        assert modname in sklearn.__all__
+        assert modname in sklearn_dual.__all__
 
 
 def test_all_tests_are_importable():
@@ -244,14 +244,14 @@ def test_all_tests_are_importable():
                                       """
     )
     resource_modules = {
-        "sklearn.datasets.data",
-        "sklearn.datasets.descr",
-        "sklearn.datasets.images",
+        "sklearn_dual.datasets.data",
+        "sklearn_dual.datasets.descr",
+        "sklearn_dual.datasets.images",
     }
-    sklearn_path = [os.path.dirname(sklearn.__file__)]
+    sklearn_dual_path = [os.path.dirname(sklearn_dual.__file__)]
     lookup = {
         name: ispkg
-        for _, name, ispkg in pkgutil.walk_packages(sklearn_path, prefix="sklearn.")
+        for _, name, ispkg in pkgutil.walk_packages(sklearn_dual_path, prefix="sklearn_dual.")
     }
     missing_tests = [
         name

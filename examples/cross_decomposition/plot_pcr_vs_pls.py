@@ -12,10 +12,10 @@ target is strongly correlated with some directions in the data that have a
 low variance.
 
 PCR is a regressor composed of two steps: first,
-:class:`~sklearn.decomposition.PCA` is applied to the training data, possibly
+:class:`~sklearn_dual.decomposition.PCA` is applied to the training data, possibly
 performing dimensionality reduction; then, a regressor (e.g. a linear
 regressor) is trained on the transformed samples. In
-:class:`~sklearn.decomposition.PCA`, the transformation is purely
+:class:`~sklearn_dual.decomposition.PCA`, the transformation is purely
 unsupervised, meaning that no information about the targets is used. As a
 result, PCR may perform poorly in some datasets where the target is strongly
 correlated with *directions* that have low variance. Indeed, the

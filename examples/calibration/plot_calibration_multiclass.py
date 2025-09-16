@@ -48,7 +48,7 @@ X_test, y_test = X[1000:], y[1000:]
 # Fitting and calibration
 # -----------------------
 #
-# First, we will train a :class:`~sklearn.ensemble.RandomForestClassifier`
+# First, we will train a :class:`~sklearn_dual.ensemble.RandomForestClassifier`
 # with 25 base estimators (trees) on the concatenated train and validation
 # data (1000 samples). This is the uncalibrated classifier.
 
@@ -59,7 +59,7 @@ clf.fit(X_train_valid, y_train_valid)
 
 # %%
 # To train the calibrated classifier, we start with the same
-# :class:`~sklearn.ensemble.RandomForestClassifier` but train it using only
+# :class:`~sklearn_dual.ensemble.RandomForestClassifier` but train it using only
 # the train data subset (600 samples) then calibrate, with `method='sigmoid'`,
 # using the valid data subset (400 samples) in a 2-stage process.
 
@@ -206,7 +206,7 @@ _ = plt.legend(loc="best")
 # the uncalibrated and calibrated classifiers on the predictions of the 1000
 # test samples. Note that an alternative would have been to increase the number
 # of base estimators (trees) of the
-# :class:`~sklearn.ensemble.RandomForestClassifier` which would have resulted
+# :class:`~sklearn_dual.ensemble.RandomForestClassifier` which would have resulted
 # in a similar decrease in :ref:`log loss <log_loss>`.
 
 from sklearn_dual.metrics import log_loss

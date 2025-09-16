@@ -1,4 +1,4 @@
-.. currentmodule:: sklearn.model_selection
+.. currentmodule:: sklearn_dual.model_selection
 
 .. _TunedThresholdClassifierCV:
 
@@ -31,8 +31,8 @@ decision score is greater than 0 (obtained with :term:`decision_function`).
 Here, we show an example that illustrates the relation between conditional
 probability estimates :math:`P(y|X)` and class labels::
 
-    >>> from sklearn.datasets import make_classification
-    >>> from sklearn.tree import DecisionTreeClassifier
+    >>> from sklearn_dual.datasets import make_classification
+    >>> from sklearn_dual.tree import DecisionTreeClassifier
     >>> X, y = make_classification(random_state=0)
     >>> classifier = DecisionTreeClassifier(max_depth=2, random_state=0).fit(X, y)
     >>> classifier.predict_proba(X[:4])
@@ -63,7 +63,7 @@ Post-tuning the decision threshold
 
 One solution to address the problem stated in the introduction is to tune the decision
 threshold of the classifier once the model has been trained. The
-:class:`~sklearn.model_selection.TunedThresholdClassifierCV` tunes this threshold using
+:class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` tunes this threshold using
 an internal cross-validation. The optimum threshold is chosen to maximize a given
 metric.
 
@@ -87,7 +87,7 @@ The decision threshold can be tuned through different strategies controlled by t
 parameter `scoring`.
 
 One way to tune the threshold is by maximizing a pre-defined scikit-learn metric. These
-metrics can be found by calling the function :func:`~sklearn.metrics.get_scorer_names`.
+metrics can be found by calling the function :func:`~sklearn_dual.metrics.get_scorer_names`.
 By default, the balanced accuracy is the metric used but be aware that one should choose
 a meaningful metric for their use case.
 
@@ -97,14 +97,14 @@ a meaningful metric for their use case.
     the label of the class of interest (i.e. `pos_label`). Thus, if this label is not
     the right one for your application, you need to define a scorer and pass the right
     `pos_label` (and additional parameters) using the
-    :func:`~sklearn.metrics.make_scorer`. Refer to :ref:`scoring` to get
+    :func:`~sklearn_dual.metrics.make_scorer`. Refer to :ref:`scoring` to get
     information to define your own scoring function. For instance, we show how to pass
     the information to the scorer that the label of interest is `0` when maximizing the
-    :func:`~sklearn.metrics.f1_score`::
+    :func:`~sklearn_dual.metrics.f1_score`::
 
-        >>> from sklearn.linear_model import LogisticRegression
-        >>> from sklearn.model_selection import TunedThresholdClassifierCV
-        >>> from sklearn.metrics import make_scorer, f1_score
+        >>> from sklearn_dual.linear_model import LogisticRegression
+        >>> from sklearn_dual.model_selection import TunedThresholdClassifierCV
+        >>> from sklearn_dual.metrics import make_scorer, f1_score
         >>> X, y = make_classification(
         ...   n_samples=1_000, weights=[0.1, 0.9], random_state=0)
         >>> pos_label = 0
@@ -120,7 +120,7 @@ a meaningful metric for their use case.
 Important notes regarding the internal cross-validation
 -------------------------------------------------------
 
-By default :class:`~sklearn.model_selection.TunedThresholdClassifierCV` uses a 5-fold
+By default :class:`~sklearn_dual.model_selection.TunedThresholdClassifierCV` uses a 5-fold
 stratified cross-validation to tune the decision threshold. The parameter `cv` allows to
 control the cross-validation strategy. It is possible to bypass cross-validation by
 setting `cv="prefit"` and providing a fitted classifier. In this case, the decision
@@ -143,7 +143,7 @@ Manually setting the decision threshold
 
 The previous sections discussed strategies to find an optimal decision threshold. It is
 also possible to manually set the decision threshold using the class
-:class:`~sklearn.model_selection.FixedThresholdClassifier`. In case that you don't want
+:class:`~sklearn_dual.model_selection.FixedThresholdClassifier`. In case that you don't want
 to refit the model when calling `fit`, you can set the parameter `prefit=True`.
 
 Examples

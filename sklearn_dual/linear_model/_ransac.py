@@ -105,7 +105,7 @@ class RANSACRegressor(
            which is used to compute residual error using loss function.
 
         If `estimator` is None, then
-        :class:`~sklearn.linear_model.LinearRegression` is used for
+        :class:`~sklearn_dual.linear_model.LinearRegression` is used for
         target values of dtype float.
 
         Note that the current implementation only supports regression
@@ -117,10 +117,10 @@ class RANSACRegressor(
         relative number `ceil(min_samples * X.shape[0])` for
         `min_samples < 1`. This is typically chosen as the minimal number of
         samples necessary to estimate the given `estimator`. By default a
-        :class:`~sklearn.linear_model.LinearRegression` estimator is assumed and
+        :class:`~sklearn_dual.linear_model.LinearRegression` estimator is assumed and
         `min_samples` is chosen as ``X.shape[1] + 1``. This parameter is highly
         dependent upon the model, so if a `estimator` other than
-        :class:`~sklearn.linear_model.LinearRegression` is used, the user must
+        :class:`~sklearn_dual.linear_model.LinearRegression` is used, the user must
         provide a value.
 
     residual_threshold : float, default=None
@@ -343,7 +343,7 @@ class RANSACRegressor(
             .. versionadded:: 1.5
 
                 Only available if
-                `sklearn.set_config(enable_metadata_routing=True)` is set. See
+                `sklearn_dual.set_config(enable_metadata_routing=True)` is set. See
                 :ref:`Metadata Routing User Guide <metadata_routing>` for more
                 details.
 
@@ -618,7 +618,7 @@ class RANSACRegressor(
             .. versionadded:: 1.5
 
                 Only available if
-                `sklearn.set_config(enable_metadata_routing=True)` is set. See
+                `sklearn_dual.set_config(enable_metadata_routing=True)` is set. See
                 :ref:`Metadata Routing User Guide <metadata_routing>` for more
                 details.
 
@@ -666,7 +666,7 @@ class RANSACRegressor(
             .. versionadded:: 1.5
 
                 Only available if
-                `sklearn.set_config(enable_metadata_routing=True)` is set. See
+                `sklearn_dual.set_config(enable_metadata_routing=True)` is set. See
                 :ref:`Metadata Routing User Guide <metadata_routing>` for more
                 details.
 
@@ -702,7 +702,7 @@ class RANSACRegressor(
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__).add(

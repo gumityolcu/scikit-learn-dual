@@ -36,7 +36,7 @@ svc.fit(X_train, y_train)
 # Plotting the ROC Curve
 # ----------------------
 # Next, we plot the ROC curve with a single call to
-# :func:`sklearn.metrics.RocCurveDisplay.from_estimator`. The returned
+# :func:`sklearn_dual.metrics.RocCurveDisplay.from_estimator`. The returned
 # `svc_disp` object allows us to continue using the already computed ROC curve
 # for the SVC in future plots.
 svc_disp = RocCurveDisplay.from_estimator(svc, X_test, y_test)
@@ -47,7 +47,7 @@ plt.show()
 # ---------------------------------------------------
 # We train a random forest classifier and create a plot comparing it to the SVC
 # ROC curve. Notice how `svc_disp` uses
-# :func:`~sklearn.metrics.RocCurveDisplay.plot` to plot the SVC ROC curve
+# :func:`~sklearn_dual.metrics.RocCurveDisplay.plot` to plot the SVC ROC curve
 # without recomputing the values of the roc curve itself. Furthermore, we
 # pass `alpha=0.8` to the plot functions to adjust the alpha values of the
 # curves.

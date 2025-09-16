@@ -33,19 +33,19 @@ def test_configuration_passes_through_to_joblib(n_jobs, backend):
 
 
 def test_parallel_delayed_warnings():
-    """Informative warnings should be raised when mixing sklearn and joblib API"""
-    # We should issue a warning when one wants to use sklearn.utils.fixes.Parallel
+    """Informative warnings should be raised when mixing sklearn_dual and joblib API"""
+    # We should issue a warning when one wants to use sklearn_dual.utils.fixes.Parallel
     # with joblib.delayed. The config will not be propagated to the workers.
-    warn_msg = "`sklearn.utils.parallel.Parallel` needs to be used in conjunction"
+    warn_msg = "`sklearn_dual.utils.parallel.Parallel` needs to be used in conjunction"
     with pytest.warns(UserWarning, match=warn_msg) as records:
         Parallel()(joblib.delayed(time.sleep)(0) for _ in range(10))
     assert len(records) == 10
 
-    # We should issue a warning if one wants to use sklearn.utils.fixes.delayed with
+    # We should issue a warning if one wants to use sklearn_dual.utils.fixes.delayed with
     # joblib.Parallel
     warn_msg = (
-        "`sklearn.utils.parallel.delayed` should be used with "
-        "`sklearn.utils.parallel.Parallel` to make it possible to propagate"
+        "`sklearn_dual.utils.parallel.delayed` should be used with "
+        "`sklearn_dual.utils.parallel.Parallel` to make it possible to propagate"
     )
     with pytest.warns(UserWarning, match=warn_msg) as records:
         joblib.Parallel()(delayed(time.sleep)(0) for _ in range(10))

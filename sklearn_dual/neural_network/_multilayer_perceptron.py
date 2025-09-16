@@ -1487,7 +1487,7 @@ class MLPRegressor(RegressorMixin, BaseMultilayerPerceptron):
     --------
     BernoulliRBM : Bernoulli Restricted Boltzmann Machine (RBM).
     MLPClassifier : Multi-layer Perceptron classifier.
-    sklearn.linear_model.SGDRegressor : Linear model fitted by minimizing
+    sklearn_dual.linear_model.SGDRegressor : Linear model fitted by minimizing
         a regularized empirical loss with SGD.
 
     Notes

@@ -4,9 +4,9 @@ Permutation Importance vs Random Forest Feature Importance (MDI)
 ================================================================
 
 In this example, we will compare the impurity-based feature importance of
-:class:`~sklearn.ensemble.RandomForestClassifier` with the
+:class:`~sklearn_dual.ensemble.RandomForestClassifier` with the
 permutation importance on the titanic dataset using
-:func:`~sklearn.inspection.permutation_importance`. We will show that the
+:func:`~sklearn_dual.inspection.permutation_importance`. We will show that the
 impurity-based feature importance can inflate the importance of numerical
 features.
 
@@ -61,9 +61,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_sta
 # We define a predictive model based on a random forest. Therefore, we will make
 # the following preprocessing steps:
 #
-# - use :class:`~sklearn.preprocessing.OrdinalEncoder` to encode the
+# - use :class:`~sklearn_dual.preprocessing.OrdinalEncoder` to encode the
 #   categorical features;
-# - use :class:`~sklearn.impute.SimpleImputer` to fill missing values for
+# - use :class:`~sklearn_dual.impute.SimpleImputer` to fill missing values for
 #   numerical features using a mean strategy.
 from sklearn_dual.compose import ColumnTransformer
 from sklearn_dual.ensemble import RandomForestClassifier

@@ -90,7 +90,7 @@ class VarianceThreshold(SelectorMixin, BaseEstimator):
 
         y : any, default=None
             Ignored. This parameter exists only for compatibility with
-            sklearn.pipeline.Pipeline.
+            sklearn_dual.pipeline.Pipeline.
 
         Returns
         -------

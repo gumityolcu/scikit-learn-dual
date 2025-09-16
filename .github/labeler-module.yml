@@ -1,80 +1,80 @@
 module:cluster:
-- sklearn/cluster/**/*
+- sklearn_dual/cluster/**/*
 
 module:common:
-- sklearn/common/**/*
+- sklearn_dual/common/**/*
 
 module:compose:
-- sklearn/compose/**/*
+- sklearn_dual/compose/**/*
 
 module:covariance:
-- sklearn/covariance/**/*
+- sklearn_dual/covariance/**/*
 
 module:cross_decomposition:
-- sklearn/cross_decomposition/**/*
+- sklearn_dual/cross_decomposition/**/*
 
 module:datasets:
-- sklearn/datasets/**/*
+- sklearn_dual/datasets/**/*
 
 module:decomposition:
-- sklearn/decomposition/**/*
+- sklearn_dual/decomposition/**/*
 
 module:ensemble:
-- sklearn/ensemble/**/*
+- sklearn_dual/ensemble/**/*
 
 module:feature_extraction:
-- sklearn/feature_extraction/**/*
+- sklearn_dual/feature_extraction/**/*
 
 module:feature_selection:
-- sklearn/feature_selection/**/*
+- sklearn_dual/feature_selection/**/*
 
 module:gaussian_process:
-- sklearn/gaussian_process/**/*
+- sklearn_dual/gaussian_process/**/*
 
 module:impute:
-- sklearn/impute/**/*
+- sklearn_dual/impute/**/*
 
 module:inspection:
-- sklearn/inspection/**/*
+- sklearn_dual/inspection/**/*
 
 module:linear_model:
-- sklearn/linear_model/**/*
+- sklearn_dual/linear_model/**/*
 
 module:manifold:
-- sklearn/manifold/**/*
+- sklearn_dual/manifold/**/*
 
 module:metrics:
-- sklearn/metrics/**/*
+- sklearn_dual/metrics/**/*
 
 module:mixture:
-- sklearn/mixture/**/*
+- sklearn_dual/mixture/**/*
 
 module:model_selection:
-- sklearn/model_selection/**/*
+- sklearn_dual/model_selection/**/*
 
 module:naive_bayes:
-- sklearn/naive_bayes.py
+- sklearn_dual/naive_bayes.py
 
 module:neighbors:
-- sklearn/neighbors/**/*
+- sklearn_dual/neighbors/**/*
 
 module:neural_network:
-- sklearn/neural_network/**/*
+- sklearn_dual/neural_network/**/*
 
 module:pipeline:
-- sklearn/pipeline.py
+- sklearn_dual/pipeline.py
 
 module:preprocessing:
-- sklearn/preprocessing/**/*
+- sklearn_dual/preprocessing/**/*
 
 module:semi_supervised:
-- sklearn/semi_supervised/**/*
+- sklearn_dual/semi_supervised/**/*
 
 module:svm:
-- sklearn/svm/**/*
+- sklearn_dual/svm/**/*
 
 module:tree:
-- sklearn/tree/**/*
+- sklearn_dual/tree/**/*
 
 module:utils:
-- sklearn/utils/**/*
+- sklearn_dual/utils/**/*

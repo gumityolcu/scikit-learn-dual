@@ -136,11 +136,11 @@ X_train, X_test, y_train, y_test, feature_names, target_names = load_dataset(
 
 # %%
 # Our first model is an instance of the
-# :class:`~sklearn.linear_model.RidgeClassifier` class. This is a linear
+# :class:`~sklearn_dual.linear_model.RidgeClassifier` class. This is a linear
 # classification model that uses the mean squared error on {-1, 1} encoded
 # targets, one for each possible class. Contrary to
-# :class:`~sklearn.linear_model.LogisticRegression`,
-# :class:`~sklearn.linear_model.RidgeClassifier` does not
+# :class:`~sklearn_dual.linear_model.LogisticRegression`,
+# :class:`~sklearn_dual.linear_model.RidgeClassifier` does not
 # provide probabilistic predictions (no `predict_proba` method),
 # but it is often faster to train.
 

@@ -30,8 +30,8 @@ from sklearn_dual.tree import DecisionTreeClassifier
 ##############################################################################
 # Train tree classifier
 # ---------------------
-# First, we fit a :class:`~sklearn.tree.DecisionTreeClassifier` using the
-# :func:`~sklearn.datasets.load_iris` dataset.
+# First, we fit a :class:`~sklearn_dual.tree.DecisionTreeClassifier` using the
+# :func:`~sklearn_dual.datasets.load_iris` dataset.
 
 iris = load_iris()
 X = iris.data

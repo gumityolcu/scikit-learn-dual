@@ -68,7 +68,7 @@ X = np.concatenate([X, random_state.randn(n_samples, 200 * n_features)], axis=1)
 ) = train_test_split(X, y, test_size=0.5, stratify=y, random_state=0)
 
 # %%
-# We train a :class:`~sklearn.linear_model.LogisticRegression` model which can
+# We train a :class:`~sklearn_dual.linear_model.LogisticRegression` model which can
 # naturally handle multiclass problems, thanks to the use of the multinomial
 # formulation.
 
@@ -89,11 +89,11 @@ y_score = classifier.fit(X_train, y_train).predict_proba(X_test)
 # .. note:: One should not confuse the OvR strategy used for the **evaluation**
 #     of multiclass classifiers with the OvR strategy used to **train** a
 #     multiclass classifier by fitting a set of binary classifiers (for instance
-#     via the :class:`~sklearn.multiclass.OneVsRestClassifier` meta-estimator).
+#     via the :class:`~sklearn_dual.multiclass.OneVsRestClassifier` meta-estimator).
 #     The OvR ROC evaluation can be used to scrutinize any kind of classification
 #     models irrespectively of how they were trained (see :ref:`multiclass`).
 #
-# In this section we use a :class:`~sklearn.preprocessing.LabelBinarizer` to
+# In this section we use a :class:`~sklearn_dual.preprocessing.LabelBinarizer` to
 # binarize the target by one-hot-encoding in a OvR fashion. This means that the
 # target of shape (`n_samples`,) is mapped to a target of shape (`n_samples`,
 # `n_classes`).
@@ -176,7 +176,7 @@ _ = display.ax_.set(
 # %%
 # In the case where the main interest is not the plot but the ROC-AUC score
 # itself, we can reproduce the value shown in the plot using
-# :class:`~sklearn.metrics.roc_auc_score`.
+# :class:`~sklearn_dual.metrics.roc_auc_score`.
 
 from sklearn_dual.metrics import roc_auc_score
 
@@ -191,8 +191,8 @@ print(f"Micro-averaged One-vs-Rest ROC AUC score:\n{micro_roc_auc_ovr:.2f}")
 
 # %%
 # This is equivalent to computing the ROC curve with
-# :class:`~sklearn.metrics.roc_curve` and then the area under the curve with
-# :class:`~sklearn.metrics.auc` for the raveled true and predicted classes.
+# :class:`~sklearn_dual.metrics.roc_curve` and then the area under the curve with
+# :class:`~sklearn_dual.metrics.auc` for the raveled true and predicted classes.
 
 from sklearn_dual.metrics import auc, roc_curve
 
@@ -378,7 +378,7 @@ print(f"Macro-averaged One-vs-One ROC AUC score:\n{np.average(pair_scores):.2f}"
 # %%
 # One can also assert that the macro-average we computed "by hand" is equivalent
 # to the implemented `average="macro"` option of the
-# :class:`~sklearn.metrics.roc_auc_score` function.
+# :class:`~sklearn_dual.metrics.roc_auc_score` function.
 
 macro_roc_auc_ovo = roc_auc_score(
     y_test,

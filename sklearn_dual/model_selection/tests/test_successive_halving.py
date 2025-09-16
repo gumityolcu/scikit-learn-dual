@@ -90,7 +90,7 @@ class SometimesFailClassifier(DummyClassifier):
         return super().predict(X)
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.FitFailedWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.FitFailedWarning")
 @pytest.mark.filterwarnings("ignore:Scoring failed:UserWarning")
 @pytest.mark.filterwarnings("ignore:One or more of the:UserWarning")
 @pytest.mark.parametrize("HalvingSearch", (HalvingGridSearchCV, HalvingRandomSearchCV))

@@ -4,7 +4,7 @@
 Ensembles: Gradient boosting, random forests, bagging, voting, stacking
 ===========================================================================
 
-.. currentmodule:: sklearn.ensemble
+.. currentmodule:: sklearn_dual.ensemble
 
 **Ensemble methods** combine the predictions of several
 base estimators built with a given learning algorithm in order to improve
@@ -87,8 +87,8 @@ Most of the parameters are unchanged from
 One exception is the ``max_iter`` parameter that replaces ``n_estimators``, and
 controls the number of iterations of the boosting process::
 
-  >>> from sklearn.ensemble import HistGradientBoostingClassifier
-  >>> from sklearn.datasets import make_hastie_10_2
+  >>> from sklearn_dual.ensemble import HistGradientBoostingClassifier
+  >>> from sklearn_dual.datasets import make_hastie_10_2
 
   >>> X, y = make_hastie_10_2(random_state=0)
   >>> X_train, X_test = X[:2000], X[2000:]
@@ -187,7 +187,7 @@ with missing values should go to the left or right child, based on the
 potential gain. When predicting, samples with missing values are assigned to
 the left or right child consequently::
 
-  >>> from sklearn.ensemble import HistGradientBoostingClassifier
+  >>> from sklearn_dual.ensemble import HistGradientBoostingClassifier
   >>> import numpy as np
 
   >>> X = np.array([0, 1, 2, np.nan]).reshape(-1, 1)
@@ -262,7 +262,7 @@ features: they can consider splits on non-ordered, categorical data.
 
 For datasets with categorical features, using the native categorical support
 is often better than relying on one-hot encoding
-(:class:`~sklearn.preprocessing.OneHotEncoder`), because one-hot encoding
+(:class:`~sklearn_dual.preprocessing.OneHotEncoder`), because one-hot encoding
 requires more tree depth to achieve equivalent splits. It is also usually
 better to rely on the native categorical support rather than to treat
 categorical features as continuous (ordinal), which happens for ordinal-encoded
@@ -351,7 +351,7 @@ You can specify a monotonic constraint on each feature using the
 constraint, while 1 and -1 indicate a monotonic increase and
 monotonic decrease constraint, respectively::
 
-  >>> from sklearn.ensemble import HistGradientBoostingRegressor
+  >>> from sklearn_dual.ensemble import HistGradientBoostingRegressor
 
   ... # monotonic increase, monotonic decrease, and no constraint on the 3 features
   >>> gbdt = HistGradientBoostingRegressor(monotonic_cst=[1, -1, 0])
@@ -503,8 +503,8 @@ parameters of these estimators are `n_estimators` and `learning_rate`.
   The following example shows how to fit a gradient boosting classifier
   with 100 decision stumps as weak learners::
 
-      >>> from sklearn.datasets import make_hastie_10_2
-      >>> from sklearn.ensemble import GradientBoostingClassifier
+      >>> from sklearn_dual.datasets import make_hastie_10_2
+      >>> from sklearn_dual.ensemble import GradientBoostingClassifier
 
       >>> X, y = make_hastie_10_2(random_state=0)
       >>> X_train, X_test = X[:2000], X[2000:]
@@ -544,9 +544,9 @@ parameters of these estimators are `n_estimators` and `learning_rate`.
   ::
 
       >>> import numpy as np
-      >>> from sklearn.metrics import mean_squared_error
-      >>> from sklearn.datasets import make_friedman1
-      >>> from sklearn.ensemble import GradientBoostingRegressor
+      >>> from sklearn_dual.metrics import mean_squared_error
+      >>> from sklearn_dual.datasets import make_friedman1
+      >>> from sklearn_dual.ensemble import GradientBoostingRegressor
 
       >>> X, y = make_friedman1(n_samples=1200, random_state=0, noise=1.0)
       >>> X_train, X_test = X[:200], X[200:]
@@ -560,7 +560,7 @@ parameters of these estimators are `n_estimators` and `learning_rate`.
 
   The figure below shows the results of applying :class:`GradientBoostingRegressor`
   with least squares loss and 500 base learners to the diabetes dataset
-  (:func:`sklearn.datasets.load_diabetes`).
+  (:func:`sklearn_dual.datasets.load_diabetes`).
   The plot shows the train and test error at each iteration.
   The train error at each iteration is stored in the
   `train_score_` attribute of the gradient boosting model.
@@ -591,9 +591,9 @@ fitted model.
 ::
 
   >>> import numpy as np
-  >>> from sklearn.metrics import mean_squared_error
-  >>> from sklearn.datasets import make_friedman1
-  >>> from sklearn.ensemble import GradientBoostingRegressor
+  >>> from sklearn_dual.metrics import mean_squared_error
+  >>> from sklearn_dual.datasets import make_friedman1
+  >>> from sklearn_dual.ensemble import GradientBoostingRegressor
 
   >>> X, y = make_friedman1(n_samples=1200, random_state=0, noise=1.0)
   >>> X_train, X_test = X[:200], X[200:]
@@ -893,8 +893,8 @@ ensembles by simply averaging the impurity-based feature importance of each tree
 The feature importance scores of a fit gradient boosting model can be
 accessed via the ``feature_importances_`` property::
 
-    >>> from sklearn.datasets import make_hastie_10_2
-    >>> from sklearn.ensemble import GradientBoostingClassifier
+    >>> from sklearn_dual.datasets import make_hastie_10_2
+    >>> from sklearn_dual.ensemble import GradientBoostingClassifier
 
     >>> X, y = make_hastie_10_2(random_state=0)
     >>> clf = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0,
@@ -903,7 +903,7 @@ accessed via the ``feature_importances_`` property::
     array([0.10..., 0.10..., 0.11..., ...
 
 Note that this computation of feature importance is based on entropy, and it
-is distinct from :func:`sklearn.inspection.permutation_importance` which is
+is distinct from :func:`sklearn_dual.inspection.permutation_importance` which is
 based on permutation of the features.
 
 .. rubric:: Examples
@@ -928,7 +928,7 @@ based on permutation of the features.
 Random forests and other randomized tree ensembles
 ===================================================
 
-The :mod:`sklearn.ensemble` module includes two averaging algorithms based
+The :mod:`sklearn_dual.ensemble` module includes two averaging algorithms based
 on randomized :ref:`decision trees <tree>`: the RandomForest algorithm
 and the Extra-Trees method. Both algorithms are perturb-and-combine
 techniques [B1998]_ specifically designed for trees. This means a diverse
@@ -941,7 +941,7 @@ arrays: a sparse or dense array X of shape ``(n_samples, n_features)``
 holding the training samples, and an array Y of shape ``(n_samples,)``
 holding the target values (class labels) for the training samples::
 
-    >>> from sklearn.ensemble import RandomForestClassifier
+    >>> from sklearn_dual.ensemble import RandomForestClassifier
     >>> X = [[0, 0], [1, 1]]
     >>> Y = [0, 1]
     >>> clf = RandomForestClassifier(n_estimators=10)
@@ -1022,11 +1022,11 @@ picked as the splitting rule. This usually allows to reduce the variance
 of the model a bit more, at the expense of a slightly greater increase
 in bias::
 
-    >>> from sklearn.model_selection import cross_val_score
-    >>> from sklearn.datasets import make_blobs
-    >>> from sklearn.ensemble import RandomForestClassifier
-    >>> from sklearn.ensemble import ExtraTreesClassifier
-    >>> from sklearn.tree import DecisionTreeClassifier
+    >>> from sklearn_dual.model_selection import cross_val_score
+    >>> from sklearn_dual.datasets import make_blobs
+    >>> from sklearn_dual.ensemble import RandomForestClassifier
+    >>> from sklearn_dual.ensemble import ExtraTreesClassifier
+    >>> from sklearn_dual.tree import DecisionTreeClassifier
 
     >>> X, y = make_blobs(n_samples=10000, n_features=10, centers=100,
     ...     random_state=0)
@@ -1227,8 +1227,8 @@ RandomForest, Extra-Trees and :class:`RandomTreesEmbedding` estimators all suppo
 
 ::
 
-  >>> from sklearn.datasets import make_classification
-  >>> from sklearn.ensemble import RandomForestClassifier
+  >>> from sklearn_dual.datasets import make_classification
+  >>> from sklearn_dual.ensemble import RandomForestClassifier
 
   >>> X, y = make_classification(n_samples=100, random_state=1)
   >>> clf = RandomForestClassifier(n_estimators=10)
@@ -1297,11 +1297,11 @@ samples and features are drawn with or without replacement. When using a subset
 of the available samples the generalization accuracy can be estimated with the
 out-of-bag samples by setting ``oob_score=True``. As an example, the
 snippet below illustrates how to instantiate a bagging ensemble of
-:class:`~sklearn.neighbors.KNeighborsClassifier` estimators, each built on random
+:class:`~sklearn_dual.neighbors.KNeighborsClassifier` estimators, each built on random
 subsets of 50% of the samples and 50% of the features.
 
-    >>> from sklearn.ensemble import BaggingClassifier
-    >>> from sklearn.neighbors import KNeighborsClassifier
+    >>> from sklearn_dual.ensemble import BaggingClassifier
+    >>> from sklearn_dual.neighbors import KNeighborsClassifier
     >>> bagging = BaggingClassifier(KNeighborsClassifier(),
     ...                             max_samples=0.5, max_features=0.5)
 
@@ -1366,12 +1366,12 @@ Usage
 
 The following example shows how to fit the majority rule classifier::
 
-   >>> from sklearn import datasets
-   >>> from sklearn.model_selection import cross_val_score
-   >>> from sklearn.linear_model import LogisticRegression
-   >>> from sklearn.naive_bayes import GaussianNB
-   >>> from sklearn.ensemble import RandomForestClassifier
-   >>> from sklearn.ensemble import VotingClassifier
+   >>> from sklearn_dual import datasets
+   >>> from sklearn_dual.model_selection import cross_val_score
+   >>> from sklearn_dual.linear_model import LogisticRegression
+   >>> from sklearn_dual.naive_bayes import GaussianNB
+   >>> from sklearn_dual.ensemble import RandomForestClassifier
+   >>> from sklearn_dual.ensemble import VotingClassifier
 
    >>> iris = datasets.load_iris()
    >>> X, y = iris.data[:, 1:3], iris.target
@@ -1428,12 +1428,12 @@ The following example illustrates how the decision regions may change
 when a soft :class:`VotingClassifier` is used based on a linear Support
 Vector Machine, a Decision Tree, and a K-nearest neighbor classifier::
 
-   >>> from sklearn import datasets
-   >>> from sklearn.tree import DecisionTreeClassifier
-   >>> from sklearn.neighbors import KNeighborsClassifier
-   >>> from sklearn.svm import SVC
+   >>> from sklearn_dual import datasets
+   >>> from sklearn_dual.tree import DecisionTreeClassifier
+   >>> from sklearn_dual.neighbors import KNeighborsClassifier
+   >>> from sklearn_dual.svm import SVC
    >>> from itertools import product
-   >>> from sklearn.ensemble import VotingClassifier
+   >>> from sklearn_dual.ensemble import VotingClassifier
 
    >>> # Loading some example data
    >>> iris = datasets.load_iris()
@@ -1476,13 +1476,13 @@ Optionally, weights can be provided for the individual classifiers::
    ...     voting='soft', weights=[2,5,1]
    ... )
 
-.. dropdown:: Using the :class:`VotingClassifier` with :class:`~sklearn.model_selection.GridSearchCV`
+.. dropdown:: Using the :class:`VotingClassifier` with :class:`~sklearn_dual.model_selection.GridSearchCV`
 
   The :class:`VotingClassifier` can also be used together with
-  :class:`~sklearn.model_selection.GridSearchCV` in order to tune the
+  :class:`~sklearn_dual.model_selection.GridSearchCV` in order to tune the
   hyperparameters of the individual estimators::
 
-    >>> from sklearn.model_selection import GridSearchCV
+    >>> from sklearn_dual.model_selection import GridSearchCV
     >>> clf1 = LogisticRegression(random_state=1)
     >>> clf2 = RandomForestClassifier(random_state=1)
     >>> clf3 = GaussianNB()
@@ -1511,11 +1511,11 @@ Usage
 
 The following example shows how to fit the VotingRegressor::
 
-   >>> from sklearn.datasets import load_diabetes
-   >>> from sklearn.ensemble import GradientBoostingRegressor
-   >>> from sklearn.ensemble import RandomForestRegressor
-   >>> from sklearn.linear_model import LinearRegression
-   >>> from sklearn.ensemble import VotingRegressor
+   >>> from sklearn_dual.datasets import load_diabetes
+   >>> from sklearn_dual.ensemble import GradientBoostingRegressor
+   >>> from sklearn_dual.ensemble import RandomForestRegressor
+   >>> from sklearn_dual.linear_model import LinearRegression
+   >>> from sklearn_dual.ensemble import VotingRegressor
 
    >>> # Loading some example data
    >>> X, y = load_diabetes(return_X_y=True)
@@ -1554,8 +1554,8 @@ The `estimators` parameter corresponds to the list of the estimators which
 are stacked together in parallel on the input data. It should be given as a
 list of names and estimators::
 
-  >>> from sklearn.linear_model import RidgeCV, LassoCV
-  >>> from sklearn.neighbors import KNeighborsRegressor
+  >>> from sklearn_dual.linear_model import RidgeCV, LassoCV
+  >>> from sklearn_dual.neighbors import KNeighborsRegressor
   >>> estimators = [('ridge', RidgeCV()),
   ...               ('lasso', LassoCV(random_state=42)),
   ...               ('knr', KNeighborsRegressor(n_neighbors=20,
@@ -1565,8 +1565,8 @@ The `final_estimator` will use the predictions of the `estimators` as input. It
 needs to be a classifier or a regressor when using :class:`StackingClassifier`
 or :class:`StackingRegressor`, respectively::
 
-  >>> from sklearn.ensemble import GradientBoostingRegressor
-  >>> from sklearn.ensemble import StackingRegressor
+  >>> from sklearn_dual.ensemble import GradientBoostingRegressor
+  >>> from sklearn_dual.ensemble import StackingRegressor
   >>> final_estimator = GradientBoostingRegressor(
   ...     n_estimators=25, subsample=0.5, min_samples_leaf=25, max_features=1,
   ...     random_state=42)
@@ -1577,9 +1577,9 @@ or :class:`StackingRegressor`, respectively::
 To train the `estimators` and `final_estimator`, the `fit` method needs
 to be called on the training data::
 
-  >>> from sklearn.datasets import load_diabetes
+  >>> from sklearn_dual.datasets import load_diabetes
   >>> X, y = load_diabetes(return_X_y=True)
-  >>> from sklearn.model_selection import train_test_split
+  >>> from sklearn_dual.model_selection import train_test_split
   >>> X_train, X_test, y_train, y_test = train_test_split(X, y,
   ...                                                     random_state=42)
   >>> reg.fit(X_train, y_train)
@@ -1588,7 +1588,7 @@ to be called on the training data::
 During training, the `estimators` are fitted on the whole training data
 `X_train`. They will be used when calling `predict` or `predict_proba`. To
 generalize and avoid over-fitting, the `final_estimator` is trained on
-out-samples using :func:`sklearn.model_selection.cross_val_predict` internally.
+out-samples using :func:`sklearn_dual.model_selection.cross_val_predict` internally.
 
 For :class:`StackingClassifier`, note that the output of the ``estimators`` is
 controlled by the parameter `stack_method` and it is called by each estimator.
@@ -1602,7 +1602,7 @@ any other regressor or classifier, exposing a `predict`, `predict_proba`, or
 `decision_function` method, e.g.::
 
    >>> y_pred = reg.predict(X_test)
-   >>> from sklearn.metrics import r2_score
+   >>> from sklearn_dual.metrics import r2_score
    >>> print('R2 score: {:.2f}'.format(r2_score(y_test, y_pred)))
    R2 score: 0.53
 
@@ -1665,7 +1665,7 @@ computationally expensive.
 AdaBoost
 ========
 
-The module :mod:`sklearn.ensemble` includes the popular boosting algorithm
+The module :mod:`sklearn_dual.ensemble` includes the popular boosting algorithm
 AdaBoost, introduced in 1995 by Freund and Schapire [FS1995]_.
 
 The core principle of AdaBoost is to fit a sequence of weak learners (i.e.,
@@ -1704,9 +1704,9 @@ Usage
 The following example shows how to fit an AdaBoost classifier with 100 weak
 learners::
 
-    >>> from sklearn.model_selection import cross_val_score
-    >>> from sklearn.datasets import load_iris
-    >>> from sklearn.ensemble import AdaBoostClassifier
+    >>> from sklearn_dual.model_selection import cross_val_score
+    >>> from sklearn_dual.datasets import load_iris
+    >>> from sklearn_dual.ensemble import AdaBoostClassifier
 
     >>> X, y = load_iris(return_X_y=True)
     >>> clf = AdaBoostClassifier(n_estimators=100, algorithm="SAMME",)

@@ -153,9 +153,9 @@ y_plot = np.concatenate((y - noise, y_plot))
 # Here we try a degree 10 polynomial to potentially overfit, though the bayesian
 # linear models regularize the size of the polynomial coefficients. As
 # `fit_intercept=True` by default for
-# :class:`~sklearn.linear_model.ARDRegression` and
-# :class:`~sklearn.linear_model.BayesianRidge`, then
-# :class:`~sklearn.preprocessing.PolynomialFeatures` should not introduce an
+# :class:`~sklearn_dual.linear_model.ARDRegression` and
+# :class:`~sklearn_dual.linear_model.BayesianRidge`, then
+# :class:`~sklearn_dual.preprocessing.PolynomialFeatures` should not introduce an
 # additional bias feature. By setting `return_std=True`, the bayesian regressors
 # return the standard deviation of the posterior distribution for the model
 # parameters.

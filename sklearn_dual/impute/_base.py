@@ -152,7 +152,7 @@ class SimpleImputer(_BaseImputer):
     Read more in the :ref:`User Guide <impute>`.
 
     .. versionadded:: 0.20
-       `SimpleImputer` replaces the previous `sklearn.preprocessing.Imputer`
+       `SimpleImputer` replaces the previous `sklearn_dual.preprocessing.Imputer`
        estimator which is now removed.
 
     Parameters
@@ -225,7 +225,7 @@ class SimpleImputer(_BaseImputer):
         During :meth:`transform`, features corresponding to `np.nan`
         statistics will be discarded.
 
-    indicator_ : :class:`~sklearn.impute.MissingIndicator`
+    indicator_ : :class:`~sklearn_dual.impute.MissingIndicator`
         Indicator used to add binary indicators for missing values.
         `None` if `add_indicator=False`.
 
@@ -255,7 +255,7 @@ class SimpleImputer(_BaseImputer):
     In a prediction context, simple imputation usually performs poorly when
     associated with a weak learner. However, with a powerful learner, it can
     lead to as good or better performance than complex imputation such as
-    :class:`~sklearn.impute.IterativeImputer` or :class:`~sklearn.impute.KNNImputer`.
+    :class:`~sklearn_dual.impute.IterativeImputer` or :class:`~sklearn_dual.impute.KNNImputer`.
 
     Examples
     --------
@@ -736,10 +736,10 @@ class MissingIndicator(TransformerMixin, BaseEstimator):
     """Binary indicators for missing values.
 
     Note that this component typically should not be used in a vanilla
-    :class:`~sklearn.pipeline.Pipeline` consisting of transformers and a
+    :class:`~sklearn_dual.pipeline.Pipeline` consisting of transformers and a
     classifier, but rather could be added using a
-    :class:`~sklearn.pipeline.FeatureUnion` or
-    :class:`~sklearn.compose.ColumnTransformer`.
+    :class:`~sklearn_dual.pipeline.FeatureUnion` or
+    :class:`~sklearn_dual.compose.ColumnTransformer`.
 
     Read more in the :ref:`User Guide <impute>`.
 

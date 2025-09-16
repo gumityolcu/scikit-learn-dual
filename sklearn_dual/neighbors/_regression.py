@@ -75,7 +75,7 @@ class KNeighborsRegressor(KNeighborsMixin, RegressorMixin, NeighborsBase):
         documentation of `scipy.spatial.distance
         <https://docs.scipy.org/doc/scipy/reference/spatial.distance.html>`_ and
         the metrics listed in
-        :class:`~sklearn.metrics.pairwise.distance_metrics` for valid metric
+        :class:`~sklearn_dual.metrics.pairwise.distance_metrics` for valid metric
         values.
 
         If metric is "precomputed", X is assumed to be a distance matrix and
@@ -322,7 +322,7 @@ class RadiusNeighborsRegressor(RadiusNeighborsMixin, RegressorMixin, NeighborsBa
         documentation of `scipy.spatial.distance
         <https://docs.scipy.org/doc/scipy/reference/spatial.distance.html>`_ and
         the metrics listed in
-        :class:`~sklearn.metrics.pairwise.distance_metrics` for valid metric
+        :class:`~sklearn_dual.metrics.pairwise.distance_metrics` for valid metric
         values.
 
         If metric is "precomputed", X is assumed to be a distance matrix and

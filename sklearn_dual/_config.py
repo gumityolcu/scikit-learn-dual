@@ -8,12 +8,12 @@ import threading
 from contextlib import contextmanager as contextmanager
 
 _global_config = {
-    "assume_finite": bool(os.environ.get("SKLEARN_ASSUME_FINITE", False)),
-    "working_memory": int(os.environ.get("SKLEARN_WORKING_MEMORY", 1024)),
+    "assume_finite": bool(os.environ.get("sklearn_dual_ASSUME_FINITE", False)),
+    "working_memory": int(os.environ.get("sklearn_dual_WORKING_MEMORY", 1024)),
     "print_changed_only": True,
     "display": "diagram",
     "pairwise_dist_chunk_size": int(
-        os.environ.get("SKLEARN_PAIRWISE_DIST_CHUNK_SIZE", 256)
+        os.environ.get("sklearn_dual_PAIRWISE_DIST_CHUNK_SIZE", 256)
     ),
     "enable_cython_pairwise_dist": True,
     "array_api_dispatch": False,
@@ -48,7 +48,7 @@ def get_config():
     Examples
     --------
     >>> import sklearn_dual
-    >>> config = sklearn.get_config()
+    >>> config = sklearn_dual.get_config()
     >>> config.keys()
     dict_keys([...])
     """
@@ -347,10 +347,10 @@ def config_context(
     --------
     >>> import sklearn_dual
     >>> from sklearn_dual.utils.validation import assert_all_finite
-    >>> with sklearn.config_context(assume_finite=True):
+    >>> with sklearn_dual.config_context(assume_finite=True):
     ...     assert_all_finite([float('nan')])
-    >>> with sklearn.config_context(assume_finite=True):
-    ...     with sklearn.config_context(assume_finite=False):
+    >>> with sklearn_dual.config_context(assume_finite=True):
+    ...     with sklearn_dual.config_context(assume_finite=False):
     ...         assert_all_finite([float('nan')])
     Traceback (most recent call last):
     ...

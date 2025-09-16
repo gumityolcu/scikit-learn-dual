@@ -113,7 +113,7 @@ def plot_on_dataset(X, y, ax, name):
         # plots so they are ignored here
         with warnings.catch_warnings():
             warnings.filterwarnings(
-                "ignore", category=ConvergenceWarning, module="sklearn"
+                "ignore", category=ConvergenceWarning, module="sklearn_dual"
             )
             mlp.fit(X, y)
 

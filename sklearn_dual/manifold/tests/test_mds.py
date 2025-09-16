@@ -77,7 +77,7 @@ def test_normalized_stress_auto(metric, monkeypatch):
     dist = euclidean_distances(X)
 
     mock = Mock(side_effect=mds._smacof_single)
-    monkeypatch.setattr("sklearn.manifold._mds._smacof_single", mock)
+    monkeypatch.setattr("sklearn_dual.manifold._mds._smacof_single", mock)
 
     est = mds.MDS(metric=metric, normalized_stress="auto", random_state=rng)
     est.fit_transform(X)

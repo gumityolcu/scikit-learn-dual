@@ -10,8 +10,8 @@ from .._ranking import det_curve
 class DetCurveDisplay(_BinaryClassifierCurveDisplayMixin):
     """DET curve visualization.
 
-    It is recommend to use :func:`~sklearn.metrics.DetCurveDisplay.from_estimator`
-    or :func:`~sklearn.metrics.DetCurveDisplay.from_predictions` to create a
+    It is recommend to use :func:`~sklearn_dual.metrics.DetCurveDisplay.from_estimator`
+    or :func:`~sklearn_dual.metrics.DetCurveDisplay.from_predictions` to create a
     visualizer. All parameters are stored as attributes.
 
     Read more in the :ref:`User Guide <visualizations>`.
@@ -101,7 +101,7 @@ class DetCurveDisplay(_BinaryClassifierCurveDisplayMixin):
         Parameters
         ----------
         estimator : estimator instance
-            Fitted classifier or a fitted :class:`~sklearn.pipeline.Pipeline`
+            Fitted classifier or a fitted :class:`~sklearn_dual.pipeline.Pipeline`
             in which the last estimator is a classifier.
 
         X : {array-like, sparse matrix} of shape (n_samples, n_features)
@@ -138,7 +138,7 @@ class DetCurveDisplay(_BinaryClassifierCurveDisplayMixin):
 
         Returns
         -------
-        display : :class:`~sklearn.metrics.DetCurveDisplay`
+        display : :class:`~sklearn_dual.metrics.DetCurveDisplay`
             Object that stores computed values.
 
         See Also
@@ -231,7 +231,7 @@ class DetCurveDisplay(_BinaryClassifierCurveDisplayMixin):
 
         Returns
         -------
-        display : :class:`~sklearn.metrics.DetCurveDisplay`
+        display : :class:`~sklearn_dual.metrics.DetCurveDisplay`
             Object that stores computed values.
 
         See Also
@@ -295,7 +295,7 @@ class DetCurveDisplay(_BinaryClassifierCurveDisplayMixin):
 
         Returns
         -------
-        display : :class:`~sklearn.metrics.DetCurveDisplay`
+        display : :class:`~sklearn_dual.metrics.DetCurveDisplay`
             Object that stores computed values.
         """
         self.ax_, self.figure_, name = self._validate_plot_params(ax=ax, name=name)

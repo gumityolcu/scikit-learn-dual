@@ -15,7 +15,7 @@ shrink all coefficients. Regularization reduces a model's reliance on specific
 information obtained from the training samples.
 
 This example illustrates how L2 regularization in a
-:class:`~sklearn.linear_model.Ridge` regression affects a model's performance by
+:class:`~sklearn_dual.linear_model.Ridge` regression affects a model's performance by
 adding a penalty term to the loss that increases with the coefficients
 :math:`\\beta`.
 
@@ -83,7 +83,7 @@ print(f"The true coefficient of this regression problem are:\n{w}")
 # %%
 # Training the Ridge Regressor
 # ****************************
-# We use :class:`~sklearn.linear_model.Ridge`, a linear model with L2
+# We use :class:`~sklearn_dual.linear_model.Ridge`, a linear model with L2
 # regularization. We train several models, each with a different value for the
 # model parameter `alpha`, which is a positive constant that multiplies the
 # penalty term, controlling the regularization strength. For each trained model
@@ -171,11 +171,11 @@ _ = axs[1].set_ylabel("Mean squared error")
 # appropriate `alpha` value becomes crucial in striking a balance between an
 # overfitting and an underfitting model.
 #
-# Here, we saw that :class:`~sklearn.linear_model.Ridge` adds a penalty to the
+# Here, we saw that :class:`~sklearn_dual.linear_model.Ridge` adds a penalty to the
 # coefficients to fight overfitting. Another problem that occurs is linked to
 # the presence of outliers in the training dataset. An outlier is a data point
 # that differs significantly from other observations. Concretely, these outliers
 # impact the left-hand side term of the loss function that we showed earlier.
 # Some other linear models are formulated to be robust to outliers such as the
-# :class:`~sklearn.linear_model.HuberRegressor`. You can learn more about it in
+# :class:`~sklearn_dual.linear_model.HuberRegressor`. You can learn more about it in
 # the :ref:`sphx_glr_auto_examples_linear_model_plot_huber_vs_ridge.py` example.

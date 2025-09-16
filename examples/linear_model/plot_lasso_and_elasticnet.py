@@ -89,7 +89,7 @@ _ = plt.title("Superposition of sinusoidal signals")
 
 # %%
 # We split the data into train and test sets for simplicity. In practice one
-# should use a :class:`~sklearn.model_selection.TimeSeriesSplit`
+# should use a :class:`~sklearn_dual.model_selection.TimeSeriesSplit`
 # cross-validation to estimate the variance of the test score. Here we set
 # `shuffle="False"` as we must not use training data that succeed the testing
 # data when dealing with data that have a temporal relationship.
@@ -107,11 +107,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, shuffle
 # Lasso
 # -----
 #
-# In this example, we demo a :class:`~sklearn.linear_model.Lasso` with a fixed
+# In this example, we demo a :class:`~sklearn_dual.linear_model.Lasso` with a fixed
 # value of the regularization parameter `alpha`. In practice, the optimal
 # parameter `alpha` should be selected by passing a
-# :class:`~sklearn.model_selection.TimeSeriesSplit` cross-validation strategy to a
-# :class:`~sklearn.linear_model.LassoCV`. To keep the example simple and fast to
+# :class:`~sklearn_dual.model_selection.TimeSeriesSplit` cross-validation strategy to a
+# :class:`~sklearn_dual.linear_model.LassoCV`. To keep the example simple and fast to
 # execute, we directly set the optimal value for alpha here.
 from time import time
 
@@ -134,8 +134,8 @@ print(f"Lasso r^2 on test data : {r2_score_lasso:.3f}")
 # interval estimates for all of the parameters, including the error variance, if
 # required. It is a suitable option when the signals have gaussian noise. See
 # the example :ref:`sphx_glr_auto_examples_linear_model_plot_ard.py` for a
-# comparison of :class:`~sklearn.linear_model.ARDRegression` and
-# :class:`~sklearn.linear_model.BayesianRidge` regressors.
+# comparison of :class:`~sklearn_dual.linear_model.ARDRegression` and
+# :class:`~sklearn_dual.linear_model.BayesianRidge` regressors.
 
 from sklearn_dual.linear_model import ARDRegression
 
@@ -151,18 +151,18 @@ print(f"ARD r^2 on test data : {r2_score_ard:.3f}")
 # ElasticNet
 # ----------
 #
-# :class:`~sklearn.linear_model.ElasticNet` is a middle ground between
-# :class:`~sklearn.linear_model.Lasso` and :class:`~sklearn.linear_model.Ridge`,
+# :class:`~sklearn_dual.linear_model.ElasticNet` is a middle ground between
+# :class:`~sklearn_dual.linear_model.Lasso` and :class:`~sklearn_dual.linear_model.Ridge`,
 # as it combines a L1 and a L2-penalty. The amount of regularization is
 # controlled by the two hyperparameters `l1_ratio` and `alpha`. For `l1_ratio =
 # 0` the penalty is pure L2 and the model is equivalent to a
-# :class:`~sklearn.linear_model.Ridge`. Similarly, `l1_ratio = 1` is a pure L1
-# penalty and the model is equivalent to a :class:`~sklearn.linear_model.Lasso`.
+# :class:`~sklearn_dual.linear_model.Ridge`. Similarly, `l1_ratio = 1` is a pure L1
+# penalty and the model is equivalent to a :class:`~sklearn_dual.linear_model.Lasso`.
 # For `0 < l1_ratio < 1`, the penalty is a combination of L1 and L2.
 #
 # As done before, we train the model with fix values for `alpha` and `l1_ratio`.
 # To select their optimal value we used an
-# :class:`~sklearn.linear_model.ElasticNetCV`, not shown here to keep the
+# :class:`~sklearn_dual.linear_model.ElasticNetCV`, not shown here to keep the
 # example simple.
 
 from sklearn_dual.linear_model import ElasticNet
@@ -213,31 +213,31 @@ plt.title(
 plt.tight_layout()
 
 # %%
-# In the present example :class:`~sklearn.linear_model.ElasticNet` yields the
+# In the present example :class:`~sklearn_dual.linear_model.ElasticNet` yields the
 # best score and captures the most of the predictive features, yet still fails
 # at finding all the true components. Notice that both
-# :class:`~sklearn.linear_model.ElasticNet` and
-# :class:`~sklearn.linear_model.ARDRegression` result in a less sparse model
-# than a :class:`~sklearn.linear_model.Lasso`.
+# :class:`~sklearn_dual.linear_model.ElasticNet` and
+# :class:`~sklearn_dual.linear_model.ARDRegression` result in a less sparse model
+# than a :class:`~sklearn_dual.linear_model.Lasso`.
 #
 # Conclusions
 # -----------
 #
-# :class:`~sklearn.linear_model.Lasso` is known to recover sparse data
+# :class:`~sklearn_dual.linear_model.Lasso` is known to recover sparse data
 # effectively but does not perform well with highly correlated features. Indeed,
 # if several correlated features contribute to the target,
-# :class:`~sklearn.linear_model.Lasso` would end up selecting a single one of
+# :class:`~sklearn_dual.linear_model.Lasso` would end up selecting a single one of
 # them. In the case of sparse yet non-correlated features, a
-# :class:`~sklearn.linear_model.Lasso` model would be more suitable.
+# :class:`~sklearn_dual.linear_model.Lasso` model would be more suitable.
 #
-# :class:`~sklearn.linear_model.ElasticNet` introduces some sparsity on the
+# :class:`~sklearn_dual.linear_model.ElasticNet` introduces some sparsity on the
 # coefficients and shrinks their values to zero. Thus, in the presence of
 # correlated features that contribute to the target, the model is still able to
 # reduce their weights without setting them exactly to zero. This results in a
-# less sparse model than a pure :class:`~sklearn.linear_model.Lasso` and may
+# less sparse model than a pure :class:`~sklearn_dual.linear_model.Lasso` and may
 # capture non-predictive features as well.
 #
-# :class:`~sklearn.linear_model.ARDRegression` is better when handling gaussian
+# :class:`~sklearn_dual.linear_model.ARDRegression` is better when handling gaussian
 # noise, but is still unable to handle correlated features and requires a larger
 # amount of time due to fitting a prior.
 #

@@ -57,17 +57,17 @@ reference on concepts repeated across the API, see :ref:`glossary`.
 {% for obj in objs %}
 {% set parts = obj.rsplit(".", 1) %}
 {% if parts|length > 1 %}
-{% set full_module = "sklearn." + parts[0] %}
+{% set full_module = "sklearn_dual." + parts[0] %}
 {% else %}
-{% set full_module = "sklearn" %}
+{% set full_module = "sklearn_dual" %}
 {% endif %}
-  * - :obj:`~sklearn.{{ obj }}`
+  * - :obj:`~sklearn_dual.{{ obj }}`
 
     - .. div:: sk-apisearch-desc
 
         .. currentmodule:: {{ full_module }}
 
-        .. autoshortsummary:: sklearn.{{ obj }}
+        .. autoshortsummary:: sklearn_dual.{{ obj }}
 
         .. div:: caption
 

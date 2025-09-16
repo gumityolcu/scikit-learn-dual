@@ -65,14 +65,14 @@ class NeighborhoodComponentsAnalysis(
         - `'pca'`
             `n_components` principal components of the inputs passed
             to :meth:`fit` will be used to initialize the transformation.
-            (See :class:`~sklearn.decomposition.PCA`)
+            (See :class:`~sklearn_dual.decomposition.PCA`)
 
         - `'lda'`
             `min(n_components, n_classes)` most discriminative
             components of the inputs passed to :meth:`fit` will be used to
             initialize the transformation. (If `n_components > n_classes`,
             the rest of the components will be zero.) (See
-            :class:`~sklearn.discriminant_analysis.LinearDiscriminantAnalysis`)
+            :class:`~sklearn_dual.discriminant_analysis.LinearDiscriminantAnalysis`)
 
         - `'identity'`
             If `n_components` is strictly smaller than the
@@ -146,9 +146,9 @@ class NeighborhoodComponentsAnalysis(
 
     See Also
     --------
-    sklearn.discriminant_analysis.LinearDiscriminantAnalysis : Linear
+    sklearn_dual.discriminant_analysis.LinearDiscriminantAnalysis : Linear
         Discriminant Analysis.
-    sklearn.decomposition.PCA : Principal component analysis (PCA).
+    sklearn_dual.decomposition.PCA : Principal component analysis (PCA).
 
     References
     ----------

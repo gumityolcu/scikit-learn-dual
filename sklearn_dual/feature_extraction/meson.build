@@ -4,6 +4,6 @@ py.extension_module(
   dependencies: [np_dep],
   override_options: ['cython_language=cpp'],
   cython_args: cython_args,
-  subdir: 'sklearn/feature_extraction',
+  subdir: 'sklearn_dual/feature_extraction',
   install: true
 )

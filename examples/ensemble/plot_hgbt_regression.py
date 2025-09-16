@@ -92,7 +92,7 @@ _ = ax.legend(handles, ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"])
 # Effect of number of trees and early stopping
 # ============================================
 # For the sake of illustrating the effect of the (maximum) number of trees, we
-# train a :class:`~sklearn.ensemble.HistGradientBoostingRegressor` over the
+# train a :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor` over the
 # daily electricity transfer using the whole dataset. Then we visualize its
 # predictions depending on the `max_iter` parameter. Here we don't try to
 # evaluate the performance of the model and its capacity to generalize but
@@ -404,7 +404,7 @@ _ = plt.legend()
 #
 # Additionally, we can verify that the predictive quality of the model is not
 # significantly degraded by introducing the monotonic constraints. For such
-# purpose we use :class:`~sklearn.model_selection.TimeSeriesSplit`
+# purpose we use :class:`~sklearn_dual.model_selection.TimeSeriesSplit`
 # cross-validation to estimate the variance of the test score. By doing so we
 # guarantee that the training data does not succeed the testing data, which is
 # crucial when dealing with data that have a temporal relationship.

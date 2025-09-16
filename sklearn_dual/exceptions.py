@@ -164,25 +164,25 @@ class InconsistentVersionWarning(UserWarning):
     estimator_name : str
         Estimator name.
 
-    current_sklearn_version : str
+    current_sklearn_dual_version : str
         Current scikit-learn version.
 
-    original_sklearn_version : str
+    original_sklearn_dual_version : str
         Original scikit-learn version.
     """
 
     def __init__(
-        self, *, estimator_name, current_sklearn_version, original_sklearn_version
+        self, *, estimator_name, current_sklearn_dual_version, original_sklearn_dual_version
     ):
         self.estimator_name = estimator_name
-        self.current_sklearn_version = current_sklearn_version
-        self.original_sklearn_version = original_sklearn_version
+        self.current_sklearn_dual_version = current_sklearn_dual_version
+        self.original_sklearn_dual_version = original_sklearn_dual_version
 
     def __str__(self):
         return (
             f"Trying to unpickle estimator {self.estimator_name} from version"
-            f" {self.original_sklearn_version} when "
-            f"using version {self.current_sklearn_version}. This might lead to breaking"
+            f" {self.original_sklearn_dual_version} when "
+            f"using version {self.current_sklearn_dual_version}. This might lead to breaking"
             " code or "
             "invalid results. Use at your own risk. "
             "For more info please refer to:\n"

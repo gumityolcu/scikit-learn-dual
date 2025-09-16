@@ -4,7 +4,7 @@ Statistical comparison of models using grid search
 ==================================================
 
 This example illustrates how to statistically compare the performance of models
-trained and evaluated using :class:`~sklearn.model_selection.GridSearchCV`.
+trained and evaluated using :class:`~sklearn_dual.model_selection.GridSearchCV`.
 
 """
 
@@ -30,14 +30,14 @@ sns.scatterplot(
 plt.show()
 
 # %%
-# We will compare the performance of :class:`~sklearn.svm.SVC` estimators that
+# We will compare the performance of :class:`~sklearn_dual.svm.SVC` estimators that
 # vary on their `kernel` parameter, to decide which choice of this
 # hyper-parameter predicts our simulated data best.
 # We will evaluate the performance of the models using
-# :class:`~sklearn.model_selection.RepeatedStratifiedKFold`, repeating 10 times
+# :class:`~sklearn_dual.model_selection.RepeatedStratifiedKFold`, repeating 10 times
 # a 10-fold stratified cross validation using a different randomization of the
 # data in each repetition. The performance will be evaluated using
-# :class:`~sklearn.metrics.roc_auc_score`.
+# :class:`~sklearn_dual.metrics.roc_auc_score`.
 
 from sklearn_dual.model_selection import GridSearchCV, RepeatedStratifiedKFold
 from sklearn_dual.svm import SVC
@@ -75,7 +75,7 @@ results_df[["params", "rank_test_score", "mean_test_score", "std_test_score"]]
 # lower performance than all other models.
 #
 # Usually, the analysis just ends here, but half the story is missing. The
-# output of :class:`~sklearn.model_selection.GridSearchCV` does not provide
+# output of :class:`~sklearn_dual.model_selection.GridSearchCV` does not provide
 # information on the certainty of the differences between the models.
 # We don't know if these are **statistically** significant.
 # To evaluate this, we need to conduct a statistical test.
@@ -429,7 +429,7 @@ cred_int_df
 # -------------------------------------------------------
 #
 # We could also be interested in comparing the performance of all our models
-# evaluated with :class:`~sklearn.model_selection.GridSearchCV`. In this case
+# evaluated with :class:`~sklearn_dual.model_selection.GridSearchCV`. In this case
 # we would be running our statistical test multiple times, which leads us to
 # the `multiple comparisons problem
 # <https://en.wikipedia.org/wiki/Multiple_comparisons_problem>`_.
@@ -471,7 +471,7 @@ pairwise_comp_df
 # We observe that after correcting for multiple comparisons, the only model
 # that significantly differs from the others is `'2_poly'`.
 # `'rbf'`, the model ranked first by
-# :class:`~sklearn.model_selection.GridSearchCV`, does not significantly
+# :class:`~sklearn_dual.model_selection.GridSearchCV`, does not significantly
 # differ from `'linear'` or `'3_poly'`.
 
 # %%
@@ -511,7 +511,7 @@ pairwise_comp_df
 # performs better, worse or practically equivalent to another.
 #
 # Results show that the model ranked first by
-# :class:`~sklearn.model_selection.GridSearchCV` `'rbf'`, has approximately a
+# :class:`~sklearn_dual.model_selection.GridSearchCV` `'rbf'`, has approximately a
 # 6.8% chance of being worse than `'linear'`, and a 1.8% chance of being worse
 # than `'3_poly'`.
 # `'rbf'` and `'linear'` have a 43% probability of being practically

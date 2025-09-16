@@ -1,4 +1,4 @@
-.. currentmodule:: sklearn.feature_selection
+.. currentmodule:: sklearn_dual.feature_selection
 
 .. _feature_selection:
 
@@ -7,7 +7,7 @@ Feature selection
 =================
 
 
-The classes in the :mod:`sklearn.feature_selection` module can be used
+The classes in the :mod:`sklearn_dual.feature_selection` module can be used
 for feature selection/dimensionality reduction on sample sets, either to
 improve estimators' accuracy scores or to boost their performance on very
 high-dimensional datasets.
@@ -33,7 +33,7 @@ and the variance of such variables is given by
 
 so we can select using the threshold ``.8 * (1 - .8)``::
 
-  >>> from sklearn.feature_selection import VarianceThreshold
+  >>> from sklearn_dual.feature_selection import VarianceThreshold
   >>> X = [[0, 0, 1], [0, 1, 0], [1, 0, 0], [0, 1, 1], [0, 1, 0], [0, 1, 1]]
   >>> sel = VarianceThreshold(threshold=(.8 * (1 - .8)))
   >>> sel.fit_transform(X)
@@ -73,9 +73,9 @@ as objects that implement the ``transform`` method:
 For instance, we can use a F-test to retrieve the two
 best features for a dataset as follows:
 
-  >>> from sklearn.datasets import load_iris
-  >>> from sklearn.feature_selection import SelectKBest
-  >>> from sklearn.feature_selection import f_classif
+  >>> from sklearn_dual.datasets import load_iris
+  >>> from sklearn_dual.feature_selection import SelectKBest
+  >>> from sklearn_dual.feature_selection import f_classif
   >>> X, y = load_iris(return_X_y=True)
   >>> X.shape
   (150, 4)
@@ -180,7 +180,7 @@ For examples on how it is to be used refer to the sections below.
 L1-based feature selection
 --------------------------
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 :ref:`Linear models <linear_model>` penalized with the L1 norm have
 sparse solutions: many of their estimated coefficients are zero. When the goal
@@ -191,9 +191,9 @@ for this purpose are the :class:`~linear_model.Lasso` for regression, and
 of :class:`~linear_model.LogisticRegression` and :class:`~svm.LinearSVC`
 for classification::
 
-  >>> from sklearn.svm import LinearSVC
-  >>> from sklearn.datasets import load_iris
-  >>> from sklearn.feature_selection import SelectFromModel
+  >>> from sklearn_dual.svm import LinearSVC
+  >>> from sklearn_dual.datasets import load_iris
+  >>> from sklearn_dual.feature_selection import SelectFromModel
   >>> X, y = load_iris(return_X_y=True)
   >>> X.shape
   (150, 4)
@@ -227,11 +227,11 @@ alpha parameter, the fewer features selected.
 
   There is no general rule to select an alpha parameter for recovery of
   non-zero coefficients. It can by set by cross-validation
-  (:class:`~sklearn.linear_model.LassoCV` or
-  :class:`~sklearn.linear_model.LassoLarsCV`), though this may lead to
+  (:class:`~sklearn_dual.linear_model.LassoCV` or
+  :class:`~sklearn_dual.linear_model.LassoLarsCV`), though this may lead to
   under-penalized models: including a small number of non-relevant variables
   is not detrimental to prediction score. BIC
-  (:class:`~sklearn.linear_model.LassoLarsIC`) tends, on the opposite, to set
+  (:class:`~sklearn_dual.linear_model.LassoLarsIC`) tends, on the opposite, to set
   high values of alpha.
 
   .. rubric:: References
@@ -244,15 +244,15 @@ alpha parameter, the fewer features selected.
 Tree-based feature selection
 ----------------------------
 
-Tree-based estimators (see the :mod:`sklearn.tree` module and forest
-of trees in the :mod:`sklearn.ensemble` module) can be used to compute
+Tree-based estimators (see the :mod:`sklearn_dual.tree` module and forest
+of trees in the :mod:`sklearn_dual.ensemble` module) can be used to compute
 impurity-based feature importances, which in turn can be used to discard irrelevant
 features (when coupled with the :class:`~feature_selection.SelectFromModel`
 meta-transformer)::
 
-  >>> from sklearn.ensemble import ExtraTreesClassifier
-  >>> from sklearn.datasets import load_iris
-  >>> from sklearn.feature_selection import SelectFromModel
+  >>> from sklearn_dual.ensemble import ExtraTreesClassifier
+  >>> from sklearn_dual.datasets import load_iris
+  >>> from sklearn_dual.feature_selection import SelectFromModel
   >>> X, y = load_iris(return_X_y=True)
   >>> X.shape
   (150, 4)
@@ -279,7 +279,7 @@ Sequential Feature Selection
 ============================
 
 Sequential Feature Selection [sfs]_ (SFS) is available in the
-:class:`~sklearn.feature_selection.SequentialFeatureSelector` transformer.
+:class:`~sklearn_dual.feature_selection.SequentialFeatureSelector` transformer.
 SFS can be either forward or backward:
 
 Forward-SFS is a greedy procedure that iteratively finds the best new feature
@@ -303,15 +303,15 @@ with *all* the features and greedily *remove* features from the set. The
   forward selection would need to perform 7 iterations while backward selection
   would only need to perform 3.
 
-  SFS differs from :class:`~sklearn.feature_selection.RFE` and
-  :class:`~sklearn.feature_selection.SelectFromModel` in that it does not
+  SFS differs from :class:`~sklearn_dual.feature_selection.RFE` and
+  :class:`~sklearn_dual.feature_selection.SelectFromModel` in that it does not
   require the underlying model to expose a `coef_` or `feature_importances_`
   attribute. It may however be slower considering that more models need to be
   evaluated, compared to the other approaches. For example in backward
   selection, the iteration going from `m` features to `m - 1` features using k-fold
   cross-validation requires fitting `m * k` models, while
-  :class:`~sklearn.feature_selection.RFE` would require only a single fit, and
-  :class:`~sklearn.feature_selection.SelectFromModel` always just does a single
+  :class:`~sklearn_dual.feature_selection.RFE` would require only a single fit, and
+  :class:`~sklearn_dual.feature_selection.SelectFromModel` always just does a single
   fit and requires no iterations.
 
   .. rubric:: References

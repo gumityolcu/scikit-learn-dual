@@ -8,11 +8,11 @@ from sklearn_dual.utils._openmp_helpers import _openmp_parallelism_enabled
 
 
 def test_openmp_parallelism_enabled():
-    # Check that sklearn is built with OpenMP-based parallelism enabled.
+    # Check that sklearn_dual is built with OpenMP-based parallelism enabled.
     # This test can be skipped by setting the environment variable
-    # ``SKLEARN_SKIP_OPENMP_TEST``.
-    if os.getenv("SKLEARN_SKIP_OPENMP_TEST"):
-        pytest.skip("test explicitly skipped (SKLEARN_SKIP_OPENMP_TEST)")
+    # ``sklearn_dual_SKIP_OPENMP_TEST``.
+    if os.getenv("sklearn_dual_SKIP_OPENMP_TEST"):
+        pytest.skip("test explicitly skipped (sklearn_dual_SKIP_OPENMP_TEST)")
 
     base_url = "dev" if __version__.endswith(".dev0") else "stable"
     err_msg = textwrap.dedent(
@@ -27,7 +27,7 @@ def test_openmp_parallelism_enabled():
             https://scikit-learn.org/{}/developers/advanced_installation.html
 
         You can skip this test by setting the environment variable
-        SKLEARN_SKIP_OPENMP_TEST to any value.
+        sklearn_dual_SKIP_OPENMP_TEST to any value.
         """
     ).format(base_url)
 

@@ -39,23 +39,23 @@ from sklearn_dual.utils.estimator_checks import (
 with warnings.catch_warnings():
     warnings.simplefilter("ignore", FutureWarning)
     # mypy error: Module has no attribute "__path__"
-    sklearn_path = [os.path.dirname(sklearn.__file__)]
+    sklearn_dual_path = [os.path.dirname(sklearn_dual.__file__)]
     PUBLIC_MODULES = set(
         [
             pckg[1]
-            for pckg in walk_packages(prefix="sklearn.", path=sklearn_path)
+            for pckg in walk_packages(prefix="sklearn_dual.", path=sklearn_dual_path)
             if not ("._" in pckg[1] or ".tests." in pckg[1])
         ]
     )
 
 # functions to ignore args / docstring of
-# TODO(1.7): remove "sklearn.utils._joblib"
+# TODO(1.7): remove "sklearn_dual.utils._joblib"
 _DOCSTRING_IGNORES = [
-    "sklearn.utils.deprecation.load_mlcomp",
-    "sklearn.pipeline.make_pipeline",
-    "sklearn.pipeline.make_union",
-    "sklearn.utils.extmath.safe_sparse_dot",
-    "sklearn.utils._joblib",
+    "sklearn_dual.utils.deprecation.load_mlcomp",
+    "sklearn_dual.pipeline.make_pipeline",
+    "sklearn_dual.pipeline.make_union",
+    "sklearn_dual.utils.extmath.safe_sparse_dot",
+    "sklearn_dual.utils._joblib",
     "HalfBinomialLoss",
 ]
 
@@ -86,14 +86,14 @@ def test_docstring_parameters():
         if name.endswith(".conftest"):
             # pytest tooling, not part of the scikit-learn API
             continue
-        if name == "sklearn.utils.fixes":
+        if name == "sklearn_dual.utils.fixes":
             # We cannot always control these docstrings
             continue
         with warnings.catch_warnings(record=True):
             module = importlib.import_module(name)
         classes = inspect.getmembers(module, inspect.isclass)
         # Exclude non-scikit-learn classes
-        classes = [cls for cls in classes if cls[1].__module__.startswith("sklearn")]
+        classes = [cls for cls in classes if cls[1].__module__.startswith("sklearn_dual")]
         for cname, cls in classes:
             this_incorrect = []
             if cname in _DOCSTRING_IGNORES or cname.startswith("_"):
@@ -172,7 +172,7 @@ def _construct_sparse_coder(Estimator):
     return Estimator(dictionary=dictionary)
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 # TODO(1.6): remove "@pytest.mark.filterwarnings" as SAMME.R will be removed
 # and substituted with the SAMME algorithm as a default
 @pytest.mark.filterwarnings("ignore:The SAMME.R algorithm")

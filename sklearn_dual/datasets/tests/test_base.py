@@ -370,7 +370,7 @@ def test_load_boston_error():
         from sklearn_dual.datasets import load_boston  # noqa
 
     # other non-existing function should raise the usual import error
-    msg = "cannot import name 'non_existing_function' from 'sklearn.datasets'"
+    msg = "cannot import name 'non_existing_function' from 'sklearn_dual.datasets'"
     with pytest.raises(ImportError, match=msg):
         from sklearn_dual.datasets import non_existing_function  # noqa
 
@@ -385,7 +385,7 @@ def test_fetch_remote_raise_warnings_with_invalid_url(monkeypatch):
             url=url, code=404, msg="Not Found", hdrs=None, fp=io.BytesIO()
         )
     )
-    monkeypatch.setattr("sklearn.datasets._base.urlretrieve", urlretrieve_mock)
+    monkeypatch.setattr("sklearn_dual.datasets._base.urlretrieve", urlretrieve_mock)
 
     with pytest.warns(UserWarning, match="Retry downloading") as record:
         with pytest.raises(HTTPError, match="HTTP Error 404"):
@@ -497,10 +497,10 @@ def test_fetch_file_using_data_home(monkeypatch, tmpdir):
     data_home.mkdir()
 
     urlretrieve_mock = _mock_urlretrieve(server_side)
-    monkeypatch.setattr("sklearn.datasets._base.urlretrieve", urlretrieve_mock)
+    monkeypatch.setattr("sklearn_dual.datasets._base.urlretrieve", urlretrieve_mock)
 
     monkeypatch.setattr(
-        "sklearn.datasets._base.get_data_home", Mock(return_value=data_home)
+        "sklearn_dual.datasets._base.get_data_home", Mock(return_value=data_home)
     )
     fetched_file_path = fetch_file(
         "https://example.com/data.jsonl",
@@ -541,7 +541,7 @@ def test_fetch_file_without_sha256(monkeypatch, tmpdir):
     client_side = tmpdir.mkdir("client_side")
 
     urlretrieve_mock = _mock_urlretrieve(server_side)
-    monkeypatch.setattr("sklearn.datasets._base.urlretrieve", urlretrieve_mock)
+    monkeypatch.setattr("sklearn_dual.datasets._base.urlretrieve", urlretrieve_mock)
 
     # The first call should trigger a download:
     fetched_file_path = fetch_file(
@@ -582,7 +582,7 @@ def test_fetch_file_with_sha256(monkeypatch, tmpdir):
     client_side = tmpdir.mkdir("client_side")
 
     urlretrieve_mock = _mock_urlretrieve(server_side)
-    monkeypatch.setattr("sklearn.datasets._base.urlretrieve", urlretrieve_mock)
+    monkeypatch.setattr("sklearn_dual.datasets._base.urlretrieve", urlretrieve_mock)
 
     # The first call should trigger a download.
     fetched_file_path = fetch_file(

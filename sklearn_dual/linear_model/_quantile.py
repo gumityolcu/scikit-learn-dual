@@ -24,7 +24,7 @@ class QuantileRegressor(LinearModel, RegressorMixin, BaseEstimator):
     desired `quantile` and is robust to outliers.
 
     This model uses an L1 regularization like
-    :class:`~sklearn.linear_model.Lasso`.
+    :class:`~sklearn_dual.linear_model.Lasso`.
 
     Read more in the :ref:`User Guide <quantile_regression>`.
 

@@ -81,7 +81,7 @@ diagonal and checkerboard bicluster structures.
     these alternate names.
 
 
-.. currentmodule:: sklearn.cluster
+.. currentmodule:: sklearn_dual.cluster
 
 
 .. _spectral_coclustering:
@@ -249,7 +249,7 @@ clustering this :math:`n \times q` matrix yields the column labels.
 
 .. _biclustering_evaluation:
 
-.. currentmodule:: sklearn.metrics
+.. currentmodule:: sklearn_dual.metrics
 
 Biclustering evaluation
 =======================

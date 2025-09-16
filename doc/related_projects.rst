@@ -21,15 +21,15 @@ enhance the functionality of scikit-learn's estimators.
 
 **Data formats**
 
-- `sklearn_pandas <https://github.com/paulgb/sklearn-pandas/>`_ bridge for
+- `sklearn_dual_pandas <https://github.com/paulgb/sklearn_dual-pandas/>`_ bridge for
   scikit-learn pipelines and pandas data frame with dedicated transformers.
 
-- `sklearn_xarray <https://github.com/phausamann/sklearn-xarray/>`_ provides
+- `sklearn_dual_xarray <https://github.com/phausamann/sklearn_dual-xarray/>`_ provides
   compatibility of scikit-learn estimators with xarray data structures.
 
 **Auto-ML**
 
-- `auto-sklearn <https://github.com/automl/auto-sklearn/>`_
+- `auto-sklearn_dual <https://github.com/automl/auto-sklearn_dual/>`_
   An automated machine learning toolkit and a drop-in replacement for a
   scikit-learn estimator
 
@@ -59,7 +59,7 @@ enhance the functionality of scikit-learn's estimators.
   EvalML is an AutoML library which builds, optimizes, and evaluates
   machine learning pipelines using domain-specific objective functions.
   It incorporates multiple modeling libraries under one API, and
-  the objects that EvalML creates use an sklearn-compatible API.
+  the objects that EvalML creates use an sklearn_dual-compatible API.
 
 **Experimentation and model registry frameworks**
 
@@ -89,7 +89,7 @@ enhance the functionality of scikit-learn's estimators.
   debugging/inspecting machine learning models and explaining their
   predictions.
 
-- `sklearn-evaluation <https://github.com/ploomber/sklearn-evaluation>`_
+- `sklearn_dual-evaluation <https://github.com/ploomber/sklearn_dual-evaluation>`_
   Machine learning model evaluation made easy: plots, tables, HTML reports,
   experiment tracking and Jupyter notebook analysis. Visual analysis, model
   selection, evaluation and diagnostics.
@@ -106,12 +106,12 @@ enhance the functionality of scikit-learn's estimators.
   includes a replacement for ``GridSearchCV`` or ``RandomizedSearchCV`` to do
   cross-validated parameter search using any of these strategies.
 
-- `sklearn-deap <https://github.com/rsteca/sklearn-deap>`_ Use evolutionary
+- `sklearn_dual-deap <https://github.com/rsteca/sklearn_dual-deap>`_ Use evolutionary
   algorithms instead of gridsearch in scikit-learn.
 
 **Model export for production**
 
-- `sklearn-onnx <https://github.com/onnx/sklearn-onnx>`_ Serialization of many
+- `sklearn_dual-onnx <https://github.com/onnx/sklearn_dual-onnx>`_ Serialization of many
   Scikit-learn pipelines to `ONNX <https://onnx.ai/>`_ for interchange and
   prediction.
 
@@ -119,12 +119,12 @@ enhance the functionality of scikit-learn's estimators.
   persistence model more secure than pickle, which can be used instead of
   pickle in most common cases.
 
-- `sklearn2pmml <https://github.com/jpmml/sklearn2pmml>`_
+- `sklearn_dual2pmml <https://github.com/jpmml/sklearn_dual2pmml>`_
   Serialization of a wide variety of scikit-learn estimators and transformers
-  into PMML with the help of `JPMML-SkLearn <https://github.com/jpmml/jpmml-sklearn>`_
+  into PMML with the help of `JPMML-SkLearn <https://github.com/jpmml/jpmml-sklearn_dual>`_
   library.
 
-- `sklearn-porter <https://github.com/nok/sklearn-porter>`_
+- `sklearn_dual-porter <https://github.com/nok/sklearn_dual-porter>`_
   Transpile trained scikit-learn models to C, Java, Javascript and others.
 
 - `m2cgen <https://github.com/BayesWitnesses/m2cgen>`_
@@ -187,8 +187,8 @@ and tasks.
 **Gradient (tree) boosting**
 
 Note scikit-learn own modern gradient boosting estimators
-:class:`~sklearn.ensemble.HistGradientBoostingClassifier` and
-:class:`~sklearn.ensemble.HistGradientBoostingRegressor`.
+:class:`~sklearn_dual.ensemble.HistGradientBoostingClassifier` and
+:class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`.
 
 - `XGBoost <https://github.com/dmlc/xgboost>`_ XGBoost is an optimized distributed
   gradient boosting library designed to be highly efficient, flexible and portable.
@@ -208,10 +208,10 @@ Note scikit-learn own modern gradient boosting estimators
 - `pomegranate <https://github.com/jmschrei/pomegranate>`_ Probabilistic modelling
   for Python, with an emphasis on hidden Markov models.
 
-- `sklearn-crfsuite <https://github.com/TeamHG-Memex/sklearn-crfsuite>`_
+- `sklearn_dual-crfsuite <https://github.com/TeamHG-Memex/sklearn_dual-crfsuite>`_
   Linear-chain conditional random fields
   (`CRFsuite <http://www.chokkan.org/software/crfsuite/>`_ wrapper with
-  sklearn-like API).
+  sklearn_dual-like API).
 
 
 **Deep neural networks etc.**
@@ -274,7 +274,7 @@ Note scikit-learn own modern gradient boosting estimators
   Dirichlet allocation in Cython which uses `Gibbs sampling
   <https://en.wikipedia.org/wiki/Gibbs_sampling>`_ to sample from the true
   posterior distribution. (scikit-learn's
-  :class:`~sklearn.decomposition.LatentDirichletAllocation` implementation uses
+  :class:`~sklearn_dual.decomposition.LatentDirichletAllocation` implementation uses
   `variational inference
   <https://en.wikipedia.org/wiki/Variational_Bayesian_methods>`_ to sample from
   a tractable approximation of a topic model's posterior distribution.)
@@ -284,7 +284,7 @@ Note scikit-learn own modern gradient boosting estimators
 
 - `hdbscan <https://github.com/scikit-learn-contrib/hdbscan>`_ HDBSCAN and Robust Single
   Linkage clustering algorithms for robust variable density clustering.
-  As of scikit-learn version 1.3.0, there is :class:`~sklearn.cluster.HDBSCAN`.
+  As of scikit-learn version 1.3.0, there is :class:`~sklearn_dual.cluster.HDBSCAN`.
 
 - `spherecluster <https://github.com/clara-labs/spherecluster>`_ Spherical
   K-means and mixture of von Mises Fisher clustering routines for data on the
@@ -294,16 +294,16 @@ Note scikit-learn own modern gradient boosting estimators
 
 - `categorical-encoding
   <https://github.com/scikit-learn-contrib/categorical-encoding>`_ A
-  library of sklearn compatible categorical variable encoders.
+  library of sklearn_dual compatible categorical variable encoders.
   As of scikit-learn version 1.3.0, there is
-  :class:`~sklearn.preprocessing.TargetEncoder`.
+  :class:`~sklearn_dual.preprocessing.TargetEncoder`.
 
 - `imbalanced-learn
   <https://github.com/scikit-learn-contrib/imbalanced-learn>`_ Various
   methods to under- and over-sample datasets.
 
 - `Feature-engine <https://github.com/solegalli/feature_engine>`_ A library
-  of sklearn compatible transformers for missing data imputation, categorical
+  of sklearn_dual compatible transformers for missing data imputation, categorical
   encoding, variable transformation, discretization, outlier handling and more.
   Feature-engine allows the application of preprocessing steps to selected groups
   of variables and it is fully compatible with the Scikit-learn Pipeline.
@@ -389,12 +389,12 @@ contact the authors of the translation.
 Some available translations are linked here to improve their dissemination
 and promote community efforts.
 
-- `Chinese translation <https://sklearn.apachecn.org/>`_
-  (`source <https://github.com/apachecn/sklearn-doc-zh>`__)
-- `Persian translation <https://sklearn.ir/>`_
+- `Chinese translation <https://sklearn_dual.apachecn.org/>`_
+  (`source <https://github.com/apachecn/sklearn_dual-doc-zh>`__)
+- `Persian translation <https://sklearn_dual.ir/>`_
   (`source <https://github.com/mehrdad-dev/scikit-learn>`__)
-- `Spanish translation <https://qu4nt.github.io/sklearn-doc-es/>`_
-  (`source <https://github.com/qu4nt/sklearn-doc-es>`__)
+- `Spanish translation <https://qu4nt.github.io/sklearn_dual-doc-es/>`_
+  (`source <https://github.com/qu4nt/sklearn_dual-doc-es>`__)
 - `Korean translation <https://panda5176.github.io/scikit-learn-korean/>`_
   (`source <https://github.com/panda5176/scikit-learn-korean>`__)
 

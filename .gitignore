@@ -8,8 +8,8 @@
 *.swo
 .DS_Store
 build
-sklearn/datasets/__config__.py
-sklearn/**/*.html
+sklearn_dual/datasets/__config__.py
+sklearn_dual/**/*.html
 
 dist/
 MANIFEST
@@ -86,7 +86,7 @@ _configtest.o.d
 .mypy_cache/
 
 # virtualenv from advanced installation guide
-sklearn-env/
+sklearn_dual-env/
 
 # Default JupyterLite content
 jupyterlite_contents

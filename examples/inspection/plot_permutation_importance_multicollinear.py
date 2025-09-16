@@ -4,8 +4,8 @@ Permutation Importance with Multicollinear or Correlated Features
 =================================================================
 
 In this example, we compute the
-:func:`~sklearn.inspection.permutation_importance` of the features to a trained
-:class:`~sklearn.ensemble.RandomForestClassifier` using the
+:func:`~sklearn_dual.inspection.permutation_importance` of the features to a trained
+:class:`~sklearn_dual.ensemble.RandomForestClassifier` using the
 :ref:`breast_cancer_dataset`. The model can easily get about 97% accuracy on a
 test dataset. Because this dataset contains multicollinear features, the
 permutation importance shows that none of the features are important, in
@@ -55,7 +55,7 @@ def plot_permutation_importance(clf, X, y, ax):
 
 
 # %%
-# We then train a :class:`~sklearn.ensemble.RandomForestClassifier` on the
+# We then train a :class:`~sklearn_dual.ensemble.RandomForestClassifier` on the
 # :ref:`breast_cancer_dataset` and evaluate its accuracy on a test set:
 from sklearn_dual.datasets import load_breast_cancer
 from sklearn_dual.ensemble import RandomForestClassifier
@@ -92,7 +92,7 @@ _ = fig.tight_layout()
 # %%
 # The plot on the left shows the Gini importance of the model. As the
 # scikit-learn implementation of
-# :class:`~sklearn.ensemble.RandomForestClassifier` uses a random subsets of
+# :class:`~sklearn_dual.ensemble.RandomForestClassifier` uses a random subsets of
 # :math:`\sqrt{n_\text{features}}` features at each split, it is able to dilute
 # the dominance of any single correlated feature. As a result, the individual
 # feature importance may be distributed more evenly among the correlated

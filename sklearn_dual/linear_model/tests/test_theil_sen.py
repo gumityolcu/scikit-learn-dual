@@ -1,5 +1,5 @@
 """
-Testing for Theil-Sen module (sklearn.linear_model.theil_sen)
+Testing for Theil-Sen module (sklearn_dual.linear_model.theil_sen)
 """
 
 # Authors: The scikit-learn developers

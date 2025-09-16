@@ -60,9 +60,9 @@ plt.show()
 # - `"spherical"`: each component has its own single variance.
 #
 # We score the different models and keep the best model (the lowest BIC). This
-# is done by using :class:`~sklearn.model_selection.GridSearchCV` and a
+# is done by using :class:`~sklearn_dual.model_selection.GridSearchCV` and a
 # user-defined score function which returns the negative BIC score, as
-# :class:`~sklearn.model_selection.GridSearchCV` is designed to **maximize** a
+# :class:`~sklearn_dual.model_selection.GridSearchCV` is designed to **maximize** a
 # score (maximizing the negative BIC is equivalent to minimizing the BIC).
 #
 # The best set of parameters and estimator are stored in `best_parameters_` and

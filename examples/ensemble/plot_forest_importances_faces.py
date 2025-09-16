@@ -89,4 +89,4 @@ plt.show()
 #     on the training set.
 #
 # If these two conditions are not met, it is recommended to instead use
-# the :func:`~sklearn.inspection.permutation_importance`.
+# the :func:`~sklearn_dual.inspection.permutation_importance`.

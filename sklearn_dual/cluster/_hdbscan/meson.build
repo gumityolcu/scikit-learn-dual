@@ -10,7 +10,7 @@ foreach ext_name, ext_dict : cluster_hdbscan_extension_metadata
     ext_dict.get('sources'),
     dependencies: [np_dep],
     cython_args: cython_args,
-    subdir: 'sklearn/cluster/_hdbscan',
+    subdir: 'sklearn_dual/cluster/_hdbscan',
     install: true
   )
 endforeach

@@ -3,7 +3,7 @@
 Plot class probabilities calculated by the VotingClassifier
 ===========================================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 Plot the class probabilities of the first sample in a toy dataset predicted by
 three different classifiers and averaged by the

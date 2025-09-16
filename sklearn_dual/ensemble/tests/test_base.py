@@ -1,5 +1,5 @@
 """
-Testing for the base module (sklearn.ensemble.base).
+Testing for the base module (sklearn_dual.ensemble.base).
 """
 
 # Authors: The scikit-learn developers

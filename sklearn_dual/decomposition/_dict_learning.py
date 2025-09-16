@@ -141,7 +141,7 @@ def _sparse_encode_precomputed(
         alpha = float(regularization) / n_features  # account for scaling
 
         # TODO: Make verbosity argument for Lasso?
-        # sklearn.linear_model.coordinate_descent.enet_path has a verbosity
+        # sklearn_dual.linear_model.coordinate_descent.enet_path has a verbosity
         # argument that we could pass in from Lasso.
         clf = Lasso(
             alpha=alpha,
@@ -332,10 +332,10 @@ def sparse_encode(
 
     See Also
     --------
-    sklearn.linear_model.lars_path : Compute Least Angle Regression or Lasso
+    sklearn_dual.linear_model.lars_path : Compute Least Angle Regression or Lasso
         path using LARS algorithm.
-    sklearn.linear_model.orthogonal_mp : Solves Orthogonal Matching Pursuit problems.
-    sklearn.linear_model.Lasso : Train Linear Model with L1 prior as regularizer.
+    sklearn_dual.linear_model.orthogonal_mp : Solves Orthogonal Matching Pursuit problems.
+    sklearn_dual.linear_model.Lasso : Train Linear Model with L1 prior as regularizer.
     SparseCoder : Find a sparse representation of data from a fixed precomputed
         dictionary.
 
@@ -740,7 +740,7 @@ def dict_learning_online(
         Initial values for the dictionary for warm restart scenarios.
         If `None`, the initial values for the dictionary are created
         with an SVD decomposition of the data via
-        :func:`~sklearn.utils.extmath.randomized_svd`.
+        :func:`~sklearn_dual.utils.extmath.randomized_svd`.
 
     callback : callable, default=None
         A callable that gets invoked at the end of each iteration.
@@ -1404,9 +1404,9 @@ class DictionaryLearning(_BaseSparseCoding, BaseEstimator):
 
     fit_algorithm : {'lars', 'cd'}, default='lars'
         * `'lars'`: uses the least angle regression method to solve the lasso
-          problem (:func:`~sklearn.linear_model.lars_path`);
+          problem (:func:`~sklearn_dual.linear_model.lars_path`);
         * `'cd'`: uses the coordinate descent method to compute the
-          Lasso solution (:class:`~sklearn.linear_model.Lasso`). Lars will be
+          Lasso solution (:class:`~sklearn_dual.linear_model.Lasso`). Lars will be
           faster if the estimated components are sparse.
 
         .. versionadded:: 0.17
@@ -1417,10 +1417,10 @@ class DictionaryLearning(_BaseSparseCoding, BaseEstimator):
         Algorithm used to transform the data:
 
         - `'lars'`: uses the least angle regression method
-          (:func:`~sklearn.linear_model.lars_path`);
+          (:func:`~sklearn_dual.linear_model.lars_path`);
         - `'lasso_lars'`: uses Lars to compute the Lasso solution.
         - `'lasso_cd'`: uses the coordinate descent method to compute the
-          Lasso solution (:class:`~sklearn.linear_model.Lasso`). `'lasso_lars'`
+          Lasso solution (:class:`~sklearn_dual.linear_model.Lasso`). `'lasso_lars'`
           will be faster if the estimated components are sparse.
         - `'omp'`: uses orthogonal matching pursuit to estimate the sparse
           solution.

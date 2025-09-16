@@ -178,7 +178,7 @@ class _BaseVoting(TransformerMixin, _BaseHeterogeneousEnsemble):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__)
@@ -249,12 +249,12 @@ class VotingClassifier(ClassifierMixin, _BaseVoting):
         The collection of fitted sub-estimators as defined in ``estimators``
         that are not 'drop'.
 
-    named_estimators_ : :class:`~sklearn.utils.Bunch`
+    named_estimators_ : :class:`~sklearn_dual.utils.Bunch`
         Attribute to access any fitted sub-estimators by name.
 
         .. versionadded:: 0.20
 
-    le_ : :class:`~sklearn.preprocessing.LabelEncoder`
+    le_ : :class:`~sklearn_dual.preprocessing.LabelEncoder`
         Transformer used to encode the labels during fit and decode during
         prediction.
 
@@ -382,7 +382,7 @@ class VotingClassifier(ClassifierMixin, _BaseVoting):
 
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -593,7 +593,7 @@ class VotingRegressor(RegressorMixin, _BaseVoting):
         The collection of fitted sub-estimators as defined in ``estimators``
         that are not 'drop'.
 
-    named_estimators_ : :class:`~sklearn.utils.Bunch`
+    named_estimators_ : :class:`~sklearn_dual.utils.Bunch`
         Attribute to access any fitted sub-estimators by name.
 
         .. versionadded:: 0.20
@@ -677,7 +677,7 @@ class VotingRegressor(RegressorMixin, _BaseVoting):
 
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 

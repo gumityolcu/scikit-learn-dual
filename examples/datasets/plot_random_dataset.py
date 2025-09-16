@@ -7,10 +7,10 @@ This example plots several randomly generated classification datasets.
 For easy visualization, all datasets have 2 features, plotted on the x and y
 axis. The color of each point represents its class label.
 
-The first 4 plots use the :func:`~sklearn.datasets.make_classification` with
+The first 4 plots use the :func:`~sklearn_dual.datasets.make_classification` with
 different numbers of informative features, clusters per class and classes.
-The final 2 plots use :func:`~sklearn.datasets.make_blobs` and
-:func:`~sklearn.datasets.make_gaussian_quantiles`.
+The final 2 plots use :func:`~sklearn_dual.datasets.make_blobs` and
+:func:`~sklearn_dual.datasets.make_gaussian_quantiles`.
 
 """
 

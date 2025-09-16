@@ -19,7 +19,7 @@ from ..base import MultiOutputMixin, RegressorMixin, _fit_context
 from ..exceptions import ConvergenceWarning
 from ..model_selection import check_cv
 
-# mypy error: Module 'sklearn.utils' has no attribute 'arrayfuncs'
+# mypy error: Module 'sklearn_dual.utils' has no attribute 'arrayfuncs'
 from ..utils import (  # type: ignore
     Bunch,
     arrayfuncs,
@@ -175,7 +175,7 @@ def lars_path(
     Lars : Least Angle Regression model a.k.a. LAR.
     LassoLarsCV : Cross-validated Lasso, using the LARS algorithm.
     LarsCV : Cross-validated Least Angle Regression model.
-    sklearn.decomposition.sparse_encode : Sparse coding.
+    sklearn_dual.decomposition.sparse_encode : Sparse coding.
 
     References
     ----------
@@ -356,7 +356,7 @@ def lars_path_gram(
     Lars : Least Angle Regression model a.k.a. LAR.
     LassoLarsCV : Cross-validated Lasso, using the LARS algorithm.
     LarsCV : Cross-validated Least Angle Regression model.
-    sklearn.decomposition.sparse_encode : Sparse coding.
+    sklearn_dual.decomposition.sparse_encode : Sparse coding.
 
     References
     ----------
@@ -525,7 +525,7 @@ def _lars_path_solver(
     Lars
     LassoLarsCV
     LarsCV
-    sklearn.decomposition.sparse_encode
+    sklearn_dual.decomposition.sparse_encode
 
     References
     ----------
@@ -1014,7 +1014,7 @@ class Lars(MultiOutputMixin, RegressorMixin, LinearModel):
     lars_path: Compute Least Angle Regression or Lasso
         path using LARS algorithm.
     LarsCV : Cross-validated Least Angle Regression model.
-    sklearn.decomposition.sparse_encode : Sparse coding.
+    sklearn_dual.decomposition.sparse_encode : Sparse coding.
 
     Examples
     --------
@@ -1335,7 +1335,7 @@ class LassoLars(Lars):
     LassoLarsCV: Cross-validated Lasso, using the LARS algorithm.
     LassoLarsIC : Lasso model fit with Lars using BIC
         or AIC for model selection.
-    sklearn.decomposition.sparse_encode : Sparse coding.
+    sklearn_dual.decomposition.sparse_encode : Sparse coding.
 
     Examples
     --------
@@ -1545,7 +1545,7 @@ class LarsCV(Lars):
         - :term:`CV splitter`,
         - An iterable yielding (train, test) splits as arrays of indices.
 
-        For integer/None inputs, :class:`~sklearn.model_selection.KFold` is used.
+        For integer/None inputs, :class:`~sklearn_dual.model_selection.KFold` is used.
 
         Refer :ref:`User Guide <cross_validation>` for the various
         cross-validation strategies that can be used here.
@@ -1627,7 +1627,7 @@ class LarsCV(Lars):
     LassoLars : Lasso model fit with Least Angle Regression a.k.a. Lars.
     LassoLarsIC : Lasso model fit with Lars using BIC
         or AIC for model selection.
-    sklearn.decomposition.sparse_encode : Sparse coding.
+    sklearn_dual.decomposition.sparse_encode : Sparse coding.
 
     Notes
     -----
@@ -1709,7 +1709,7 @@ class LarsCV(Lars):
             .. versionadded:: 1.4
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -1815,7 +1815,7 @@ class LarsCV(Lars):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__).add(
@@ -1863,7 +1863,7 @@ class LassoLarsCV(LarsCV):
         - :term:`CV splitter`,
         - An iterable yielding (train, test) splits as arrays of indices.
 
-        For integer/None inputs, :class:`~sklearn.model_selection.KFold` is used.
+        For integer/None inputs, :class:`~sklearn_dual.model_selection.KFold` is used.
 
         Refer :ref:`User Guide <cross_validation>` for the various
         cross-validation strategies that can be used here.
@@ -1956,17 +1956,17 @@ class LassoLarsCV(LarsCV):
     LassoLars : Lasso model fit with Least Angle Regression a.k.a. Lars.
     LassoLarsIC : Lasso model fit with Lars using BIC
         or AIC for model selection.
-    sklearn.decomposition.sparse_encode : Sparse coding.
+    sklearn_dual.decomposition.sparse_encode : Sparse coding.
 
     Notes
     -----
     The object solves the same problem as the
-    :class:`~sklearn.linear_model.LassoCV` object. However, unlike the
-    :class:`~sklearn.linear_model.LassoCV`, it find the relevant alphas values
+    :class:`~sklearn_dual.linear_model.LassoCV` object. However, unlike the
+    :class:`~sklearn_dual.linear_model.LassoCV`, it find the relevant alphas values
     by itself. In general, because of this property, it will be more stable.
     However, it is more fragile to heavily multicollinear datasets.
 
-    It is more efficient than the :class:`~sklearn.linear_model.LassoCV` if
+    It is more efficient than the :class:`~sklearn_dual.linear_model.LassoCV` if
     only a small number of features are selected compared to the total number,
     for instance if there are very few samples compared to the number of
     features.
@@ -2143,7 +2143,7 @@ class LassoLarsIC(LassoLars):
         along a regularization path.
     LassoLars : Lasso model fit with Least Angle Regression a.k.a. Lars.
     LassoLarsCV: Cross-validated Lasso, using the LARS algorithm.
-    sklearn.decomposition.sparse_encode : Sparse coding.
+    sklearn_dual.decomposition.sparse_encode : Sparse coding.
 
     Notes
     -----

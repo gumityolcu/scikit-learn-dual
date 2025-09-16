@@ -4,7 +4,7 @@ Effect of transforming the targets in regression model
 ======================================================
 
 In this example, we give an overview of
-:class:`~sklearn.compose.TransformedTargetRegressor`. We use two examples
+:class:`~sklearn_dual.compose.TransformedTargetRegressor`. We use two examples
 to illustrate the benefit of transforming the targets before learning a linear
 regression model. The first example uses synthetic data while the second
 example is based on the Ames housing data set.
@@ -143,9 +143,9 @@ y_trans = quantile_transform(
 ).squeeze()
 
 # %%
-# A :class:`~sklearn.preprocessing.QuantileTransformer` is used to normalize
+# A :class:`~sklearn_dual.preprocessing.QuantileTransformer` is used to normalize
 # the target distribution before applying a
-# :class:`~sklearn.linear_model.RidgeCV` model.
+# :class:`~sklearn_dual.linear_model.RidgeCV` model.
 f, (ax0, ax1) = plt.subplots(1, 2)
 
 ax0.hist(y, bins=100, density=True)

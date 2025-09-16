@@ -72,7 +72,7 @@ class Pipeline(_BaseComposition):
     `'passthrough'` or `None`.
 
     For an example use case of `Pipeline` combined with
-    :class:`~sklearn.model_selection.GridSearchCV`, refer to
+    :class:`~sklearn_dual.model_selection.GridSearchCV`, refer to
     :ref:`sphx_glr_auto_examples_compose_plot_compare_reduction.py`. The
     example :ref:`sphx_glr_auto_examples_compose_plot_digits_pipe.py` shows how
     to grid search on a pipeline using `'__'` as a separator in the parameter names.
@@ -105,7 +105,7 @@ class Pipeline(_BaseComposition):
 
     Attributes
     ----------
-    named_steps : :class:`~sklearn.utils.Bunch`
+    named_steps : :class:`~sklearn_dual.utils.Bunch`
         Dictionary-like object, with the following attributes.
         Read-only attribute to access any step parameter by user given name.
         Keys are step names and values are steps parameters.
@@ -451,7 +451,7 @@ class Pipeline(_BaseComposition):
                 Parameters are now passed to the ``transform`` method of the
                 intermediate steps as well, if requested, and if
                 `enable_metadata_routing=True` is set via
-                :func:`~sklearn.set_config`.
+                :func:`~sklearn_dual.set_config`.
 
             See :ref:`Metadata Routing User Guide <metadata_routing>` for more
             details.
@@ -574,7 +574,7 @@ class Pipeline(_BaseComposition):
                 Parameters are now passed to the ``transform`` method of the
                 intermediate steps as well, if requested, and if
                 `enable_metadata_routing=True` is set via
-                :func:`~sklearn.set_config`.
+                :func:`~sklearn_dual.set_config`.
 
             See :ref:`Metadata Routing User Guide <metadata_routing>` for more
             details.
@@ -1082,7 +1082,7 @@ class Pipeline(_BaseComposition):
         # delegate to first step (which will call _check_is_fitted)
         return self.steps[0][1].feature_names_in_
 
-    def __sklearn_is_fitted__(self):
+    def __sklearn_dual_is_fitted__(self):
         """Indicate whether pipeline has been fit."""
         try:
             # check if the last step of the pipeline is fitted
@@ -1122,7 +1122,7 @@ class Pipeline(_BaseComposition):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__)
@@ -1381,7 +1381,7 @@ class FeatureUnion(TransformerMixin, _BaseComposition):
 
     Attributes
     ----------
-    named_transformers : :class:`~sklearn.utils.Bunch`
+    named_transformers : :class:`~sklearn_dual.utils.Bunch`
         Dictionary-like object, with the following attributes.
         Read-only attribute to access any transformer parameter by user
         given name. Keys are transformer names and values are
@@ -1836,7 +1836,7 @@ class FeatureUnion(TransformerMixin, _BaseComposition):
         # X is passed to all transformers -- delegate to the first one
         return self.transformer_list[0][1].feature_names_in_
 
-    def __sklearn_is_fitted__(self):
+    def __sklearn_dual_is_fitted__(self):
         # Delegate whether feature union was fitted
         for _, transformer, _ in self._iter():
             check_is_fitted(transformer)
@@ -1863,7 +1863,7 @@ class FeatureUnion(TransformerMixin, _BaseComposition):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__)

@@ -96,7 +96,7 @@ Reference Steps
         * [ ] Update news and what's new date in release branch
         * [ ] Backport news and what's new date in release branch
         {%- if key == "rc" %}
-        * [ ] Update the sklearn dev0 version in main branch
+        * [ ] Update the sklearn_dual dev0 version in main branch
         {%- endif %}
         * [ ] Set the version number in the release branch
         * [ ] Check that the wheels for the release can be built successfully
@@ -144,7 +144,7 @@ Reference Steps
 
     {% if key == "rc" %}
     - Create a PR from `main` and targeting `main` to increment the dev0 `__version__`
-      variable in `sklearn/__init__.py`. This means while we are in the release
+      variable in `sklearn_dual/__init__.py`. This means while we are in the release
       candidate period, the latest stable is two version behind the `main` branch,
       instead of one. In this PR targeting `main`, you should also include a new what's
       new file under the `doc/whats_new/` directory so PRs that target the next version
@@ -153,7 +153,7 @@ Reference Steps
     {% endif %}
 
     - In the `{{ version_short }}.X` branch, change the version number `__version__` in
-      `sklearn/__init__.py` to `{{ version_full }}`.
+      `sklearn_dual/__init__.py` to `{{ version_full }}`.
 
     {% if key != "rc" %}
     - In the `main` branch, edit the corresponding file in the `doc/whats_new` directory
@@ -336,14 +336,14 @@ builds and uploads the documentation automatically.
 Experimental Features
 ---------------------
 
-The :mod:`sklearn.experimental` module was introduced in 0.21 and contains
+The :mod:`sklearn_dual.experimental` module was introduced in 0.21 and contains
 experimental features and estimators that are subject to change without
 deprecation cycle.
 
 To create an experimental module, refer to the contents of `enable_halving_search_cv.py
-<https://github.com/scikit-learn/scikit-learn/blob/362cb92bb2f5b878229ea4f59519ad31c2fcee76/sklearn/experimental/enable_halving_search_cv.py>`__,
+<https://github.com/scikit-learn/scikit-learn/blob/362cb92bb2f5b878229ea4f59519ad31c2fcee76/sklearn_dual/experimental/enable_halving_search_cv.py>`__,
 or `enable_iterative_imputer.py
-<https://github.com/scikit-learn/scikit-learn/blob/c9c89cfc85dd8dfefd7921c16c87327d03140a06/sklearn/experimental/enable_iterative_imputer.py>`__.
+<https://github.com/scikit-learn/scikit-learn/blob/c9c89cfc85dd8dfefd7921c16c87327d03140a06/sklearn_dual/experimental/enable_iterative_imputer.py>`__.
 
 .. note::
 
@@ -351,45 +351,45 @@ or `enable_iterative_imputer.py
   might be stable at the time of reading, hence the permalink. See below for
   instructions on the transition from experimental to stable.
 
-Note that the public import path must be to a public subpackage (like `sklearn/ensemble`
-or `sklearn/impute`), not just a `.py` module. Also, the (private) experimental features
+Note that the public import path must be to a public subpackage (like `sklearn_dual/ensemble`
+or `sklearn_dual/impute`), not just a `.py` module. Also, the (private) experimental features
 that are imported must be in a submodule/subpackage of the public subpackage, e.g.
-`sklearn/ensemble/_hist_gradient_boosting/` or `sklearn/impute/_iterative.py`. This is
+`sklearn_dual/ensemble/_hist_gradient_boosting/` or `sklearn_dual/impute/_iterative.py`. This is
 needed so that pickles still work in the future when the features aren't experimental
 anymore.
 
 To avoid type checker (e.g. `mypy`) errors a direct import of experimental estimators
 should be done in the parent module, protected by the `if typing.TYPE_CHECKING` check.
-See `sklearn/ensemble/__init__.py
-<https://github.com/scikit-learn/scikit-learn/blob/c9c89cfc85dd8dfefd7921c16c87327d03140a06/sklearn/ensemble/__init__.py>`__,
-or `sklearn/impute/__init__.py
-<https://github.com/scikit-learn/scikit-learn/blob/c9c89cfc85dd8dfefd7921c16c87327d03140a06/sklearn/impute/__init__.py>`__
+See `sklearn_dual/ensemble/__init__.py
+<https://github.com/scikit-learn/scikit-learn/blob/c9c89cfc85dd8dfefd7921c16c87327d03140a06/sklearn_dual/ensemble/__init__.py>`__,
+or `sklearn_dual/impute/__init__.py
+<https://github.com/scikit-learn/scikit-learn/blob/c9c89cfc85dd8dfefd7921c16c87327d03140a06/sklearn_dual/impute/__init__.py>`__
 for an example. Please also write basic tests following those in
 `test_enable_hist_gradient_boosting.py
-<https://github.com/scikit-learn/scikit-learn/blob/c9c89cfc85dd8dfefd7921c16c87327d03140a06/sklearn/experimental/tests/test_enable_hist_gradient_boosting.py>`__.
+<https://github.com/scikit-learn/scikit-learn/blob/c9c89cfc85dd8dfefd7921c16c87327d03140a06/sklearn_dual/experimental/tests/test_enable_hist_gradient_boosting.py>`__.
 
 Make sure every user-facing code you write explicitly mentions that the feature is
 experimental, and add a `# noqa` comment to avoid PEP8-related warnings::
 
   # To use this experimental feature, we need to explicitly ask for it
-  from sklearn.experimental import enable_iterative_imputer  # noqa
-  from sklearn.impute import IterativeImputer
+  from sklearn_dual.experimental import enable_iterative_imputer  # noqa
+  from sklearn_dual.impute import IterativeImputer
 
 For the docs to render properly, please also import `enable_my_experimental_feature` in
 `doc/conf.py`, otherwise sphinx will not be able to detect and import the corresponding
-modules. Note that using `from sklearn.experimental import *` **does not work**.
+modules. Note that using `from sklearn_dual.experimental import *` **does not work**.
 
 .. note::
 
   Some experimental classes and functions may not be included in the
-  :mod:`sklearn.experimental` module, e.g., `sklearn.datasets.fetch_openml`.
+  :mod:`sklearn_dual.experimental` module, e.g., `sklearn_dual.datasets.fetch_openml`.
 
 Once the feature becomes stable, remove all occurrences of
 `enable_my_experimental_feature` in the scikit-learn code base and make the
 `enable_my_experimental_feature` a no-op that just raises a warning, as in
 `enable_hist_gradient_boosting.py
-<https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/experimental/enable_hist_gradient_boosting.py>`__.
+<https://github.com/scikit-learn/scikit-learn/blob/main/sklearn_dual/experimental/enable_hist_gradient_boosting.py>`__.
 The file should stay there indefinitely as we do not want to break users' code; we just
 incentivize them to remove that import with the warning. Also remember to update the
 tests accordingly, see `test_enable_hist_gradient_boosting.py
-<https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/experimental/tests/test_enable_hist_gradient_boosting.py>`__.
+<https://github.com/scikit-learn/scikit-learn/blob/main/sklearn_dual/experimental/tests/test_enable_hist_gradient_boosting.py>`__.

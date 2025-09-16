@@ -1,6 +1,6 @@
 .. include:: _contributors.rst
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 ============
 Version 0.19
@@ -366,11 +366,11 @@ Linear, kernelized and related models
 
 Other predictors
 
-- Custom metrics for the :mod:`sklearn.neighbors` binary trees now have
+- Custom metrics for the :mod:`sklearn_dual.neighbors` binary trees now have
   fewer constraints: they must take two 1d-arrays and return a float.
   :issue:`6288` by `Jake Vanderplas`_.
 
-- ``algorithm='auto`` in :mod:`sklearn.neighbors` estimators now chooses the most
+- ``algorithm='auto`` in :mod:`sklearn_dual.neighbors` estimators now chooses the most
   appropriate algorithm for all input types and metrics. :issue:`9145` by
   :user:`Herilalaina Rakotoarison <herilalaina>` and :user:`Reddy Chinthala
   <preddy5>`.
@@ -413,7 +413,7 @@ Preprocessing and feature selection
   with ``center=True``. :issue:`8065` by :user:`Daniel LeJeune <acadiansith>`.
 
 - Small performance improvement to n-gram creation in
-  :mod:`sklearn.feature_extraction.text` by binding methods for loops and
+  :mod:`sklearn_dual.feature_extraction.text` by binding methods for loops and
   special-casing unigrams. :issue:`7567` by :user:`Jaye Doepke <jtdoepke>`
 
 - Relax assumption on the data for the
@@ -495,7 +495,7 @@ Miscellaneous
   :issue:`7533` by :user:`Ekaterina Krivich <kiote>`.
 
 - Added type checking to the ``accept_sparse`` parameter in
-  :mod:`sklearn.utils.validation` methods. This parameter now accepts only boolean,
+  :mod:`sklearn_dual.utils.validation` methods. This parameter now accepts only boolean,
   string, or list/tuple of strings. ``accept_sparse=None`` is deprecated and
   should be replaced by ``accept_sparse=False``.
   :issue:`7880` by :user:`Josh Karnofsky <jkarno>`.
@@ -684,7 +684,7 @@ Decomposition, manifold learning and clustering
   :issue:`7814` by :user:`Laurent Direr <ldirer>` and :user:`Maniteja
   Nandana <maniteja123>`.
 
-- Fix bug where :mod:`sklearn.mixture` ``sample`` methods did not return as many
+- Fix bug where :mod:`sklearn_dual.mixture` ``sample`` methods did not return as many
   samples as requested. :issue:`7702` by :user:`Levi John Wolf <ljwolf>`.
 
 - Fixed the shrinkage implementation in :class:`neighbors.NearestCentroid`.
@@ -788,7 +788,7 @@ Miscellaneous
   incorrect result when ``n_samples`` is odd.
   :issue:`8198` by :user:`Josh Levy <levy5674>`.
 
-- Some ``fetch_`` functions in :mod:`sklearn.datasets` were ignoring the
+- Some ``fetch_`` functions in :mod:`sklearn_dual.datasets` were ignoring the
   ``download_if_missing`` keyword. :issue:`7944` by :user:`Ralf Gommers <rgommers>`.
 
 - Fix estimators to accept a ``sample_weight`` parameter of type
@@ -808,7 +808,7 @@ Miscellaneous
   documentation build with Sphinx>1.5 :issue:`8010`, :issue:`7986` by
   :user:`Oscar Najera <Titan-C>`
 
-- Add ``data_home`` parameter to :func:`sklearn.datasets.fetch_kddcup99`.
+- Add ``data_home`` parameter to :func:`sklearn_dual.datasets.fetch_kddcup99`.
   :issue:`9289` by `Loic Esteve`_.
 
 - Fix dataset loaders using Python 3 version of makedirs to also work in
@@ -948,7 +948,7 @@ Miscellaneous
 
 - SciPy >= 0.13.3 and NumPy >= 1.8.2 are now the minimum supported versions
   for scikit-learn. The following backported functions in
-  :mod:`sklearn.utils` have been removed or deprecated accordingly.
+  :mod:`sklearn_dual.utils` have been removed or deprecated accordingly.
   :issue:`8854` and :issue:`8874` by :user:`Naoya Kanai <naoyak>`
 
 - The ``store_covariances`` and ``covariances_`` parameters of

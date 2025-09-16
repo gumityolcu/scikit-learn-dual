@@ -4,7 +4,7 @@
 Release Highlights for scikit-learn 1.3
 =======================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 We are pleased to announce the release of scikit-learn 1.3! Many bug fixes
 and improvements were added, as well as some new key features. We detail

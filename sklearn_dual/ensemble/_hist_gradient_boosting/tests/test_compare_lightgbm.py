@@ -39,11 +39,11 @@ from sklearn_dual.model_selection import train_test_split
 def test_same_predictions_regression(
     seed, loss, min_samples_leaf, n_samples, max_leaf_nodes
 ):
-    # Make sure sklearn has the same predictions as lightgbm for easy targets.
+    # Make sure sklearn_dual has the same predictions as lightgbm for easy targets.
     #
     # In particular when the size of the trees are bound and the number of
     # samples is large enough, the structure of the prediction trees found by
-    # LightGBM and sklearn should be exactly identical.
+    # LightGBM and sklearn_dual should be exactly identical.
     #
     # Notes:
     # - Several candidate splits may have equal gains when the number of
@@ -82,7 +82,7 @@ def test_same_predictions_regression(
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=rng)
 
-    est_sklearn = HistGradientBoostingRegressor(
+    est_sklearn_dual = HistGradientBoostingRegressor(
         loss=loss,
         max_iter=max_iter,
         max_bins=max_bins,
@@ -91,35 +91,35 @@ def test_same_predictions_regression(
         min_samples_leaf=min_samples_leaf,
         max_leaf_nodes=max_leaf_nodes,
     )
-    est_lightgbm = get_equivalent_estimator(est_sklearn, lib="lightgbm")
+    est_lightgbm = get_equivalent_estimator(est_sklearn_dual, lib="lightgbm")
     est_lightgbm.set_params(min_sum_hessian_in_leaf=0)
 
     est_lightgbm.fit(X_train, y_train)
-    est_sklearn.fit(X_train, y_train)
+    est_sklearn_dual.fit(X_train, y_train)
 
     # We need X to be treated an numerical data, not pre-binned data.
     X_train, X_test = X_train.astype(np.float32), X_test.astype(np.float32)
 
     pred_lightgbm = est_lightgbm.predict(X_train)
-    pred_sklearn = est_sklearn.predict(X_train)
+    pred_sklearn_dual = est_sklearn_dual.predict(X_train)
     if loss in ("gamma", "poisson"):
         # More than 65% of the predictions must be close up to the 2nd decimal.
         # TODO: We are not entirely satisfied with this lax comparison, but the root
         # cause is not clear, maybe algorithmic differences. One such example is the
         # poisson_max_delta_step parameter of LightGBM which does not exist in HGBT.
         assert (
-            np.mean(np.isclose(pred_lightgbm, pred_sklearn, rtol=1e-2, atol=1e-2))
+            np.mean(np.isclose(pred_lightgbm, pred_sklearn_dual, rtol=1e-2, atol=1e-2))
             > 0.65
         )
     else:
         # Less than 1% of the predictions may deviate more than 1e-3 in relative terms.
-        assert np.mean(np.isclose(pred_lightgbm, pred_sklearn, rtol=1e-3)) > 1 - 0.01
+        assert np.mean(np.isclose(pred_lightgbm, pred_sklearn_dual, rtol=1e-3)) > 1 - 0.01
 
     if max_leaf_nodes < 10 and n_samples >= 1000 and loss in ("squared_error",):
         pred_lightgbm = est_lightgbm.predict(X_test)
-        pred_sklearn = est_sklearn.predict(X_test)
+        pred_sklearn_dual = est_sklearn_dual.predict(X_test)
         # Less than 1% of the predictions may deviate more than 1e-4 in relative terms.
-        assert np.mean(np.isclose(pred_lightgbm, pred_sklearn, rtol=1e-4)) > 1 - 0.01
+        assert np.mean(np.isclose(pred_lightgbm, pred_sklearn_dual, rtol=1e-4)) > 1 - 0.01
 
 
 # TODO(1.8) remove the filterwarnings decorator
@@ -162,7 +162,7 @@ def test_same_predictions_classification(
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=rng)
 
-    est_sklearn = HistGradientBoostingClassifier(
+    est_sklearn_dual = HistGradientBoostingClassifier(
         loss="log_loss",
         max_iter=max_iter,
         max_bins=max_bins,
@@ -172,31 +172,31 @@ def test_same_predictions_classification(
         max_leaf_nodes=max_leaf_nodes,
     )
     est_lightgbm = get_equivalent_estimator(
-        est_sklearn, lib="lightgbm", n_classes=n_classes
+        est_sklearn_dual, lib="lightgbm", n_classes=n_classes
     )
 
     est_lightgbm.fit(X_train, y_train)
-    est_sklearn.fit(X_train, y_train)
+    est_sklearn_dual.fit(X_train, y_train)
 
     # We need X to be treated an numerical data, not pre-binned data.
     X_train, X_test = X_train.astype(np.float32), X_test.astype(np.float32)
 
     pred_lightgbm = est_lightgbm.predict(X_train)
-    pred_sklearn = est_sklearn.predict(X_train)
-    assert np.mean(pred_sklearn == pred_lightgbm) > 0.89
+    pred_sklearn_dual = est_sklearn_dual.predict(X_train)
+    assert np.mean(pred_sklearn_dual == pred_lightgbm) > 0.89
 
     acc_lightgbm = accuracy_score(y_train, pred_lightgbm)
-    acc_sklearn = accuracy_score(y_train, pred_sklearn)
-    np.testing.assert_almost_equal(acc_lightgbm, acc_sklearn)
+    acc_sklearn_dual = accuracy_score(y_train, pred_sklearn_dual)
+    np.testing.assert_almost_equal(acc_lightgbm, acc_sklearn_dual)
 
     if max_leaf_nodes < 10 and n_samples >= 1000:
         pred_lightgbm = est_lightgbm.predict(X_test)
-        pred_sklearn = est_sklearn.predict(X_test)
-        assert np.mean(pred_sklearn == pred_lightgbm) > 0.89
+        pred_sklearn_dual = est_sklearn_dual.predict(X_test)
+        assert np.mean(pred_sklearn_dual == pred_lightgbm) > 0.89
 
         acc_lightgbm = accuracy_score(y_test, pred_lightgbm)
-        acc_sklearn = accuracy_score(y_test, pred_sklearn)
-        np.testing.assert_almost_equal(acc_lightgbm, acc_sklearn, decimal=2)
+        acc_sklearn_dual = accuracy_score(y_test, pred_sklearn_dual)
+        np.testing.assert_almost_equal(acc_lightgbm, acc_sklearn_dual, decimal=2)
 
 
 # TODO(1.8) remove the filterwarnings decorator
@@ -241,7 +241,7 @@ def test_same_predictions_multiclass_classification(
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=rng)
 
-    est_sklearn = HistGradientBoostingClassifier(
+    est_sklearn_dual = HistGradientBoostingClassifier(
         loss="log_loss",
         max_iter=max_iter,
         max_bins=max_bins,
@@ -251,41 +251,41 @@ def test_same_predictions_multiclass_classification(
         max_leaf_nodes=max_leaf_nodes,
     )
     est_lightgbm = get_equivalent_estimator(
-        est_sklearn, lib="lightgbm", n_classes=n_classes
+        est_sklearn_dual, lib="lightgbm", n_classes=n_classes
     )
 
     est_lightgbm.fit(X_train, y_train)
-    est_sklearn.fit(X_train, y_train)
+    est_sklearn_dual.fit(X_train, y_train)
 
     # We need X to be treated an numerical data, not pre-binned data.
     X_train, X_test = X_train.astype(np.float32), X_test.astype(np.float32)
 
     pred_lightgbm = est_lightgbm.predict(X_train)
-    pred_sklearn = est_sklearn.predict(X_train)
-    assert np.mean(pred_sklearn == pred_lightgbm) > 0.89
+    pred_sklearn_dual = est_sklearn_dual.predict(X_train)
+    assert np.mean(pred_sklearn_dual == pred_lightgbm) > 0.89
 
     proba_lightgbm = est_lightgbm.predict_proba(X_train)
-    proba_sklearn = est_sklearn.predict_proba(X_train)
+    proba_sklearn_dual = est_sklearn_dual.predict_proba(X_train)
     # assert more than 75% of the predicted probabilities are the same up to
     # the second decimal
-    assert np.mean(np.abs(proba_lightgbm - proba_sklearn) < 1e-2) > 0.75
+    assert np.mean(np.abs(proba_lightgbm - proba_sklearn_dual) < 1e-2) > 0.75
 
     acc_lightgbm = accuracy_score(y_train, pred_lightgbm)
-    acc_sklearn = accuracy_score(y_train, pred_sklearn)
+    acc_sklearn_dual = accuracy_score(y_train, pred_sklearn_dual)
 
-    np.testing.assert_allclose(acc_lightgbm, acc_sklearn, rtol=0, atol=5e-2)
+    np.testing.assert_allclose(acc_lightgbm, acc_sklearn_dual, rtol=0, atol=5e-2)
 
     if max_leaf_nodes < 10 and n_samples >= 1000:
         pred_lightgbm = est_lightgbm.predict(X_test)
-        pred_sklearn = est_sklearn.predict(X_test)
-        assert np.mean(pred_sklearn == pred_lightgbm) > 0.89
+        pred_sklearn_dual = est_sklearn_dual.predict(X_test)
+        assert np.mean(pred_sklearn_dual == pred_lightgbm) > 0.89
 
         proba_lightgbm = est_lightgbm.predict_proba(X_train)
-        proba_sklearn = est_sklearn.predict_proba(X_train)
+        proba_sklearn_dual = est_sklearn_dual.predict_proba(X_train)
         # assert more than 75% of the predicted probabilities are the same up
         # to the second decimal
-        assert np.mean(np.abs(proba_lightgbm - proba_sklearn) < 1e-2) > 0.75
+        assert np.mean(np.abs(proba_lightgbm - proba_sklearn_dual) < 1e-2) > 0.75
 
         acc_lightgbm = accuracy_score(y_test, pred_lightgbm)
-        acc_sklearn = accuracy_score(y_test, pred_sklearn)
-        np.testing.assert_almost_equal(acc_lightgbm, acc_sklearn, decimal=2)
+        acc_sklearn_dual = accuracy_score(y_test, pred_sklearn_dual)
+        np.testing.assert_almost_equal(acc_lightgbm, acc_sklearn_dual, decimal=2)

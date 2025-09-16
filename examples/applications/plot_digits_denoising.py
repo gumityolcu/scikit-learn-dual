@@ -3,12 +3,12 @@
 Image denoising using kernel PCA
 ================================
 
-This example shows how to use :class:`~sklearn.decomposition.KernelPCA` to
+This example shows how to use :class:`~sklearn_dual.decomposition.KernelPCA` to
 denoise images. In short, we take advantage of the approximation function
 learned during `fit` to reconstruct the original image.
 
 We will compare the results with an exact reconstruction using
-:class:`~sklearn.decomposition.PCA`.
+:class:`~sklearn_dual.decomposition.PCA`.
 
 We will use USPS digits dataset to reproduce presented in Sect. 4 of [1]_.
 
@@ -29,7 +29,7 @@ We will use USPS digits dataset to reproduce presented in Sect. 4 of [1]_.
 # ---------------------------
 #
 # The USPS digits datasets is available in OpenML. We use
-# :func:`~sklearn.datasets.fetch_openml` to get this dataset. In addition, we
+# :func:`~sklearn_dual.datasets.fetch_openml` to get this dataset. In addition, we
 # normalize the dataset such that all pixel values are in the range (0, 1).
 import numpy as np
 

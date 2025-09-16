@@ -99,11 +99,11 @@ Train and Persist the Model
 ...........................
 
 Creating an appropriate model depends on your use-case. As an example, here we
-train a :class:`sklearn.ensemble.HistGradientBoostingClassifier` on the iris
+train a :class:`sklearn_dual.ensemble.HistGradientBoostingClassifier` on the iris
 dataset::
 
-  >>> from sklearn import ensemble
-  >>> from sklearn import datasets
+  >>> from sklearn_dual import ensemble
+  >>> from sklearn_dual import datasets
   >>> clf = ensemble.HistGradientBoostingClassifier()
   >>> X, y = datasets.load_iris(return_X_y=True)
   >>> clf.fit(X, y)
@@ -149,7 +149,7 @@ facilitate the conversion of the data models between different machine learning
 frameworks, and to improve their portability on different computing
 architectures. More details are available from the `ONNX tutorial
 <https://onnx.ai/get-started.html>`__. To convert scikit-learn model to `ONNX`
-`sklearn-onnx <http://onnx.ai/sklearn-onnx/>`__ has been developed. However,
+`sklearn_dual-onnx <http://onnx.ai/sklearn_dual-onnx/>`__ has been developed. However,
 not all scikit-learn models are supported, and it is limited to the core
 scikit-learn and does not support most third party estimators. One can write a
 custom converter for third party or custom estimators, but the documentation to
@@ -159,7 +159,7 @@ do that is sparse and it might be challenging to do so.
 
   To convert the model to `ONNX` format, you need to give the converter some
   information about the input as well, about which you can read more `here
-  <http://onnx.ai/sklearn-onnx/index.html>`__::
+  <http://onnx.ai/sklearn_dual-onnx/index.html>`__::
 
       from skl2onnx import to_onnx
       onx = to_onnx(clf, X[:1].astype(numpy.float32), target_opset=12)
@@ -227,7 +227,7 @@ come with slight variations:
 - `cloudpickle`_ can serialize certain objects which cannot be serialized by
   :mod:`pickle` or :mod:`joblib`, such as user defined functions and lambda
   functions. This can happen for instance, when using a
-  :class:`~sklearn.preprocessing.FunctionTransformer` and using a custom
+  :class:`~sklearn_dual.preprocessing.FunctionTransformer` and using a custom
   function to transform the data.
 
 .. dropdown:: Using `pickle`, `joblib`, or `cloudpickle`
@@ -325,17 +325,17 @@ environment for the updated software.
 
   When an estimator is loaded with a scikit-learn version that is inconsistent
   with the version the estimator was pickled with, a
-  :class:`~sklearn.exceptions.InconsistentVersionWarning` is raised. This warning
+  :class:`~sklearn_dual.exceptions.InconsistentVersionWarning` is raised. This warning
   can be caught to obtain the original version the estimator was pickled with::
 
-    from sklearn.exceptions import InconsistentVersionWarning
+    from sklearn_dual.exceptions import InconsistentVersionWarning
     warnings.simplefilter("error", InconsistentVersionWarning)
 
     try:
         with open("model_from_prevision_version.pickle", "rb") as f:
             est = pickle.load(f)
     except InconsistentVersionWarning as w:
-        print(w.original_sklearn_version)
+        print(w.original_sklearn_dual_version)
 
 
 Serving the model artifact
@@ -382,7 +382,7 @@ each approach can be summarized as follows:
   serialize custom Python code such as lambda expressions and interactively
   defined functions and classes. It might be a last resort to persist pipelines
   with custom Python components such as a
-  :class:`sklearn.preprocessing.FunctionTransformer` that wraps a function
+  :class:`sklearn_dual.preprocessing.FunctionTransformer` that wraps a function
   defined in the training script itself or more generally outside of any
   importable Python package. Note that `cloudpickle`_ offers no forward
   compatibility guarantees and you might need the same version of

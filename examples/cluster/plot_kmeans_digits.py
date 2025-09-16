@@ -53,7 +53,7 @@ print(f"# digits: {n_digits}; # samples: {n_samples}; # features {n_features}")
 # compare different initialization methods for KMeans. Our benchmark will:
 #
 # * create a pipeline which will scale the data using a
-#   :class:`~sklearn.preprocessing.StandardScaler`;
+#   :class:`~sklearn_dual.preprocessing.StandardScaler`;
 # * train and time the pipeline fitting;
 # * measure the performance of the clustering obtained via different metrics.
 from time import time
@@ -69,7 +69,7 @@ def bench_k_means(kmeans, name, data, labels):
     Parameters
     ----------
     kmeans : KMeans instance
-        A :class:`~sklearn.cluster.KMeans` instance with the initialization
+        A :class:`~sklearn_dual.cluster.KMeans` instance with the initialization
         already set.
     name : str
         Name given to the strategy. It will be used to show the results in a
@@ -123,9 +123,9 @@ def bench_k_means(kmeans, name, data, labels):
 #   run the initialization 4 times;
 # * a random initialization. This method is stochastic as well and we will run
 #   the initialization 4 times;
-# * an initialization based on a :class:`~sklearn.decomposition.PCA`
+# * an initialization based on a :class:`~sklearn_dual.decomposition.PCA`
 #   projection. Indeed, we will use the components of the
-#   :class:`~sklearn.decomposition.PCA` to initialize KMeans. This method is
+#   :class:`~sklearn_dual.decomposition.PCA` to initialize KMeans. This method is
 #   deterministic and a single initialization suffice.
 from sklearn_dual.cluster import KMeans
 from sklearn_dual.decomposition import PCA
@@ -149,9 +149,9 @@ print(82 * "_")
 # Visualize the results on PCA-reduced data
 # -----------------------------------------
 #
-# :class:`~sklearn.decomposition.PCA` allows to project the data from the
+# :class:`~sklearn_dual.decomposition.PCA` allows to project the data from the
 # original 64-dimensional space into a lower dimensional space. Subsequently,
-# we can use :class:`~sklearn.decomposition.PCA` to project into a
+# we can use :class:`~sklearn_dual.decomposition.PCA` to project into a
 # 2-dimensional space and plot the data and the clusters in this new space.
 import matplotlib.pyplot as plt
 

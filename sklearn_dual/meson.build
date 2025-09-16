@@ -154,14 +154,14 @@ It seems that scikit-learn cannot be built with OpenMP.
   else
     warning(
 '''It looks like compiler environment variables were set to enable OpenMP support.
-Check the output of "import sklearn; sklearn.show_versions()" after the build
+Check the output of "import sklearn_dual; sklearn_dual.show_versions()" after the build
 to make sure that scikit-learn was actually built with OpenMP support.
 ''')
   endif
 endif
 
 # For now, we keep supporting SKLEARN_ENABLE_DEBUG_CYTHON_DIRECTIVES variable
-# (see how it is done in sklearn/_build_utils/__init__.py when building with
+# (see how it is done in sklearn_dual/_build_utils/__init__.py when building with
 # setuptools). Accessing environment variables in meson.build is discouraged,
 # so once we drop setuptools this functionality should be behind a meson option
 # or buildtype
@@ -196,10 +196,10 @@ cython_args += scikit_learn_cython_args
 custom_target('write_built_with_meson_file',
     output: '_built_with_meson.py',
     command: [
-        py, '-c', 'with open("sklearn/_built_with_meson.py", "w") as f: f.write("")'
+        py, '-c', 'with open("sklearn_dual/_built_with_meson.py", "w") as f: f.write("")'
     ],
     install: true,
-    install_dir: py.get_install_dir() / 'sklearn'
+    install_dir: py.get_install_dir() / 'sklearn_dual'
 )
 
 extensions = ['_isotonic']
@@ -209,16 +209,16 @@ py.extension_module(
   '_isotonic.pyx',
   cython_args: cython_args,
   install: true,
-  subdir: 'sklearn',
+  subdir: 'sklearn_dual',
 )
 
 # Need for Cython cimports across subpackages to work, i.e. avoid errors like
 # relative cimport from non-package directory is not allowed
-sklearn_root_cython_tree = [
+sklearn_dual_root_cython_tree = [
   fs.copyfile('__init__.py')
 ]
 
-sklearn_dir = py.get_install_dir() / 'sklearn'
+sklearn_dual_dir = py.get_install_dir() / 'sklearn_dual'
 
 # Subpackages are mostly in alphabetical order except to handle Cython
 # dependencies across subpackages

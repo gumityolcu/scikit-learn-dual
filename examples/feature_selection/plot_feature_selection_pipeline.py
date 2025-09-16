@@ -33,7 +33,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 # %%
 # A common mistake done with feature selection is to search a subset of
 # discriminative features on the full dataset, instead of only using the
-# training set. The usage of scikit-learn :func:`~sklearn.pipeline.Pipeline`
+# training set. The usage of scikit-learn :func:`~sklearn_dual.pipeline.Pipeline`
 # prevents to make such mistake.
 #
 # Here, we will demonstrate how to build a pipeline where the first step will

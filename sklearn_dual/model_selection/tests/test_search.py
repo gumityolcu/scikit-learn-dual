@@ -230,7 +230,7 @@ def test_grid_search():
     grid_search.transform(X)
 
     # Test exception handling on scoring
-    grid_search.scoring = "sklearn"
+    grid_search.scoring = "sklearn_dual"
     with pytest.raises(ValueError):
         grid_search.fit(X, y)
 
@@ -621,7 +621,7 @@ class BrokenClassifier(BaseEstimator):
         return np.zeros(X.shape[0])
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.UndefinedMetricWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.UndefinedMetricWarning")
 def test_refit():
     # Regression test for bug in refitting
     # Simulates re-fitting a broken estimator; this used to break with
@@ -1415,7 +1415,7 @@ def test_search_cv_results_none_param():
         assert_array_equal(grid_search.cv_results_["param_random_state"], [0, None])
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.FitFailedWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.FitFailedWarning")
 def test_search_cv_timing():
     svc = LinearSVC(random_state=0)
 

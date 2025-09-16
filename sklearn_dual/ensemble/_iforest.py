@@ -143,7 +143,7 @@ class IsolationForest(OutlierMixin, BaseBagging):
 
     Attributes
     ----------
-    estimator_ : :class:`~sklearn.tree.ExtraTreeRegressor` instance
+    estimator_ : :class:`~sklearn_dual.tree.ExtraTreeRegressor` instance
         The child estimator template used to create the collection of
         fitted sub-estimators.
 
@@ -188,12 +188,12 @@ class IsolationForest(OutlierMixin, BaseBagging):
 
     See Also
     --------
-    sklearn.covariance.EllipticEnvelope : An object for detecting outliers in a
+    sklearn_dual.covariance.EllipticEnvelope : An object for detecting outliers in a
         Gaussian distributed dataset.
-    sklearn.svm.OneClassSVM : Unsupervised Outlier Detection.
+    sklearn_dual.svm.OneClassSVM : Unsupervised Outlier Detection.
         Estimate the support of a high-dimensional distribution.
         The implementation is based on libsvm.
-    sklearn.neighbors.LocalOutlierFactor : Unsupervised Outlier Detection
+    sklearn_dual.neighbors.LocalOutlierFactor : Unsupervised Outlier Detection
         using Local Outlier Factor (LOF).
 
     Notes
@@ -548,7 +548,7 @@ class IsolationForest(OutlierMixin, BaseBagging):
             subsample_features = True
 
         # We get as many rows as possible within our working_memory budget
-        # (defined by sklearn.get_config()['working_memory']) to store
+        # (defined by sklearn_dual.get_config()['working_memory']) to store
         # self._max_features in each row during computation.
         #
         # Note:

@@ -54,18 +54,18 @@ X_train, X_test, y_train, y_test = train_test_split(
 # %%
 # Training the `AdaBoostClassifier`
 # ---------------------------------
-# We train the :class:`~sklearn.ensemble.AdaBoostClassifier`. The estimator
+# We train the :class:`~sklearn_dual.ensemble.AdaBoostClassifier`. The estimator
 # utilizes boosting to improve the classification accuracy. Boosting is a method
 # designed to train weak learners (i.e. `estimator`) that learn from their
 # predecessor's mistakes.
 #
 # Here, we define the weak learner as a
-# :class:`~sklearn.tree.DecisionTreeClassifier` and set the maximum number of
+# :class:`~sklearn_dual.tree.DecisionTreeClassifier` and set the maximum number of
 # leaves to 8. In a real setting, this parameter should be tuned. We set it to a
 # rather low value to limit the runtime of the example.
 #
 # The `SAMME` algorithm build into the
-# :class:`~sklearn.ensemble.AdaBoostClassifier` then uses the correct or
+# :class:`~sklearn_dual.ensemble.AdaBoostClassifier` then uses the correct or
 # incorrect predictions made be the current weak learner to update the sample
 # weights used for training the consecutive weak learners. Also, the weight of
 # the weak learner itself is calculated based on its accuracy in classifying the
@@ -93,9 +93,9 @@ adaboost_clf = AdaBoostClassifier(
 # evaluate the misclassification error of the boosted trees in comparison to two
 # baseline scores. The first baseline score is the `misclassification_error`
 # obtained from a single weak-learner (i.e.
-# :class:`~sklearn.tree.DecisionTreeClassifier`), which serves as a reference
+# :class:`~sklearn_dual.tree.DecisionTreeClassifier`), which serves as a reference
 # point. The second baseline score is obtained from the
-# :class:`~sklearn.dummy.DummyClassifier`, which predicts the most prevalent
+# :class:`~sklearn_dual.dummy.DummyClassifier`, which predicts the most prevalent
 # class in a dataset.
 from sklearn_dual.dummy import DummyClassifier
 from sklearn_dual.metrics import accuracy_score
@@ -125,16 +125,16 @@ print(
 )
 
 # %%
-# After training the :class:`~sklearn.tree.DecisionTreeClassifier` model, the
+# After training the :class:`~sklearn_dual.tree.DecisionTreeClassifier` model, the
 # achieved error surpasses the expected value that would have been obtained by
 # guessing the most frequent class label, as the
-# :class:`~sklearn.dummy.DummyClassifier` does.
+# :class:`~sklearn_dual.dummy.DummyClassifier` does.
 #
 # Now, we calculate the `misclassification_error`, i.e. `1 - accuracy`, of the
-# additive model (:class:`~sklearn.tree.DecisionTreeClassifier`) at each
+# additive model (:class:`~sklearn_dual.tree.DecisionTreeClassifier`) at each
 # boosting iteration on the test set to assess its performance.
 #
-# We use :meth:`~sklearn.ensemble.AdaBoostClassifier.staged_predict` that makes
+# We use :meth:`~sklearn_dual.ensemble.AdaBoostClassifier.staged_predict` that makes
 # as many iterations as the number of fitted estimator (i.e. corresponding to
 # `n_estimators`). At iteration `n`, the predictions of AdaBoost only use the
 # `n` first weak learners. We compare these predictions with the true
@@ -186,7 +186,7 @@ plt.show()
 # The misclassification error jitters because the `SAMME` algorithm uses the
 # discrete outputs of the weak learners to train the boosted model.
 #
-# The convergence of :class:`~sklearn.ensemble.AdaBoostClassifier` is mainly
+# The convergence of :class:`~sklearn_dual.ensemble.AdaBoostClassifier` is mainly
 # influenced by the learning rate (i.e. `learning_rate`), the number of weak
 # learners used (`n_estimators`), and the expressivity of the weak learners
 # (e.g. `max_leaf_nodes`).
@@ -198,7 +198,7 @@ plt.show()
 # now focus on understanding the relationship between the attributed weights of
 # the weak learners and their statistical performance.
 #
-# We use the fitted :class:`~sklearn.ensemble.AdaBoostClassifier`'s attributes
+# We use the fitted :class:`~sklearn_dual.ensemble.AdaBoostClassifier`'s attributes
 # `estimator_errors_` and `estimator_weights_` to investigate this link.
 weak_learners_info = pd.DataFrame(
     {

@@ -3,7 +3,7 @@
 Scalable learning with polynomial kernel approximation
 ======================================================
 
-.. currentmodule:: sklearn.kernel_approximation
+.. currentmodule:: sklearn_dual.kernel_approximation
 
 This example illustrates the use of :class:`PolynomialCountSketch` to
 efficiently generate polynomial kernel feature-space approximations.

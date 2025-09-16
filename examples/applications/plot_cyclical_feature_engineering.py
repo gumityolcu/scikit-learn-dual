@@ -8,7 +8,7 @@ for a bike sharing demand regression task that is highly dependent on business
 cycles (days, weeks, months) and yearly season cycles.
 
 In the process, we introduce how to perform periodic feature engineering using
-the :class:`sklearn.preprocessing.SplineTransformer` class and its
+the :class:`sklearn_dual.preprocessing.SplineTransformer` class and its
 `extrapolation="periodic"` option.
 
 """
@@ -178,7 +178,7 @@ X.iloc[train_4]
 # numerical features as long as the number of samples is large enough.
 #
 # Here, we use the modern
-# :class:`~sklearn.ensemble.HistGradientBoostingRegressor` with native support
+# :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor` with native support
 # for categorical features. Therefore, we only need to set
 # `categorical_features="from_dtype"` such that features with categorical dtype
 # are considered categorical features. For reference, we extract the categorical
@@ -248,7 +248,7 @@ evaluate(gbrt, X, y, cv=ts_cv, model_prop="n_iter_")
 #
 # As usual for linear models, categorical variables need to be one-hot encoded.
 # For consistency, we scale the numerical features to the same 0-1 range using
-# :class:`~sklearn.preprocessing.MinMaxScaler`, although in this case it does not
+# :class:`~sklearn_dual.preprocessing.MinMaxScaler`, although in this case it does not
 # impact the results much because they are already on comparable scales:
 from sklearn_dual.linear_model import RidgeCV
 from sklearn_dual.preprocessing import MinMaxScaler, OneHotEncoder
@@ -324,7 +324,7 @@ evaluate(one_hot_linear_pipeline, X, y, cv=ts_cv)
 # the day was represented in minutes since the start of the day instead of
 # hours, one-hot encoding would have introduced 1440 features instead of 24.
 # This could cause some significant overfitting. To avoid this we could use
-# :func:`sklearn.preprocessing.KBinsDiscretizer` instead to re-bin the number
+# :func:`sklearn_dual.preprocessing.KBinsDiscretizer` instead to re-bin the number
 # of levels of fine-grained ordinal or numerical variables while still
 # benefitting from the non-monotonic expressivity advantages of one-hot
 # encoding.
@@ -817,7 +817,7 @@ plt.show()
 # features.
 #
 # The `Nystroem` + `RidgeCV` regressor could also have been replaced by
-# :class:`~sklearn.neural_network.MLPRegressor` with one or two hidden layers
+# :class:`~sklearn_dual.neural_network.MLPRegressor` with one or two hidden layers
 # and we would have obtained quite similar results.
 #
 # The dataset we used in this case study is sampled on a hourly basis. However

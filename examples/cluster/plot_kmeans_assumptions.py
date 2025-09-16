@@ -15,7 +15,7 @@ unintuitive and possibly undesirable clusters.
 # Data generation
 # ---------------
 #
-# The function :func:`~sklearn.datasets.make_blobs` generates isotropic
+# The function :func:`~sklearn_dual.datasets.make_blobs` generates isotropic
 # (spherical) gaussian blobs. To obtain anisotropic (elliptical) gaussian blobs
 # one has to define a linear `transformation`.
 
@@ -64,7 +64,7 @@ plt.show()
 # ---------------------------
 #
 # The previously generated data is now used to show how
-# :class:`~sklearn.cluster.KMeans` behaves in the following scenarios:
+# :class:`~sklearn_dual.cluster.KMeans` behaves in the following scenarios:
 #
 # - Non-optimal number of clusters: in a real setting there is no uniquely
 #   defined **true** number of clusters. An appropriate number of clusters has
@@ -138,7 +138,7 @@ plt.show()
 # %%
 # As anisotropic and unequal variances are real limitations of the k-means
 # algorithm, here we propose instead the use of
-# :class:`~sklearn.mixture.GaussianMixture`, which also assumes gaussian
+# :class:`~sklearn_dual.mixture.GaussianMixture`, which also assumes gaussian
 # clusters but does not impose any constraints on their variances. Notice that
 # one still has to find the correct number of blobs (see
 # :ref:`sphx_glr_auto_examples_mixture_plot_gmm_selection.py`).

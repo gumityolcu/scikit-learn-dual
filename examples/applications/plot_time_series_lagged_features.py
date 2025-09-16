@@ -5,7 +5,7 @@ Lagged features for time series forecasting
 
 This example demonstrates how Polars-engineered lagged features can be used
 for time series forecasting with
-:class:`~sklearn.ensemble.HistGradientBoostingRegressor` on the Bike Sharing
+:class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor` on the Bike Sharing
 Demand dataset.
 
 See the example on
@@ -24,7 +24,7 @@ engineering.
 #
 # We start by loading the data from the OpenML repository as a raw parquet file
 # to illustrate how to work with an arbitrary parquet file instead of hiding this
-# step in a convenience tool such as `sklearn.datasets.fetch_openml`.
+# step in a convenience tool such as `sklearn_dual.datasets.fetch_openml`.
 #
 # The URL of the parquet file can be found in the JSON description of the
 # Bike Sharing Demand dataset with id 44063 on openml.org
@@ -417,10 +417,10 @@ plt.show()
 # ----------
 # Through this example we explored time series forecasting using lagged
 # features. We compared a naive regression (using the standardized
-# :class:`~sklearn.model_selection.train_test_split`) with a proper time
+# :class:`~sklearn_dual.model_selection.train_test_split`) with a proper time
 # series evaluation strategy using
-# :class:`~sklearn.model_selection.TimeSeriesSplit`. We observed that the
-# model trained using :class:`~sklearn.model_selection.train_test_split`,
+# :class:`~sklearn_dual.model_selection.TimeSeriesSplit`. We observed that the
+# model trained using :class:`~sklearn_dual.model_selection.train_test_split`,
 # having a default value of `shuffle` set to `True` produced an overly
 # optimistic Mean Average Percentage Error (MAPE). The results
 # produced from the time-based split better represent the performance

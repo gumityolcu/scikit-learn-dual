@@ -4,16 +4,16 @@ Kernel PCA
 ==========
 
 This example shows the difference between the Principal Components Analysis
-(:class:`~sklearn.decomposition.PCA`) and its kernelized version
-(:class:`~sklearn.decomposition.KernelPCA`).
+(:class:`~sklearn_dual.decomposition.PCA`) and its kernelized version
+(:class:`~sklearn_dual.decomposition.KernelPCA`).
 
-On the one hand, we show that :class:`~sklearn.decomposition.KernelPCA` is able
+On the one hand, we show that :class:`~sklearn_dual.decomposition.KernelPCA` is able
 to find a projection of the data which linearly separates them while it is not the case
-with :class:`~sklearn.decomposition.PCA`.
+with :class:`~sklearn_dual.decomposition.PCA`.
 
 Finally, we show that inverting this projection is an approximation with
-:class:`~sklearn.decomposition.KernelPCA`, while it is exact with
-:class:`~sklearn.decomposition.PCA`.
+:class:`~sklearn_dual.decomposition.KernelPCA`, while it is exact with
+:class:`~sklearn_dual.decomposition.PCA`.
 """
 
 # Authors: The scikit-learn developers
@@ -113,14 +113,14 @@ _ = kernel_pca_proj_ax.set_title("Projection of testing data\n using KernelPCA")
 # ------------------------------------------
 #
 # One particularity to have in mind when using
-# :class:`~sklearn.decomposition.KernelPCA` is related to the reconstruction
+# :class:`~sklearn_dual.decomposition.KernelPCA` is related to the reconstruction
 # (i.e. the back projection in the original feature space). With
-# :class:`~sklearn.decomposition.PCA`, the reconstruction will be exact if
+# :class:`~sklearn_dual.decomposition.PCA`, the reconstruction will be exact if
 # `n_components` is the same than the number of original features.
 # This is the case in this example.
 #
 # We can investigate if we get the original dataset when back projecting with
-# :class:`~sklearn.decomposition.KernelPCA`.
+# :class:`~sklearn_dual.decomposition.KernelPCA`.
 X_reconstructed_pca = pca.inverse_transform(pca.transform(X_test))
 X_reconstructed_kernel_pca = kernel_pca.inverse_transform(kernel_pca.transform(X_test))
 
@@ -146,18 +146,18 @@ _ = kernel_pca_back_proj_ax.set_title("Reconstruction via KernelPCA")
 
 # %%
 # While we see a perfect reconstruction with
-# :class:`~sklearn.decomposition.PCA` we observe a different result for
-# :class:`~sklearn.decomposition.KernelPCA`.
+# :class:`~sklearn_dual.decomposition.PCA` we observe a different result for
+# :class:`~sklearn_dual.decomposition.KernelPCA`.
 #
-# Indeed, :meth:`~sklearn.decomposition.KernelPCA.inverse_transform` cannot
+# Indeed, :meth:`~sklearn_dual.decomposition.KernelPCA.inverse_transform` cannot
 # rely on an analytical back-projection and thus an exact reconstruction.
-# Instead, a :class:`~sklearn.kernel_ridge.KernelRidge` is internally trained
+# Instead, a :class:`~sklearn_dual.kernel_ridge.KernelRidge` is internally trained
 # to learn a mapping from the kernalized PCA basis to the original feature
 # space. This method therefore comes with an approximation introducing small
 # differences when back projecting in the original feature space.
 #
 # To improve the reconstruction using
-# :meth:`~sklearn.decomposition.KernelPCA.inverse_transform`, one can tune
-# `alpha` in :class:`~sklearn.decomposition.KernelPCA`, the regularization term
+# :meth:`~sklearn_dual.decomposition.KernelPCA.inverse_transform`, one can tune
+# `alpha` in :class:`~sklearn_dual.decomposition.KernelPCA`, the regularization term
 # which controls the reliance on the training data during the training of
 # the mapping.

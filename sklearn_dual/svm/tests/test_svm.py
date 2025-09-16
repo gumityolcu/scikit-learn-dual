@@ -1,5 +1,5 @@
 """
-Testing for Support Vector Machine module (sklearn.svm)
+Testing for Support Vector Machine module (sklearn_dual.svm)
 
 TODO: remove hard coded numerical results when possible
 """
@@ -24,7 +24,7 @@ from sklearn_dual.metrics.pairwise import rbf_kernel
 from sklearn_dual.model_selection import train_test_split
 from sklearn_dual.multiclass import OneVsRestClassifier
 
-# mypy error: Module 'sklearn.svm' has no attribute '_libsvm'
+# mypy error: Module 'sklearn_dual.svm' has no attribute '_libsvm'
 from sklearn_dual.svm import (  # type: ignore
     SVR,
     LinearSVC,
@@ -1052,7 +1052,7 @@ def test_unfitted():
 
 
 # ignore convergence warnings from max_iter=1
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 def test_consistent_proba():
     a = svm.SVC(probability=True, max_iter=1, random_state=0)
     proba_1 = a.fit(X, Y).predict_proba(X)

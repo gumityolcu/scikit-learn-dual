@@ -4,7 +4,7 @@
 Linear Models
 =============
 
-.. currentmodule:: sklearn.linear_model
+.. currentmodule:: sklearn_dual.linear_model
 
 The following are a set of methods intended for regression in which
 the target value is expected to be a linear combination of the features.
@@ -41,7 +41,7 @@ solves a problem of the form:
 and will store the coefficients :math:`w` of the linear model in its
 ``coef_`` member::
 
-    >>> from sklearn import linear_model
+    >>> from sklearn_dual import linear_model
     >>> reg = linear_model.LinearRegression()
     >>> reg.fit([[0, 0], [1, 1], [2, 2]], [0, 1, 2])
     LinearRegression()
@@ -117,7 +117,7 @@ As with other linear models, :class:`Ridge` will take in its ``fit`` method
 arrays ``X``, ``y`` and will store the coefficients :math:`w` of the linear model in
 its ``coef_`` member::
 
-    >>> from sklearn import linear_model
+    >>> from sklearn_dual import linear_model
     >>> reg = linear_model.Ridge(alpha=.5)
     >>> reg.fit([[0, 0], [0, 0], [1, 1]], [0, .1, 1])
     Ridge(alpha=0.5)
@@ -195,7 +195,7 @@ Setting the regularization parameter: leave-one-out Cross-Validation
 
 :class:`RidgeCV` and :class:`RidgeClassifierCV` implement ridge
 regression/classification with built-in cross-validation of the alpha parameter.
-They work in the same way as :class:`~sklearn.model_selection.GridSearchCV` except
+They work in the same way as :class:`~sklearn_dual.model_selection.GridSearchCV` except
 that it defaults to efficient Leave-One-Out :term:`cross-validation`.
 When using the default :term:`cross-validation`, alpha cannot be 0 due to the
 formulation used to calculate Leave-One-Out error. See [RL2007]_ for details.
@@ -203,7 +203,7 @@ formulation used to calculate Leave-One-Out error. See [RL2007]_ for details.
 Usage example::
 
     >>> import numpy as np
-    >>> from sklearn import linear_model
+    >>> from sklearn_dual import linear_model
     >>> reg = linear_model.RidgeCV(alphas=np.logspace(-6, 6, 13))
     >>> reg.fit([[0, 0], [0, 0], [1, 1]], [0, .1, 1])
     RidgeCV(alphas=array([1.e-06, 1.e-05, 1.e-04, 1.e-03, 1.e-02, 1.e-01, 1.e+00, 1.e+01,
@@ -212,7 +212,7 @@ Usage example::
     0.01
 
 Specifying the value of the :term:`cv` attribute will trigger the use of
-cross-validation with :class:`~sklearn.model_selection.GridSearchCV`, for
+cross-validation with :class:`~sklearn_dual.model_selection.GridSearchCV`, for
 example `cv=10` for 10-fold cross-validation, rather than Leave-One-Out
 Cross-Validation.
 
@@ -250,7 +250,7 @@ The implementation in the class :class:`Lasso` uses coordinate descent as
 the algorithm to fit the coefficients. See :ref:`least_angle_regression`
 for another implementation::
 
-    >>> from sklearn import linear_model
+    >>> from sklearn_dual import linear_model
     >>> reg = linear_model.Lasso(alpha=0.1)
     >>> reg.fit([[0, 0], [1, 1]], [0, 1])
     Lasso(alpha=0.1)
@@ -616,7 +616,7 @@ function of the norm of its coefficients.
 
 ::
 
-   >>> from sklearn import linear_model
+   >>> from sklearn_dual import linear_model
    >>> reg = linear_model.LassoLars(alpha=.1)
    >>> reg.fit([[0, 0], [1, 1]], [0, 1])
    LassoLars(alpha=0.1)
@@ -771,7 +771,7 @@ There are four more hyperparameters, :math:`\alpha_1`, :math:`\alpha_2`,
 
 Bayesian Ridge Regression is used for regression::
 
-    >>> from sklearn import linear_model
+    >>> from sklearn_dual import linear_model
     >>> X = [[0., 0.], [1., 1.], [2., 2.], [3., 3.]]
     >>> Y = [0., 1., 2., 3.]
     >>> reg = linear_model.BayesianRidge()
@@ -897,8 +897,8 @@ Binary Case
 
 For notational ease, we assume that the target :math:`y_i` takes values in the
 set :math:`\{0, 1\}` for data point :math:`i`.
-Once fitted, the :meth:`~sklearn.linear_model.LogisticRegression.predict_proba`
-method of :class:`~sklearn.linear_model.LogisticRegression` predicts
+Once fitted, the :meth:`~sklearn_dual.linear_model.LogisticRegression.predict_proba`
+method of :class:`~sklearn_dual.linear_model.LogisticRegression` predicts
 the probability of the positive class :math:`P(y_i=1|X_i)` as
 
 .. math:: \hat{p}(X_i) = \operatorname{expit}(X_i w + w_0) = \frac{1}{1 + \exp(-X_i w - w_0)}.
@@ -968,7 +968,7 @@ logistic regression, see also `log-linear model
   Instead of a single coefficient vector, we now have
   a matrix of coefficients :math:`W` where each row vector :math:`W_k` corresponds to class
   :math:`k`. We aim at predicting the class probabilities :math:`P(y_i=k|X_i)` via
-  :meth:`~sklearn.linear_model.LogisticRegression.predict_proba` as:
+  :meth:`~sklearn_dual.linear_model.LogisticRegression.predict_proba` as:
 
   .. math:: \hat{p}_k(X_i) = \frac{\exp(X_i W_k + W_{0, k})}{\sum_{l=0}^{K-1} \exp(X_i W_l + W_{0, l})}.
 
@@ -1046,10 +1046,10 @@ Differences between solvers
 
 There might be a difference in the scores obtained between
 :class:`LogisticRegression` with ``solver=liblinear`` or
-:class:`~sklearn.svm.LinearSVC` and the external liblinear library directly,
+:class:`~sklearn_dual.svm.LinearSVC` and the external liblinear library directly,
 when ``fit_intercept=False`` and the fit ``coef_`` (or) the data to be predicted
 are zeroes. This is because for the sample(s) with ``decision_function`` zero,
-:class:`LogisticRegression` and :class:`~sklearn.svm.LinearSVC` predict the
+:class:`LogisticRegression` and :class:`~sklearn_dual.svm.LinearSVC` predict the
 negative class, while liblinear predicts the positive class. Note that a model
 with ``fit_intercept=False`` and having many samples with ``decision_function``
 zero, is likely to be a underfit, bad model and you are advised to set
@@ -1065,7 +1065,7 @@ zero, is likely to be a underfit, bad model and you are advised to set
     decomposed in a "one-vs-rest" fashion so separate binary classifiers are
     trained for all classes. This happens under the hood, so
     :class:`LogisticRegression` instances using this solver behave as multiclass
-    classifiers. For :math:`\ell_1` regularization :func:`sklearn.svm.l1_min_c` allows to
+    classifiers. For :math:`\ell_1` regularization :func:`sklearn_dual.svm.l1_min_c` allows to
     calculate the lower bound for C in order to get a non "null" (all feature
     weights to zero) model.
 
@@ -1133,7 +1133,7 @@ zero, is likely to be a underfit, bad model and you are advised to set
     It is possible to obtain the p-values and confidence intervals for
     coefficients in cases of regression without penalization. The `statsmodels
     package <https://pypi.org/project/statsmodels/>`_ natively supports this.
-    Within sklearn, one could use bootstrapping instead as well.
+    Within sklearn_dual, one could use bootstrapping instead as well.
 
 
 :class:`LogisticRegressionCV` implements Logistic Regression with built-in
@@ -1268,7 +1268,7 @@ The link function is determined by the `link` parameter.
 
 Usage example::
 
-    >>> from sklearn.linear_model import TweedieRegressor
+    >>> from sklearn_dual.linear_model import TweedieRegressor
     >>> reg = TweedieRegressor(power=1, alpha=0.5, link='log')
     >>> reg.fit([[0, 0], [0, 1], [2, 2]], [0, 1, 2])
     TweedieRegressor(alpha=0.5, link='log', power=1)
@@ -1663,7 +1663,7 @@ predictable) variance or non-normal distribution.
 
 Based on minimizing the pinball loss, conditional quantiles can also be
 estimated by models other than linear models. For example,
-:class:`~sklearn.ensemble.GradientBoostingRegressor` can predict conditional
+:class:`~sklearn_dual.ensemble.GradientBoostingRegressor` can predict conditional
 quantiles if its parameter ``loss`` is set to ``"quantile"`` and parameter
 ``alpha`` is set to the quantile that should be predicted. See the example in
 :ref:`sphx_glr_auto_examples_ensemble_plot_gradient_boosting_quantile.py`.
@@ -1688,7 +1688,7 @@ problem. The current implementation is based on
       \sum_i PB_q(y_i - X_i w) + \alpha ||w||_1}.
 
   This consists of the pinball loss (also known as linear loss),
-  see also :class:`~sklearn.metrics.mean_pinball_loss`,
+  see also :class:`~sklearn_dual.metrics.mean_pinball_loss`,
 
   .. math::
       PB_q(t) = q \max(t, 0) + (1 - q) \max(-t, 0) =
@@ -1724,7 +1724,7 @@ problem. The current implementation is based on
 Polynomial regression: extending linear models with basis functions
 ===================================================================
 
-.. currentmodule:: sklearn.preprocessing
+.. currentmodule:: sklearn_dual.preprocessing
 
 One common pattern within machine learning is to use linear models trained
 on nonlinear functions of the data.  This approach maintains the generally
@@ -1772,7 +1772,7 @@ This figure is created using the :class:`PolynomialFeatures` transformer, which
 transforms an input data matrix into a new data matrix of a given degree.
 It can be used as follows::
 
-    >>> from sklearn.preprocessing import PolynomialFeatures
+    >>> from sklearn_dual.preprocessing import PolynomialFeatures
     >>> import numpy as np
     >>> X = np.arange(6).reshape(3, 2)
     >>> X
@@ -1793,9 +1793,9 @@ This sort of preprocessing can be streamlined with the
 :ref:`Pipeline <pipeline>` tools. A single object representing a simple
 polynomial regression can be created and used as follows::
 
-    >>> from sklearn.preprocessing import PolynomialFeatures
-    >>> from sklearn.linear_model import LinearRegression
-    >>> from sklearn.pipeline import Pipeline
+    >>> from sklearn_dual.preprocessing import PolynomialFeatures
+    >>> from sklearn_dual.linear_model import LinearRegression
+    >>> from sklearn_dual.pipeline import Pipeline
     >>> import numpy as np
     >>> model = Pipeline([('poly', PolynomialFeatures(degree=3)),
     ...                   ('linear', LinearRegression(fit_intercept=False))])
@@ -1820,8 +1820,8 @@ For example, when dealing with boolean features,
 but :math:`x_i x_j` represents the conjunction of two booleans.
 This way, we can solve the XOR problem with a linear classifier::
 
-    >>> from sklearn.linear_model import Perceptron
-    >>> from sklearn.preprocessing import PolynomialFeatures
+    >>> from sklearn_dual.linear_model import Perceptron
+    >>> from sklearn_dual.preprocessing import PolynomialFeatures
     >>> import numpy as np
     >>> X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
     >>> y = X[:, 0] ^ X[:, 1]

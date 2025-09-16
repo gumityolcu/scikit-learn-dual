@@ -141,7 +141,7 @@ def _get_response_values(
     ----------
     estimator : estimator instance
         Fitted classifier, outlier detector, or regressor or a
-        fitted :class:`~sklearn.pipeline.Pipeline` in which the last estimator is a
+        fitted :class:`~sklearn_dual.pipeline.Pipeline` in which the last estimator is a
         classifier, an outlier detector, or a regressor.
 
     X : {array-like, sparse matrix} of shape (n_samples, n_features)
@@ -254,7 +254,7 @@ def _get_response_values_binary(
     Parameters
     ----------
     estimator : estimator instance
-        Fitted classifier or a fitted :class:`~sklearn.pipeline.Pipeline`
+        Fitted classifier or a fitted :class:`~sklearn_dual.pipeline.Pipeline`
         in which the last estimator is a binary classifier.
 
     X : {array-like, sparse matrix} of shape (n_samples, n_features)

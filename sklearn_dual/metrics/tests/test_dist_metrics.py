@@ -89,21 +89,21 @@ def test_cdist(metric_param_grid, X, Y, csr_container):
 
         # DistanceMetric.pairwise must be consistent for all
         # combinations of formats in {sparse, dense}.
-        D_sklearn = dm.pairwise(X, Y)
-        assert D_sklearn.flags.c_contiguous
-        assert_allclose(D_sklearn, D_scipy_cdist, **rtol_dict)
+        D_sklearn_dual = dm.pairwise(X, Y)
+        assert D_sklearn_dual.flags.c_contiguous
+        assert_allclose(D_sklearn_dual, D_scipy_cdist, **rtol_dict)
 
-        D_sklearn = dm.pairwise(X_csr, Y_csr)
-        assert D_sklearn.flags.c_contiguous
-        assert_allclose(D_sklearn, D_scipy_cdist, **rtol_dict)
+        D_sklearn_dual = dm.pairwise(X_csr, Y_csr)
+        assert D_sklearn_dual.flags.c_contiguous
+        assert_allclose(D_sklearn_dual, D_scipy_cdist, **rtol_dict)
 
-        D_sklearn = dm.pairwise(X_csr, Y)
-        assert D_sklearn.flags.c_contiguous
-        assert_allclose(D_sklearn, D_scipy_cdist, **rtol_dict)
+        D_sklearn_dual = dm.pairwise(X_csr, Y)
+        assert D_sklearn_dual.flags.c_contiguous
+        assert_allclose(D_sklearn_dual, D_scipy_cdist, **rtol_dict)
 
-        D_sklearn = dm.pairwise(X, Y_csr)
-        assert D_sklearn.flags.c_contiguous
-        assert_allclose(D_sklearn, D_scipy_cdist, **rtol_dict)
+        D_sklearn_dual = dm.pairwise(X, Y_csr)
+        assert D_sklearn_dual.flags.c_contiguous
+        assert_allclose(D_sklearn_dual, D_scipy_cdist, **rtol_dict)
 
 
 @pytest.mark.parametrize("metric", BOOL_METRICS)
@@ -115,28 +115,28 @@ def test_cdist_bool_metric(metric, X_bool, Y_bool, csr_container):
     D_scipy_cdist = cdist(X_bool, Y_bool, metric)
 
     dm = DistanceMetric.get_metric(metric)
-    D_sklearn = dm.pairwise(X_bool, Y_bool)
-    assert_allclose(D_sklearn, D_scipy_cdist)
+    D_sklearn_dual = dm.pairwise(X_bool, Y_bool)
+    assert_allclose(D_sklearn_dual, D_scipy_cdist)
 
     # DistanceMetric.pairwise must be consistent
     # on all combinations of format in {sparse, dense}².
     X_bool_csr, Y_bool_csr = csr_container(X_bool), csr_container(Y_bool)
 
-    D_sklearn = dm.pairwise(X_bool, Y_bool)
-    assert D_sklearn.flags.c_contiguous
-    assert_allclose(D_sklearn, D_scipy_cdist)
+    D_sklearn_dual = dm.pairwise(X_bool, Y_bool)
+    assert D_sklearn_dual.flags.c_contiguous
+    assert_allclose(D_sklearn_dual, D_scipy_cdist)
 
-    D_sklearn = dm.pairwise(X_bool_csr, Y_bool_csr)
-    assert D_sklearn.flags.c_contiguous
-    assert_allclose(D_sklearn, D_scipy_cdist)
+    D_sklearn_dual = dm.pairwise(X_bool_csr, Y_bool_csr)
+    assert D_sklearn_dual.flags.c_contiguous
+    assert_allclose(D_sklearn_dual, D_scipy_cdist)
 
-    D_sklearn = dm.pairwise(X_bool, Y_bool_csr)
-    assert D_sklearn.flags.c_contiguous
-    assert_allclose(D_sklearn, D_scipy_cdist)
+    D_sklearn_dual = dm.pairwise(X_bool, Y_bool_csr)
+    assert D_sklearn_dual.flags.c_contiguous
+    assert_allclose(D_sklearn_dual, D_scipy_cdist)
 
-    D_sklearn = dm.pairwise(X_bool_csr, Y_bool)
-    assert D_sklearn.flags.c_contiguous
-    assert_allclose(D_sklearn, D_scipy_cdist)
+    D_sklearn_dual = dm.pairwise(X_bool_csr, Y_bool)
+    assert D_sklearn_dual.flags.c_contiguous
+    assert_allclose(D_sklearn_dual, D_scipy_cdist)
 
 
 @pytest.mark.parametrize(
@@ -168,17 +168,17 @@ def test_pdist(metric_param_grid, X, csr_container):
         D_scipy_pdist = cdist(X, X, metric, **kwargs)
 
         dm = DistanceMetric.get_metric(metric, X.dtype, **kwargs)
-        D_sklearn = dm.pairwise(X)
-        assert D_sklearn.flags.c_contiguous
-        assert_allclose(D_sklearn, D_scipy_pdist, **rtol_dict)
+        D_sklearn_dual = dm.pairwise(X)
+        assert D_sklearn_dual.flags.c_contiguous
+        assert_allclose(D_sklearn_dual, D_scipy_pdist, **rtol_dict)
 
-        D_sklearn_csr = dm.pairwise(X_csr)
-        assert D_sklearn.flags.c_contiguous
-        assert_allclose(D_sklearn_csr, D_scipy_pdist, **rtol_dict)
+        D_sklearn_dual_csr = dm.pairwise(X_csr)
+        assert D_sklearn_dual.flags.c_contiguous
+        assert_allclose(D_sklearn_dual_csr, D_scipy_pdist, **rtol_dict)
 
-        D_sklearn_csr = dm.pairwise(X_csr, X_csr)
-        assert D_sklearn.flags.c_contiguous
-        assert_allclose(D_sklearn_csr, D_scipy_pdist, **rtol_dict)
+        D_sklearn_dual_csr = dm.pairwise(X_csr, X_csr)
+        assert D_sklearn_dual.flags.c_contiguous
+        assert_allclose(D_sklearn_dual_csr, D_scipy_pdist, **rtol_dict)
 
 
 @pytest.mark.parametrize(
@@ -221,12 +221,12 @@ def test_distance_metrics_dtype_consistency(metric_param_grid):
 def test_pdist_bool_metrics(metric, X_bool, csr_container):
     D_scipy_pdist = cdist(X_bool, X_bool, metric)
     dm = DistanceMetric.get_metric(metric)
-    D_sklearn = dm.pairwise(X_bool)
-    assert_allclose(D_sklearn, D_scipy_pdist)
+    D_sklearn_dual = dm.pairwise(X_bool)
+    assert_allclose(D_sklearn_dual, D_scipy_pdist)
 
     X_bool_csr = csr_container(X_bool)
-    D_sklearn = dm.pairwise(X_bool_csr)
-    assert_allclose(D_sklearn, D_scipy_pdist)
+    D_sklearn_dual = dm.pairwise(X_bool_csr)
+    assert_allclose(D_sklearn_dual, D_scipy_pdist)
 
 
 @pytest.mark.parametrize("writable_kwargs", [True, False])
@@ -287,24 +287,24 @@ def test_haversine_metric(X, Y, csr_container):
 
     haversine = DistanceMetric.get_metric("haversine", X.dtype)
 
-    D_sklearn = haversine.pairwise(X, Y)
+    D_sklearn_dual = haversine.pairwise(X, Y)
     assert_allclose(
-        haversine.dist_to_rdist(D_sklearn), np.sin(0.5 * D_reference) ** 2, rtol=1e-6
+        haversine.dist_to_rdist(D_sklearn_dual), np.sin(0.5 * D_reference) ** 2, rtol=1e-6
     )
 
-    assert_allclose(D_sklearn, D_reference)
+    assert_allclose(D_sklearn_dual, D_reference)
 
-    D_sklearn = haversine.pairwise(X_csr, Y_csr)
-    assert D_sklearn.flags.c_contiguous
-    assert_allclose(D_sklearn, D_reference)
+    D_sklearn_dual = haversine.pairwise(X_csr, Y_csr)
+    assert D_sklearn_dual.flags.c_contiguous
+    assert_allclose(D_sklearn_dual, D_reference)
 
-    D_sklearn = haversine.pairwise(X_csr, Y)
-    assert D_sklearn.flags.c_contiguous
-    assert_allclose(D_sklearn, D_reference)
+    D_sklearn_dual = haversine.pairwise(X_csr, Y)
+    assert D_sklearn_dual.flags.c_contiguous
+    assert_allclose(D_sklearn_dual, D_reference)
 
-    D_sklearn = haversine.pairwise(X, Y_csr)
-    assert D_sklearn.flags.c_contiguous
-    assert_allclose(D_sklearn, D_reference)
+    D_sklearn_dual = haversine.pairwise(X, Y_csr)
+    assert D_sklearn_dual.flags.c_contiguous
+    assert_allclose(D_sklearn_dual, D_reference)
 
 
 def test_pyfunc_metric():

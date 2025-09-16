@@ -23,7 +23,7 @@ foreach ext_name, ext_dict : tree_extension_metadata
     dependencies: [np_dep],
     override_options : ext_dict.get('override_options', []),
     cython_args: cython_args,
-    subdir: 'sklearn/tree',
+    subdir: 'sklearn_dual/tree',
     install: true
   )
 endforeach

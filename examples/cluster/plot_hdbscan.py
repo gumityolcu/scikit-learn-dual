@@ -3,7 +3,7 @@
 ====================================
 Demo of HDBSCAN clustering algorithm
 ====================================
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 In this demo we will take a look at :class:`cluster.HDBSCAN` from the
 perspective of generalizing the :class:`cluster.DBSCAN` algorithm.
@@ -100,7 +100,7 @@ dbs = DBSCAN(eps=0.9).fit(3 * X)
 plot(3 * X, dbs.labels_, parameters={"scale": 3, "eps": 0.9}, ax=axis)
 # %%
 # While standardizing data (e.g. using
-# :class:`sklearn.preprocessing.StandardScaler`) helps mitigate this problem,
+# :class:`sklearn_dual.preprocessing.StandardScaler`) helps mitigate this problem,
 # great care must be taken to select the appropriate value for `eps`.
 #
 # HDBSCAN is much more robust in this sense: HDBSCAN can be seen as

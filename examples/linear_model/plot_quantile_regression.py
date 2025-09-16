@@ -82,7 +82,7 @@ _ = axs[1, 1].set_xlabel("Residuals")
 # residuals are bounded.
 #
 # These types of noisy targets make the estimation via
-# :class:`~sklearn.linear_model.LinearRegression` less efficient, i.e. we need
+# :class:`~sklearn_dual.linear_model.LinearRegression` less efficient, i.e. we need
 # more data to get stable results and, in addition, large outliers can have a
 # huge impact on the fitted coefficients. (Stated otherwise: in a setting with
 # constant variance, ordinary least squares estimators converge much faster to
@@ -95,10 +95,10 @@ _ = axs[1, 1].set_xlabel("Residuals")
 # largest values and thus also a bit sensitive outliers.
 #
 # In the remainder of this tutorial, we will show how
-# :class:`~sklearn.linear_model.QuantileRegressor` can be used in practice and
+# :class:`~sklearn_dual.linear_model.QuantileRegressor` can be used in practice and
 # give the intuition into the properties of the fitted models. Finally,
-# we will compare the both :class:`~sklearn.linear_model.QuantileRegressor`
-# and :class:`~sklearn.linear_model.LinearRegression`.
+# we will compare the both :class:`~sklearn_dual.linear_model.QuantileRegressor`
+# and :class:`~sklearn_dual.linear_model.LinearRegression`.
 #
 # Fitting a `QuantileRegressor`
 # -----------------------------
@@ -232,13 +232,13 @@ _ = plt.title("Quantiles of asymmetric Pareto distributed target")
 # ----------------------------------------------------
 #
 # In this section, we will linger on the difference regarding the error that
-# :class:`~sklearn.linear_model.QuantileRegressor` and
-# :class:`~sklearn.linear_model.LinearRegression` are minimizing.
+# :class:`~sklearn_dual.linear_model.QuantileRegressor` and
+# :class:`~sklearn_dual.linear_model.LinearRegression` are minimizing.
 #
-# Indeed, :class:`~sklearn.linear_model.LinearRegression` is a least squares
+# Indeed, :class:`~sklearn_dual.linear_model.LinearRegression` is a least squares
 # approach minimizing the mean squared error (MSE) between the training and
 # predicted targets. In contrast,
-# :class:`~sklearn.linear_model.QuantileRegressor` with `quantile=0.5`
+# :class:`~sklearn_dual.linear_model.QuantileRegressor` with `quantile=0.5`
 # minimizes the mean absolute error (MAE) instead.
 #
 # Let's first compute the training errors of such models in terms of mean
@@ -267,13 +267,13 @@ print(
 
 # %%
 # On the training set, we see that MAE is lower for
-# :class:`~sklearn.linear_model.QuantileRegressor` than
-# :class:`~sklearn.linear_model.LinearRegression`. In contrast to that, MSE is
-# lower for :class:`~sklearn.linear_model.LinearRegression` than
-# :class:`~sklearn.linear_model.QuantileRegressor`. These results confirms that
-# MAE is the loss minimized by :class:`~sklearn.linear_model.QuantileRegressor`
+# :class:`~sklearn_dual.linear_model.QuantileRegressor` than
+# :class:`~sklearn_dual.linear_model.LinearRegression`. In contrast to that, MSE is
+# lower for :class:`~sklearn_dual.linear_model.LinearRegression` than
+# :class:`~sklearn_dual.linear_model.QuantileRegressor`. These results confirms that
+# MAE is the loss minimized by :class:`~sklearn_dual.linear_model.QuantileRegressor`
 # while MSE is the loss minimized
-# :class:`~sklearn.linear_model.LinearRegression`.
+# :class:`~sklearn_dual.linear_model.LinearRegression`.
 #
 # We can make a similar evaluation by looking at the test error obtained by
 # cross-validation.

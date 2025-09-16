@@ -281,9 +281,9 @@ class OneVsRestClassifier(
     --------
     OneVsOneClassifier : One-vs-one multiclass strategy.
     OutputCodeClassifier : (Error-Correcting) Output-Code multiclass strategy.
-    sklearn.multioutput.MultiOutputClassifier : Alternate way of extending an
+    sklearn_dual.multioutput.MultiOutputClassifier : Alternate way of extending an
         estimator for multilabel classification.
-    sklearn.preprocessing.MultiLabelBinarizer : Transform iterable of iterables
+    sklearn_dual.preprocessing.MultiLabelBinarizer : Transform iterable of iterables
         to binary indicator matrix.
 
     Examples
@@ -604,7 +604,7 @@ class OneVsRestClassifier(
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
 
@@ -1003,7 +1003,7 @@ class OneVsOneClassifier(MetaEstimatorMixin, ClassifierMixin, BaseEstimator):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
 
@@ -1253,7 +1253,7 @@ class OutputCodeClassifier(MetaEstimatorMixin, ClassifierMixin, BaseEstimator):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
 

@@ -1,5 +1,5 @@
 """
-Testing for export functions of decision trees (sklearn.tree.export).
+Testing for export functions of decision trees (sklearn_dual.tree.export).
 """
 
 from io import StringIO

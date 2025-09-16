@@ -4,7 +4,7 @@
 Contributing
 ============
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 This project is a community effort, and everyone is welcome to
 contribute. It is hosted on https://github.com/scikit-learn/scikit-learn.
@@ -164,7 +164,7 @@ feedback:
 
   .. prompt:: bash
 
-    python -c "import sklearn; sklearn.show_versions()"
+    python -c "import sklearn_dual; sklearn_dual.show_versions()"
 
 - Please ensure all **code snippets and error messages are formatted in
   appropriate code blocks**.  See `Creating and highlighting code blocks
@@ -216,7 +216,7 @@ latest up-to-date workflow.
 - Example of Submitting a Pull Request to scikit-learn:
   `Video <https://youtu.be/PU1WyDPGePI>`__,
   `Transcript
-  <https://github.com/data-umbrella/event-transcripts/blob/main/2020/06-reshama-shaikh-sklearn-pr.md>`__
+  <https://github.com/data-umbrella/event-transcripts/blob/main/2020/06-reshama-shaikh-sklearn_dual-pr.md>`__
 
 - Sprint-specific instructions and practical tips:
   `Video <https://youtu.be/p_2Uw2BxdhA>`__,
@@ -397,18 +397,18 @@ complies with the following rules before marking a PR as "ready for review". The
    with `pytest`, but it is usually not recommended since it takes a long
    time. It is often enough to only run the test related to your changes:
    for example, if you changed something in
-   `sklearn/linear_model/_logistic.py`, running the following commands will
+   `sklearn_dual/linear_model/_logistic.py`, running the following commands will
    usually be enough:
 
-   - `pytest sklearn/linear_model/_logistic.py` to make sure the doctest
+   - `pytest sklearn_dual/linear_model/_logistic.py` to make sure the doctest
      examples are correct
-   - `pytest sklearn/linear_model/tests/test_logistic.py` to run the tests
+   - `pytest sklearn_dual/linear_model/tests/test_logistic.py` to run the tests
      specific to the file
-   - `pytest sklearn/linear_model` to test the whole
-     :mod:`~sklearn.linear_model` module
+   - `pytest sklearn_dual/linear_model` to test the whole
+     :mod:`~sklearn_dual.linear_model` module
    - `pytest doc/modules/linear_model.rst` to make sure the user guide
      examples are correct.
-   - `pytest sklearn/tests/test_common.py -k LogisticRegression` to run all our
+   - `pytest sklearn_dual/tests/test_common.py -k LogisticRegression` to run all our
      estimator checks (specifically for `LogisticRegression`, if that's the
      estimator you changed).
 
@@ -433,7 +433,7 @@ complies with the following rules before marking a PR as "ready for review". The
 
 5. Follow the :ref:`coding-guidelines`.
 
-6. When applicable, use the validation tools and scripts in the :mod:`sklearn.utils`
+6. When applicable, use the validation tools and scripts in the :mod:`sklearn_dual.utils`
    module. A list of utility routines available for developers can be found in the
    :ref:`developers-utils` page.
 
@@ -478,7 +478,7 @@ You can check for common programming errors with the following tools:
   .. prompt:: bash
 
     pip install pytest pytest-cov
-    pytest --cov sklearn path/to/tests
+    pytest --cov sklearn_dual path/to/tests
 
   See also :ref:`testing_coverage`.
 
@@ -486,7 +486,7 @@ You can check for common programming errors with the following tools:
 
   .. prompt:: bash
 
-      mypy sklearn
+      mypy sklearn_dual
 
   This must not produce new errors in your pull request. Using `# type: ignore`
   annotation can be a workaround for a few cases that are not supported by
@@ -661,8 +661,8 @@ We are glad to accept any sort of documentation:
 
 * **Function/method/class docstrings:** Also known as "API documentation", these
   describe what the object does and details any parameters, attributes and
-  methods. Docstrings live alongside the code in `sklearn/
-  <https://github.com/scikit-learn/scikit-learn/tree/main/sklearn>`_, and are generated
+  methods. Docstrings live alongside the code in `sklearn_dual/
+  <https://github.com/scikit-learn/scikit-learn/tree/main/sklearn_dual>`_, and are generated
   generated according to `doc/api_reference.py
   <https://github.com/scikit-learn/scikit-learn/blob/main/doc/api_reference.py>`_. To
   add, update, remove, or deprecate a public API that is listed in :ref:`api_ref`, this
@@ -825,7 +825,7 @@ We are glad to accept any sort of documentation:
     :ref:`Spectral Clustering Graphs <spectral_clustering_graph>`.
 
   * For the "References" section in docstrings, see
-    :func:`sklearn.metrics.silhouette_score` as an example.
+    :func:`sklearn_dual.metrics.silhouette_score` as an example.
 
   * To cross-reference to other pages in the scikit-learn documentation use the
     reStructuredText cross-referencing syntax:
@@ -861,7 +861,7 @@ We are glad to accept any sort of documentation:
 
       .. code-block:: rst
 
-          :func:`~sklearn.model_selection.cross_val_score`
+          :func:`~sklearn_dual.model_selection.cross_val_score`
 
       However, if there is a `.. currentmodule::` directive above you in the document,
       you will only need to use the path to the function succeeding the current
@@ -869,7 +869,7 @@ We are glad to accept any sort of documentation:
 
       .. code-block:: rst
 
-          .. currentmodule:: sklearn.model_selection
+          .. currentmodule:: sklearn_dual.model_selection
 
           :func:`cross_val_score`
 
@@ -879,7 +879,7 @@ We are glad to accept any sort of documentation:
 
       .. code-block:: rst
 
-          :class:`~sklearn.preprocessing.StandardScaler`
+          :class:`~sklearn_dual.preprocessing.StandardScaler`
 
 You can edit the documentation using any text editor, and then generate the
 HTML output by following :ref:`building_documentation`. The resulting HTML files
@@ -1016,7 +1016,7 @@ We expect code coverage of new features to be at least around 90%.
   To test code coverage, you need to install the `coverage
   <https://pypi.org/project/coverage/>`_ package in addition to `pytest`.
 
-  1. Run `pytest --cov sklearn /path/to/tests`. The output lists for each file the line
+  1. Run `pytest --cov sklearn_dual /path/to/tests`. The output lists for each file the line
      numbers that are not tested.
 
   2. Find a low hanging fruit, looking at which lines are not tested,

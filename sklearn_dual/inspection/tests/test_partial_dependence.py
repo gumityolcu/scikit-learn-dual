@@ -449,12 +449,12 @@ def test_partial_dependence_easy_target(est, power):
 @pytest.mark.parametrize(
     "Estimator",
     (
-        sklearn.tree.DecisionTreeClassifier,
-        sklearn.tree.ExtraTreeClassifier,
-        sklearn.ensemble.ExtraTreesClassifier,
-        sklearn.neighbors.KNeighborsClassifier,
-        sklearn.neighbors.RadiusNeighborsClassifier,
-        sklearn.ensemble.RandomForestClassifier,
+        sklearn_dual.tree.DecisionTreeClassifier,
+        sklearn_dual.tree.ExtraTreeClassifier,
+        sklearn_dual.ensemble.ExtraTreesClassifier,
+        sklearn_dual.neighbors.KNeighborsClassifier,
+        sklearn_dual.neighbors.RadiusNeighborsClassifier,
+        sklearn_dual.ensemble.RandomForestClassifier,
     ),
 )
 def test_multiclass_multioutput(Estimator):

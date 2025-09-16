@@ -64,7 +64,7 @@ class GaussianProcessRegressor(MultiOutputMixin, RegressorMixin, BaseEstimator):
         have the same number of entries as the data used for fitting and is
         used as datapoint-dependent noise level. Allowing to specify the
         noise level directly as a parameter is mainly for convenience and
-        for consistency with :class:`~sklearn.linear_model.Ridge`.
+        for consistency with :class:`~sklearn_dual.linear_model.Ridge`.
 
     optimizer : "fmin_l_bfgs_b", callable or None, default="fmin_l_bfgs_b"
         Can either be one of the internally supported optimizers for optimizing

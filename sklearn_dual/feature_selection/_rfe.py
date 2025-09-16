@@ -113,9 +113,9 @@ class RFE(_RoutingNotSupportedMixin, SelectorMixin, MetaEstimatorMixin, BaseEsti
         Also accepts a string that specifies an attribute name/path
         for extracting feature importance (implemented with `attrgetter`).
         For example, give `regressor_.coef_` in case of
-        :class:`~sklearn.compose.TransformedTargetRegressor`  or
+        :class:`~sklearn_dual.compose.TransformedTargetRegressor`  or
         `named_steps.clf.feature_importances_` in case of
-        class:`~sklearn.pipeline.Pipeline` with its last step named `clf`.
+        class:`~sklearn_dual.pipeline.Pipeline` with its last step named `clf`.
 
         If `callable`, overrides the default feature importance getter.
         The callable is passed with the fitted estimator and it should
@@ -525,9 +525,9 @@ class RFECV(RFE):
         - An iterable yielding (train, test) splits as arrays of indices.
 
         For integer/None inputs, if ``y`` is binary or multiclass,
-        :class:`~sklearn.model_selection.StratifiedKFold` is used. If the
+        :class:`~sklearn_dual.model_selection.StratifiedKFold` is used. If the
         estimator is not a classifier or if ``y`` is neither binary nor multiclass,
-        :class:`~sklearn.model_selection.KFold` is used.
+        :class:`~sklearn_dual.model_selection.KFold` is used.
 
         Refer :ref:`User Guide <cross_validation>` for the various
         cross-validation strategies that can be used here.
@@ -558,9 +558,9 @@ class RFECV(RFE):
         Also accepts a string that specifies an attribute name/path
         for extracting feature importance.
         For example, give `regressor_.coef_` in case of
-        :class:`~sklearn.compose.TransformedTargetRegressor`  or
+        :class:`~sklearn_dual.compose.TransformedTargetRegressor`  or
         `named_steps.clf.feature_importances_` in case of
-        :class:`~sklearn.pipeline.Pipeline` with its last step named `clf`.
+        :class:`~sklearn_dual.pipeline.Pipeline` with its last step named `clf`.
 
         If `callable`, overrides the default feature importance getter.
         The callable is passed with the fitted estimator and it should
@@ -710,7 +710,7 @@ class RFECV(RFE):
         groups : array-like of shape (n_samples,) or None, default=None
             Group labels for the samples used while splitting the dataset into
             train/test set. Only used in conjunction with a "Group" :term:`cv`
-            instance (e.g., :class:`~sklearn.model_selection.GroupKFold`).
+            instance (e.g., :class:`~sklearn_dual.model_selection.GroupKFold`).
 
             .. versionadded:: 0.20
 

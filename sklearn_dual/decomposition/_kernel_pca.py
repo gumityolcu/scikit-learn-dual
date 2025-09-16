@@ -521,7 +521,7 @@ class KernelPCA(ClassNamePrefixFeaturesOutMixin, TransformerMixin, BaseEstimator
         vectors.
 
         .. note:
-            :meth:`~sklearn.decomposition.fit` internally uses a centered
+            :meth:`~sklearn_dual.decomposition.fit` internally uses a centered
             kernel. As the centered kernel no longer contains the information
             of the mean of kernel features, such information is not taken into
             account in reconstruction.
@@ -529,9 +529,9 @@ class KernelPCA(ClassNamePrefixFeaturesOutMixin, TransformerMixin, BaseEstimator
         .. note::
             When users want to compute inverse transformation for 'linear'
             kernel, it is recommended that they use
-            :class:`~sklearn.decomposition.PCA` instead. Unlike
-            :class:`~sklearn.decomposition.PCA`,
-            :class:`~sklearn.decomposition.KernelPCA`'s ``inverse_transform``
+            :class:`~sklearn_dual.decomposition.PCA` instead. Unlike
+            :class:`~sklearn_dual.decomposition.PCA`,
+            :class:`~sklearn_dual.decomposition.KernelPCA`'s ``inverse_transform``
             does not reconstruct the mean of data when 'linear' kernel is used
             due to the use of centered kernel.
 

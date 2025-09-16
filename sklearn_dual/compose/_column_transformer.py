@@ -1,5 +1,5 @@
 """
-The :mod:`sklearn.compose._column_transformer` module implements utilities
+The :mod:`sklearn_dual.compose._column_transformer` module implements utilities
 to work with heterogeneous data and to apply different transformers to
 different columns.
 """
@@ -181,7 +181,7 @@ class ColumnTransformer(TransformerMixin, _BaseComposition):
         The collection of fitted transformers as tuples of (name,
         fitted_transformer, column). `fitted_transformer` can be an estimator,
         or `'drop'`; `'passthrough'` is replaced with an equivalent
-        :class:`~sklearn.preprocessing.FunctionTransformer`. In case there were
+        :class:`~sklearn_dual.preprocessing.FunctionTransformer`. In case there were
         no columns selected, this will be the unfitted transformer. If there
         are remaining columns, the final element is a tuple of the form:
         ('remainder', transformer, remaining_columns) corresponding to the
@@ -200,7 +200,7 @@ class ColumnTransformer(TransformerMixin, _BaseComposition):
             the remaining columns; in all other cases the remaining columns are
             stored as indices (`int`).
 
-    named_transformers_ : :class:`~sklearn.utils.Bunch`
+    named_transformers_ : :class:`~sklearn_dual.utils.Bunch`
         Read-only attribute to access any transformer by given name.
         Keys are transformer names and values are the fitted transformer
         objects.
@@ -936,7 +936,7 @@ class ColumnTransformer(TransformerMixin, _BaseComposition):
             ``transform`` methods.
 
             You can only pass this if metadata routing is enabled, which you
-            can enable using ``sklearn.set_config(enable_metadata_routing=True)``.
+            can enable using ``sklearn_dual.set_config(enable_metadata_routing=True)``.
 
             .. versionadded:: 1.4
 
@@ -972,7 +972,7 @@ class ColumnTransformer(TransformerMixin, _BaseComposition):
             ``transform`` methods.
 
             You can only pass this if metadata routing is enabled, which you
-            can enable using ``sklearn.set_config(enable_metadata_routing=True)``.
+            can enable using ``sklearn_dual.set_config(enable_metadata_routing=True)``.
 
             .. versionadded:: 1.4
 
@@ -1047,7 +1047,7 @@ class ColumnTransformer(TransformerMixin, _BaseComposition):
             method.
 
             You can only pass this if metadata routing is enabled, which you
-            can enable using ``sklearn.set_config(enable_metadata_routing=True)``.
+            can enable using ``sklearn_dual.set_config(enable_metadata_routing=True)``.
 
             .. versionadded:: 1.4
 
@@ -1291,7 +1291,7 @@ class ColumnTransformer(TransformerMixin, _BaseComposition):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__)

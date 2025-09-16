@@ -103,7 +103,7 @@ def test_lasso_zero():
     assert_almost_equal(clf.dual_gap_, 0)
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 def test_enet_nonfinite_params():
     # Check ElasticNet throws ValueError when dealing with non-finite parameter
     # values
@@ -359,7 +359,7 @@ def _scale_alpha_inplace(estimator, n_samples):
     estimator.set_params(alpha=alpha)
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 @pytest.mark.parametrize(
     "LinearModel, params",
     [
@@ -1066,7 +1066,7 @@ def test_enet_float_precision():
             )
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 def test_enet_l1_ratio():
     # Test that an error message is raised if an estimator that
     # uses _alpha_grid is called with l1_ratio=0
@@ -1197,7 +1197,7 @@ def test_lassoCV_does_not_set_precompute(monkeypatch, precompute, inner_precompu
             calls += 1
             assert self.precompute == inner_precompute
 
-    monkeypatch.setattr("sklearn.linear_model._coordinate_descent.Lasso", LassoMock)
+    monkeypatch.setattr("sklearn_dual.linear_model._coordinate_descent.Lasso", LassoMock)
     clf = LassoCV(precompute=precompute)
     clf.fit(X, y)
     assert calls > 0
@@ -1478,7 +1478,7 @@ def test_enet_sample_weight_does_not_overwrite_sample_weight(check_input):
     assert_array_equal(sample_weight, sample_weight_1_25)
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 @pytest.mark.parametrize("ridge_alpha", [1e-1, 1.0, 1e6])
 def test_enet_ridge_consistency(ridge_alpha):
     # Check that ElasticNet(l1_ratio=0) converges to the same solution as Ridge

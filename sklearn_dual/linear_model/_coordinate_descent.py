@@ -37,7 +37,7 @@ from ..utils.validation import (
     has_fit_parameter,
 )
 
-# mypy error: Module 'sklearn.linear_model' has no attribute '_cd_fast'
+# mypy error: Module 'sklearn_dual.linear_model' has no attribute '_cd_fast'
 from . import _cd_fast as cd_fast  # type: ignore
 from ._base import LinearModel, _pre_fit, _preprocess_data
 
@@ -311,7 +311,7 @@ def lasso_path(
     LassoCV : Lasso linear model with iterative fitting along a regularization
         path.
     LassoLarsCV : Cross-validated Lasso using the LARS algorithm.
-    sklearn.decomposition.sparse_encode : Estimator that can be used to
+    sklearn_dual.decomposition.sparse_encode : Estimator that can be used to
         transform signals into sparse linear combination of atoms from a fixed.
 
     Notes
@@ -1251,7 +1251,7 @@ class Lasso(ElasticNet):
     LassoLars : Lasso Path along the regularization parameter using LARS algorithm.
     LassoCV : Lasso alpha parameter by cross-validation.
     LassoLarsCV : Lasso least angle parameter algorithm by cross-validation.
-    sklearn.decomposition.sparse_encode : Sparse coding array estimator.
+    sklearn_dual.decomposition.sparse_encode : Sparse coding array estimator.
 
     Notes
     -----
@@ -1263,8 +1263,8 @@ class Lasso(ElasticNet):
     Regularization improves the conditioning of the problem and
     reduces the variance of the estimates. Larger values specify stronger
     regularization. Alpha corresponds to `1 / (2C)` in other linear
-    models such as :class:`~sklearn.linear_model.LogisticRegression` or
-    :class:`~sklearn.svm.LinearSVC`. If an array is passed, penalties are
+    models such as :class:`~sklearn_dual.linear_model.LogisticRegression` or
+    :class:`~sklearn_dual.svm.LinearSVC`. If an array is passed, penalties are
     assumed to be specific to the targets. Hence they must correspond in
     number.
 
@@ -1280,7 +1280,7 @@ class Lasso(ElasticNet):
         (1 / (2 * n_samples)) * ||Y - XW||^2_F + alpha * ||W||_11
 
     where :math:`||W||_{1,1}` is the sum of the magnitude of the matrix coefficients.
-    It should not be confused with :class:`~sklearn.linear_model.MultiTaskLasso` which
+    It should not be confused with :class:`~sklearn_dual.linear_model.MultiTaskLasso` which
     instead penalizes the :math:`L_{2,1}` norm of the coefficients, yielding row-wise
     sparsity in the coefficients.
 
@@ -1574,7 +1574,7 @@ class LinearModelCV(MultiOutputMixin, LinearModel, ABC):
             .. versionadded:: 1.4
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -1854,7 +1854,7 @@ class LinearModelCV(MultiOutputMixin, LinearModel, ABC):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = (
@@ -1926,7 +1926,7 @@ class LassoCV(RegressorMixin, LinearModelCV):
         - :term:`CV splitter`,
         - An iterable yielding (train, test) splits as arrays of indices.
 
-        For int/None inputs, :class:`~sklearn.model_selection.KFold` is used.
+        For int/None inputs, :class:`~sklearn_dual.model_selection.KFold` is used.
 
         Refer :ref:`User Guide <cross_validation>` for the various
         cross-validation strategies that can be used here.
@@ -2018,7 +2018,7 @@ class LassoCV(RegressorMixin, LinearModelCV):
      <sphx_glr_auto_examples_linear_model_plot_lasso_model_selection.py>`.
 
     :class:`LassoCV` leads to different results than a hyperparameter
-    search using :class:`~sklearn.model_selection.GridSearchCV` with a
+    search using :class:`~sklearn_dual.model_selection.GridSearchCV` with a
     :class:`Lasso` model. In :class:`LassoCV`, a model for a given
     penalty `alpha` is warm started using the coefficients of the
     closest model (trained at the previous iteration) on the
@@ -2145,7 +2145,7 @@ class ElasticNetCV(RegressorMixin, LinearModelCV):
         - :term:`CV splitter`,
         - An iterable yielding (train, test) splits as arrays of indices.
 
-        For int/None inputs, :class:`~sklearn.model_selection.KFold` is used.
+        For int/None inputs, :class:`~sklearn_dual.model_selection.KFold` is used.
 
         Refer :ref:`User Guide <cross_validation>` for the various
         cross-validation strategies that can be used here.
@@ -2788,7 +2788,7 @@ class MultiTaskElasticNetCV(RegressorMixin, LinearModelCV):
         - :term:`CV splitter`,
         - An iterable yielding (train, test) splits as arrays of indices.
 
-        For int/None inputs, :class:`~sklearn.model_selection.KFold` is used.
+        For int/None inputs, :class:`~sklearn_dual.model_selection.KFold` is used.
 
         Refer :ref:`User Guide <cross_validation>` for the various
         cross-validation strategies that can be used here.
@@ -2962,7 +2962,7 @@ class MultiTaskElasticNetCV(RegressorMixin, LinearModelCV):
             .. versionadded:: 1.4
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -3032,7 +3032,7 @@ class MultiTaskLassoCV(RegressorMixin, LinearModelCV):
         - :term:`CV splitter`,
         - An iterable yielding (train, test) splits as arrays of indices.
 
-        For int/None inputs, :class:`~sklearn.model_selection.KFold` is used.
+        For int/None inputs, :class:`~sklearn_dual.model_selection.KFold` is used.
 
         Refer :ref:`User Guide <cross_validation>` for the various
         cross-validation strategies that can be used here.
@@ -3200,7 +3200,7 @@ class MultiTaskLassoCV(RegressorMixin, LinearModelCV):
             .. versionadded:: 1.4
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 

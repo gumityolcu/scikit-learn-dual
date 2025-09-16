@@ -105,7 +105,7 @@ test_groups = (
 digits = load_digits()
 
 pytestmark = pytest.mark.filterwarnings(
-    "error:The groups parameter:UserWarning:sklearn.*"
+    "error:The groups parameter:UserWarning:sklearn_dual.*"
 )
 
 

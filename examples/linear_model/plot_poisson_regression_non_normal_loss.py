@@ -223,9 +223,9 @@ ridge_glm = Pipeline(
 # %%
 # The Poisson deviance cannot be computed on non-positive values predicted by
 # the model. For models that do return a few non-positive predictions (e.g.
-# :class:`~sklearn.linear_model.Ridge`) we ignore the corresponding samples,
+# :class:`~sklearn_dual.linear_model.Ridge`) we ignore the corresponding samples,
 # meaning that the obtained Poisson deviance is approximate. An alternative
-# approach could be to use :class:`~sklearn.compose.TransformedTargetRegressor`
+# approach could be to use :class:`~sklearn_dual.compose.TransformedTargetRegressor`
 # meta-estimator to map ``y_pred`` to a strictly positive domain.
 
 print("Ridge evaluation:")
@@ -267,13 +267,13 @@ score_estimator(poisson_glm, df_test)
 # Finally, we will consider a non-linear model, namely Gradient Boosting
 # Regression Trees. Tree-based models do not require the categorical data to be
 # one-hot encoded: instead, we can encode each category label with an arbitrary
-# integer using :class:`~sklearn.preprocessing.OrdinalEncoder`. With this
+# integer using :class:`~sklearn_dual.preprocessing.OrdinalEncoder`. With this
 # encoding, the trees will treat the categorical features as ordered features,
 # which might not be always a desired behavior. However this effect is limited
 # for deep enough trees which are able to recover the categorical nature of the
 # features. The main advantage of the
-# :class:`~sklearn.preprocessing.OrdinalEncoder` over the
-# :class:`~sklearn.preprocessing.OneHotEncoder` is that it will make training
+# :class:`~sklearn_dual.preprocessing.OrdinalEncoder` over the
+# :class:`~sklearn_dual.preprocessing.OneHotEncoder` is that it will make training
 # faster.
 #
 # Gradient Boosting also gives the possibility to fit the trees with a Poisson
@@ -550,7 +550,7 @@ ax.legend(loc="upper left")
 #
 # The linear models assume no interactions between the input variables which
 # likely causes under-fitting. Inserting a polynomial feature extractor
-# (:func:`~sklearn.preprocessing.PolynomialFeatures`) indeed increases their
+# (:func:`~sklearn_dual.preprocessing.PolynomialFeatures`) indeed increases their
 # discrimative power by 2 points of Gini index. In particular it improves the
 # ability of the models to identify the top 5% riskiest profiles.
 #

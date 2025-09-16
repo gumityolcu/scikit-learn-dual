@@ -89,7 +89,7 @@ def kneighbors_graph(
         documentation of `scipy.spatial.distance
         <https://docs.scipy.org/doc/scipy/reference/spatial.distance.html>`_ and
         the metrics listed in
-        :class:`~sklearn.metrics.pairwise.distance_metrics` for valid metric
+        :class:`~sklearn_dual.metrics.pairwise.distance_metrics` for valid metric
         values.
 
     p : float, default=2
@@ -197,7 +197,7 @@ def radius_neighbors_graph(
         documentation of `scipy.spatial.distance
         <https://docs.scipy.org/doc/scipy/reference/spatial.distance.html>`_ and
         the metrics listed in
-        :class:`~sklearn.metrics.pairwise.distance_metrics` for valid metric
+        :class:`~sklearn_dual.metrics.pairwise.distance_metrics` for valid metric
         values.
 
     p : float, default=2
@@ -303,7 +303,7 @@ class KNeighborsTransformer(
         documentation of `scipy.spatial.distance
         <https://docs.scipy.org/doc/scipy/reference/spatial.distance.html>`_ and
         the metrics listed in
-        :class:`~sklearn.metrics.pairwise.distance_metrics` for valid metric
+        :class:`~sklearn_dual.metrics.pairwise.distance_metrics` for valid metric
         values.
 
         If metric is a callable function, it takes two arrays representing 1D
@@ -315,7 +315,7 @@ class KNeighborsTransformer(
 
     p : float, default=2
         Parameter for the Minkowski metric from
-        sklearn.metrics.pairwise.pairwise_distances. When p = 1, this is
+        sklearn_dual.metrics.pairwise.pairwise_distances. When p = 1, this is
         equivalent to using manhattan_distance (l1), and euclidean_distance
         (l2) for p = 2. For arbitrary p, minkowski_distance (l_p) is used.
         This parameter is expected to be positive.
@@ -363,8 +363,8 @@ class KNeighborsTransformer(
 
     Notes
     -----
-    For an example of using :class:`~sklearn.neighbors.KNeighborsTransformer`
-    in combination with :class:`~sklearn.manifold.TSNE` see
+    For an example of using :class:`~sklearn_dual.neighbors.KNeighborsTransformer`
+    in combination with :class:`~sklearn_dual.manifold.TSNE` see
     :ref:`sphx_glr_auto_examples_neighbors_approximate_nearest_neighbors.py`.
 
     Examples
@@ -537,7 +537,7 @@ class RadiusNeighborsTransformer(
         documentation of `scipy.spatial.distance
         <https://docs.scipy.org/doc/scipy/reference/spatial.distance.html>`_ and
         the metrics listed in
-        :class:`~sklearn.metrics.pairwise.distance_metrics` for valid metric
+        :class:`~sklearn_dual.metrics.pairwise.distance_metrics` for valid metric
         values.
 
         If metric is a callable function, it takes two arrays representing 1D
@@ -549,7 +549,7 @@ class RadiusNeighborsTransformer(
 
     p : float, default=2
         Parameter for the Minkowski metric from
-        sklearn.metrics.pairwise.pairwise_distances. When p = 1, this is
+        sklearn_dual.metrics.pairwise.pairwise_distances. When p = 1, this is
         equivalent to using manhattan_distance (l1), and euclidean_distance
         (l2) for p = 2. For arbitrary p, minkowski_distance (l_p) is used.
         This parameter is expected to be positive.

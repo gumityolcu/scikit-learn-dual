@@ -200,7 +200,7 @@ def _hdbscan_brute(
         feature array.
 
         - If metric is a string or callable, it must be one of
-          the options allowed by :func:`~sklearn.metrics.pairwise_distances`
+          the options allowed by :func:`~sklearn_dual.metrics.pairwise_distances`
           for its metric parameter.
 
         - If metric is "precomputed", X is assumed to be a distance matrix and
@@ -210,7 +210,7 @@ def _hdbscan_brute(
         The number of jobs to use for computing the pairwise distances. This
         works by breaking down the pairwise matrix into n_jobs even slices and
         computing them in parallel. This parameter is passed directly to
-        :func:`~sklearn.metrics.pairwise_distances`.
+        :func:`~sklearn_dual.metrics.pairwise_distances`.
 
         ``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
         ``-1`` means using all processors. See :term:`Glossary <n_jobs>`
@@ -309,14 +309,14 @@ def _hdbscan_prims(
     metric : str or callable, default='euclidean'
         The metric to use when calculating distance between instances in a
         feature array. `metric` must be one of the options allowed by
-        :func:`~sklearn.metrics.pairwise_distances` for its metric
+        :func:`~sklearn_dual.metrics.pairwise_distances` for its metric
         parameter.
 
     n_jobs : int, default=None
         The number of jobs to use for computing the pairwise distances. This
         works by breaking down the pairwise matrix into n_jobs even slices and
         computing them in parallel. This parameter is passed directly to
-        :func:`~sklearn.metrics.pairwise_distances`.
+        :func:`~sklearn_dual.metrics.pairwise_distances`.
 
         ``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
         ``-1`` means using all processors. See :term:`Glossary <n_jobs>`
@@ -423,15 +423,15 @@ class HDBSCAN(ClusterMixin, BaseEstimator):
     """Cluster data using hierarchical density-based clustering.
 
     HDBSCAN - Hierarchical Density-Based Spatial Clustering of Applications
-    with Noise. Performs :class:`~sklearn.cluster.DBSCAN` over varying epsilon
+    with Noise. Performs :class:`~sklearn_dual.cluster.DBSCAN` over varying epsilon
     values and integrates the result to find a clustering that gives the best
     stability over epsilon.
     This allows HDBSCAN to find clusters of varying densities (unlike
-    :class:`~sklearn.cluster.DBSCAN`), and be more robust to parameter selection.
+    :class:`~sklearn_dual.cluster.DBSCAN`), and be more robust to parameter selection.
     Read more in the :ref:`User Guide <hdbscan>`.
 
     For an example of how to use HDBSCAN, as well as a comparison to
-    :class:`~sklearn.cluster.DBSCAN`, please see the :ref:`plotting demo
+    :class:`~sklearn_dual.cluster.DBSCAN`, please see the :ref:`plotting demo
     <sphx_glr_auto_examples_cluster_plot_hdbscan.py>`.
 
     .. versionadded:: 1.3
@@ -462,7 +462,7 @@ class HDBSCAN(ClusterMixin, BaseEstimator):
         feature array.
 
         - If metric is a string or callable, it must be one of
-          the options allowed by :func:`~sklearn.metrics.pairwise_distances`
+          the options allowed by :func:`~sklearn_dual.metrics.pairwise_distances`
           for its metric parameter.
 
         - If metric is "precomputed", X is assumed to be a distance matrix and
@@ -478,14 +478,14 @@ class HDBSCAN(ClusterMixin, BaseEstimator):
     algorithm : {"auto", "brute", "kd_tree", "ball_tree"}, default="auto"
         Exactly which algorithm to use for computing core distances; By default
         this is set to `"auto"` which attempts to use a
-        :class:`~sklearn.neighbors.KDTree` tree if possible, otherwise it uses
-        a :class:`~sklearn.neighbors.BallTree` tree. Both `"kd_tree"` and
+        :class:`~sklearn_dual.neighbors.KDTree` tree if possible, otherwise it uses
+        a :class:`~sklearn_dual.neighbors.BallTree` tree. Both `"kd_tree"` and
         `"ball_tree"` algorithms use the
-        :class:`~sklearn.neighbors.NearestNeighbors` estimator.
+        :class:`~sklearn_dual.neighbors.NearestNeighbors` estimator.
 
         If the `X` passed during `fit` is sparse or `metric` is invalid for
-        both :class:`~sklearn.neighbors.KDTree` and
-        :class:`~sklearn.neighbors.BallTree`, then it resolves to use the
+        both :class:`~sklearn_dual.neighbors.KDTree` and
+        :class:`~sklearn_dual.neighbors.BallTree`, then it resolves to use the
         `"brute"` algorithm.
 
         .. deprecated:: 1.4

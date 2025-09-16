@@ -3,7 +3,7 @@
 Demo of OPTICS clustering algorithm
 ===================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 Finds core samples of high density and expands clusters from them.
 This example uses data that is generated so that the clusters have

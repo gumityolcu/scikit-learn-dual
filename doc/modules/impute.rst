@@ -4,7 +4,7 @@
 Imputation of missing values
 ============================
 
-.. currentmodule:: sklearn.impute
+.. currentmodule:: sklearn_dual.impute
 
 For various reasons, many real world datasets contain missing values, often
 encoded as blanks, NaNs or other placeholders. Such datasets however are
@@ -43,7 +43,7 @@ encoded as ``np.nan``, using the mean value of the columns (axis 0)
 that contain the missing values::
 
     >>> import numpy as np
-    >>> from sklearn.impute import SimpleImputer
+    >>> from sklearn_dual.impute import SimpleImputer
     >>> imp = SimpleImputer(missing_values=np.nan, strategy='mean')
     >>> imp.fit([[1, 2], [np.nan, 3], [7, 6]])
     SimpleImputer()
@@ -117,8 +117,8 @@ imputation round are returned.
 ::
 
     >>> import numpy as np
-    >>> from sklearn.experimental import enable_iterative_imputer
-    >>> from sklearn.impute import IterativeImputer
+    >>> from sklearn_dual.experimental import enable_iterative_imputer
+    >>> from sklearn_dual.impute import IterativeImputer
     >>> imp = IterativeImputer(max_iter=10, random_state=0)
     >>> imp.fit([[1, 2], [3, 6], [4, 8], [np.nan, 3], [7, np.nan]])
     IterativeImputer(random_state=0)
@@ -193,7 +193,7 @@ Nearest neighbors imputation
 The :class:`KNNImputer` class provides imputation for filling in missing values
 using the k-Nearest Neighbors approach. By default, a euclidean distance metric
 that supports missing values,
-:func:`~sklearn.metrics.pairwise.nan_euclidean_distances`, is used to find the
+:func:`~sklearn_dual.metrics.pairwise.nan_euclidean_distances`, is used to find the
 nearest neighbors. Each missing feature is imputed using values from
 ``n_neighbors`` nearest neighbors that have a value for the feature. The
 feature of the neighbors are averaged uniformly or weighted by distance to each
@@ -212,7 +212,7 @@ encoded as ``np.nan``, using the mean feature value of the two nearest
 neighbors of samples with missing values::
 
     >>> import numpy as np
-    >>> from sklearn.impute import KNNImputer
+    >>> from sklearn_dual.impute import KNNImputer
     >>> nan = np.nan
     >>> X = [[1, 2, nan], [3, 4, 3], [nan, 6, 5], [8, 8, 7]]
     >>> imputer = KNNImputer(n_neighbors=2, weights="uniform")
@@ -279,7 +279,7 @@ enforces the data type to be float. The parameter ``missing_values`` allows to
 specify other placeholder such as integer. In the following example, we will
 use ``-1`` as missing values::
 
-  >>> from sklearn.impute import MissingIndicator
+  >>> from sklearn_dual.impute import MissingIndicator
   >>> X = np.array([[-1, -1, 1, 3],
   ...               [4, -1, 0, -1],
   ...               [8, -1, 1, 0]])
@@ -310,24 +310,24 @@ whether or not they contain missing values::
   array([0, 1, 2, 3])
 
 When using the :class:`MissingIndicator` in a
-:class:`~sklearn.pipeline.Pipeline`, be sure to use the
-:class:`~sklearn.pipeline.FeatureUnion` or
-:class:`~sklearn.compose.ColumnTransformer` to add the indicator features to
+:class:`~sklearn_dual.pipeline.Pipeline`, be sure to use the
+:class:`~sklearn_dual.pipeline.FeatureUnion` or
+:class:`~sklearn_dual.compose.ColumnTransformer` to add the indicator features to
 the regular features. First we obtain the `iris` dataset, and add some missing
 values to it.
 
-  >>> from sklearn.datasets import load_iris
-  >>> from sklearn.impute import SimpleImputer, MissingIndicator
-  >>> from sklearn.model_selection import train_test_split
-  >>> from sklearn.pipeline import FeatureUnion, make_pipeline
-  >>> from sklearn.tree import DecisionTreeClassifier
+  >>> from sklearn_dual.datasets import load_iris
+  >>> from sklearn_dual.impute import SimpleImputer, MissingIndicator
+  >>> from sklearn_dual.model_selection import train_test_split
+  >>> from sklearn_dual.pipeline import FeatureUnion, make_pipeline
+  >>> from sklearn_dual.tree import DecisionTreeClassifier
   >>> X, y = load_iris(return_X_y=True)
   >>> mask = np.random.randint(0, 2, size=X.shape).astype(bool)
   >>> X[mask] = np.nan
   >>> X_train, X_test, y_train, _ = train_test_split(X, y, test_size=100,
   ...                                                random_state=0)
 
-Now we create a :class:`~sklearn.pipeline.FeatureUnion`. All features will be
+Now we create a :class:`~sklearn_dual.pipeline.FeatureUnion`. All features will be
 imputed using :class:`SimpleImputer`, in order to enable classifiers to work
 with this data. Additionally, it adds the indicator variables from
 :class:`MissingIndicator`.
@@ -342,8 +342,8 @@ with this data. Additionally, it adds the indicator variables from
   (100, 8)
 
 Of course, we cannot use the transformer to make any predictions. We should
-wrap this in a :class:`~sklearn.pipeline.Pipeline` with a classifier (e.g., a
-:class:`~sklearn.tree.DecisionTreeClassifier`) to be able to make predictions.
+wrap this in a :class:`~sklearn_dual.pipeline.Pipeline` with a classifier (e.g., a
+:class:`~sklearn_dual.tree.DecisionTreeClassifier`) to be able to make predictions.
 
   >>> clf = make_pipeline(transformer, DecisionTreeClassifier())
   >>> clf = clf.fit(X_train, y_train)

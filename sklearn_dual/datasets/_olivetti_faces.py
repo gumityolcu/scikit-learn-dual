@@ -107,7 +107,7 @@ def fetch_olivetti_faces(
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
+    data : :class:`~sklearn_dual.utils.Bunch`
         Dictionary-like object, with the following attributes.
 
         data: ndarray, shape (400, 4096)

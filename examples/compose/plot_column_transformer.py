@@ -12,7 +12,7 @@ extraction and processing pipelines. This scenario might occur when:
    require different processing pipelines.
 
 This example demonstrates how to use
-:class:`~sklearn.compose.ColumnTransformer` on a dataset containing
+:class:`~sklearn_dual.compose.ColumnTransformer` on a dataset containing
 different types of features. The choice of features is not particularly
 helpful, but serves to illustrate the technique.
 
@@ -73,7 +73,7 @@ print(X_train[0])
 # body of each post. Since this is a stateless transformation (does not
 # require state information from training data), we can define a function that
 # performs the data transformation then use
-# :class:`~sklearn.preprocessing.FunctionTransformer` to create a scikit-learn
+# :class:`~sklearn_dual.preprocessing.FunctionTransformer` to create a scikit-learn
 # transformer.
 
 

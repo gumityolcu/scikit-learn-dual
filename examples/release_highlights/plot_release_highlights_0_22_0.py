@@ -3,7 +3,7 @@
 Release Highlights for scikit-learn 0.22
 ========================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 We are pleased to announce the release of scikit-learn 0.22, which comes
 with many bug fixes and new features! We detail below a few of the major
@@ -177,7 +177,7 @@ from sklearn_dual.pipeline import make_pipeline
 
 X, y = make_classification(random_state=0)
 
-with TemporaryDirectory(prefix="sklearn_cache_") as tmpdir:
+with TemporaryDirectory(prefix="sklearn_dual_cache_") as tmpdir:
     estimator = make_pipeline(
         KNeighborsTransformer(n_neighbors=10, mode="distance"),
         Isomap(n_neighbors=10, metric="precomputed"),
@@ -201,7 +201,7 @@ with TemporaryDirectory(prefix="sklearn_cache_") as tmpdir:
 # close if the features that neither is missing are close.
 # By default, a euclidean distance metric
 # that supports missing values,
-# :func:`~sklearn.metrics.pairwise.nan_euclidean_distances`, is used to find the nearest
+# :func:`~sklearn_dual.metrics.pairwise.nan_euclidean_distances`, is used to find the nearest
 # neighbors.
 #
 # Read more in the :ref:`User Guide <knnimpute>`.
@@ -267,14 +267,14 @@ from sklearn_dual.utils.estimator_checks import parametrize_with_checks
 
 
 @parametrize_with_checks([LogisticRegression(), DecisionTreeRegressor()])
-def test_sklearn_compatible_estimator(estimator, check):
+def test_sklearn_dual_compatible_estimator(estimator, check):
     check(estimator)
 
 
 # %%
 # ROC AUC now supports multiclass classification
 # ----------------------------------------------
-# The :func:`~sklearn.metrics.roc_auc_score` function can also be used in multi-class
+# The :func:`~sklearn_dual.metrics.roc_auc_score` function can also be used in multi-class
 # classification. Two averaging strategies are currently supported: the
 # one-vs-one algorithm computes the average of the pairwise ROC AUC scores, and
 # the one-vs-rest algorithm computes the average of the ROC AUC scores for each

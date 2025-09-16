@@ -343,7 +343,7 @@ except ImportError:
 
 
 def check_skip_network():
-    if int(os.environ.get("SKLEARN_SKIP_NETWORK_TESTS", 0)):
+    if int(os.environ.get("sklearn_dual_SKIP_NETWORK_TESTS", 0)):
         raise SkipTest("Text tutorial requires large dataset download")
 
 
@@ -392,7 +392,7 @@ def create_memmap_backed_data(data, mmap_mode="r", return_folder=False):
     mmap_mode : str, default='r'
     return_folder :  bool, default=False
     """
-    temp_folder = tempfile.mkdtemp(prefix="sklearn_testing_")
+    temp_folder = tempfile.mkdtemp(prefix="sklearn_dual_testing_")
     atexit.register(functools.partial(_delete_folder, temp_folder, warn=True))
     filename = op.join(temp_folder, "data.pkl")
     joblib.dump(data, filename)
@@ -481,8 +481,8 @@ def check_docstring_parameters(func, doc=None, ignore=None):
     ignore = [] if ignore is None else ignore
 
     func_name = _get_func_name(func)
-    if not func_name.startswith("sklearn.") or func_name.startswith(
-        "sklearn.externals"
+    if not func_name.startswith("sklearn_dual.") or func_name.startswith(
+        "sklearn_dual.externals"
     ):
         return incorrect
     # Don't check docstring for property-functions
@@ -623,13 +623,13 @@ def assert_run_python_script_without_output(source_code, pattern=".+", timeout=6
     timeout : int, default=60
         Time in seconds before timeout.
     """
-    fd, source_file = tempfile.mkstemp(suffix="_src_test_sklearn.py")
+    fd, source_file = tempfile.mkstemp(suffix="_src_test_sklearn_dual.py")
     os.close(fd)
     try:
         with open(source_file, "wb") as f:
             f.write(source_code.encode("utf-8"))
         cmd = [sys.executable, source_file]
-        cwd = op.normpath(op.join(op.dirname(sklearn.__file__), ".."))
+        cwd = op.normpath(op.join(op.dirname(sklearn_dual.__file__), ".."))
         env = os.environ.copy()
         try:
             env["PYTHONPATH"] = os.pathsep.join([cwd, env["PYTHONPATH"]])

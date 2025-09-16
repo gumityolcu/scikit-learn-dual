@@ -1,5 +1,5 @@
 """
-Testing for the forest module (sklearn.ensemble.forest).
+Testing for the forest module (sklearn_dual.ensemble.forest).
 """
 
 # Authors: The scikit-learn developers
@@ -1678,7 +1678,7 @@ def test_read_only_buffer(csr_container, monkeypatch):
     Non-regression test for: https://github.com/scikit-learn/scikit-learn/issues/25333
     """
     monkeypatch.setattr(
-        sklearn.ensemble._forest,
+        sklearn_dual.ensemble._forest,
         "Parallel",
         partial(Parallel, max_nbytes=100),
     )

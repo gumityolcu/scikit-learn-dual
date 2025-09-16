@@ -4,9 +4,9 @@
 Dataset loading utilities
 =========================
 
-.. currentmodule:: sklearn.datasets
+.. currentmodule:: sklearn_dual.datasets
 
-The ``sklearn.datasets`` package embeds some small toy datasets and provides helpers
+The ``sklearn_dual.datasets`` package embeds some small toy datasets and provides helpers
 to fetch larger datasets commonly used by the machine learning community to benchmark
 algorithms on data that comes from the 'real world'.
 
@@ -24,14 +24,14 @@ described in the :ref:`toy_datasets` section.
 **The dataset fetchers.** They can be used to download and load larger datasets,
 described in the :ref:`real_world_datasets` section.
 
-Both loaders and fetchers functions return a :class:`~sklearn.utils.Bunch`
+Both loaders and fetchers functions return a :class:`~sklearn_dual.utils.Bunch`
 object holding at least two items:
 an array of shape ``n_samples`` * ``n_features`` with
 key ``data`` (except for 20newsgroups) and a numpy array of
 length ``n_samples``, containing the target values, with key ``target``.
 
 The Bunch object is a dictionary that exposes its keys as attributes.
-For more information about Bunch object, see :class:`~sklearn.utils.Bunch`.
+For more information about Bunch object, see :class:`~sklearn_dual.utils.Bunch`.
 
 It's also possible for almost all of these function to constrain the output
 to be a tuple containing only the data and the target, by setting the

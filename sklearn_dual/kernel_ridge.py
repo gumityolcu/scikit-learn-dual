@@ -44,14 +44,14 @@ class KernelRidge(MultiOutputMixin, RegressorMixin, BaseEstimator):
         improves the conditioning of the problem and reduces the variance of
         the estimates. Larger values specify stronger regularization.
         Alpha corresponds to ``1 / (2C)`` in other linear models such as
-        :class:`~sklearn.linear_model.LogisticRegression` or
-        :class:`~sklearn.svm.LinearSVC`. If an array is passed, penalties are
+        :class:`~sklearn_dual.linear_model.LogisticRegression` or
+        :class:`~sklearn_dual.svm.LinearSVC`. If an array is passed, penalties are
         assumed to be specific to the targets. Hence they must correspond in
         number. See :ref:`ridge_regression` for formula.
 
     kernel : str or callable, default="linear"
         Kernel mapping used internally. This parameter is directly passed to
-        :class:`~sklearn.metrics.pairwise.pairwise_kernels`.
+        :class:`~sklearn_dual.metrics.pairwise.pairwise_kernels`.
         If `kernel` is a string, it must be one of the metrics
         in `pairwise.PAIRWISE_KERNEL_FUNCTIONS` or "precomputed".
         If `kernel` is "precomputed", X is assumed to be a kernel matrix.
@@ -59,14 +59,14 @@ class KernelRidge(MultiOutputMixin, RegressorMixin, BaseEstimator):
         each pair of instances (rows) and the resulting value recorded. The
         callable should take two rows from X as input and return the
         corresponding kernel value as a single number. This means that
-        callables from :mod:`sklearn.metrics.pairwise` are not allowed, as
+        callables from :mod:`sklearn_dual.metrics.pairwise` are not allowed, as
         they operate on matrices, not single samples. Use the string
         identifying the kernel instead.
 
     gamma : float, default=None
         Gamma parameter for the RBF, laplacian, polynomial, exponential chi2
         and sigmoid kernels. Interpretation of the default value is left to
-        the kernel; see the documentation for sklearn.metrics.pairwise.
+        the kernel; see the documentation for sklearn_dual.metrics.pairwise.
         Ignored by other kernels.
 
     degree : float, default=3
@@ -103,13 +103,13 @@ class KernelRidge(MultiOutputMixin, RegressorMixin, BaseEstimator):
 
     See Also
     --------
-    sklearn.gaussian_process.GaussianProcessRegressor : Gaussian
+    sklearn_dual.gaussian_process.GaussianProcessRegressor : Gaussian
         Process regressor providing automatic kernel hyperparameters
         tuning and predictions uncertainty.
-    sklearn.linear_model.Ridge : Linear ridge regression.
-    sklearn.linear_model.RidgeCV : Ridge regression with built-in
+    sklearn_dual.linear_model.Ridge : Linear ridge regression.
+    sklearn_dual.linear_model.RidgeCV : Ridge regression with built-in
         cross-validation.
-    sklearn.svm.SVR : Support Vector Regression accepting a large variety
+    sklearn_dual.svm.SVR : Support Vector Regression accepting a large variety
         of kernels.
 
     References

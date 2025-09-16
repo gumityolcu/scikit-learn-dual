@@ -1,6 +1,6 @@
 .. include:: _contributors.rst
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 ============
 Version 0.17
@@ -162,10 +162,10 @@ Enhancements
 - Added backlinks from the API reference pages to the user guide. By
   `Andreas Müller`_.
 
-- The ``labels`` parameter to :func:`sklearn.metrics.f1_score`,
-  :func:`sklearn.metrics.fbeta_score`,
-  :func:`sklearn.metrics.recall_score` and
-  :func:`sklearn.metrics.precision_score` has been extended.
+- The ``labels`` parameter to :func:`sklearn_dual.metrics.f1_score`,
+  :func:`sklearn_dual.metrics.fbeta_score`,
+  :func:`sklearn_dual.metrics.recall_score` and
+  :func:`sklearn_dual.metrics.precision_score` has been extended.
   It is now possible to ignore one or more labels, such as where
   a multiclass problem has a majority class to ignore. By `Joel Nothman`_.
 
@@ -173,7 +173,7 @@ Enhancements
   By `Trevor Stephens`_.
 
 - Provide an option for sparse output from
-  :func:`sklearn.metrics.pairwise.cosine_similarity`. By
+  :func:`sklearn_dual.metrics.pairwise.cosine_similarity`. By
   :user:`Jaidev Deshpande <jaidevd>`.
 
 - Add :func:`preprocessing.minmax_scale` to provide a function interface for
@@ -182,7 +182,7 @@ Enhancements
 - ``dump_svmlight_file`` now handles multi-label datasets.
   By Chih-Wei Chang.
 
-- RCV1 dataset loader (:func:`sklearn.datasets.fetch_rcv1`).
+- RCV1 dataset loader (:func:`sklearn_dual.datasets.fetch_rcv1`).
   By `Tom Dupre la Tour`_.
 
 - The "Wisconsin Breast Cancer" classical two-class classification dataset

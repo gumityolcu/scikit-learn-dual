@@ -383,7 +383,7 @@ class FunctionTransformer(TransformerMixin, BaseEstimator):
 
         return func(X, **(kw_args if kw_args else {}))
 
-    def __sklearn_is_fitted__(self):
+    def __sklearn_dual_is_fitted__(self):
         """Return True since FunctionTransfomer is stateless."""
         return True
 
@@ -414,10 +414,10 @@ class FunctionTransformer(TransformerMixin, BaseEstimator):
         self : estimator instance
             Estimator instance.
         """
-        if not hasattr(self, "_sklearn_output_config"):
-            self._sklearn_output_config = {}
+        if not hasattr(self, "_sklearn_dual_output_config"):
+            self._sklearn_dual_output_config = {}
 
-        self._sklearn_output_config["transform"] = transform
+        self._sklearn_dual_output_config["transform"] = transform
         return self
 
     def _get_function_name(self):

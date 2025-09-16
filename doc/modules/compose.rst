@@ -29,7 +29,7 @@ deals with transforming the :term:`target` (i.e. log-transform :term:`y`).
 Pipeline: chaining estimators
 =============================
 
-.. currentmodule:: sklearn.pipeline
+.. currentmodule:: sklearn_dual.pipeline
 
 :class:`Pipeline` can be used to chain multiple estimators
 into one. This is useful as there is often a fixed sequence
@@ -71,9 +71,9 @@ The :class:`Pipeline` is built using a list of ``(key, value)`` pairs, where
 the ``key`` is a string containing the name you want to give this step and ``value``
 is an estimator object::
 
-    >>> from sklearn.pipeline import Pipeline
-    >>> from sklearn.svm import SVC
-    >>> from sklearn.decomposition import PCA
+    >>> from sklearn_dual.pipeline import Pipeline
+    >>> from sklearn_dual.svm import SVC
+    >>> from sklearn_dual.decomposition import PCA
     >>> estimators = [('reduce_dim', PCA()), ('clf', SVC())]
     >>> pipe = Pipeline(estimators)
     >>> pipe
@@ -86,7 +86,7 @@ is an estimator object::
   it takes a variable number of estimators and returns a pipeline,
   filling in the names automatically::
 
-      >>> from sklearn.pipeline import make_pipeline
+      >>> from sklearn_dual.pipeline import make_pipeline
       >>> make_pipeline(PCA(), SVC())
       Pipeline(steps=[('pca', PCA()), ('svc', SVC())])
 
@@ -125,13 +125,13 @@ permitted). This is convenient for performing only some of the transformations
 Tracking feature names in a pipeline
 ....................................
 
-To enable model inspection, :class:`~sklearn.pipeline.Pipeline` has a
+To enable model inspection, :class:`~sklearn_dual.pipeline.Pipeline` has a
 ``get_feature_names_out()`` method, just like all transformers. You can use
 pipeline slicing to get the feature names going into each step::
 
-    >>> from sklearn.datasets import load_iris
-    >>> from sklearn.linear_model import LogisticRegression
-    >>> from sklearn.feature_selection import SelectKBest
+    >>> from sklearn_dual.datasets import load_iris
+    >>> from sklearn_dual.linear_model import LogisticRegression
+    >>> from sklearn_dual.feature_selection import SelectKBest
     >>> iris = load_iris()
     >>> pipe = Pipeline(steps=[
     ...    ('select', SelectKBest(k=2)),
@@ -167,7 +167,7 @@ syntax::
 
   This is particularly important for doing grid searches::
 
-      >>> from sklearn.model_selection import GridSearchCV
+      >>> from sklearn_dual.model_selection import GridSearchCV
       >>> param_grid = dict(reduce_dim__n_components=[2, 5, 10],
       ...                   clf__C=[0.1, 10, 100])
       >>> grid_search = GridSearchCV(pipe, param_grid=param_grid)
@@ -201,7 +201,7 @@ syntax::
 Caching transformers: avoid repeated computation
 -------------------------------------------------
 
-.. currentmodule:: sklearn.pipeline
+.. currentmodule:: sklearn_dual.pipeline
 
 Fitting transformers may be computationally expensive. With its
 ``memory`` parameter set, :class:`Pipeline` will cache each transformer
@@ -218,9 +218,9 @@ object::
 
     >>> from tempfile import mkdtemp
     >>> from shutil import rmtree
-    >>> from sklearn.decomposition import PCA
-    >>> from sklearn.svm import SVC
-    >>> from sklearn.pipeline import Pipeline
+    >>> from sklearn_dual.decomposition import PCA
+    >>> from sklearn_dual.svm import SVC
+    >>> from sklearn_dual.pipeline import Pipeline
     >>> estimators = [('reduce_dim', PCA()), ('clf', SVC())]
     >>> cachedir = mkdtemp()
     >>> pipe = Pipeline(estimators, memory=cachedir)
@@ -236,7 +236,7 @@ object::
   Using a :class:`Pipeline` without cache enabled, it is possible to
   inspect the original instance such as::
 
-      >>> from sklearn.datasets import load_digits
+      >>> from sklearn_dual.datasets import load_digits
       >>> X_digits, y_digits = load_digits(return_X_y=True)
       >>> pca1 = PCA(n_components=10)
       >>> svm1 = SVC()
@@ -250,7 +250,7 @@ object::
   Enabling caching triggers a clone of the transformers before fitting.
   Therefore, the transformer instance given to the pipeline cannot be
   inspected directly.
-  In following example, accessing the :class:`~sklearn.decomposition.PCA`
+  In following example, accessing the :class:`~sklearn_dual.decomposition.PCA`
   instance ``pca2`` will raise an ``AttributeError`` since ``pca2`` will be an
   unfitted transformer.
   Instead, use the attribute ``named_steps`` to inspect estimators within
@@ -279,18 +279,18 @@ object::
 Transforming target in regression
 =================================
 
-:class:`~sklearn.compose.TransformedTargetRegressor` transforms the
+:class:`~sklearn_dual.compose.TransformedTargetRegressor` transforms the
 targets ``y`` before fitting a regression model. The predictions are mapped
 back to the original space via an inverse transform. It takes as an argument
 the regressor that will be used for prediction, and the transformer that will
 be applied to the target variable::
 
   >>> import numpy as np
-  >>> from sklearn.datasets import fetch_california_housing
-  >>> from sklearn.compose import TransformedTargetRegressor
-  >>> from sklearn.preprocessing import QuantileTransformer
-  >>> from sklearn.linear_model import LinearRegression
-  >>> from sklearn.model_selection import train_test_split
+  >>> from sklearn_dual.datasets import fetch_california_housing
+  >>> from sklearn_dual.compose import TransformedTargetRegressor
+  >>> from sklearn_dual.preprocessing import QuantileTransformer
+  >>> from sklearn_dual.linear_model import LinearRegression
+  >>> from sklearn_dual.model_selection import train_test_split
   >>> X, y = fetch_california_housing(return_X_y=True)
   >>> X, y = X[:2000, :], y[:2000]  # select a subset of data
   >>> transformer = QuantileTransformer(output_distribution='normal')
@@ -355,7 +355,7 @@ each other. However, it is possible to bypass this checking by setting
 FeatureUnion: composite feature spaces
 ======================================
 
-.. currentmodule:: sklearn.pipeline
+.. currentmodule:: sklearn_dual.pipeline
 
 :class:`FeatureUnion` combines several transformer objects into a new
 transformer that combines their output. A :class:`FeatureUnion` takes
@@ -365,7 +365,7 @@ and the feature matrices they output are concatenated side-by-side into a
 larger matrix.
 
 When you want to apply different transformations to each field of the data,
-see the related class :class:`~sklearn.compose.ColumnTransformer`
+see the related class :class:`~sklearn_dual.compose.ColumnTransformer`
 (see :ref:`user guide <column_transformer>`).
 
 :class:`FeatureUnion` serves the same purposes as :class:`Pipeline` -
@@ -388,9 +388,9 @@ where the ``key`` is the name you want to give to a given transformation
 (an arbitrary string; it only serves as an identifier)
 and ``value`` is an estimator object::
 
-    >>> from sklearn.pipeline import FeatureUnion
-    >>> from sklearn.decomposition import PCA
-    >>> from sklearn.decomposition import KernelPCA
+    >>> from sklearn_dual.pipeline import FeatureUnion
+    >>> from sklearn_dual.decomposition import PCA
+    >>> from sklearn_dual.decomposition import KernelPCA
     >>> estimators = [('linear_pca', PCA()), ('kernel_pca', KernelPCA())]
     >>> combined = FeatureUnion(estimators)
     >>> combined
@@ -432,10 +432,10 @@ one of the following reasons:
 2. You may want to include the parameters of the preprocessors in a
    :ref:`parameter search <grid_search>`.
 
-The :class:`~sklearn.compose.ColumnTransformer` helps performing different
+The :class:`~sklearn_dual.compose.ColumnTransformer` helps performing different
 transformations for different columns of the data, within a
-:class:`~sklearn.pipeline.Pipeline` that is safe from data leakage and that can
-be parametrized. :class:`~sklearn.compose.ColumnTransformer` works on
+:class:`~sklearn_dual.pipeline.Pipeline` that is safe from data leakage and that can
+be parametrized. :class:`~sklearn_dual.compose.ColumnTransformer` works on
 arrays, sparse matrices, and
 `pandas DataFrames <https://pandas.pydata.org/pandas-docs/stable/>`__.
 
@@ -451,15 +451,15 @@ preprocessing or a specific feature extraction method::
   ...      'user_rating': [4, 5, 4, 3]})
 
 For this data, we might want to encode the ``'city'`` column as a categorical
-variable using :class:`~sklearn.preprocessing.OneHotEncoder` but apply a
-:class:`~sklearn.feature_extraction.text.CountVectorizer` to the ``'title'`` column.
+variable using :class:`~sklearn_dual.preprocessing.OneHotEncoder` but apply a
+:class:`~sklearn_dual.feature_extraction.text.CountVectorizer` to the ``'title'`` column.
 As we might use multiple feature extraction methods on the same column, we give
 each transformer a unique name, say ``'city_category'`` and ``'title_bow'``.
 By default, the remaining rating columns are ignored (``remainder='drop'``)::
 
-  >>> from sklearn.compose import ColumnTransformer
-  >>> from sklearn.feature_extraction.text import CountVectorizer
-  >>> from sklearn.preprocessing import OneHotEncoder
+  >>> from sklearn_dual.compose import ColumnTransformer
+  >>> from sklearn_dual.feature_extraction.text import CountVectorizer
+  >>> from sklearn_dual.preprocessing import OneHotEncoder
   >>> column_trans = ColumnTransformer(
   ...     [('categories', OneHotEncoder(dtype='int'), ['city']),
   ...      ('title_bow', CountVectorizer(), 'title')],
@@ -483,20 +483,20 @@ By default, the remaining rating columns are ignored (``remainder='drop'``)::
          [0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1]]...)
 
 In the above example, the
-:class:`~sklearn.feature_extraction.text.CountVectorizer` expects a 1D array as
+:class:`~sklearn_dual.feature_extraction.text.CountVectorizer` expects a 1D array as
 input and therefore the columns were specified as a string (``'title'``).
-However, :class:`~sklearn.preprocessing.OneHotEncoder`
+However, :class:`~sklearn_dual.preprocessing.OneHotEncoder`
 as most of other transformers expects 2D data, therefore in that case you need
 to specify the column as a list of strings (``['city']``).
 
 Apart from a scalar or a single item list, the column selection can be specified
 as a list of multiple items, an integer array, a slice, a boolean mask, or
-with a :func:`~sklearn.compose.make_column_selector`. The
-:func:`~sklearn.compose.make_column_selector` is used to select columns based
+with a :func:`~sklearn_dual.compose.make_column_selector`. The
+:func:`~sklearn_dual.compose.make_column_selector` is used to select columns based
 on data type or column name::
 
-  >>> from sklearn.preprocessing import StandardScaler
-  >>> from sklearn.compose import make_column_selector
+  >>> from sklearn_dual.preprocessing import StandardScaler
+  >>> from sklearn_dual.compose import make_column_selector
   >>> ct = ColumnTransformer([
   ...       ('scale', StandardScaler(),
   ...       make_column_selector(dtype_include=np.number)),
@@ -531,7 +531,7 @@ The ``remainder`` parameter can be set to an estimator to transform the
 remaining rating columns. The transformed values are appended to the end of
 the transformation::
 
-  >>> from sklearn.preprocessing import MinMaxScaler
+  >>> from sklearn_dual.preprocessing import MinMaxScaler
   >>> column_trans = ColumnTransformer(
   ...     [('city_category', OneHotEncoder(), ['city']),
   ...      ('title_bow', CountVectorizer(), 'title')],
@@ -545,12 +545,12 @@ the transformation::
 
 .. _make_column_transformer:
 
-The :func:`~sklearn.compose.make_column_transformer` function is available
-to more easily create a :class:`~sklearn.compose.ColumnTransformer` object.
+The :func:`~sklearn_dual.compose.make_column_transformer` function is available
+to more easily create a :class:`~sklearn_dual.compose.ColumnTransformer` object.
 Specifically, the names will be given automatically. The equivalent for the
 above example would be::
 
-  >>> from sklearn.compose import make_column_transformer
+  >>> from sklearn_dual.compose import make_column_transformer
   >>> column_trans = make_column_transformer(
   ...     (OneHotEncoder(), ['city']),
   ...     (CountVectorizer(), 'title'),
@@ -561,7 +561,7 @@ above example would be::
                                   ('countvectorizer', CountVectorizer(),
                                    'title')])
 
-If :class:`~sklearn.compose.ColumnTransformer` is fitted with a dataframe
+If :class:`~sklearn_dual.compose.ColumnTransformer` is fitted with a dataframe
 and the dataframe only has string column names, then transforming a dataframe
 will use the column names to select the columns::
 
@@ -586,10 +586,10 @@ many estimators. This visualization is activated by default::
 
   >>> column_trans  # doctest: +SKIP
 
-It can be deactivated by setting the `display` option in :func:`~sklearn.set_config`
+It can be deactivated by setting the `display` option in :func:`~sklearn_dual.set_config`
 to 'text'::
 
-  >>> from sklearn import set_config
+  >>> from sklearn_dual import set_config
   >>> set_config(display='text')  # doctest: +SKIP
   >>> # displays text representation in a jupyter context
   >>> column_trans  # doctest: +SKIP
@@ -598,9 +598,9 @@ An example of the HTML output can be seen in the
 **HTML representation of Pipeline** section of
 :ref:`sphx_glr_auto_examples_compose_plot_column_transformer_mixed_types.py`.
 As an alternative, the HTML can be written to a file using
-:func:`~sklearn.utils.estimator_html_repr`::
+:func:`~sklearn_dual.utils.estimator_html_repr`::
 
-   >>> from sklearn.utils import estimator_html_repr
+   >>> from sklearn_dual.utils import estimator_html_repr
    >>> with open('my_estimator.html', 'w') as f:  # doctest: +SKIP
    ...     f.write(estimator_html_repr(clf))
 

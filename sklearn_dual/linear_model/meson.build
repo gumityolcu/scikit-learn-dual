@@ -7,7 +7,7 @@ py.extension_module(
   '_cd_fast',
   ['_cd_fast.pyx', utils_cython_tree],
   cython_args: cython_args,
-  subdir: 'sklearn/linear_model',
+  subdir: 'sklearn_dual/linear_model',
   install: true
 )
 
@@ -28,7 +28,7 @@ foreach name: name_list
     name,
     pyx,
     cython_args: cython_args,
-    subdir: 'sklearn/linear_model',
+    subdir: 'sklearn_dual/linear_model',
     install: true
 )
 endforeach

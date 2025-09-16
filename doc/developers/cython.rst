@@ -16,7 +16,7 @@ Tips to ease development
 * If you intend to use OpenMP: On MacOS, system's distribution of ``clang`` does not implement OpenMP.
   You can install the ``compilers`` package available on ``conda-forge`` which comes with an implementation of OpenMP.
 
-* Activating `checks <https://github.com/scikit-learn/scikit-learn/blob/62a017efa047e9581ae7df8bbaa62cf4c0544ee4/sklearn/_build_utils/__init__.py#L68-L87>`_ might help. E.g. for activating boundscheck use:
+* Activating `checks <https://github.com/scikit-learn/scikit-learn/blob/62a017efa047e9581ae7df8bbaa62cf4c0544ee4/sklearn_dual/_build_utils/__init__.py#L68-L87>`_ might help. E.g. for activating boundscheck use:
 
   .. code-block:: bash
 
@@ -86,7 +86,7 @@ Tips for performance
   objects, which include functions). In this regard, `PEP073 <https://peps.python.org/pep-0703/>`_
   provides a good overview and context and pathways for removal.
 
-* Make sure you have deactivated `checks <https://github.com/scikit-learn/scikit-learn/blob/62a017efa047e9581ae7df8bbaa62cf4c0544ee4/sklearn/_build_utils/__init__.py#L68-L87>`_.
+* Make sure you have deactivated `checks <https://github.com/scikit-learn/scikit-learn/blob/62a017efa047e9581ae7df8bbaa62cf4c0544ee4/sklearn_dual/_build_utils/__init__.py#L68-L87>`_.
 
 * Always prefer memoryviews instead over ``cnp.ndarray`` when possible: memoryviews are lightweight.
 
@@ -118,7 +118,7 @@ Tips for performance
 
   This item is based on `this comment from Stéfan's Benhel <https://github.com/cython/cython/issues/2798#issuecomment-459971828>`_
 
-* Direct calls to BLAS routines are possible via interfaces defined in ``sklearn.utils._cython_blas``.
+* Direct calls to BLAS routines are possible via interfaces defined in ``sklearn_dual.utils._cython_blas``.
 
 Using OpenMP
 ^^^^^^^^^^^^
@@ -127,13 +127,13 @@ Since scikit-learn can be built without OpenMP, it's necessary to protect each
 direct call to OpenMP.
 
 The `_openmp_helpers` module, available in
-`sklearn/utils/_openmp_helpers.pyx <https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/utils/_openmp_helpers.pyx>`_
+`sklearn_dual/utils/_openmp_helpers.pyx <https://github.com/scikit-learn/scikit-learn/blob/main/sklearn_dual/utils/_openmp_helpers.pyx>`_
 provides protected versions of the OpenMP routines. To use OpenMP routines, they
 must be ``cimported`` from this module and not from the OpenMP library directly:
 
 .. code-block:: cython
 
-   from sklearn.utils._openmp_helpers cimport omp_get_max_threads
+   from sklearn_dual.utils._openmp_helpers cimport omp_get_max_threads
    max_threads = omp_get_max_threads()
 
 
@@ -146,7 +146,7 @@ Types
 Cython code requires to use explicit types. This is one of the reasons you get a
 performance boost. In order to avoid code duplication, we have a central place
 for the most used types in
-`sklearn/utils/_typedefs.pyd <https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/utils/_typedefs.pyd>`_.
+`sklearn_dual/utils/_typedefs.pyd <https://github.com/scikit-learn/scikit-learn/blob/main/sklearn_dual/utils/_typedefs.pyd>`_.
 Ideally you start by having a look there and `cimport` types you need, for example
 
 .. code-block:: cython

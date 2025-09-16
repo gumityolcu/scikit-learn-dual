@@ -5,7 +5,7 @@ Faces dataset decompositions
 
 This example applies to :ref:`olivetti_faces_dataset` different unsupervised
 matrix decomposition (dimension reduction) methods from the module
-:mod:`sklearn.decomposition` (see the documentation chapter
+:mod:`sklearn_dual.decomposition` (see the documentation chapter
 :ref:`decompositions`).
 
 
@@ -106,7 +106,7 @@ plot_gallery("Faces from dataset", faces_centered[:n_components])
 #
 # .. note::
 #
-#     The Eigenfaces estimator, via the :py:mod:`sklearn.decomposition.PCA`,
+#     The Eigenfaces estimator, via the :py:mod:`sklearn_dual.decomposition.PCA`,
 #     also provides a scalar `noise_variance_` (the mean of pixelwise variance)
 #     that cannot be displayed as an image.
 
@@ -149,10 +149,10 @@ plot_gallery(
 # Sparse components - MiniBatchSparsePCA
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 #
-# Mini-batch sparse PCA (:class:`~sklearn.decomposition.MiniBatchSparsePCA`)
+# Mini-batch sparse PCA (:class:`~sklearn_dual.decomposition.MiniBatchSparsePCA`)
 # extracts the set of sparse components that best reconstruct the data. This
 # variant is faster but less accurate than the similar
-# :class:`~sklearn.decomposition.SparsePCA`.
+# :class:`~sklearn_dual.decomposition.SparsePCA`.
 
 # %%
 batch_pca_estimator = decomposition.MiniBatchSparsePCA(
@@ -168,7 +168,7 @@ plot_gallery(
 # Dictionary learning
 # ^^^^^^^^^^^^^^^^^^^
 #
-# By default, :class:`~sklearn.decomposition.MiniBatchDictionaryLearning`
+# By default, :class:`~sklearn_dual.decomposition.MiniBatchDictionaryLearning`
 # divides the data into mini-batches and optimizes in an online manner by
 # cycling over the mini-batches for the specified number of iterations.
 
@@ -183,11 +183,11 @@ plot_gallery("Dictionary learning", batch_dict_estimator.components_[:n_componen
 # Cluster centers - MiniBatchKMeans
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 #
-# :class:`sklearn.cluster.MiniBatchKMeans` is computationally efficient and
+# :class:`sklearn_dual.cluster.MiniBatchKMeans` is computationally efficient and
 # implements on-line learning with a
-# :meth:`~sklearn.cluster.MiniBatchKMeans.partial_fit` method. That is
+# :meth:`~sklearn_dual.cluster.MiniBatchKMeans.partial_fit` method. That is
 # why it could be beneficial to enhance some time-consuming algorithms with
-# :class:`~sklearn.cluster.MiniBatchKMeans`.
+# :class:`~sklearn_dual.cluster.MiniBatchKMeans`.
 
 # %%
 kmeans_estimator = cluster.MiniBatchKMeans(
@@ -208,8 +208,8 @@ plot_gallery(
 # Factor Analysis components - FA
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 #
-# :class:`~sklearn.decomposition.FactorAnalysis` is similar to
-# :class:`~sklearn.decomposition.PCA` but has the advantage of modelling the
+# :class:`~sklearn_dual.decomposition.FactorAnalysis` is similar to
+# :class:`~sklearn_dual.decomposition.PCA` but has the advantage of modelling the
 # variance in every direction of the input space independently (heteroscedastic
 # noise). Read more in the :ref:`User Guide <FA>`.
 
@@ -244,7 +244,7 @@ plt.show()
 # a dictionary. It is possible to constrain the dictionary and/or coding coefficients
 # to be positive to match constraints that may be present in the data.
 #
-# :class:`~sklearn.decomposition.MiniBatchDictionaryLearning` implements a
+# :class:`~sklearn_dual.decomposition.MiniBatchDictionaryLearning` implements a
 # faster, but less accurate version of the dictionary learning algorithm that
 # is better suited for large datasets. Read more in the :ref:`User Guide
 # <MiniBatchDictionaryLearning>`.
@@ -258,7 +258,7 @@ plot_gallery("Faces from dataset", faces_centered[:n_components], cmap=plt.cm.Rd
 
 # %%
 # Similar to the previous examples, we change parameters and train
-# :class:`~sklearn.decomposition.MiniBatchDictionaryLearning` estimator on all
+# :class:`~sklearn_dual.decomposition.MiniBatchDictionaryLearning` estimator on all
 # images. Generally, the dictionary learning and sparse encoding decompose
 # input data into the dictionary and the coding coefficients matrices. :math:`X
 # \approx UV`, where :math:`X = [x_1, . . . , x_n]`, :math:`X \in

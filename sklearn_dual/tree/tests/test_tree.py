@@ -1,5 +1,5 @@
 """
-Testing for the tree module (sklearn.tree).
+Testing for the tree module (sklearn_dual.tree).
 """
 
 import copy
@@ -1982,7 +1982,7 @@ def test_poisson_vs_mse():
     # For a Poisson distributed target, Poisson loss should give better results
     # than squared error measured in Poisson deviance as metric.
     # We have a similar test, test_poisson(), in
-    # sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py
+    # sklearn_dual/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py
     rng = np.random.RandomState(42)
     n_train, n_test, n_features = 500, 500, 10
     X = datasets.make_low_rank_matrix(
@@ -2136,7 +2136,7 @@ def test_different_endianness_joblib_pickle():
 def get_different_bitness_node_ndarray(node_ndarray):
     new_dtype_for_indexing_fields = np.int64 if _IS_32BIT else np.int32
 
-    # field names in Node struct with SIZE_t types (see sklearn/tree/_tree.pxd)
+    # field names in Node struct with SIZE_t types (see sklearn_dual/tree/_tree.pxd)
     indexing_field_names = ["left_child", "right_child", "feature", "n_node_samples"]
 
     new_dtype_dict = {

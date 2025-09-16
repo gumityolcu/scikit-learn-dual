@@ -192,7 +192,7 @@ def precision_recall_curve_padded_thresholds(*args, **kwargs):
     """
     The dimensions of precision-recall pairs and the threshold array as
     returned by the precision_recall_curve do not match. See
-    func:`sklearn.metrics.precision_recall_curve`
+    func:`sklearn_dual.metrics.precision_recall_curve`
 
     This prevents implicit conversion of return value triple to an higher
     dimensional np.array of dtype('float64') (it will be of dtype('object)
@@ -1047,7 +1047,7 @@ def test_multioutput_regression_invariance_to_dimension_shuffling(name):
         )
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.UndefinedMetricWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.UndefinedMetricWarning")
 @pytest.mark.parametrize("coo_container", COO_CONTAINERS)
 def test_multilabel_representation_invariance(coo_container):
     # Generate some data

@@ -3,7 +3,7 @@
 Imputing missing values with variants of IterativeImputer
 =========================================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 The :class:`~impute.IterativeImputer` class is very flexible - it can be
 used with a variety of estimators to do round-robin regression, treating every

@@ -1062,7 +1062,7 @@ def test_safe_sparse_dot_dense_output(dense_output):
 
 
 def test_approximate_mode():
-    """Make sure sklearn.utils.extmath._approximate_mode returns valid
+    """Make sure sklearn_dual.utils.extmath._approximate_mode returns valid
     results for cases where "class_counts * n_draws" is enough
     to overflow 32-bit signed integer.
 

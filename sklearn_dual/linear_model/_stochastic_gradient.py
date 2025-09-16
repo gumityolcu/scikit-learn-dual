@@ -982,7 +982,7 @@ class SGDClassifier(BaseSGDClassifier):
         - The other losses, 'squared_error', 'huber', 'epsilon_insensitive' and
           'squared_epsilon_insensitive' are designed for regression but can be useful
           in classification as well; see
-          :class:`~sklearn.linear_model.SGDRegressor` for a description.
+          :class:`~sklearn_dual.linear_model.SGDRegressor` for a description.
 
         More details about the losses formulas can be found in the
         :ref:`User Guide <sgd_mathematical_formulation>`.
@@ -1173,7 +1173,7 @@ class SGDClassifier(BaseSGDClassifier):
 
     See Also
     --------
-    sklearn.svm.LinearSVC : Linear support vector classification.
+    sklearn_dual.svm.LinearSVC : Linear support vector classification.
     LogisticRegression : Logistic regression.
     Perceptron : Inherits from SGDClassifier. ``Perceptron()`` is equivalent to
         ``SGDClassifier(loss="perceptron", eta0=1, learning_rate="constant",
@@ -1281,7 +1281,7 @@ class SGDClassifier(BaseSGDClassifier):
         (clip(decision_function(X), -1, 1) + 1) / 2. For other loss functions
         it is necessary to perform proper probability calibration by wrapping
         the classifier with
-        :class:`~sklearn.calibration.CalibratedClassifierCV` instead.
+        :class:`~sklearn_dual.calibration.CalibratedClassifierCV` instead.
 
         Parameters
         ----------
@@ -1977,7 +1977,7 @@ class SGDRegressor(BaseSGDRegressor):
     Lasso : Linear Model trained with L1 prior as regularizer.
     RANSACRegressor : RANSAC (RANdom SAmple Consensus) algorithm.
     Ridge : Linear least squares with l2 regularization.
-    sklearn.svm.SVR : Epsilon-Support Vector Regression.
+    sklearn_dual.svm.SVR : Epsilon-Support Vector Regression.
     TheilSenRegressor : Theil-Sen Estimator robust multivariate regression model.
 
     Examples
@@ -2072,8 +2072,8 @@ class SGDOneClassSVM(BaseSGD, OutlierMixin):
     """Solves linear One-Class SVM using Stochastic Gradient Descent.
 
     This implementation is meant to be used with a kernel approximation
-    technique (e.g. `sklearn.kernel_approximation.Nystroem`) to obtain results
-    similar to `sklearn.svm.OneClassSVM` which uses a Gaussian kernel by
+    technique (e.g. `sklearn_dual.kernel_approximation.Nystroem`) to obtain results
+    similar to `sklearn_dual.svm.OneClassSVM` which uses a Gaussian kernel by
     default.
 
     Read more in the :ref:`User Guide <sgd_online_one_class_svm>`.
@@ -2188,12 +2188,12 @@ class SGDOneClassSVM(BaseSGD, OutlierMixin):
 
     See Also
     --------
-    sklearn.svm.OneClassSVM : Unsupervised Outlier Detection.
+    sklearn_dual.svm.OneClassSVM : Unsupervised Outlier Detection.
 
     Notes
     -----
     This estimator has a linear complexity in the number of training samples
-    and is thus better suited than the `sklearn.svm.OneClassSVM`
+    and is thus better suited than the `sklearn_dual.svm.OneClassSVM`
     implementation for datasets with a large number of training samples (say
     > 10,000).
 

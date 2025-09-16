@@ -126,7 +126,7 @@ def _check_array_api_dispatch(array_api_dispatch):
                     "Some scikit-learn array API features might rely on enabling "
                     "SciPy's own support for array API to function properly. "
                     "Please set the SCIPY_ARRAY_API=1 environment variable "
-                    "before importing sklearn or scipy. More details at: "
+                    "before importing sklearn_dual or scipy. More details at: "
                     "https://docs.scipy.org/doc/scipy/dev/api-dev/array_api.html"
                 ),
                 UserWarning,
@@ -305,7 +305,7 @@ def ensure_common_namespace_device(reference, *arrays):
 
 
 class _ArrayAPIWrapper:
-    """sklearn specific Array API compatibility wrapper
+    """sklearn_dual specific Array API compatibility wrapper
 
     This wrapper makes it possible for scikit-learn maintainers to
     deal with discrepancies between different implementations of the
@@ -536,11 +536,11 @@ def get_namespace(*arrays, remove_none=True, remove_types=(str,), xp=None):
 
     Namespace support is not enabled by default. To enabled it call:
 
-      sklearn.set_config(array_api_dispatch=True)
+      sklearn_dual.set_config(array_api_dispatch=True)
 
     or:
 
-      with sklearn.config_context(array_api_dispatch=True):
+      with sklearn_dual.config_context(array_api_dispatch=True):
           # your code here
 
     Otherwise an instance of the `_NumPyAPIWrapper` compatibility wrapper is
@@ -1080,7 +1080,7 @@ def _in1d(ar1, ar2, xp, assume_unique=False, invert=False):
 
 
 def _count_nonzero(X, xp, device, axis=None, sample_weight=None):
-    """A variant of `sklearn.utils.sparsefuncs.count_nonzero` for the Array API.
+    """A variant of `sklearn_dual.utils.sparsefuncs.count_nonzero` for the Array API.
 
     It only supports 2D arrays.
     """

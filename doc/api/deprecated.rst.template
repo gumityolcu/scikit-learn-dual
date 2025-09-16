@@ -5,7 +5,7 @@
 Recently Deprecated
 ===================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 {% for ver, objs in DEPRECATED_API_REFERENCE %}
 .. _api_depr_ref-{{ ver|replace(".", "-") }}:

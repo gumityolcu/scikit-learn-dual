@@ -17,8 +17,8 @@ class PredictionErrorDisplay:
     preferably on held-out data points.
 
     See the details in the docstrings of
-    :func:`~sklearn.metrics.PredictionErrorDisplay.from_estimator` or
-    :func:`~sklearn.metrics.PredictionErrorDisplay.from_predictions` to
+    :func:`~sklearn_dual.metrics.PredictionErrorDisplay.from_estimator` or
+    :func:`~sklearn_dual.metrics.PredictionErrorDisplay.from_predictions` to
     create a visualizer. All parameters are stored as attributes.
 
     For general information regarding `scikit-learn` visualization tools, read
@@ -119,7 +119,7 @@ class PredictionErrorDisplay:
 
         Returns
         -------
-        display : :class:`~sklearn.metrics.PredictionErrorDisplay`
+        display : :class:`~sklearn_dual.metrics.PredictionErrorDisplay`
 
             Object that stores computed values.
         """
@@ -208,7 +208,7 @@ class PredictionErrorDisplay:
         Parameters
         ----------
         estimator : estimator instance
-            Fitted regressor or a fitted :class:`~sklearn.pipeline.Pipeline`
+            Fitted regressor or a fitted :class:`~sklearn_dual.pipeline.Pipeline`
             in which the last estimator is a regressor.
 
         X : {array-like, sparse matrix} of shape (n_samples, n_features)
@@ -252,7 +252,7 @@ class PredictionErrorDisplay:
 
         Returns
         -------
-        display : :class:`~sklearn.metrics.PredictionErrorDisplay`
+        display : :class:`~sklearn_dual.metrics.PredictionErrorDisplay`
             Object that stores the computed values.
 
         See Also
@@ -352,7 +352,7 @@ class PredictionErrorDisplay:
 
         Returns
         -------
-        display : :class:`~sklearn.metrics.PredictionErrorDisplay`
+        display : :class:`~sklearn_dual.metrics.PredictionErrorDisplay`
             Object that stores the computed values.
 
         See Also

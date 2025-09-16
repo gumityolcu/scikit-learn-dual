@@ -1,6 +1,6 @@
 .. include:: _contributors.rst
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 .. _release_notes_1_5:
 
@@ -23,7 +23,7 @@ Version 1.5.2
 Changelog
 ---------
 
-:mod:`sklearn.compose`
+:mod:`sklearn_dual.compose`
 ......................
 
 - |Fix| Fixed :class:`compose.TransformedTargetRegressor` not to raise `UserWarning` if
@@ -50,14 +50,14 @@ Changes impacting many modules
 Changelog
 ---------
 
-:mod:`sklearn.compose`
+:mod:`sklearn_dual.compose`
 ......................
 
 - |Efficiency| Fix a performance regression in :class:`compose.ColumnTransformer`
   where the full input data was copied for each transformer when `n_jobs > 1`.
   :pr:`29330` by :user:`Jérémie du Boisberranger <jeremiedbb>`.
 
-:mod:`sklearn.metrics`
+:mod:`sklearn_dual.metrics`
 ......................
 
 - |Fix| Fix a regression in :func:`metrics.r2_score`. Passing torch CPU tensors
@@ -71,7 +71,7 @@ Changelog
   :pr:`29269` by :user:`Yaroslav Korobko <Tialo>` and
   :pr:`29336` by :user:`Edoardo Abati <EdAbati>`.
 
-:mod:`sklearn.model_selection`
+:mod:`sklearn_dual.model_selection`
 ..............................
 
 - |Fix| Fix a regression in :class:`model_selection.GridSearchCV` for parameter
@@ -86,14 +86,14 @@ Changelog
   grids that have arrays of different sizes as parameter values.
   :pr:`29314` by :user:`Marco Gorelli<MarcoGorelli>`.
 
-:mod:`sklearn.tree`
+:mod:`sklearn_dual.tree`
 ...................
 
 - |Fix| Fix an issue in :func:`tree.export_graphviz` and :func:`tree.plot_tree`
   that could potentially result in exception or wrong results on 32bit OSes.
   :pr:`29327` by :user:`Loïc Estève<lesteve>`.
 
-:mod:`sklearn.utils`
+:mod:`sklearn_dual.utils`
 ....................
 
 - |API| :func:`utils.validation.check_array` has a new parameter, `force_writeable`, to
@@ -168,7 +168,7 @@ See :ref:`array_api` for more details.
 
 **Functions:**
 
-- :func:`sklearn.metrics.r2_score` now supports Array API compliant inputs.
+- :func:`sklearn_dual.metrics.r2_score` now supports Array API compliant inputs.
   :pr:`27904` by :user:`Eric Lindgren <elindgren>`, :user:`Franck Charras <fcharras>`,
   :user:`Olivier Grisel <ogrisel>` and :user:`Tim Head <betatim>`.
 
@@ -261,14 +261,14 @@ Changelog
     :pr:`123456` by :user:`Joe Bloggs <joeongithub>`.
     where 123455 is the *pull request* number, not the issue number.
 
-:mod:`sklearn.calibration`
+:mod:`sklearn_dual.calibration`
 ..........................
 
 - |Fix| Fixed a regression in :class:`calibration.CalibratedClassifierCV` where
   an error was wrongly raised with string targets.
   :pr:`28843` by :user:`Jérémie du Boisberranger <jeremiedbb>`.
 
-:mod:`sklearn.cluster`
+:mod:`sklearn_dual.cluster`
 ......................
 
 - |Fix| The :class:`cluster.MeanShift` class now properly converges for constant data.
@@ -279,10 +279,10 @@ Changelog
   :pr:`28491` by :user:`Thanh Lam Dang <lamdang2k>`.
 
 - |Fix| :class:`cluster.HDBSCAN` now supports all metrics supported by
-  :func:`sklearn.metrics.pairwise_distances` when `algorithm="brute"` or `"auto"`.
+  :func:`sklearn_dual.metrics.pairwise_distances` when `algorithm="brute"` or `"auto"`.
   :pr:`28664` by :user:`Manideep Yenugula <myenugula>`.
 
-:mod:`sklearn.compose`
+:mod:`sklearn_dual.compose`
 ......................
 
 - |Feature| A fitted :class:`compose.ColumnTransformer` now implements `__getitem__`
@@ -302,7 +302,7 @@ Changelog
   intermediate selected columns were passed to the transformers as read-only arrays.
   :pr:`28822` by :user:`Jérémie du Boisberranger <jeremiedbb>`.
 
-:mod:`sklearn.cross_decomposition`
+:mod:`sklearn_dual.cross_decomposition`
 ..................................
 
 - |Fix| The `coef_` fitted attribute of :class:`cross_decomposition.PLSRegression`
@@ -319,7 +319,7 @@ Changelog
   `Y` will be removed in version 1.7.
   :pr:`28604` by :user:`David Leon <davidleon123>`.
 
-:mod:`sklearn.datasets`
+:mod:`sklearn_dual.datasets`
 .......................
 
 - |Enhancement| Adds optional arguments `n_retries` and `delay` to functions
@@ -337,7 +337,7 @@ Changelog
   :pr:`28160` by :user:`Zhehao Liu <MaxwellLZH>` and
   :user:`Filip Karlo Došilović <fkdosilovic>`.
 
-:mod:`sklearn.decomposition`
+:mod:`sklearn_dual.decomposition`
 ............................
 
 - |Efficiency| :class:`decomposition.PCA` with `svd_solver="full"` now assigns
@@ -367,14 +367,14 @@ Changelog
   hold-out data.
   :pr:`27491` by :user:`Olivier Grisel <ogrisel>`.
 
-:mod:`sklearn.dummy`
+:mod:`sklearn_dual.dummy`
 ....................
 
 - |Enhancement| :class:`dummy.DummyClassifier` and :class:`dummy.DummyRegressor` now
   have the `n_features_in_` and `feature_names_in_` attributes after `fit`.
   :pr:`27937` by :user:`Marco vd Boom <tvdboom>`.
 
-:mod:`sklearn.ensemble`
+:mod:`sklearn_dual.ensemble`
 .......................
 
 - |Efficiency| Improves runtime of `predict` of
@@ -391,7 +391,7 @@ Changelog
   for non-categorical features.
   :pr:`28925` by :user:`Xiao Yuan <yuanx749>`.
 
-:mod:`sklearn.feature_extraction`
+:mod:`sklearn_dual.feature_extraction`
 .................................
 
 - |Efficiency| :class:`feature_extraction.text.TfidfTransformer` is now faster
@@ -403,7 +403,7 @@ Changelog
   the data type of the input matrix if it is `np.float64` or `np.float32`.
   :pr:`28136` by :user:`Guillaume Lemaitre <glemaitre>`.
 
-:mod:`sklearn.feature_selection`
+:mod:`sklearn_dual.feature_selection`
 ................................
 
 - |Enhancement| :func:`feature_selection.mutual_info_regression` and
@@ -416,21 +416,21 @@ Changelog
   at each step.
   :pr:`28670` by :user:`Miguel Silva <miguelcsilva>`.
 
-:mod:`sklearn.impute`
+:mod:`sklearn_dual.impute`
 .....................
 
 - |Enhancement| :class:`impute.SimpleImputer` now supports custom strategies
   by passing a function in place of a strategy name.
   :pr:`28053` by :user:`Mark Elliot <mark-thm>`.
 
-:mod:`sklearn.inspection`
+:mod:`sklearn_dual.inspection`
 .........................
 
 - |Fix| :meth:`inspection.DecisionBoundaryDisplay.from_estimator` no longer
   warns about missing feature names when provided a `polars.DataFrame`.
   :pr:`28718` by :user:`Patrick Wang <patrickkwang>`.
 
-:mod:`sklearn.linear_model`
+:mod:`sklearn_dual.linear_model`
 ...........................
 
 - |Enhancement| Solver `"newton-cg"` in :class:`linear_model.LogisticRegression` and
@@ -476,7 +476,7 @@ Changelog
   `~linear_model.RidgeClassifierCV`.
   :pr:`28915` by :user:`Lucy Liu <lucyleeow>`.
 
-:mod:`sklearn.manifold`
+:mod:`sklearn_dual.manifold`
 .......................
 
 - |API| Deprecates `n_iter` in favor of `max_iter` in :class:`manifold.TSNE`.
@@ -484,7 +484,7 @@ Changelog
   consistent with the rest of the estimators. :pr:`28471` by
   :user:`Lucy Liu <lucyleeow>`
 
-:mod:`sklearn.metrics`
+:mod:`sklearn_dual.metrics`
 ......................
 
 - |Feature| :func:`metrics.pairwise_distances` accepts calculating pairwise distances
@@ -492,7 +492,7 @@ Changelog
   :pr:`27456` by :user:`Venkatachalam N <venkyyuvy>`, :user:`Kshitij Mathur <Kshitij68>`
   and :user:`Julian Libiseller-Egger <julibeg>`.
 
-- |Feature| :func:`sklearn.metrics.check_scoring` now returns a multi-metric scorer
+- |Feature| :func:`sklearn_dual.metrics.check_scoring` now returns a multi-metric scorer
   when `scoring` as a `dict`, `set`, `tuple`, or `list`. :pr:`28360` by `Thomas Fan`_.
 
 - |Feature| :func:`metrics.d2_log_loss_score` has been added which
@@ -529,7 +529,7 @@ Changelog
   is deprecated and will raise an error in v1.7.
   :pr:`18555` by :user:`Kaushik Amar Das <cozek>`.
 
-:mod:`sklearn.mixture`
+:mod:`sklearn_dual.mixture`
 ......................
 
 - |Fix| The `converged_` attribute of :class:`mixture.GaussianMixture` and
@@ -537,7 +537,7 @@ Changelog
   the best fit whereas it was previously `True` if any of the fits converged.
   :pr:`26837` by :user:`Krsto Proroković <krstopro>`.
 
-:mod:`sklearn.model_selection`
+:mod:`sklearn_dual.model_selection`
 ..............................
 
 - |MajorFeature| :class:`model_selection.TunedThresholdClassifierCV` finds
@@ -567,20 +567,20 @@ Changelog
   implementations of the Array API like CuPY.
   :pr:`28407` by :user:`Tim Head <betatim>`.
 
-:mod:`sklearn.multioutput`
+:mod:`sklearn_dual.multioutput`
 ..........................
 
 - |Enhancement| `chain_method` parameter added to :class:`multioutput.ClassifierChain`.
   :pr:`27700` by :user:`Lucy Liu <lucyleeow>`.
 
-:mod:`sklearn.neighbors`
+:mod:`sklearn_dual.neighbors`
 ........................
 
 - |Fix| Fixes :class:`neighbors.NeighborhoodComponentsAnalysis` such that
   `get_feature_names_out` returns the correct number of feature names.
   :pr:`28306` by :user:`Brendan Lu <brendanlu>`.
 
-:mod:`sklearn.pipeline`
+:mod:`sklearn_dual.pipeline`
 .......................
 
 - |Feature| :class:`pipeline.FeatureUnion` can now use the
@@ -590,7 +590,7 @@ Changelog
   prefix any feature names and will error if feature names are not unique.
   :pr:`25991` by :user:`Jiawei Zhang <jiawei-zhang-a>`.
 
-:mod:`sklearn.preprocessing`
+:mod:`sklearn_dual.preprocessing`
 ............................
 
 - |Enhancement| :class:`preprocessing.QuantileTransformer` and
@@ -598,7 +598,7 @@ Changelog
   subsampling explicitly.
   :pr:`27636` by :user:`Ralph Urlus <rurlus>`.
 
-:mod:`sklearn.tree`
+:mod:`sklearn_dual.tree`
 ...................
 
 - |Enhancement| Plotting trees in matplotlib via :func:`tree.plot_tree` now
@@ -606,7 +606,7 @@ Changelog
   given the split condition.
   :pr:`28552` by :user:`Adam Li <adam2392>`.
 
-:mod:`sklearn.utils`
+:mod:`sklearn_dual.utils`
 ....................
 
 - |Fix| :func:`~utils._safe_indexing` now works correctly for polars DataFrame when

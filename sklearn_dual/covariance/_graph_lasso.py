@@ -17,7 +17,7 @@ from scipy import linalg
 from ..base import _fit_context
 from ..exceptions import ConvergenceWarning
 
-# mypy error: Module 'sklearn.linear_model' has no attribute '_cd_fast'
+# mypy error: Module 'sklearn_dual.linear_model' has no attribute '_cd_fast'
 from ..linear_model import _cd_fast as cd_fast  # type: ignore
 from ..linear_model import lars_path_gram
 from ..model_selection import check_cv, cross_val_score
@@ -743,7 +743,7 @@ class GraphicalLassoCV(BaseGraphicalLasso):
         - :term:`CV splitter`,
         - An iterable yielding (train, test) splits as arrays of indices.
 
-        For integer/None inputs :class:`~sklearn.model_selection.KFold` is used.
+        For integer/None inputs :class:`~sklearn_dual.model_selection.KFold` is used.
 
         Refer :ref:`User Guide <cross_validation>` for the various
         cross-validation strategies that can be used here.
@@ -950,7 +950,7 @@ class GraphicalLassoCV(BaseGraphicalLasso):
             .. versionadded:: 1.5
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -1129,7 +1129,7 @@ class GraphicalLassoCV(BaseGraphicalLasso):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__).add(

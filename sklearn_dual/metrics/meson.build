@@ -12,8 +12,8 @@ _dist_metrics_pxd = custom_target(
   input: '_dist_metrics.pxd.tp',
   command: [py, tempita, '@INPUT@', '-o', '@OUTDIR@'],
   # Need to install the generated pxd because it is needed in other subpackages
-  # Cython code, e.g. sklearn.cluster
-  install_dir: sklearn_dir / 'metrics',
+  # Cython code, e.g. sklearn_dual.cluster
+  install_dir: sklearn_dual_dir / 'metrics',
   install: true,
 )
 metrics_cython_tree += [_dist_metrics_pxd]
@@ -34,7 +34,7 @@ _dist_metrics = py.extension_module(
   _dist_metrics_pyx,
   dependencies: [np_dep],
   cython_args: cython_args,
-  subdir: 'sklearn/metrics',
+  subdir: 'sklearn_dual/metrics',
   install: true
 )
 
@@ -42,7 +42,7 @@ py.extension_module(
   '_pairwise_fast',
   ['_pairwise_fast.pyx', metrics_cython_tree],
   cython_args: cython_args,
-  subdir: 'sklearn/metrics',
+  subdir: 'sklearn_dual/metrics',
   install: true
 )
 

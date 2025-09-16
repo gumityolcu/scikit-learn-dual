@@ -1,5 +1,5 @@
 """
-Testing for the gradient boosting module (sklearn.ensemble.gradient_boosting).
+Testing for the gradient boosting module (sklearn_dual.ensemble.gradient_boosting).
 """
 
 import re
@@ -1350,7 +1350,7 @@ def _make_multiclass():
 def test_gradient_boosting_with_init(
     gb, dataset_maker, init_estimator, global_random_seed
 ):
-    # Check that GradientBoostingRegressor works when init is a sklearn
+    # Check that GradientBoostingRegressor works when init is a sklearn_dual
     # estimator.
     # Check that an error is raised if trying to fit with sample weight but
     # initial estimator does not support sample weight

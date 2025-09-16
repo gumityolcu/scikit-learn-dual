@@ -40,8 +40,8 @@ class LinearSVC(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):
     penalties and loss functions and should scale better to large numbers of
     samples.
 
-    The main differences between :class:`~sklearn.svm.LinearSVC` and
-    :class:`~sklearn.svm.SVC` lie in the loss function used by default, and in
+    The main differences between :class:`~sklearn_dual.svm.LinearSVC` and
+    :class:`~sklearn_dual.svm.SVC` lie in the loss function used by default, and in
     the handling of intercept regularization between those two implementations.
 
     This class supports both dense and sparse input and the multiclass support
@@ -181,12 +181,12 @@ class LinearSVC(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):
         Furthermore SVC multi-class mode is implemented using one
         vs one scheme while LinearSVC uses one vs the rest. It is
         possible to implement one vs the rest with SVC by using the
-        :class:`~sklearn.multiclass.OneVsRestClassifier` wrapper.
+        :class:`~sklearn_dual.multiclass.OneVsRestClassifier` wrapper.
 
         Finally SVC can fit dense data without memory copy if the input
         is C-contiguous. Sparse data will still incur memory copy though.
 
-    sklearn.linear_model.SGDClassifier : SGDClassifier can optimize the same
+    sklearn_dual.linear_model.SGDClassifier : SGDClassifier can optimize the same
         cost function as LinearSVC
         by adjusting the penalty and loss parameters. In addition it requires
         less memory, allows incremental (online) learning, and implements
@@ -366,8 +366,8 @@ class LinearSVR(RegressorMixin, LinearModel):
     penalties and loss functions and should scale better to large numbers of
     samples.
 
-    The main differences between :class:`~sklearn.svm.LinearSVR` and
-    :class:`~sklearn.svm.SVR` lie in the loss function used by default, and in
+    The main differences between :class:`~sklearn_dual.svm.LinearSVR` and
+    :class:`~sklearn_dual.svm.SVR` lie in the loss function used by default, and in
     the handling of intercept regularization between those two implementations.
 
     This class supports both dense and sparse input.
@@ -477,9 +477,9 @@ class LinearSVR(RegressorMixin, LinearModel):
 
     SVR : Implementation of Support Vector Machine regression using libsvm:
         the kernel can be non-linear but its SMO algorithm does not scale to
-        large number of samples as :class:`~sklearn.svm.LinearSVR` does.
+        large number of samples as :class:`~sklearn_dual.svm.LinearSVR` does.
 
-    sklearn.linear_model.SGDRegressor : SGDRegressor can optimize the same cost
+    sklearn_dual.linear_model.SGDRegressor : SGDRegressor can optimize the same cost
         function as LinearSVR
         by adjusting the penalty and loss parameters. In addition it requires
         less memory, allows incremental (online) learning, and implements
@@ -623,9 +623,9 @@ class SVC(BaseSVC):
     The implementation is based on libsvm. The fit time scales at least
     quadratically with the number of samples and may be impractical
     beyond tens of thousands of samples. For large datasets
-    consider using :class:`~sklearn.svm.LinearSVC` or
-    :class:`~sklearn.linear_model.SGDClassifier` instead, possibly after a
-    :class:`~sklearn.kernel_approximation.Nystroem` transformer or
+    consider using :class:`~sklearn_dual.svm.LinearSVC` or
+    :class:`~sklearn_dual.linear_model.SGDClassifier` instead, possibly after a
+    :class:`~sklearn_dual.kernel_approximation.Nystroem` transformer or
     other :ref:`kernel_approximation`.
 
     The multiclass support is handled according to a one-vs-one scheme.
@@ -1183,9 +1183,9 @@ class SVR(RegressorMixin, BaseLibSVM):
     The implementation is based on libsvm. The fit time complexity
     is more than quadratic with the number of samples which makes it hard
     to scale to datasets with more than a couple of 10000 samples. For large
-    datasets consider using :class:`~sklearn.svm.LinearSVR` or
-    :class:`~sklearn.linear_model.SGDRegressor` instead, possibly after a
-    :class:`~sklearn.kernel_approximation.Nystroem` transformer or
+    datasets consider using :class:`~sklearn_dual.svm.LinearSVR` or
+    :class:`~sklearn_dual.linear_model.SGDRegressor` instead, possibly after a
+    :class:`~sklearn_dual.kernel_approximation.Nystroem` transformer or
     other :ref:`kernel_approximation`.
 
     Read more in the :ref:`User Guide <svm_regression>`.
@@ -1686,11 +1686,11 @@ class OneClassSVM(OutlierMixin, BaseLibSVM):
 
     See Also
     --------
-    sklearn.linear_model.SGDOneClassSVM : Solves linear One-Class SVM using
+    sklearn_dual.linear_model.SGDOneClassSVM : Solves linear One-Class SVM using
         Stochastic Gradient Descent.
-    sklearn.neighbors.LocalOutlierFactor : Unsupervised Outlier Detection using
+    sklearn_dual.neighbors.LocalOutlierFactor : Unsupervised Outlier Detection using
         Local Outlier Factor (LOF).
-    sklearn.ensemble.IsolationForest : Isolation Forest Algorithm.
+    sklearn_dual.ensemble.IsolationForest : Isolation Forest Algorithm.
 
     Examples
     --------

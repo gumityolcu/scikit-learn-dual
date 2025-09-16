@@ -1,5 +1,5 @@
 """
-Testing for Neighborhood Component Analysis module (sklearn.neighbors.nca)
+Testing for Neighborhood Component Analysis module (sklearn_dual.neighbors.nca)
 """
 
 # Authors: The scikit-learn developers

@@ -645,7 +645,7 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
 
         Returns
         -------
-        ccp_path : :class:`~sklearn.utils.Bunch`
+        ccp_path : :class:`~sklearn_dual.utils.Bunch`
             Dictionary-like object, with the following attributes.
 
             ccp_alphas : ndarray
@@ -669,7 +669,7 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
         Returns
         -------
@@ -853,7 +853,7 @@ class DecisionTreeClassifier(ClassifierMixin, BaseDecisionTree):
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
     max_features_ : int
         The inferred value of max_features.
@@ -879,7 +879,7 @@ class DecisionTreeClassifier(ClassifierMixin, BaseDecisionTree):
 
     tree_ : Tree instance
         The underlying Tree object. Please refer to
-        ``help(sklearn.tree._tree.Tree)`` for attributes of Tree object and
+        ``help(sklearn_dual.tree._tree.Tree)`` for attributes of Tree object and
         :ref:`sphx_glr_auto_examples_tree_plot_unveil_tree_structure.py`
         for basic usage of these attributes.
 
@@ -1232,7 +1232,7 @@ class DecisionTreeRegressor(RegressorMixin, BaseDecisionTree):
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
     max_features_ : int
         The inferred value of max_features.
@@ -1253,7 +1253,7 @@ class DecisionTreeRegressor(RegressorMixin, BaseDecisionTree):
 
     tree_ : Tree instance
         The underlying Tree object. Please refer to
-        ``help(sklearn.tree._tree.Tree)`` for attributes of Tree object and
+        ``help(sklearn_dual.tree._tree.Tree)`` for attributes of Tree object and
         :ref:`sphx_glr_auto_examples_tree_plot_unveil_tree_structure.py`
         for basic usage of these attributes.
 
@@ -1591,7 +1591,7 @@ class ExtraTreeClassifier(DecisionTreeClassifier):
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
     n_features_in_ : int
         Number of features seen during :term:`fit`.
@@ -1609,18 +1609,18 @@ class ExtraTreeClassifier(DecisionTreeClassifier):
 
     tree_ : Tree instance
         The underlying Tree object. Please refer to
-        ``help(sklearn.tree._tree.Tree)`` for attributes of Tree object and
+        ``help(sklearn_dual.tree._tree.Tree)`` for attributes of Tree object and
         :ref:`sphx_glr_auto_examples_tree_plot_unveil_tree_structure.py`
         for basic usage of these attributes.
 
     See Also
     --------
     ExtraTreeRegressor : An extremely randomized tree regressor.
-    sklearn.ensemble.ExtraTreesClassifier : An extra-trees classifier.
-    sklearn.ensemble.ExtraTreesRegressor : An extra-trees regressor.
-    sklearn.ensemble.RandomForestClassifier : A random forest classifier.
-    sklearn.ensemble.RandomForestRegressor : A random forest regressor.
-    sklearn.ensemble.RandomTreesEmbedding : An ensemble of
+    sklearn_dual.ensemble.ExtraTreesClassifier : An extra-trees classifier.
+    sklearn_dual.ensemble.ExtraTreesRegressor : An extra-trees regressor.
+    sklearn_dual.ensemble.RandomForestClassifier : A random forest classifier.
+    sklearn_dual.ensemble.RandomForestRegressor : A random forest regressor.
+    sklearn_dual.ensemble.RandomTreesEmbedding : An ensemble of
         totally random trees.
 
     Notes
@@ -1862,22 +1862,22 @@ class ExtraTreeRegressor(DecisionTreeRegressor):
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
     n_outputs_ : int
         The number of outputs when ``fit`` is performed.
 
     tree_ : Tree instance
         The underlying Tree object. Please refer to
-        ``help(sklearn.tree._tree.Tree)`` for attributes of Tree object and
+        ``help(sklearn_dual.tree._tree.Tree)`` for attributes of Tree object and
         :ref:`sphx_glr_auto_examples_tree_plot_unveil_tree_structure.py`
         for basic usage of these attributes.
 
     See Also
     --------
     ExtraTreeClassifier : An extremely randomized tree classifier.
-    sklearn.ensemble.ExtraTreesClassifier : An extra-trees classifier.
-    sklearn.ensemble.ExtraTreesRegressor : An extra-trees regressor.
+    sklearn_dual.ensemble.ExtraTreesClassifier : An extra-trees classifier.
+    sklearn_dual.ensemble.ExtraTreesRegressor : An extra-trees regressor.
 
     Notes
     -----

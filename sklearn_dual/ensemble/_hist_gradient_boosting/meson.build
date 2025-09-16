@@ -14,7 +14,7 @@ foreach ext_name, ext_dict : hist_gradient_boosting_extension_metadata
     ext_dict.get('sources'),
     dependencies: [openmp_dep],
     cython_args: cython_args,
-    subdir: 'sklearn/ensemble/_hist_gradient_boosting',
+    subdir: 'sklearn_dual/ensemble/_hist_gradient_boosting',
     install: true
   )
 endforeach

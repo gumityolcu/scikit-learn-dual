@@ -4,7 +4,7 @@
 Gaussian Processes
 ==================
 
-.. currentmodule:: sklearn.gaussian_process
+.. currentmodule:: sklearn_dual.gaussian_process
 
 **Gaussian Processes (GP)** are a nonparametric supervised learning method used
 to solve *regression* and *probabilistic classification* problems.
@@ -37,7 +37,7 @@ The disadvantages of Gaussian processes include:
 Gaussian Process Regression (GPR)
 =================================
 
-.. currentmodule:: sklearn.gaussian_process
+.. currentmodule:: sklearn_dual.gaussian_process
 
 The :class:`GaussianProcessRegressor` implements Gaussian processes (GP) for
 regression purposes. For this, the prior of the GP needs to be specified. GP
@@ -67,7 +67,7 @@ noise level can also be helpful for dealing with numeric instabilities during
 fitting as it is effectively implemented as Tikhonov regularization, i.e., by
 adding it to the diagonal of the kernel matrix. An alternative to specifying
 the noise level explicitly is to include a
-:class:`~sklearn.gaussian_process.kernels.WhiteKernel` component into the
+:class:`~sklearn_dual.gaussian_process.kernels.WhiteKernel` component into the
 kernel, which can estimate the global noise level from the data (see example
 below). The figure below shows the effect of noisy target handled by setting
 the parameter `alpha`.
@@ -100,7 +100,7 @@ the API of standard scikit-learn estimators, :class:`GaussianProcessRegressor`:
 Gaussian Process Classification (GPC)
 =====================================
 
-.. currentmodule:: sklearn.gaussian_process
+.. currentmodule:: sklearn_dual.gaussian_process
 
 The :class:`GaussianProcessClassifier` implements Gaussian processes (GP) for
 classification purposes, more specifically for probabilistic classification,
@@ -189,7 +189,7 @@ hyperparameters used in the first figure by black dots.
 Illustration of GPC on the XOR dataset
 --------------------------------------
 
-.. currentmodule:: sklearn.gaussian_process.kernels
+.. currentmodule:: sklearn_dual.gaussian_process.kernels
 
 This example illustrates GPC on XOR data. Compared are a stationary, isotropic
 kernel (:class:`RBF`) and a non-stationary kernel (:class:`DotProduct`). On
@@ -202,7 +202,7 @@ often obtain better results.
    :target: ../auto_examples/gaussian_process/plot_gpc_xor.html
    :align: center
 
-.. currentmodule:: sklearn.gaussian_process
+.. currentmodule:: sklearn_dual.gaussian_process
 
 
 Gaussian process classification (GPC) on iris dataset
@@ -223,7 +223,7 @@ assigning different length-scales to the two feature dimensions.
 
 Kernels for Gaussian Processes
 ==============================
-.. currentmodule:: sklearn.gaussian_process.kernels
+.. currentmodule:: sklearn_dual.gaussian_process.kernels
 
 Kernels (also called "covariance functions" in the context of GPs) are a crucial
 ingredient of GPs which determine the shape of prior and posterior of the GP.
@@ -275,11 +275,11 @@ we refer to [Duv2014]_.
    hyperparameter with name "x" must have the attributes self.x and self.x_bounds.
 
    The abstract base class for all kernels is :class:`Kernel`. Kernel implements a
-   similar interface as :class:`~sklearn.base.BaseEstimator`, providing the
+   similar interface as :class:`~sklearn_dual.base.BaseEstimator`, providing the
    methods ``get_params()``, ``set_params()``, and ``clone()``. This allows
    setting kernel values also via meta-estimators such as
-   :class:`~sklearn.pipeline.Pipeline` or
-   :class:`~sklearn.model_selection.GridSearchCV`. Note that due to the nested
+   :class:`~sklearn_dual.pipeline.Pipeline` or
+   :class:`~sklearn_dual.model_selection.GridSearchCV`. Note that due to the nested
    structure of kernels (by applying kernel operators, see below), the names of
    kernel parameters might become relatively complicated. In general, for a binary
    kernel operator, parameters of the left operand are prefixed with ``k1__`` and
@@ -287,7 +287,7 @@ we refer to [Duv2014]_.
    is ``clone_with_theta(theta)``, which returns a cloned version of the kernel
    but with the hyperparameters set to ``theta``. An illustrative example:
 
-      >>> from sklearn.gaussian_process.kernels import ConstantKernel, RBF
+      >>> from sklearn_dual.gaussian_process.kernels import ConstantKernel, RBF
       >>> kernel = ConstantKernel(constant_value=1.0, constant_value_bounds=(0.0, 10.0)) * RBF(length_scale=0.5, length_scale_bounds=(0.0, 10.0)) + RBF(length_scale=2.0, length_scale_bounds=(0.0, 10.0))
       >>> for hyperparameter in kernel.hyperparameters: print(hyperparameter)
       Hyperparameter(name='k1__k1__constant_value', value_type='numeric', bounds=array([[ 0., 10.]]), n_elements=1, fixed=False)
@@ -312,9 +312,9 @@ we refer to [Duv2014]_.
       [      -inf 2.30258509]
       [      -inf 2.30258509]]
 
-   All Gaussian process kernels are interoperable with :mod:`sklearn.metrics.pairwise`
+   All Gaussian process kernels are interoperable with :mod:`sklearn_dual.metrics.pairwise`
    and vice versa: instances of subclasses of :class:`Kernel` can be passed as
-   ``metric`` to ``pairwise_kernels`` from :mod:`sklearn.metrics.pairwise`. Moreover,
+   ``metric`` to ``pairwise_kernels`` from :mod:`sklearn_dual.metrics.pairwise`. Moreover,
    kernel functions from pairwise can be used as GP kernels by using the wrapper
    class :class:`PairwiseKernel`. The only caveat is that the gradient of
    the hyperparameters is not analytic but numeric and all those kernels support
@@ -493,4 +493,4 @@ References
 .. [Duv2014] `David Duvenaud, "The Kernel Cookbook: Advice on Covariance functions", 2014
    <https://www.cs.toronto.edu/~duvenaud/cookbook/>`_
 
-.. currentmodule:: sklearn.gaussian_process
+.. currentmodule:: sklearn_dual.gaussian_process

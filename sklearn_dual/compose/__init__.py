@@ -1,8 +1,8 @@
 """Meta-estimators for building composite models with transformers.
 
 In addition to its current contents, this module will eventually be home to
-refurbished versions of :class:`~sklearn.pipeline.Pipeline` and
-:class:`~sklearn.pipeline.FeatureUnion`.
+refurbished versions of :class:`~sklearn_dual.pipeline.Pipeline` and
+:class:`~sklearn_dual.pipeline.FeatureUnion`.
 """
 
 # Authors: The scikit-learn developers

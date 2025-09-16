@@ -562,5 +562,5 @@ def test_kernel_pca_pandas_output():
     """
     pytest.importorskip("pandas")
     X, _ = load_iris(as_frame=True, return_X_y=True)
-    with sklearn.config_context(transform_output="pandas"):
+    with sklearn_dual.config_context(transform_output="pandas"):
         KernelPCA(n_components=2, eigen_solver="arpack").fit_transform(X)

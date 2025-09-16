@@ -43,7 +43,7 @@ from sklearn_dual.utils._testing import ignore_warnings, skip_if_no_parallel
 from sklearn_dual.utils.fixes import _IS_32BIT, COO_CONTAINERS, CSR_CONTAINERS
 
 pytestmark = pytest.mark.filterwarnings(
-    "error::sklearn.exceptions.ConvergenceWarning:sklearn.*"
+    "error::sklearn_dual.exceptions.ConvergenceWarning:sklearn_dual.*"
 )
 # Fixing random_state helps prevent ConvergenceWarnings
 LogisticRegression = partial(LogisticRegressionDefault, random_state=0)

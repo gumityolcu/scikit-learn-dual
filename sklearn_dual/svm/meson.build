@@ -8,7 +8,7 @@ _newrand = py.extension_module(
   override_options: ['cython_language=cpp'],
   include_directories: [newrand_include],
   cython_args: cython_args,
-  subdir: 'sklearn/svm',
+  subdir: 'sklearn_dual/svm',
   install: true
 )
 
@@ -23,7 +23,7 @@ py.extension_module(
   include_directories: [newrand_include, libsvm_include],
   link_with: libsvm_skl,
   cython_args: cython_args,
-  subdir: 'sklearn/svm',
+  subdir: 'sklearn_dual/svm',
   install: true
 )
 
@@ -33,7 +33,7 @@ py.extension_module(
   include_directories: [newrand_include, libsvm_include],
   link_with: libsvm_skl,
   cython_args: cython_args,
-  subdir: 'sklearn/svm',
+  subdir: 'sklearn_dual/svm',
   install: true
 )
 
@@ -48,6 +48,6 @@ py.extension_module(
   include_directories: [newrand_include, liblinear_include],
   link_with: [liblinear_skl],
   cython_args: cython_args,
-  subdir: 'sklearn/svm',
+  subdir: 'sklearn_dual/svm',
   install: true
 )

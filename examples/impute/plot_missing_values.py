@@ -4,7 +4,7 @@ Imputing missing values before building an estimator
 ====================================================
 
 Missing values can be replaced by the mean, the median or the most frequent
-value using the basic :class:`~sklearn.impute.SimpleImputer`.
+value using the basic :class:`~sklearn_dual.impute.SimpleImputer`.
 
 In this example we will investigate different imputation techniques:
 
@@ -22,7 +22,7 @@ house value for California districts.
 As neither of these datasets have missing values, we will remove some
 values to create new versions with artificially missing data. The performance
 of
-:class:`~sklearn.ensemble.RandomForestRegressor` on the full original dataset
+:class:`~sklearn_dual.ensemble.RandomForestRegressor` on the full original dataset
 is then compared the performance on the altered datasets with the artificially
 missing values imputed using different techniques.
 
@@ -173,7 +173,7 @@ x_labels.append("Zero imputation")
 # kNN-imputation of the missing values
 # ------------------------------------
 #
-# :class:`~sklearn.impute.KNNImputer` imputes missing values using the weighted
+# :class:`~sklearn_dual.impute.KNNImputer` imputes missing values using the weighted
 # or unweighted mean of the desired number of nearest neighbors.
 
 
@@ -215,7 +215,7 @@ x_labels.append("Mean Imputation")
 # Iterative imputation of the missing values
 # ------------------------------------------
 #
-# Another option is the :class:`~sklearn.impute.IterativeImputer`. This uses
+# Another option is the :class:`~sklearn_dual.impute.IterativeImputer`. This uses
 # round-robin linear regression, modeling each feature with missing values as a
 # function of other features, in turn.
 # The version implemented assumes Gaussian (output) variables. If your features

@@ -492,9 +492,9 @@ class MDS(BaseEstimator):
 
     See Also
     --------
-    sklearn.decomposition.PCA : Principal component analysis that is a linear
+    sklearn_dual.decomposition.PCA : Principal component analysis that is a linear
         dimensionality reduction method.
-    sklearn.decomposition.KernelPCA : Non-linear dimensionality reduction using
+    sklearn_dual.decomposition.KernelPCA : Non-linear dimensionality reduction using
         kernels and PCA.
     TSNE : T-distributed Stochastic Neighbor Embedding.
     Isomap : Manifold learning based on Isometric Mapping.

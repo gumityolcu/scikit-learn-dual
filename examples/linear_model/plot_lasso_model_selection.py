@@ -44,13 +44,13 @@ X[X.columns[::3]].head()
 # %%
 # Selecting Lasso via an information criterion
 # --------------------------------------------
-# :class:`~sklearn.linear_model.LassoLarsIC` provides a Lasso estimator that
+# :class:`~sklearn_dual.linear_model.LassoLarsIC` provides a Lasso estimator that
 # uses the Akaike information criterion (AIC) or the Bayes information
 # criterion (BIC) to select the optimal value of the regularization
 # parameter alpha.
 #
 # Before fitting the model, we will standardize the data with a
-# :class:`~sklearn.preprocessing.StandardScaler`. In addition, we will
+# :class:`~sklearn_dual.preprocessing.StandardScaler`. In addition, we will
 # measure the time to fit and tune the hyperparameter alpha in order to
 # compare with the cross-validation strategy.
 #
@@ -141,8 +141,8 @@ _ = ax.set_title(
 # execution speed and sources of numerical errors.
 #
 # In scikit-learn, two different estimators are available with integrated
-# cross-validation: :class:`~sklearn.linear_model.LassoCV` and
-# :class:`~sklearn.linear_model.LassoLarsCV` that respectively solve the
+# cross-validation: :class:`~sklearn_dual.linear_model.LassoCV` and
+# :class:`~sklearn_dual.linear_model.LassoLarsCV` that respectively solve the
 # problem with coordinate descent and least angle regression.
 #
 # In the remainder of this section, we will present both approaches. For both
@@ -151,7 +151,7 @@ _ = ax.set_title(
 # Lasso via coordinate descent
 # ............................
 # Let's start by making the hyperparameter tuning using
-# :class:`~sklearn.linear_model.LassoCV`.
+# :class:`~sklearn_dual.linear_model.LassoCV`.
 from sklearn_dual.linear_model import LassoCV
 
 start_time = time.time()
@@ -185,7 +185,7 @@ _ = plt.title(
 # Lasso via least angle regression
 # ................................
 # Let's start by making the hyperparameter tuning using
-# :class:`~sklearn.linear_model.LassoLarsCV`.
+# :class:`~sklearn_dual.linear_model.LassoLarsCV`.
 from sklearn_dual.linear_model import LassoLarsCV
 
 start_time = time.time()

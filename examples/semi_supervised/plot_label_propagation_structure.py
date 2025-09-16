@@ -66,7 +66,7 @@ _ = plt.title("Raw data (2 classes=outer and inner)")
 
 # %%
 #
-# The aim of :class:`~sklearn.semi_supervised.LabelSpreading` is to associate
+# The aim of :class:`~sklearn_dual.semi_supervised.LabelSpreading` is to associate
 # a label to sample where the label is initially unknown.
 from sklearn_dual.semi_supervised import LabelSpreading
 

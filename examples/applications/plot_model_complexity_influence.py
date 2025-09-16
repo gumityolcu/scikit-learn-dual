@@ -15,16 +15,16 @@ We will be using two datasets:
       the post is written about.
 
 We will model the complexity influence on three different estimators:
-    - :class:`~sklearn.linear_model.SGDClassifier` (for classification data)
+    - :class:`~sklearn_dual.linear_model.SGDClassifier` (for classification data)
       which implements stochastic gradient descent learning;
 
-    - :class:`~sklearn.svm.NuSVR` (for regression data) which implements
+    - :class:`~sklearn_dual.svm.NuSVR` (for regression data) which implements
       Nu support vector regression;
 
-    - :class:`~sklearn.ensemble.GradientBoostingRegressor` builds an additive
+    - :class:`~sklearn_dual.ensemble.GradientBoostingRegressor` builds an additive
       model in a forward stage-wise fashion. Notice that
-      :class:`~sklearn.ensemble.HistGradientBoostingRegressor` is much faster
-      than :class:`~sklearn.ensemble.GradientBoostingRegressor` starting with
+      :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor` is much faster
+      than :class:`~sklearn_dual.ensemble.GradientBoostingRegressor` starting with
       intermediate datasets (`n_samples >= 10_000`), which is not the case for
       this example.
 
@@ -61,7 +61,7 @@ np.random.seed(0)
 # First we load both datasets.
 #
 # .. note:: We are using
-#    :func:`~sklearn.datasets.fetch_20newsgroups_vectorized` to download 20
+#    :func:`~sklearn_dual.datasets.fetch_20newsgroups_vectorized` to download 20
 #    newsgroups dataset. It returns ready-to-use features.
 #
 # .. note:: ``X`` of the 20 newsgroups dataset is a sparse matrix while ``X``

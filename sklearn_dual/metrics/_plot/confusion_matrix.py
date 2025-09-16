@@ -15,8 +15,8 @@ class ConfusionMatrixDisplay:
     """Confusion Matrix visualization.
 
     It is recommend to use
-    :func:`~sklearn.metrics.ConfusionMatrixDisplay.from_estimator` or
-    :func:`~sklearn.metrics.ConfusionMatrixDisplay.from_predictions` to
+    :func:`~sklearn_dual.metrics.ConfusionMatrixDisplay.from_estimator` or
+    :func:`~sklearn_dual.metrics.ConfusionMatrixDisplay.from_predictions` to
     create a :class:`ConfusionMatrixDisplay`. All parameters are stored as
     attributes.
 
@@ -128,8 +128,8 @@ class ConfusionMatrixDisplay:
 
         Returns
         -------
-        display : :class:`~sklearn.metrics.ConfusionMatrixDisplay`
-            Returns a :class:`~sklearn.metrics.ConfusionMatrixDisplay` instance
+        display : :class:`~sklearn_dual.metrics.ConfusionMatrixDisplay`
+            Returns a :class:`~sklearn_dual.metrics.ConfusionMatrixDisplay` instance
             that contains all the information to plot the confusion matrix.
         """
         check_matplotlib_support("ConfusionMatrixDisplay.plot")
@@ -226,7 +226,7 @@ class ConfusionMatrixDisplay:
         Parameters
         ----------
         estimator : estimator instance
-            Fitted classifier or a fitted :class:`~sklearn.pipeline.Pipeline`
+            Fitted classifier or a fitted :class:`~sklearn_dual.pipeline.Pipeline`
             in which the last estimator is a classifier.
 
         X : {array-like, sparse matrix} of shape (n_samples, n_features)
@@ -291,7 +291,7 @@ class ConfusionMatrixDisplay:
 
         Returns
         -------
-        display : :class:`~sklearn.metrics.ConfusionMatrixDisplay`
+        display : :class:`~sklearn_dual.metrics.ConfusionMatrixDisplay`
 
         See Also
         --------
@@ -429,7 +429,7 @@ class ConfusionMatrixDisplay:
 
         Returns
         -------
-        display : :class:`~sklearn.metrics.ConfusionMatrixDisplay`
+        display : :class:`~sklearn_dual.metrics.ConfusionMatrixDisplay`
 
         See Also
         --------

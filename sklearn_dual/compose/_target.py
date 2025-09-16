@@ -28,7 +28,7 @@ class TransformedTargetRegressor(RegressorMixin, BaseEstimator):
 
     Useful for applying a non-linear transformation to the target `y` in
     regression problems. This transformation can be given as a Transformer
-    such as the :class:`~sklearn.preprocessing.QuantileTransformer` or as a
+    such as the :class:`~sklearn_dual.preprocessing.QuantileTransformer` or as a
     function and its inverse such as `np.log` and `np.exp`.
 
     The computation during :meth:`fit` is::
@@ -55,13 +55,13 @@ class TransformedTargetRegressor(RegressorMixin, BaseEstimator):
     ----------
     regressor : object, default=None
         Regressor object such as derived from
-        :class:`~sklearn.base.RegressorMixin`. This regressor will
+        :class:`~sklearn_dual.base.RegressorMixin`. This regressor will
         automatically be cloned each time prior to fitting. If `regressor is
-        None`, :class:`~sklearn.linear_model.LinearRegression` is created and used.
+        None`, :class:`~sklearn_dual.linear_model.LinearRegression` is created and used.
 
     transformer : object, default=None
         Estimator object such as derived from
-        :class:`~sklearn.base.TransformerMixin`. Cannot be set at the same time
+        :class:`~sklearn_dual.base.TransformerMixin`. Cannot be set at the same time
         as `func` and `inverse_func`. If `transformer is None` as well as
         `func` and `inverse_func`, the transformer will be an identity
         transformer. Note that the transformer will be cloned during fitting.
@@ -106,7 +106,7 @@ class TransformedTargetRegressor(RegressorMixin, BaseEstimator):
 
     See Also
     --------
-    sklearn.preprocessing.FunctionTransformer : Construct a transformer from an
+    sklearn_dual.preprocessing.FunctionTransformer : Construct a transformer from an
         arbitrary callable.
 
     Notes
@@ -387,7 +387,7 @@ class TransformedTargetRegressor(RegressorMixin, BaseEstimator):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__).add(

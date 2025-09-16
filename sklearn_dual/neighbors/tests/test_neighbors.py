@@ -2143,11 +2143,11 @@ def test_sparse_metric_callable(csr_container):
 
 
 # ignore conversion to boolean in pairwise_distances
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.DataConversionWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.DataConversionWarning")
 def test_pairwise_boolean_distance():
     # Non-regression test for #4523
     # 'brute': uses scipy.spatial.distance through pairwise_distances
-    # 'ball_tree': uses sklearn.neighbors._dist_metrics
+    # 'ball_tree': uses sklearn_dual.neighbors._dist_metrics
     rng = np.random.RandomState(0)
     X = rng.uniform(size=(6, 5))
     NN = neighbors.NearestNeighbors

@@ -170,7 +170,7 @@ plt.show()
 # Analysis of the results
 # -----------------------
 #
-# :class:`~sklearn.linear_model.LogisticRegressionCV` returns reasonably well
+# :class:`~sklearn_dual.linear_model.LogisticRegressionCV` returns reasonably well
 # calibrated predictions despite the small training set size: its reliability
 # curve is the closest to the diagonal among the four models.
 #
@@ -188,7 +188,7 @@ plt.show()
 # In this example the training set was intentionally kept very small. In this
 # setting, optimizing the log-loss can still lead to poorly calibrated models
 # because of overfitting. To mitigate this, the
-# :class:`~sklearn.linear_model.LogisticRegressionCV` class was configured to
+# :class:`~sklearn_dual.linear_model.LogisticRegressionCV` class was configured to
 # tune the `C` regularization parameter to also minimize the log-loss via inner
 # cross-validation so as to find the best compromise for this model in the
 # small training set setting.
@@ -202,7 +202,7 @@ plt.show()
 #
 # The other methods all output less well calibrated probabilities:
 #
-# * :class:`~sklearn.naive_bayes.GaussianNB` tends to push probabilities to 0
+# * :class:`~sklearn_dual.naive_bayes.GaussianNB` tends to push probabilities to 0
 #   or 1 (see histogram) on this particular dataset (over-confidence). This is
 #   mainly because the naive Bayes equation only provides correct estimate of
 #   probabilities when the assumption that features are conditionally
@@ -214,7 +214,7 @@ plt.show()
 #   used to generate the dataset can lead to widely varying results for the
 #   naive Bayes estimator.
 #
-# * :class:`~sklearn.svm.LinearSVC` is not a natural probabilistic classifier.
+# * :class:`~sklearn_dual.svm.LinearSVC` is not a natural probabilistic classifier.
 #   In order to interpret its prediction as such, we naively scaled the output
 #   of the :term:`decision_function` into [0, 1] by applying min-max scaling in
 #   the `NaivelyCalibratedLinearSVC` wrapper class defined above. This
@@ -225,7 +225,7 @@ plt.show()
 #   diagonal). This under-confident predictions are typical for maximum-margin
 #   methods [1]_.
 #
-# * :class:`~sklearn.ensemble.RandomForestClassifier`'s prediction histogram
+# * :class:`~sklearn_dual.ensemble.RandomForestClassifier`'s prediction histogram
 #   shows peaks at approx. 0.2 and 0.9 probability, while probabilities close to
 #   0 or 1 are very rare. An explanation for this is given by [1]_:
 #   "Methods such as bagging and random forests that average

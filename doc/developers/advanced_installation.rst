@@ -68,14 +68,14 @@ feature, code or documentation improvement).
 
    .. prompt:: bash $
 
-     conda create -n sklearn-env -c conda-forge python numpy scipy cython meson-python ninja
+     conda create -n sklearn_dual-env -c conda-forge python numpy scipy cython meson-python ninja
 
    It is not always necessary but it is safer to open a new prompt before
    activating the newly created conda environment.
 
    .. prompt:: bash $
 
-     conda activate sklearn-env
+     conda activate sklearn_dual-env
 
 #. **Alternative to conda:** You can use alternative installations of Python
    provided they are recent enough (3.9 or higher at the time of writing).
@@ -85,8 +85,8 @@ feature, code or documentation improvement).
 
    .. prompt:: bash $
 
-     python3 -m venv sklearn-env
-     source sklearn-env/bin/activate
+     python3 -m venv sklearn_dual-env
+     source sklearn_dual-env/bin/activate
      pip install wheel numpy scipy cython meson-python ninja
 
 #. Install a compiler with OpenMP_ support for your platform. See instructions
@@ -106,7 +106,7 @@ feature, code or documentation improvement).
 
    .. prompt:: bash $
 
-     python -c "import sklearn; sklearn.show_versions()"
+     python -c "import sklearn_dual; sklearn_dual.show_versions()"
 
 #. Please refer to the :ref:`developers_guide` and :ref:`pytest_tips` to run
    the tests on the module of your choice.
@@ -114,13 +114,13 @@ feature, code or documentation improvement).
 .. note::
 
     `--config-settings editable-verbose=true` is optional but recommended
-    to avoid surprises when you import `sklearn`. `meson-python` implements
-    editable installs by rebuilding `sklearn` when executing `import sklearn`.
+    to avoid surprises when you import `sklearn_dual`. `meson-python` implements
+    editable installs by rebuilding `sklearn_dual` when executing `import sklearn_dual`.
     With the recommended setting you will see a message when this happens,
     rather than potentially waiting without feed-back and wondering
     what is taking so long. Bonus: this means you only have to run the `pip
-    install` command once, `sklearn` will automatically be rebuilt when
-    importing `sklearn`.
+    install` command once, `sklearn_dual` will automatically be rebuilt when
+    importing `sklearn_dual`.
 
 Dependencies
 ------------
@@ -145,7 +145,7 @@ Building Scikit-learn also requires:
 ..
     # The following places need to be in sync with regard to Cython version:
     # - .circleci config file
-    # - sklearn/_build_utils/__init__.py
+    # - sklearn_dual/_build_utils/__init__.py
     # - advanced installation guide
 
 - Cython >= |CythonMinVersion|
@@ -276,7 +276,7 @@ scikit-learn from source:
 
 .. prompt:: bash $
 
-    conda create -n sklearn-dev -c conda-forge python numpy scipy cython \
+    conda create -n sklearn_dual-dev -c conda-forge python numpy scipy cython \
         joblib threadpoolctl pytest compilers llvm-openmp meson-python ninja
 
 It is not always necessary but it is safer to open a new prompt before
@@ -284,7 +284,7 @@ activating the newly created conda environment.
 
 .. prompt:: bash $
 
-    conda activate sklearn-dev
+    conda activate sklearn_dual-dev
     make clean
     pip install --editable . \
         --verbose --no-build-isolation \
@@ -317,9 +317,9 @@ variables:
     echo $CXXFLAGS
     echo $LDFLAGS
 
-They point to files and folders from your ``sklearn-dev`` conda environment
+They point to files and folders from your ``sklearn_dual-dev`` conda environment
 (in particular in the bin/, include/ and lib/ subfolders). For instance
-``-L/path/to/conda/envs/sklearn-dev/lib`` should appear in ``LDFLAGS``.
+``-L/path/to/conda/envs/sklearn_dual-dev/lib`` should appear in ``LDFLAGS``.
 
 In the log, you should see the compiled extension being built with the clang
 and clang++ compilers installed by conda with the ``-fopenmp`` command line
@@ -423,7 +423,7 @@ in the user folder using conda:
 
 .. prompt:: bash $
 
-    conda create -n sklearn-dev -c conda-forge python numpy scipy cython \
+    conda create -n sklearn_dual-dev -c conda-forge python numpy scipy cython \
         joblib threadpoolctl pytest compilers meson-python ninja
 
 It is not always necessary but it is safer to open a new prompt before
@@ -431,7 +431,7 @@ activating the newly created conda environment.
 
 .. prompt:: bash $
 
-    conda activate sklearn-dev
+    conda activate sklearn_dual-dev
     pip install --editable . \
         --verbose --no-build-isolation \
         --config-settings editable-verbose=true

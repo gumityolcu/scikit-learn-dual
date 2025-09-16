@@ -53,12 +53,12 @@ print(f"The dataset consists of {n_samples} samples and {n_features} features")
 # -----------------------------------
 #
 # Notice that many parts of the implementation of
-# :class:`~sklearn.ensemble.HistGradientBoostingClassifier` and
-# :class:`~sklearn.ensemble.HistGradientBoostingRegressor` are parallelized by
+# :class:`~sklearn_dual.ensemble.HistGradientBoostingClassifier` and
+# :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor` are parallelized by
 # default.
 #
-# The implementation of :class:`~sklearn.ensemble.RandomForestRegressor` and
-# :class:`~sklearn.ensemble.RandomForestClassifier` can also be run on multiple
+# The implementation of :class:`~sklearn_dual.ensemble.RandomForestRegressor` and
+# :class:`~sklearn_dual.ensemble.RandomForestClassifier` can also be run on multiple
 # cores by using the `n_jobs` parameter, here set to match the number of
 # physical cores on the host machine. See :ref:`parallelism` for more
 # information.

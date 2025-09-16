@@ -24,8 +24,8 @@ and the model will not be able to perform effectively.
 For the following example, let's create a synthetic dataset with a
 single feature::
 
-    >>> from sklearn.datasets import make_regression
-    >>> from sklearn.model_selection import train_test_split
+    >>> from sklearn_dual.datasets import make_regression
+    >>> from sklearn_dual.model_selection import train_test_split
 
     >>> random_state = 42
     >>> X, y = make_regression(random_state=random_state, n_features=1, noise=1)
@@ -37,9 +37,9 @@ single feature::
 The train dataset is scaled, but not the test dataset, so model
 performance on the test dataset is worse than expected::
 
-    >>> from sklearn.metrics import mean_squared_error
-    >>> from sklearn.linear_model import LinearRegression
-    >>> from sklearn.preprocessing import StandardScaler
+    >>> from sklearn_dual.metrics import mean_squared_error
+    >>> from sklearn_dual.linear_model import LinearRegression
+    >>> from sklearn_dual.preprocessing import StandardScaler
 
     >>> scaler = StandardScaler()
     >>> X_train_transformed = scaler.fit_transform(X_train)
@@ -57,10 +57,10 @@ transform the test data, the same way we transformed the training data::
     0.90...
 
 Alternatively, we recommend using a :class:`Pipeline
-<sklearn.pipeline.Pipeline>`, which makes it easier to chain transformations
+<sklearn_dual.pipeline.Pipeline>`, which makes it easier to chain transformations
 with estimators, and reduces the possibility of forgetting a transformation::
 
-    >>> from sklearn.pipeline import make_pipeline
+    >>> from sklearn_dual.pipeline import make_pipeline
 
     >>> model = make_pipeline(StandardScaler(), LinearRegression())
     >>> model.fit(X_train, y_train)
@@ -127,9 +127,9 @@ Data leakage during pre-processing
     We here choose to illustrate data leakage with a feature selection step.
     This risk of leakage is however relevant with almost all transformations
     in scikit-learn, including (but not limited to)
-    :class:`~sklearn.preprocessing.StandardScaler`,
-    :class:`~sklearn.impute.SimpleImputer`, and
-    :class:`~sklearn.decomposition.PCA`.
+    :class:`~sklearn_dual.preprocessing.StandardScaler`,
+    :class:`~sklearn_dual.impute.SimpleImputer`, and
+    :class:`~sklearn_dual.decomposition.PCA`.
 
 A number of :ref:`feature_selection` functions are available in scikit-learn.
 They can help remove irrelevant, redundant and noisy features as well as
@@ -158,10 +158,10 @@ example below we first use all the data for feature selection and then split
 the data into training and test subsets for model fitting. The result is a
 much higher than expected accuracy score::
 
-    >>> from sklearn.model_selection import train_test_split
-    >>> from sklearn.feature_selection import SelectKBest
-    >>> from sklearn.ensemble import GradientBoostingClassifier
-    >>> from sklearn.metrics import accuracy_score
+    >>> from sklearn_dual.model_selection import train_test_split
+    >>> from sklearn_dual.feature_selection import SelectKBest
+    >>> from sklearn_dual.ensemble import GradientBoostingClassifier
+    >>> from sklearn_dual.metrics import accuracy_score
 
     >>> # Incorrect preprocessing: the entire data is transformed
     >>> X_selected = SelectKBest(k=25).fit_transform(X, y)
@@ -198,12 +198,12 @@ data, close to chance::
     >>> accuracy_score(y_test, y_pred)
     0.46
 
-Here again, we recommend using a :class:`~sklearn.pipeline.Pipeline` to chain
+Here again, we recommend using a :class:`~sklearn_dual.pipeline.Pipeline` to chain
 together the feature selection and model estimators. The pipeline ensures
 that only the training data is used when performing `fit` and the test data
 is used only for calculating the accuracy score::
 
-    >>> from sklearn.pipeline import make_pipeline
+    >>> from sklearn_dual.pipeline import make_pipeline
     >>> X_train, X_test, y_train, y_test = train_test_split(
     ...     X, y, random_state=42)
     >>> pipeline = make_pipeline(SelectKBest(k=25),
@@ -218,11 +218,11 @@ is used only for calculating the accuracy score::
     0.46
 
 The pipeline can also be fed into a cross-validation
-function such as :func:`~sklearn.model_selection.cross_val_score`.
+function such as :func:`~sklearn_dual.model_selection.cross_val_score`.
 Again, the pipeline ensures that the correct data subset and estimator
 method is used during fitting and predicting::
 
-    >>> from sklearn.model_selection import cross_val_score
+    >>> from sklearn_dual.model_selection import cross_val_score
     >>> scores = cross_val_score(pipeline, X, y)
     >>> print(f"Mean accuracy: {scores.mean():.2f}+/-{scores.std():.2f}")
     Mean accuracy: 0.46+/-0.07
@@ -234,8 +234,8 @@ Controlling randomness
 ======================
 
 Some scikit-learn objects are inherently random. These are usually estimators
-(e.g. :class:`~sklearn.ensemble.RandomForestClassifier`) and cross-validation
-splitters (e.g. :class:`~sklearn.model_selection.KFold`). The randomness of
+(e.g. :class:`~sklearn_dual.ensemble.RandomForestClassifier`) and cross-validation
+splitters (e.g. :class:`~sklearn_dual.model_selection.KFold`). The randomness of
 these objects is controlled via their `random_state` parameter, as described
 in the :term:`Glossary <random_state>`. This section expands on the glossary
 entry, and describes good practices and common pitfalls w.r.t. this
@@ -286,8 +286,8 @@ Passing instances means that calling `fit` multiple times will not yield the
 same results, even if the estimator is fitted on the same data and with the
 same hyper-parameters::
 
-    >>> from sklearn.linear_model import SGDClassifier
-    >>> from sklearn.datasets import make_classification
+    >>> from sklearn_dual.linear_model import SGDClassifier
+    >>> from sklearn_dual.datasets import make_classification
     >>> import numpy as np
 
     >>> rng = np.random.RandomState(0)
@@ -311,7 +311,7 @@ inter-dependent. For example, two estimators that share the same
 we discuss cloning. This point is important to keep in mind when debugging.
 
 If we had passed an integer to the `random_state` parameter of the
-:class:`~sklearn.linear_model.SGDClassifier`, we would have obtained the
+:class:`~sklearn_dual.linear_model.SGDClassifier`, we would have obtained the
 same models, and thus the same scores each time. When we pass an integer, the
 same RNG is used across all calls to `fit`. What internally happens is that
 even though the RNG is consumed when `fit` is called, it is always reset to
@@ -324,7 +324,7 @@ Randomized CV splitters have a similar behavior when a `RandomState`
 instance is passed; calling `split` multiple times yields different data
 splits::
 
-    >>> from sklearn.model_selection import KFold
+    >>> from sklearn_dual.model_selection import KFold
     >>> import numpy as np
 
     >>> X = y = np.arange(10)
@@ -363,9 +363,9 @@ Depending on the type of the `random_state` parameter, estimators will behave
 differently, especially in cross-validation procedures. Consider the
 following snippet::
 
-    >>> from sklearn.ensemble import RandomForestClassifier
-    >>> from sklearn.datasets import make_classification
-    >>> from sklearn.model_selection import cross_val_score
+    >>> from sklearn_dual.ensemble import RandomForestClassifier
+    >>> from sklearn_dual.datasets import make_classification
+    >>> from sklearn_dual.model_selection import cross_val_score
     >>> import numpy as np
 
     >>> X, y = make_classification(random_state=0)
@@ -382,7 +382,7 @@ We see that the cross-validated scores of `rf_123` and `rf_inst` are
 different, as should be expected since we didn't pass the same `random_state`
 parameter. However, the difference between these scores is more subtle than
 it looks, and **the cross-validation procedures that were performed by**
-:func:`~sklearn.model_selection.cross_val_score` **significantly differ in
+:func:`~sklearn_dual.model_selection.cross_val_score` **significantly differ in
 each case**:
 
 - Since `rf_123` was passed an integer, every call to `fit` uses the same RNG:
@@ -400,21 +400,21 @@ a result, passing an instance instead of an integer may be preferable, since
 it will allow the estimator RNG to vary for each fold.
 
 .. note::
-    Here, :func:`~sklearn.model_selection.cross_val_score` will use a
+    Here, :func:`~sklearn_dual.model_selection.cross_val_score` will use a
     non-randomized CV splitter (as is the default), so both estimators will
     be evaluated on the same splits. This section is not about variability in
     the splits. Also, whether we pass an integer or an instance to
-    :func:`~sklearn.datasets.make_classification` isn't relevant for our
+    :func:`~sklearn_dual.datasets.make_classification` isn't relevant for our
     illustration purpose: what matters is what we pass to the
-    :class:`~sklearn.ensemble.RandomForestClassifier` estimator.
+    :class:`~sklearn_dual.ensemble.RandomForestClassifier` estimator.
 
 .. dropdown:: Cloning
 
     Another subtle side effect of passing `RandomState` instances is how
-    :func:`~sklearn.base.clone` will work::
+    :func:`~sklearn_dual.base.clone` will work::
 
-        >>> from sklearn import clone
-        >>> from sklearn.ensemble import RandomForestClassifier
+        >>> from sklearn_dual import clone
+        >>> from sklearn_dual.ensemble import RandomForestClassifier
         >>> import numpy as np
 
         >>> rng = np.random.RandomState(0)
@@ -434,13 +434,13 @@ it will allow the estimator RNG to vary for each fold.
     influence each other.
 
     .. warning::
-        Even though :func:`~sklearn.base.clone` is rarely used in user code, it is
+        Even though :func:`~sklearn_dual.base.clone` is rarely used in user code, it is
         called pervasively throughout scikit-learn codebase: in particular, most
         meta-estimators that accept non-fitted estimators call
-        :func:`~sklearn.base.clone` internally
-        (:class:`~sklearn.model_selection.GridSearchCV`,
-        :class:`~sklearn.ensemble.StackingClassifier`,
-        :class:`~sklearn.calibration.CalibratedClassifierCV`, etc.).
+        :func:`~sklearn_dual.base.clone` internally
+        (:class:`~sklearn_dual.model_selection.GridSearchCV`,
+        :class:`~sklearn_dual.ensemble.StackingClassifier`,
+        :class:`~sklearn_dual.calibration.CalibratedClassifierCV`, etc.).
 
 
 CV splitters
@@ -451,11 +451,11 @@ each time `split` is called. When comparing different estimators, this can
 lead to overestimating the variance of the difference in performance between
 the estimators::
 
-    >>> from sklearn.naive_bayes import GaussianNB
-    >>> from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-    >>> from sklearn.datasets import make_classification
-    >>> from sklearn.model_selection import KFold
-    >>> from sklearn.model_selection import cross_val_score
+    >>> from sklearn_dual.naive_bayes import GaussianNB
+    >>> from sklearn_dual.discriminant_analysis import LinearDiscriminantAnalysis
+    >>> from sklearn_dual.datasets import make_classification
+    >>> from sklearn_dual.model_selection import KFold
+    >>> from sklearn_dual.model_selection import cross_val_score
     >>> import numpy as np
 
     >>> rng = np.random.RandomState(0)
@@ -471,16 +471,16 @@ the estimators::
 
 
 Directly comparing the performance of the
-:class:`~sklearn.discriminant_analysis.LinearDiscriminantAnalysis` estimator
-vs the :class:`~sklearn.naive_bayes.GaussianNB` estimator **on each fold** would
+:class:`~sklearn_dual.discriminant_analysis.LinearDiscriminantAnalysis` estimator
+vs the :class:`~sklearn_dual.naive_bayes.GaussianNB` estimator **on each fold** would
 be a mistake: **the splits on which the estimators are evaluated are
-different**. Indeed, :func:`~sklearn.model_selection.cross_val_score` will
+different**. Indeed, :func:`~sklearn_dual.model_selection.cross_val_score` will
 internally call `cv.split` on the same
-:class:`~sklearn.model_selection.KFold` instance, but the splits will be
+:class:`~sklearn_dual.model_selection.KFold` instance, but the splits will be
 different each time. This is also true for any tool that performs model
 selection via cross-validation, e.g.
-:class:`~sklearn.model_selection.GridSearchCV` and
-:class:`~sklearn.model_selection.RandomizedSearchCV`: scores are not
+:class:`~sklearn_dual.model_selection.GridSearchCV` and
+:class:`~sklearn_dual.model_selection.RandomizedSearchCV`: scores are not
 comparable fold-to-fold across different calls to `search.fit`, since
 `cv.split` would have been called multiple times. Within a single call to
 `search.fit`, however, fold-to-fold comparison is possible since the search
@@ -497,11 +497,11 @@ integer to the CV splitter: `cv = KFold(shuffle=True, random_state=0)`.
 
 .. note::
     What matters in this example is what was passed to
-    :class:`~sklearn.model_selection.KFold`. Whether we pass a `RandomState`
-    instance or an integer to :func:`~sklearn.datasets.make_classification`
+    :class:`~sklearn_dual.model_selection.KFold`. Whether we pass a `RandomState`
+    instance or an integer to :func:`~sklearn_dual.datasets.make_classification`
     is not relevant for our illustration purpose. Also, neither
-    :class:`~sklearn.discriminant_analysis.LinearDiscriminantAnalysis` nor
-    :class:`~sklearn.naive_bayes.GaussianNB` are randomized estimators.
+    :class:`~sklearn_dual.discriminant_analysis.LinearDiscriminantAnalysis` nor
+    :class:`~sklearn_dual.naive_bayes.GaussianNB` are randomized estimators.
 
 General recommendations
 -----------------------
@@ -515,9 +515,9 @@ is the default. The recommended way is to declare a `rng` variable at the top
 of the program, and pass it down to any object that accepts a `random_state`
 parameter::
 
-    >>> from sklearn.ensemble import RandomForestClassifier
-    >>> from sklearn.datasets import make_classification
-    >>> from sklearn.model_selection import train_test_split
+    >>> from sklearn_dual.ensemble import RandomForestClassifier
+    >>> from sklearn_dual.datasets import make_classification
+    >>> from sklearn_dual.model_selection import train_test_split
     >>> import numpy as np
 
     >>> rng = np.random.RandomState(0)
@@ -549,7 +549,7 @@ When we evaluate a randomized estimator performance by cross-validation, we
 want to make sure that the estimator can yield accurate predictions for new
 data, but we also want to make sure that the estimator is robust w.r.t. its
 random initialization. For example, we would like the random weights
-initialization of a :class:`~sklearn.linear_model.SGDClassifier` to be
+initialization of a :class:`~sklearn_dual.linear_model.SGDClassifier` to be
 consistently good across all folds: otherwise, when we train that estimator
 on new data, we might get unlucky and the random initialization may lead to
 bad performance. Similarly, we want a random forest to be robust w.r.t the

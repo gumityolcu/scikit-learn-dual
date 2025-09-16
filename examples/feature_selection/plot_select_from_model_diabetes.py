@@ -4,9 +4,9 @@ Model-based and sequential feature selection
 ============================================
 
 This example illustrates and compares two approaches for feature selection:
-:class:`~sklearn.feature_selection.SelectFromModel` which is based on feature
+:class:`~sklearn_dual.feature_selection.SelectFromModel` which is based on feature
 importance, and
-:class:`~sklearn.feature_selection.SequentialFeatureSelector` which relies
+:class:`~sklearn_dual.feature_selection.SequentialFeatureSelector` which relies
 on a greedy approach.
 
 We use the Diabetes dataset, which consists of 10 features collected from 442
@@ -39,7 +39,7 @@ print(diabetes.DESCR)
 # ------------------------------------
 #
 # To get an idea of the importance of the features, we are going to use the
-# :class:`~sklearn.linear_model.RidgeCV` estimator. The features with the
+# :class:`~sklearn_dual.linear_model.RidgeCV` estimator. The features with the
 # highest absolute `coef_` value are considered the most important.
 # We can observe the coefficients directly without needing to scale them (or
 # scale the data) because from the description above, we know that the features
@@ -64,8 +64,8 @@ plt.show()
 # --------------------------------------
 #
 # Now we want to select the two features which are the most important according
-# to the coefficients. The :class:`~sklearn.feature_selection.SelectFromModel`
-# is meant just for that. :class:`~sklearn.feature_selection.SelectFromModel`
+# to the coefficients. The :class:`~sklearn_dual.feature_selection.SelectFromModel`
+# is meant just for that. :class:`~sklearn_dual.feature_selection.SelectFromModel`
 # accepts a `threshold` parameter and will select the features whose importance
 # (defined by the coefficients) are above this threshold.
 #
@@ -88,7 +88,7 @@ print(f"Done in {toc - tic:.3f}s")
 # ----------------------------------------------------
 #
 # Another way of selecting features is to use
-# :class:`~sklearn.feature_selection.SequentialFeatureSelector`
+# :class:`~sklearn_dual.feature_selection.SequentialFeatureSelector`
 # (SFS). SFS is a greedy procedure where, at each iteration, we choose the best
 # new feature to add to our selected features based a cross-validation score.
 # That is, we start with 0 features and choose the best single feature with the
@@ -136,11 +136,11 @@ print(f"Done in {toc_bwd - tic_bwd:.3f}s")
 # that SFS makes no use of the coefficients at all.
 #
 # To finish with, we should note that
-# :class:`~sklearn.feature_selection.SelectFromModel` is significantly faster
-# than SFS. Indeed, :class:`~sklearn.feature_selection.SelectFromModel` only
+# :class:`~sklearn_dual.feature_selection.SelectFromModel` is significantly faster
+# than SFS. Indeed, :class:`~sklearn_dual.feature_selection.SelectFromModel` only
 # needs to fit a model once, while SFS needs to cross-validate many different
 # models for each of the iterations. SFS however works with any model, while
-# :class:`~sklearn.feature_selection.SelectFromModel` requires the underlying
+# :class:`~sklearn_dual.feature_selection.SelectFromModel` requires the underlying
 # estimator to expose a `coef_` attribute or a `feature_importances_`
 # attribute. The forward SFS is faster than the backward SFS because it only
 # needs to perform `n_features_to_select = 2` iterations, while the backward
@@ -149,7 +149,7 @@ print(f"Done in {toc_bwd - tic_bwd:.3f}s")
 # Using negative tolerance values
 # -------------------------------
 #
-# :class:`~sklearn.feature_selection.SequentialFeatureSelector` can be used
+# :class:`~sklearn_dual.feature_selection.SequentialFeatureSelector` can be used
 # to remove features present in the dataset and return a
 # smaller subset of the original features with `direction="backward"`
 # and a negative value of `tol`.
@@ -166,8 +166,8 @@ feature_names = np.array(breast_cancer_data.feature_names)
 print(breast_cancer_data.DESCR)
 
 # %%
-# We will make use of the :class:`~sklearn.linear_model.LogisticRegression`
-# estimator with :class:`~sklearn.feature_selection.SequentialFeatureSelector`
+# We will make use of the :class:`~sklearn_dual.linear_model.LogisticRegression`
+# estimator with :class:`~sklearn_dual.feature_selection.SequentialFeatureSelector`
 # to perform the feature selection.
 from sklearn_dual.linear_model import LogisticRegression
 from sklearn_dual.metrics import roc_auc_score

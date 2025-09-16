@@ -687,7 +687,7 @@ def test_gpr_predict_error():
 def test_predict_shapes(normalize_y, n_targets):
     """Check the shapes of y_mean, y_std, and y_cov in single-output
     (n_targets=None) and multi-output settings, including the edge case when
-    n_targets=1, where the sklearn convention is to squeeze the predictions.
+    n_targets=1, where the sklearn_dual convention is to squeeze the predictions.
 
     Non-regression test for:
     https://github.com/scikit-learn/scikit-learn/issues/17394
@@ -727,7 +727,7 @@ def test_predict_shapes(normalize_y, n_targets):
 def test_sample_y_shapes(normalize_y, n_targets):
     """Check the shapes of y_samples in single-output (n_targets=0) and
     multi-output settings, including the edge case when n_targets=1, where the
-    sklearn convention is to squeeze the predictions.
+    sklearn_dual convention is to squeeze the predictions.
 
     Non-regression test for:
     https://github.com/scikit-learn/scikit-learn/issues/22175

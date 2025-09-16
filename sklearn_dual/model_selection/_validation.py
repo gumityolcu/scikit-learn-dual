@@ -1,5 +1,5 @@
 """
-The :mod:`sklearn.model_selection._validation` module includes classes and
+The :mod:`sklearn_dual.model_selection._validation` module includes classes and
 functions to validate the model.
 """
 
@@ -82,7 +82,7 @@ def _check_params_groups_deprecation(fit_params, params, groups, version):
     if groups is not None and _routing_enabled():
         raise ValueError(
             "`groups` can only be passed if metadata routing is not enabled via"
-            " `sklearn.set_config(enable_metadata_routing=True)`. When routing is"
+            " `sklearn_dual.set_config(enable_metadata_routing=True)`. When routing is"
             " enabled, pass `groups` alongside other metadata via the `params` argument"
             " instead."
         )
@@ -158,7 +158,7 @@ def cross_validate(
 
         .. versionchanged:: 1.4
             ``groups`` can only be passed if metadata routing is not enabled
-            via ``sklearn.set_config(enable_metadata_routing=True)``. When routing
+            via ``sklearn_dual.set_config(enable_metadata_routing=True)``. When routing
             is enabled, pass ``groups`` alongside other metadata via the ``params``
             argument instead. E.g.:
             ``cross_validate(..., params={'groups': groups})``.
@@ -310,7 +310,7 @@ def cross_validate(
     cross_val_predict : Get predictions from each split of cross-validation for
         diagnostic purposes.
 
-    sklearn.metrics.make_scorer : Make a scorer from a performance metric or
+    sklearn_dual.metrics.make_scorer : Make a scorer from a performance metric or
         loss function.
 
     Examples
@@ -588,7 +588,7 @@ def cross_val_score(
 
         .. versionchanged:: 1.4
             ``groups`` can only be passed if metadata routing is not enabled
-            via ``sklearn.set_config(enable_metadata_routing=True)``. When routing
+            via ``sklearn_dual.set_config(enable_metadata_routing=True)``. When routing
             is enabled, pass ``groups`` alongside other metadata via the ``params``
             argument instead. E.g.:
             ``cross_val_score(..., params={'groups': groups})``.
@@ -682,7 +682,7 @@ def cross_val_score(
     cross_val_predict : Get predictions from each split of cross-validation for
         diagnostic purposes.
 
-    sklearn.metrics.make_scorer : Make a scorer from a performance metric or
+    sklearn_dual.metrics.make_scorer : Make a scorer from a performance metric or
         loss function.
 
     Examples
@@ -1096,7 +1096,7 @@ def cross_val_predict(
 
         .. versionchanged:: 1.4
             ``groups`` can only be passed if metadata routing is not enabled
-            via ``sklearn.set_config(enable_metadata_routing=True)``. When routing
+            via ``sklearn_dual.set_config(enable_metadata_routing=True)``. When routing
             is enabled, pass ``groups`` alongside other metadata via the ``params``
             argument instead. E.g.:
             ``cross_val_predict(..., params={'groups': groups})``.
@@ -1420,7 +1420,7 @@ def _enforce_prediction_order(classes, predictions, n_classes, method):
             if predictions.ndim == 2 and predictions.shape[1] != len(classes):
                 # This handles the case when the shape of predictions
                 # does not match the number of classes used to train
-                # it with. This case is found when sklearn.svm.SVC is
+                # it with. This case is found when sklearn_dual.svm.SVC is
                 # set to `decision_function_shape='ovo'`.
                 raise ValueError(
                     "Output shape {} of {} does not match "
@@ -1552,7 +1552,7 @@ def permutation_test_score(
 
         .. versionchanged:: 1.6
             ``groups`` can only be passed if metadata routing is not enabled
-            via ``sklearn.set_config(enable_metadata_routing=True)``. When routing
+            via ``sklearn_dual.set_config(enable_metadata_routing=True)``. When routing
             is enabled, pass ``groups`` alongside other metadata via the ``params``
             argument instead. E.g.:
             ``permutation_test_score(..., params={'groups': groups})``.
@@ -1865,7 +1865,7 @@ def learning_curve(
 
         .. versionchanged:: 1.6
             ``groups`` can only be passed if metadata routing is not enabled
-            via ``sklearn.set_config(enable_metadata_routing=True)``. When routing
+            via ``sklearn_dual.set_config(enable_metadata_routing=True)``. When routing
             is enabled, pass ``groups`` alongside other metadata via the ``params``
             argument instead. E.g.:
             ``learning_curve(..., params={'groups': groups})``.
@@ -2372,7 +2372,7 @@ def validation_curve(
 
         .. versionchanged:: 1.6
             ``groups`` can only be passed if metadata routing is not enabled
-            via ``sklearn.set_config(enable_metadata_routing=True)``. When routing
+            via ``sklearn_dual.set_config(enable_metadata_routing=True)``. When routing
             is enabled, pass ``groups`` alongside other metadata via the ``params``
             argument instead. E.g.:
             ``validation_curve(..., params={'groups': groups})``.

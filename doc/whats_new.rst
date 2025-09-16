@@ -1,4 +1,4 @@
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 .. include:: whats_new/_contributors.rst
 

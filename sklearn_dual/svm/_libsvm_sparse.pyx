@@ -100,7 +100,7 @@ def libsvm_sparse_train (int n_features,
 
     Notes
     -------------------
-    See sklearn.svm.predict for a complete list of parameters.
+    See sklearn_dual.svm.predict for a complete list of parameters.
 
     """
 
@@ -283,7 +283,7 @@ def libsvm_sparse_predict (const float64_t[::1] T_data,
     We have to reconstruct model and parameters to make sure we stay
     in sync with the python object.
 
-    See sklearn.svm.predict for a complete list of parameters.
+    See sklearn_dual.svm.predict for a complete list of parameters.
 
     Parameters
     ----------

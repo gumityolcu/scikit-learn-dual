@@ -158,7 +158,7 @@ def _raise_for_params(params, owner, method):
         raise ValueError(
             f"Passing extra keyword arguments to {caller} is only supported if"
             " enable_metadata_routing=True, which you can set using"
-            " `sklearn.set_config`. See the User Guide"
+            " `sklearn_dual.set_config`. See the User Guide"
             " <https://scikit-learn.org/stable/metadata_routing.html> for more"
             f" details. Extra parameters passed are: {set(params)}"
         )
@@ -425,7 +425,7 @@ class MethodMetadataRequest:
         Returns
         -------
         params : Bunch
-            A :class:`~sklearn.utils.Bunch` of {prop: value} which can be given to the
+            A :class:`~sklearn_dual.utils.Bunch` of {prop: value} which can be given to the
             corresponding method.
         """
         self._check_warnings(params=params)
@@ -637,7 +637,7 @@ class MetadataRequest:
         Returns
         -------
         params : Bunch
-            A :class:`~sklearn.utils.Bunch` of {prop: value} which can be given to the
+            A :class:`~sklearn_dual.utils.Bunch` of {prop: value} which can be given to the
             corresponding method.
         """
         return getattr(self, method)._route_params(
@@ -772,10 +772,10 @@ class MetadataRouter:
     This class is used by router objects to store and handle metadata routing.
     Routing information is stored as a dictionary of the form ``{"object_name":
     RouteMappingPair(method_mapping, routing_info)}``, where ``method_mapping``
-    is an instance of :class:`~sklearn.utils.metadata_routing.MethodMapping` and
+    is an instance of :class:`~sklearn_dual.utils.metadata_routing.MethodMapping` and
     ``routing_info`` is either a
-    :class:`~sklearn.utils.metadata_routing.MetadataRequest` or a
-    :class:`~sklearn.utils.metadata_routing.MetadataRouter` instance.
+    :class:`~sklearn_dual.utils.metadata_routing.MetadataRequest` or a
+    :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` instance.
 
     .. versionadded:: 1.3
 
@@ -805,7 +805,7 @@ class MetadataRouter:
         This method is used if the router is also a consumer, and hence the
         router itself needs to be included in the routing. The passed object
         can be an estimator or a
-        :class:`~sklearn.utils.metadata_routing.MetadataRequest`.
+        :class:`~sklearn_dual.utils.metadata_routing.MetadataRequest`.
 
         A router should add itself using this method instead of `add` since it
         should be treated differently than the other objects to which metadata
@@ -845,7 +845,7 @@ class MetadataRouter:
 
         **objs : dict
             A dictionary of objects from which metadata is extracted by calling
-            :func:`~sklearn.utils.metadata_routing.get_routing_for_object` on them.
+            :func:`~sklearn_dual.utils.metadata_routing.get_routing_for_object` on them.
 
         Returns
         -------
@@ -963,7 +963,7 @@ class MetadataRouter:
         Returns
         -------
         params : Bunch
-            A :class:`~sklearn.utils.Bunch` of {prop: value} which can be given to the
+            A :class:`~sklearn_dual.utils.Bunch` of {prop: value} which can be given to the
             corresponding method.
         """
         res = Bunch()
@@ -1000,7 +1000,7 @@ class MetadataRouter:
     def route_params(self, *, caller, params):
         """Return the input parameters requested by child objects.
 
-        The output of this method is a :class:`~sklearn.utils.Bunch`, which includes the
+        The output of this method is a :class:`~sklearn_dual.utils.Bunch`, which includes the
         metadata for all methods of each child object that is used in the router's
         `caller` method.
 
@@ -1020,7 +1020,7 @@ class MetadataRouter:
         Returns
         -------
         params : Bunch
-            A :class:`~sklearn.utils.Bunch` of the form
+            A :class:`~sklearn_dual.utils.Bunch` of the form
             ``{"object_name": {"method_name": {params: value}}}`` which can be
             used to pass the required metadata to corresponding methods or
             corresponding child objects.
@@ -1115,8 +1115,8 @@ def get_routing_for_object(obj=None):
     """Get a ``Metadata{Router, Request}`` instance from the given object.
 
     This function returns a
-    :class:`~sklearn.utils.metadata_routing.MetadataRouter` or a
-    :class:`~sklearn.utils.metadata_routing.MetadataRequest` from the given input.
+    :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` or a
+    :class:`~sklearn_dual.utils.metadata_routing.MetadataRequest` from the given input.
 
     This function always returns a copy or an instance constructed from the
     input, such that changing the output of this function will not change the
@@ -1130,10 +1130,10 @@ def get_routing_for_object(obj=None):
         - If the object provides a `get_metadata_routing` method, return a copy
             of the output of that method.
         - If the object is already a
-            :class:`~sklearn.utils.metadata_routing.MetadataRequest` or a
-            :class:`~sklearn.utils.metadata_routing.MetadataRouter`, return a copy
+            :class:`~sklearn_dual.utils.metadata_routing.MetadataRequest` or a
+            :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter`, return a copy
             of that.
-        - Returns an empty :class:`~sklearn.utils.metadata_routing.MetadataRequest`
+        - Returns an empty :class:`~sklearn_dual.utils.metadata_routing.MetadataRequest`
             otherwise.
 
     Returns
@@ -1163,7 +1163,7 @@ def get_routing_for_object(obj=None):
 REQUESTER_DOC = """        Request metadata passed to the ``{method}`` method.
 
         Note that this method is only relevant if
-        ``enable_metadata_routing=True`` (see :func:`sklearn.set_config`).
+        ``enable_metadata_routing=True`` (see :func:`sklearn_dual.set_config`).
         Please see :ref:`User Guide <metadata_routing>` on how the routing
         mechanism works.
 
@@ -1182,7 +1182,7 @@ will raise an error if the user provides it.
         - ``str``: metadata should be passed to the meta-estimator with \
 this given alias instead of the original name.
 
-        The default (``sklearn.utils.metadata_routing.UNCHANGED``) retains the
+        The default (``sklearn_dual.utils.metadata_routing.UNCHANGED``) retains the
         existing request. This allows you to change the request for some
         parameters and not others.
 
@@ -1191,13 +1191,13 @@ this given alias instead of the original name.
         .. note::
             This method is only relevant if this estimator is used as a
             sub-estimator of a meta-estimator, e.g. used inside a
-            :class:`~sklearn.pipeline.Pipeline`. Otherwise it has no effect.
+            :class:`~sklearn_dual.pipeline.Pipeline`. Otherwise it has no effect.
 
         Parameters
         ----------
 """
 REQUESTER_DOC_PARAM = """        {metadata} : str, True, False, or None, \
-                    default=sklearn.utils.metadata_routing.UNCHANGED
+                    default=sklearn_dual.utils.metadata_routing.UNCHANGED
             Metadata routing for ``{metadata}`` parameter in ``{method}``.
 
 """
@@ -1258,7 +1258,7 @@ class RequestMethod:
                 raise RuntimeError(
                     "This method is only available when metadata routing is enabled."
                     " You can enable it using"
-                    " sklearn.set_config(enable_metadata_routing=True)."
+                    " sklearn_dual.set_config(enable_metadata_routing=True)."
                 )
 
             if self.validate_keys and (set(kw) - set(self.keys)):
@@ -1485,7 +1485,7 @@ class _MetadataRequester:
         Returns
         -------
         request : MetadataRequest
-            A :class:`~sklearn.utils.metadata_routing.MetadataRequest` instance.
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRequest` instance.
         """
         if hasattr(self, "_metadata_request"):
             requests = get_routing_for_object(self._metadata_request)
@@ -1503,7 +1503,7 @@ class _MetadataRequester:
         Returns
         -------
         routing : MetadataRequest
-            A :class:`~sklearn.utils.metadata_routing.MetadataRequest` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRequest` encapsulating
             routing information.
         """
         return self._get_metadata_request()
@@ -1553,7 +1553,7 @@ def process_routing(_obj, _method, /, **kwargs):
     routed_params : Bunch
         A :class:`~utils.Bunch` of the form ``{"object_name": {"method_name":
         {params: value}}}`` which can be used to pass the required metadata to
-        A :class:`~sklearn.utils.Bunch` of the form ``{"object_name": {"method_name":
+        A :class:`~sklearn_dual.utils.Bunch` of the form ``{"object_name": {"method_name":
         {params: value}}}`` which can be used to pass the required metadata to
         corresponding methods or corresponding child objects. The object names
         are those defined in `obj.get_metadata_routing()`.

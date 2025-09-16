@@ -2,7 +2,7 @@
 =========================================================
 Plot classification boundaries with different SVM Kernels
 =========================================================
-This example shows how different kernels in a :class:`~sklearn.svm.SVC` (Support Vector
+This example shows how different kernels in a :class:`~sklearn_dual.svm.SVC` (Support Vector
 Classifier) influence the classification boundaries in a binary, two-dimensional
 classification problem.
 
@@ -10,7 +10,7 @@ SVCs aim to find a hyperplane that effectively separates the classes in their tr
 data by maximizing the margin between the outermost data points of each class. This is
 achieved by finding the best weight vector :math:`w` that defines the decision boundary
 hyperplane and minimizes the sum of hinge losses for misclassified samples, as measured
-by the :func:`~sklearn.metrics.hinge_loss` function. By default, regularization is
+by the :func:`~sklearn_dual.metrics.hinge_loss` function. By default, regularization is
 applied with the parameter `C=1`, which allows for a certain degree of misclassification
 tolerance.
 
@@ -86,21 +86,21 @@ _ = plt.show()
 #
 # Training SVC model and plotting decision boundaries
 # ---------------------------------------------------
-# We define a function that fits a :class:`~sklearn.svm.SVC` classifier,
+# We define a function that fits a :class:`~sklearn_dual.svm.SVC` classifier,
 # allowing the `kernel` parameter as an input, and then plots the decision
 # boundaries learned by the model using
-# :class:`~sklearn.inspection.DecisionBoundaryDisplay`.
+# :class:`~sklearn_dual.inspection.DecisionBoundaryDisplay`.
 #
 # Notice that for the sake of simplicity, the `C` parameter is set to its
 # default value (`C=1`) in this example and the `gamma` parameter is set to
 # `gamma=2` across all kernels, although it is automatically ignored for the
 # linear kernel. In a real classification task, where performance matters,
-# parameter tuning (by using :class:`~sklearn.model_selection.GridSearchCV` for
+# parameter tuning (by using :class:`~sklearn_dual.model_selection.GridSearchCV` for
 # instance) is highly recommended to capture different structures within the
 # data.
 #
 # Setting `response_method="predict"` in
-# :class:`~sklearn.inspection.DecisionBoundaryDisplay` colors the areas based
+# :class:`~sklearn_dual.inspection.DecisionBoundaryDisplay` colors the areas based
 # on their predicted class. Using `response_method="decision_function"` allows
 # us to also plot the decision boundary and the margins to both sides of it.
 # Finally the support vectors used during training (which always lay on the
@@ -170,12 +170,12 @@ def plot_training_data_with_decision_boundary(
 #
 # It is then applied to any combination of two data points (samples) in the
 # dataset. The dot product of the two points determines the
-# :func:`~sklearn.metrics.pairwise.cosine_similarity` between both points. The
+# :func:`~sklearn_dual.metrics.pairwise.cosine_similarity` between both points. The
 # higher the value, the more similar the points are.
 plot_training_data_with_decision_boundary("linear")
 
 # %%
-# Training a :class:`~sklearn.svm.SVC` on a linear kernel results in an
+# Training a :class:`~sklearn_dual.svm.SVC` on a linear kernel results in an
 # untransformed feature space, where the hyperplane and the margins are
 # straight lines. Due to the lack of expressivity of the linear kernel, the
 # trained classes do not perfectly capture the training data.
@@ -196,8 +196,8 @@ plot_training_data_with_decision_boundary("linear")
 # polynomial in the kernel function (`degree=3`). When `coef0=0` (the default),
 # the data is only transformed, but no additional dimension is added. Using a
 # polynomial kernel is equivalent to creating
-# :class:`~sklearn.preprocessing.PolynomialFeatures` and then fitting a
-# :class:`~sklearn.svm.SVC` with a linear kernel on the transformed data,
+# :class:`~sklearn_dual.preprocessing.PolynomialFeatures` and then fitting a
+# :class:`~sklearn_dual.svm.SVC` with a linear kernel on the transformed data,
 # although this alternative approach would be computationally expensive for most
 # datasets.
 plot_training_data_with_decision_boundary("poly")
@@ -275,9 +275,9 @@ plot_training_data_with_decision_boundary("sigmoid")
 # quality. They are intended to provide a visual understanding of how the
 # different kernels use the training data.
 #
-# For a comprehensive evaluation, fine-tuning of :class:`~sklearn.svm.SVC`
+# For a comprehensive evaluation, fine-tuning of :class:`~sklearn_dual.svm.SVC`
 # parameters using techniques such as
-# :class:`~sklearn.model_selection.GridSearchCV` is recommended to capture the
+# :class:`~sklearn_dual.model_selection.GridSearchCV` is recommended to capture the
 # underlying structures within the data.
 
 # %%

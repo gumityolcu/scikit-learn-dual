@@ -10,11 +10,11 @@ between the train and test set is based upon a messages posted before
 and after a specific date.
 
 This module contains two loaders. The first one,
-:func:`sklearn.datasets.fetch_20newsgroups`,
+:func:`sklearn_dual.datasets.fetch_20newsgroups`,
 returns a list of the raw texts that can be fed to text feature
-extractors such as :class:`~sklearn.feature_extraction.text.CountVectorizer`
+extractors such as :class:`~sklearn_dual.feature_extraction.text.CountVectorizer`
 with custom parameters so as to extract feature vectors.
-The second one, :func:`sklearn.datasets.fetch_20newsgroups_vectorized`,
+The second one, :func:`sklearn_dual.datasets.fetch_20newsgroups_vectorized`,
 returns ready-to-use features, i.e., it is not necessary to use a feature
 extractor.
 
@@ -29,15 +29,15 @@ Features                  text
 
 .. dropdown:: Usage
 
-  The :func:`sklearn.datasets.fetch_20newsgroups` function is a data
+  The :func:`sklearn_dual.datasets.fetch_20newsgroups` function is a data
   fetching / caching functions that downloads the data archive from
   the original `20 newsgroups website <http://people.csail.mit.edu/jrennie/20Newsgroups/>`__,
   extracts the archive contents
   in the ``~/scikit_learn_data/20news_home`` folder and calls the
-  :func:`sklearn.datasets.load_files` on either the training or
+  :func:`sklearn_dual.datasets.load_files` on either the training or
   testing set folder, or both of them::
 
-    >>> from sklearn.datasets import fetch_20newsgroups
+    >>> from sklearn_dual.datasets import fetch_20newsgroups
     >>> newsgroups_train = fetch_20newsgroups(subset='train')
 
     >>> from pprint import pprint
@@ -75,7 +75,7 @@ Features                  text
 
   It is possible to load only a sub-selection of the categories by passing the
   list of the categories to load to the
-  :func:`sklearn.datasets.fetch_20newsgroups` function::
+  :func:`sklearn_dual.datasets.fetch_20newsgroups` function::
 
     >>> cats = ['alt.atheism', 'sci.space']
     >>> newsgroups_train = fetch_20newsgroups(subset='train', categories=cats)
@@ -94,11 +94,11 @@ Features                  text
   In order to feed predictive or clustering models with the text data,
   one first need to turn the text into vectors of numerical values suitable
   for statistical analysis. This can be achieved with the utilities of the
-  ``sklearn.feature_extraction.text`` as demonstrated in the following
+  ``sklearn_dual.feature_extraction.text`` as demonstrated in the following
   example that extract `TF-IDF <https://en.wikipedia.org/wiki/Tf-idf>`__ vectors
   of unigram tokens from a subset of 20news::
 
-    >>> from sklearn.feature_extraction.text import TfidfVectorizer
+    >>> from sklearn_dual.feature_extraction.text import TfidfVectorizer
     >>> categories = ['alt.atheism', 'talk.religion.misc',
     ...               'comp.graphics', 'sci.space']
     >>> newsgroups_train = fetch_20newsgroups(subset='train',
@@ -115,7 +115,7 @@ Features                  text
     >>> vectors.nnz / float(vectors.shape[0])
     159.01327...
 
-  :func:`sklearn.datasets.fetch_20newsgroups_vectorized` is a function which
+  :func:`sklearn_dual.datasets.fetch_20newsgroups_vectorized` is a function which
   returns ready-to-use token counts features instead of file names.
 
 .. dropdown:: Filtering text for more realistic training
@@ -128,8 +128,8 @@ Features                  text
   For example, let's look at the results of a multinomial Naive Bayes classifier,
   which is fast to train and achieves a decent F-score::
 
-    >>> from sklearn.naive_bayes import MultinomialNB
-    >>> from sklearn import metrics
+    >>> from sklearn_dual.naive_bayes import MultinomialNB
+    >>> from sklearn_dual import metrics
     >>> newsgroups_test = fetch_20newsgroups(subset='test',
     ...                                      categories=categories)
     >>> vectors_test = vectorizer.transform(newsgroups_test.data)

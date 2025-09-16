@@ -29,7 +29,7 @@ for tag in min_depencies_tag_to_packages_without_version:
 def test_min_dependencies_readme():
     # Test that the minimum dependencies in the README.rst file are
     # consistent with the minimum dependencies defined at the file:
-    # sklearn/_min_dependencies.py
+    # sklearn_dual/_min_dependencies.py
 
     pattern = re.compile(
         r"(\.\. \|)"
@@ -38,7 +38,7 @@ def test_min_dependencies_readme():
         + r"( [0-9]+\.[0-9]+(\.[0-9]+)?)"
     )
 
-    readme_path = Path(sklearn.__file__).parent.parent
+    readme_path = Path(sklearn_dual.__file__).parent.parent
     readme_file = readme_path / "README.rst"
 
     if not os.path.exists(readme_file):
@@ -76,7 +76,7 @@ def check_pyproject_section(
         min_dependencies_tag
     ]
 
-    root_directory = Path(sklearn.__file__).parent.parent
+    root_directory = Path(sklearn_dual.__file__).parent.parent
     pyproject_toml_path = root_directory / "pyproject.toml"
 
     if not pyproject_toml_path.exists():

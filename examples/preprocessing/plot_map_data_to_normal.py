@@ -3,7 +3,7 @@
 Map data to a normal distribution
 =================================
 
-.. currentmodule:: sklearn.preprocessing
+.. currentmodule:: sklearn_dual.preprocessing
 
 This example demonstrates the use of the Box-Cox and Yeo-Johnson transforms
 through :class:`~PowerTransformer` to map data from various

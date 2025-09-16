@@ -7,11 +7,11 @@ This example demonstrates Gradient Boosting to produce a predictive
 model from an ensemble of weak predictive models. Gradient boosting can be used
 for regression and classification problems. Here, we will train a model to
 tackle a diabetes regression task. We will obtain the results from
-:class:`~sklearn.ensemble.GradientBoostingRegressor` with least squares loss
+:class:`~sklearn_dual.ensemble.GradientBoostingRegressor` with least squares loss
 and 500 regression trees of depth 4.
 
 Note: For larger datasets (n_samples >= 10000), please refer to
-:class:`~sklearn.ensemble.HistGradientBoostingRegressor`. See
+:class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`. See
 :ref:`sphx_glr_auto_examples_ensemble_plot_hgbt_regression.py` for an example
 showcasing some other advantages of
 :class:`~ensemble.HistGradientBoostingRegressor`.
@@ -61,7 +61,7 @@ X, y = diabetes.data, diabetes.target
 #
 # `loss` : loss function to optimize. The least squares function is  used in
 # this case however, there are many other options (see
-# :class:`~sklearn.ensemble.GradientBoostingRegressor` ).
+# :class:`~sklearn_dual.ensemble.GradientBoostingRegressor` ).
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.1, random_state=13

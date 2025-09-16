@@ -134,7 +134,7 @@ def test_pairwise_distances_for_dense_data(global_dtype):
     assert_allclose(S, S2)
 
     # Test cosine as a string metric versus cosine callable
-    # The string "cosine" uses sklearn.metric,
+    # The string "cosine" uses sklearn_dual.metric,
     # while the function cosine is scipy.spatial
     S = pairwise_distances(X, Y, metric="cosine")
     S2 = pairwise_distances(X, Y, metric=cosine)

@@ -4,7 +4,7 @@
 Array API support (experimental)
 ================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 The `Array API <https://data-apis.org/array-api/latest/>`_ specification defines
 a standard API for all array manipulation libraries with a NumPy-like API.
@@ -31,9 +31,9 @@ Here is an example code snippet to demonstrate how to use `CuPy
 <https://cupy.dev/>`_ to run
 :class:`~discriminant_analysis.LinearDiscriminantAnalysis` on a GPU::
 
-    >>> from sklearn.datasets import make_classification
-    >>> from sklearn import config_context
-    >>> from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+    >>> from sklearn_dual.datasets import make_classification
+    >>> from sklearn_dual import config_context
+    >>> from sklearn_dual.discriminant_analysis import LinearDiscriminantAnalysis
     >>> import cupy
 
     >>> X_np, y_np = make_classification(random_state=0)
@@ -54,7 +54,7 @@ Array API namespace was used for training, then fitted attributes will be on the
 GPU. We provide a experimental `_estimator_with_converted_arrays` utility that
 transfers an estimator attributes from Array API to a ndarray::
 
-    >>> from sklearn.utils._array_api import _estimator_with_converted_arrays
+    >>> from sklearn_dual.utils._array_api import _estimator_with_converted_arrays
     >>> cupy_to_ndarray = lambda array : array.get()
     >>> lda_np = _estimator_with_converted_arrays(lda, cupy_to_ndarray)
     >>> X_trans = lda_np.transform(X_np)
@@ -112,26 +112,26 @@ base estimator also does:
 Metrics
 -------
 
-- :func:`sklearn.metrics.cluster.entropy`
-- :func:`sklearn.metrics.accuracy_score`
-- :func:`sklearn.metrics.d2_tweedie_score`
-- :func:`sklearn.metrics.max_error`
-- :func:`sklearn.metrics.mean_absolute_error`
-- :func:`sklearn.metrics.mean_absolute_percentage_error`
-- :func:`sklearn.metrics.mean_gamma_deviance`
-- :func:`sklearn.metrics.mean_poisson_deviance` (requires `enabling array API support for SciPy <https://docs.scipy.org/doc/scipy/dev/api-dev/array_api.html#using-array-api-standard-support>`_)
-- :func:`sklearn.metrics.mean_squared_error`
-- :func:`sklearn.metrics.mean_tweedie_deviance`
-- :func:`sklearn.metrics.pairwise.additive_chi2_kernel`
-- :func:`sklearn.metrics.pairwise.chi2_kernel`
-- :func:`sklearn.metrics.pairwise.cosine_similarity`
-- :func:`sklearn.metrics.pairwise.cosine_distances`
-- :func:`sklearn.metrics.pairwise.euclidean_distances` (see :ref:`device_support_for_float64`)
-- :func:`sklearn.metrics.pairwise.paired_cosine_distances`
-- :func:`sklearn.metrics.pairwise.paired_euclidean_distances`
-- :func:`sklearn.metrics.pairwise.rbf_kernel` (see :ref:`device_support_for_float64`)
-- :func:`sklearn.metrics.r2_score`
-- :func:`sklearn.metrics.zero_one_loss`
+- :func:`sklearn_dual.metrics.cluster.entropy`
+- :func:`sklearn_dual.metrics.accuracy_score`
+- :func:`sklearn_dual.metrics.d2_tweedie_score`
+- :func:`sklearn_dual.metrics.max_error`
+- :func:`sklearn_dual.metrics.mean_absolute_error`
+- :func:`sklearn_dual.metrics.mean_absolute_percentage_error`
+- :func:`sklearn_dual.metrics.mean_gamma_deviance`
+- :func:`sklearn_dual.metrics.mean_poisson_deviance` (requires `enabling array API support for SciPy <https://docs.scipy.org/doc/scipy/dev/api-dev/array_api.html#using-array-api-standard-support>`_)
+- :func:`sklearn_dual.metrics.mean_squared_error`
+- :func:`sklearn_dual.metrics.mean_tweedie_deviance`
+- :func:`sklearn_dual.metrics.pairwise.additive_chi2_kernel`
+- :func:`sklearn_dual.metrics.pairwise.chi2_kernel`
+- :func:`sklearn_dual.metrics.pairwise.cosine_similarity`
+- :func:`sklearn_dual.metrics.pairwise.cosine_distances`
+- :func:`sklearn_dual.metrics.pairwise.euclidean_distances` (see :ref:`device_support_for_float64`)
+- :func:`sklearn_dual.metrics.pairwise.paired_cosine_distances`
+- :func:`sklearn_dual.metrics.pairwise.paired_euclidean_distances`
+- :func:`sklearn_dual.metrics.pairwise.rbf_kernel` (see :ref:`device_support_for_float64`)
+- :func:`sklearn_dual.metrics.r2_score`
+- :func:`sklearn_dual.metrics.zero_one_loss`
 
 Tools
 -----

@@ -72,7 +72,7 @@ class DecisionBoundaryDisplay:
     """Decisions boundary visualization.
 
     It is recommended to use
-    :func:`~sklearn.inspection.DecisionBoundaryDisplay.from_estimator`
+    :func:`~sklearn_dual.inspection.DecisionBoundaryDisplay.from_estimator`
     to create a :class:`DecisionBoundaryDisplay`. All parameters are stored as
     attributes.
 
@@ -176,7 +176,7 @@ class DecisionBoundaryDisplay:
 
         Returns
         -------
-        display: :class:`~sklearn.inspection.DecisionBoundaryDisplay`
+        display: :class:`~sklearn_dual.inspection.DecisionBoundaryDisplay`
             Object that stores computed values.
         """
         check_matplotlib_support("DecisionBoundaryDisplay.plot")
@@ -285,15 +285,15 @@ class DecisionBoundaryDisplay:
 
         Returns
         -------
-        display : :class:`~sklearn.inspection.DecisionBoundaryDisplay`
+        display : :class:`~sklearn_dual.inspection.DecisionBoundaryDisplay`
             Object that stores the result.
 
         See Also
         --------
         DecisionBoundaryDisplay : Decision boundary visualization.
-        sklearn.metrics.ConfusionMatrixDisplay.from_estimator : Plot the
+        sklearn_dual.metrics.ConfusionMatrixDisplay.from_estimator : Plot the
             confusion matrix given an estimator, the data, and the label.
-        sklearn.metrics.ConfusionMatrixDisplay.from_predictions : Plot the
+        sklearn_dual.metrics.ConfusionMatrixDisplay.from_predictions : Plot the
             confusion matrix given the true and predicted labels.
 
         Examples

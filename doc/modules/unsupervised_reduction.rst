@@ -16,7 +16,7 @@ example of this pattern that are heavily used.
     The unsupervised data reduction and the supervised estimator can be
     chained in one step. See :ref:`pipeline`.
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 PCA: principal component analysis
 ----------------------------------
@@ -31,7 +31,7 @@ capture well the variance of the original features. See :ref:`decompositions`.
 Random projections
 -------------------
 
-The module: :mod:`~sklearn.random_projection` provides several tools for data
+The module: :mod:`~sklearn_dual.random_projection` provides several tools for data
 reduction by random projections. See the relevant section of the
 documentation: :ref:`random_projection`.
 

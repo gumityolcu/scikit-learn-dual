@@ -117,7 +117,7 @@ exclude = '''
   | dist
   | doc/_build
   | doc/auto_examples
-  | sklearn/externals
+  | sklearn_dual/externals
   | asv_benchmarks/env
 )/
 '''
@@ -130,7 +130,7 @@ exclude=[
     ".git",
     "__pycache__",
     "dist",
-    "sklearn/externals",
+    "sklearn_dual/externals",
     "doc/_build",
     "doc/auto_examples",
     "build",
@@ -176,7 +176,7 @@ notice-rgx = "\\#\\ Authors:\\ The\\ scikit\\-learn\\ developers\\\r?\\\n\\#\\ S
 "benchmarks/*"=["CPY001"]
 "doc/*"=["CPY001"]
 "build_tools/*"=["CPY001"]
-"sklearn/_build_utils/*"=["CPY001"]
+"sklearn_dual/_build_utils/*"=["CPY001"]
 "maint_tools/*"=["CPY001"]
 ".spin/*"=["CPY001"]
 ".github/*"=["CPY001"]
@@ -184,7 +184,7 @@ notice-rgx = "\\#\\ Authors:\\ The\\ scikit\\-learn\\ developers\\\r?\\\n\\#\\ S
 "examples/model_selection/plot_precision_recall.py"=["CPY001"]
 "examples/svm/plot_rbf_parameters.py"=["CPY001"]
 # __all__ has un-imported names
-"sklearn/__init__.py"=["F822"]
+"sklearn_dual/__init__.py"=["F822"]
 
 
 [tool.cython-lint]
@@ -211,26 +211,26 @@ ignore = [
 exclude= '''
 (
     asv_benchmarks/
-  | sklearn/_loss/_loss.pyx
-  | sklearn/linear_model/_sag_fast.pyx
-  | sklearn/linear_model/_sgd_fast.pyx
-  | sklearn/utils/_seq_dataset.pyx
-  | sklearn/utils/_seq_dataset.pxd
-  | sklearn/utils/_weight_vector.pyx
-  | sklearn/utils/_weight_vector.pxd
-  | sklearn/metrics/_dist_metrics.pyx
-  | sklearn/metrics/_dist_metrics.pxd
-  | sklearn/metrics/_pairwise_distances_reduction/_argkmin.pxd
-  | sklearn/metrics/_pairwise_distances_reduction/_argkmin.pyx
-  | sklearn/metrics/_pairwise_distances_reduction/_argkmin_classmode.pyx
-  | sklearn/metrics/_pairwise_distances_reduction/_base.pxd
-  | sklearn/metrics/_pairwise_distances_reduction/_base.pyx
-  | sklearn/metrics/_pairwise_distances_reduction/_datasets_pair.pxd
-  | sklearn/metrics/_pairwise_distances_reduction/_datasets_pair.pyx
-  | sklearn/metrics/_pairwise_distances_reduction/_middle_term_computer.pxd
-  | sklearn/metrics/_pairwise_distances_reduction/_middle_term_computer.pyx
-  | sklearn/metrics/_pairwise_distances_reduction/_radius_neighbors.pxd
-  | sklearn/metrics/_pairwise_distances_reduction/_radius_neighbors.pyx
+  | sklearn_dual/_loss/_loss.pyx
+  | sklearn_dual/linear_model/_sag_fast.pyx
+  | sklearn_dual/linear_model/_sgd_fast.pyx
+  | sklearn_dual/utils/_seq_dataset.pyx
+  | sklearn_dual/utils/_seq_dataset.pxd
+  | sklearn_dual/utils/_weight_vector.pyx
+  | sklearn_dual/utils/_weight_vector.pxd
+  | sklearn_dual/metrics/_dist_metrics.pyx
+  | sklearn_dual/metrics/_dist_metrics.pxd
+  | sklearn_dual/metrics/_pairwise_distances_reduction/_argkmin.pxd
+  | sklearn_dual/metrics/_pairwise_distances_reduction/_argkmin.pyx
+  | sklearn_dual/metrics/_pairwise_distances_reduction/_argkmin_classmode.pyx
+  | sklearn_dual/metrics/_pairwise_distances_reduction/_base.pxd
+  | sklearn_dual/metrics/_pairwise_distances_reduction/_base.pyx
+  | sklearn_dual/metrics/_pairwise_distances_reduction/_datasets_pair.pxd
+  | sklearn_dual/metrics/_pairwise_distances_reduction/_datasets_pair.pyx
+  | sklearn_dual/metrics/_pairwise_distances_reduction/_middle_term_computer.pxd
+  | sklearn_dual/metrics/_pairwise_distances_reduction/_middle_term_computer.pyx
+  | sklearn_dual/metrics/_pairwise_distances_reduction/_radius_neighbors.pxd
+  | sklearn_dual/metrics/_pairwise_distances_reduction/_radius_neighbors.pyx
 )
 '''
 
@@ -241,7 +241,7 @@ git-only = [".*", "asv_benchmarks", "azure-pipelines.yml", "benchmarks", "build_
 default-ignore = false
 
 [tool.spin]
-package = "sklearn"  # name of your package
+package = "sklearn_dual"  # name of your package
 
 [tool.spin.commands]
 "Build" = [

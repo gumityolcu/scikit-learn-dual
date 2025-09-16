@@ -3,8 +3,8 @@ Successive Halving Iterations
 =============================
 
 This example illustrates how a successive halving search
-(:class:`~sklearn.model_selection.HalvingGridSearchCV` and
-:class:`~sklearn.model_selection.HalvingRandomSearchCV`)
+(:class:`~sklearn_dual.model_selection.HalvingGridSearchCV` and
+:class:`~sklearn_dual.model_selection.HalvingRandomSearchCV`)
 iteratively chooses the best parameter combination out of
 multiple candidates.
 
@@ -25,7 +25,7 @@ from sklearn_dual.model_selection import HalvingRandomSearchCV
 
 # %%
 # We first define the parameter space and train a
-# :class:`~sklearn.model_selection.HalvingRandomSearchCV` instance.
+# :class:`~sklearn_dual.model_selection.HalvingRandomSearchCV` instance.
 
 rng = np.random.RandomState(0)
 

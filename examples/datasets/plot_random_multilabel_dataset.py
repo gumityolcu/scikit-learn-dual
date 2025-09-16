@@ -3,7 +3,7 @@
 Plot randomly generated multilabel dataset
 ==============================================
 
-This illustrates the :func:`~sklearn.datasets.make_multilabel_classification`
+This illustrates the :func:`~sklearn_dual.datasets.make_multilabel_classification`
 dataset generator. Each sample consists of counts of two features (up to 50 in
 total), which are differently distributed in each of two classes.
 

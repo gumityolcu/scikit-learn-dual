@@ -5,8 +5,8 @@ administrator permission required for any of those). Then run:
 
 .. prompt:: bash
 
-  conda create -n sklearn-env -c conda-forge scikit-learn
-  conda activate sklearn-env
+  conda create -n sklearn_dual-env -c conda-forge scikit-learn
+  conda activate sklearn_dual-env
 
 In order to check your installation, you can use:
 
@@ -14,4 +14,4 @@ In order to check your installation, you can use:
 
   conda list scikit-learn  # show scikit-learn version and location
   conda list               # show all installed packages in the environment
-  python -c "import sklearn; sklearn.show_versions()"
+  python -c "import sklearn_dual; sklearn_dual.show_versions()"

@@ -69,10 +69,10 @@ class CalibratedClassifierCV(ClassifierMixin, MetaEstimatorMixin, BaseEstimator)
     using the testing subset. For prediction, predicted probabilities are
     averaged across these individual calibrated classifiers. When
     `ensemble=False`, cross-validation is used to obtain unbiased predictions,
-    via :func:`~sklearn.model_selection.cross_val_predict`, which are then
+    via :func:`~sklearn_dual.model_selection.cross_val_predict`, which are then
     used for calibration. For prediction, the base estimator, trained using all
     the data, is used. This is the prediction method implemented when
-    `probabilities=True` for :class:`~sklearn.svm.SVC` and :class:`~sklearn.svm.NuSVC`
+    `probabilities=True` for :class:`~sklearn_dual.svm.SVC` and :class:`~sklearn_dual.svm.NuSVC`
     estimators (see :ref:`User Guide <scores_probabilities>` for details).
 
     Already fitted classifiers can be calibrated via the parameter
@@ -90,7 +90,7 @@ class CalibratedClassifierCV(ClassifierMixin, MetaEstimatorMixin, BaseEstimator)
     estimator : estimator instance, default=None
         The classifier whose output need to be calibrated to provide more
         accurate `predict_proba` outputs. The default classifier is
-        a :class:`~sklearn.svm.LinearSVC`.
+        a :class:`~sklearn_dual.svm.LinearSVC`.
 
         .. versionadded:: 1.2
 
@@ -112,8 +112,8 @@ class CalibratedClassifierCV(ClassifierMixin, MetaEstimatorMixin, BaseEstimator)
         - An iterable yielding (train, test) splits as arrays of indices.
 
         For integer/None inputs, if ``y`` is binary or multiclass,
-        :class:`~sklearn.model_selection.StratifiedKFold` is used. If ``y`` is
-        neither binary nor multiclass, :class:`~sklearn.model_selection.KFold`
+        :class:`~sklearn_dual.model_selection.StratifiedKFold` is used. If ``y`` is
+        neither binary nor multiclass, :class:`~sklearn_dual.model_selection.KFold`
         is used.
 
         Refer to the :ref:`User Guide <cross_validation>` for the various
@@ -148,11 +148,11 @@ class CalibratedClassifierCV(ClassifierMixin, MetaEstimatorMixin, BaseEstimator)
         average predicted probabilities of all pairs.
 
         If `False`, `cv` is used to compute unbiased predictions, via
-        :func:`~sklearn.model_selection.cross_val_predict`, which are then
+        :func:`~sklearn_dual.model_selection.cross_val_predict`, which are then
         used for calibration. At prediction time, the classifier used is the
         `estimator` trained on all the data.
         Note that this method is also internally implemented  in
-        :mod:`sklearn.svm` estimators with the `probabilities=True` parameter.
+        :mod:`sklearn_dual.svm` estimators with the `probabilities=True` parameter.
 
         .. versionadded:: 0.24
 
@@ -511,7 +511,7 @@ class CalibratedClassifierCV(ClassifierMixin, MetaEstimatorMixin, BaseEstimator)
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = (
@@ -1033,8 +1033,8 @@ class CalibrationDisplay(_BinaryClassifierCurveDisplayMixin):
     """Calibration curve (also known as reliability diagram) visualization.
 
     It is recommended to use
-    :func:`~sklearn.calibration.CalibrationDisplay.from_estimator` or
-    :func:`~sklearn.calibration.CalibrationDisplay.from_predictions`
+    :func:`~sklearn_dual.calibration.CalibrationDisplay.from_estimator` or
+    :func:`~sklearn_dual.calibration.CalibrationDisplay.from_predictions`
     to create a `CalibrationDisplay`. All parameters are stored as attributes.
 
     Read more about calibration in the :ref:`User Guide <calibration>` and
@@ -1137,7 +1137,7 @@ class CalibrationDisplay(_BinaryClassifierCurveDisplayMixin):
 
         Returns
         -------
-        display : :class:`~sklearn.calibration.CalibrationDisplay`
+        display : :class:`~sklearn_dual.calibration.CalibrationDisplay`
             Object that stores computed values.
         """
         self.ax_, self.figure_, name = self._validate_plot_params(ax=ax, name=name)
@@ -1199,7 +1199,7 @@ class CalibrationDisplay(_BinaryClassifierCurveDisplayMixin):
         Parameters
         ----------
         estimator : estimator instance
-            Fitted classifier or a fitted :class:`~sklearn.pipeline.Pipeline`
+            Fitted classifier or a fitted :class:`~sklearn_dual.pipeline.Pipeline`
             in which the last estimator is a classifier. The classifier must
             have a :term:`predict_proba` method.
 
@@ -1245,7 +1245,7 @@ class CalibrationDisplay(_BinaryClassifierCurveDisplayMixin):
 
         Returns
         -------
-        display : :class:`~sklearn.calibration.CalibrationDisplay`.
+        display : :class:`~sklearn_dual.calibration.CalibrationDisplay`.
             Object that stores computed values.
 
         See Also
@@ -1361,7 +1361,7 @@ class CalibrationDisplay(_BinaryClassifierCurveDisplayMixin):
 
         Returns
         -------
-        display : :class:`~sklearn.calibration.CalibrationDisplay`.
+        display : :class:`~sklearn_dual.calibration.CalibrationDisplay`.
             Object that stores computed values.
 
         See Also

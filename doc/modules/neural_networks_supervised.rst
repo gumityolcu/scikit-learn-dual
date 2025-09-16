@@ -4,7 +4,7 @@
 Neural network models (supervised)
 ==================================
 
-.. currentmodule:: sklearn.neural_network
+.. currentmodule:: sklearn_dual.neural_network
 
 
 .. warning::
@@ -85,7 +85,7 @@ the training samples represented as floating point feature vectors; and array
 y of size (n_samples,), which holds the target values (class labels) for the
 training samples::
 
-    >>> from sklearn.neural_network import MLPClassifier
+    >>> from sklearn_dual.neural_network import MLPClassifier
     >>> X = [[0., 0.], [1., 1.]]
     >>> y = [0, 1]
     >>> clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
@@ -314,9 +314,9 @@ Tips on Practical Use
   attribute on the input vector X to [0, 1] or [-1, +1], or standardize
   it to have mean 0 and variance 1. Note that you must apply the *same*
   scaling to the test set for meaningful results.
-  You can use :class:`~sklearn.preprocessing.StandardScaler` for standardization.
+  You can use :class:`~sklearn_dual.preprocessing.StandardScaler` for standardization.
 
-    >>> from sklearn.preprocessing import StandardScaler  # doctest: +SKIP
+    >>> from sklearn_dual.preprocessing import StandardScaler  # doctest: +SKIP
     >>> scaler = StandardScaler()  # doctest: +SKIP
     >>> # Don't cheat - fit only on training data
     >>> scaler.fit(X_train)  # doctest: +SKIP
@@ -325,11 +325,11 @@ Tips on Practical Use
     >>> X_test = scaler.transform(X_test)  # doctest: +SKIP
 
   An alternative and recommended approach is to use
-  :class:`~sklearn.preprocessing.StandardScaler` in a
-  :class:`~sklearn.pipeline.Pipeline`
+  :class:`~sklearn_dual.preprocessing.StandardScaler` in a
+  :class:`~sklearn_dual.pipeline.Pipeline`
 
 * Finding a reasonable regularization parameter :math:`\alpha` is best done
-  using :class:`~sklearn.model_selection.GridSearchCV`, usually in the range
+  using :class:`~sklearn_dual.model_selection.GridSearchCV`, usually in the range
   ``10.0 ** -np.arange(1, 7)``.
 
 * Empirically, we observed that `L-BFGS` converges faster and

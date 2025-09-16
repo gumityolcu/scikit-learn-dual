@@ -3,7 +3,7 @@
 Nearest Neighbors Classification
 ================================
 
-This example shows how to use :class:`~sklearn.neighbors.KNeighborsClassifier`.
+This example shows how to use :class:`~sklearn_dual.neighbors.KNeighborsClassifier`.
 We train such a classifier on the iris dataset and observe the difference of the
 decision boundary obtained with regards to the parameter `weights`.
 """
@@ -36,7 +36,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_sta
 # :ref:`sphx_glr_auto_examples_preprocessing_plot_scaling_importance.py` for more
 # detailed information.
 #
-# Thus, we use a :class:`~sklearn.pipeline.Pipeline` to chain a scaler before to use
+# Thus, we use a :class:`~sklearn_dual.pipeline.Pipeline` to chain a scaler before to use
 # our classifier.
 from sklearn_dual.neighbors import KNeighborsClassifier
 from sklearn_dual.pipeline import Pipeline

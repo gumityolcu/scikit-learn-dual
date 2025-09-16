@@ -4,7 +4,7 @@
 Release Highlights for scikit-learn 1.4
 =======================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 We are pleased to announce the release of scikit-learn 1.4! Many bug fixes
 and improvements were added, as well as some new key features. We detail
@@ -168,7 +168,7 @@ from sklearn_dual.model_selection import GridSearchCV, cross_validate, GroupKFol
 
 # For now by default metadata routing is disabled, and need to be explicitly
 # enabled.
-sklearn.set_config(enable_metadata_routing=True)
+sklearn_dual.set_config(enable_metadata_routing=True)
 
 n_samples = 100
 X, y = make_regression(n_samples=n_samples, n_features=5, noise=0.5)
@@ -206,7 +206,7 @@ print("cv error on test sets:", results["test_mse"])
 
 # Setting the flag to the default `False` to avoid interference with other
 # scripts.
-sklearn.set_config(enable_metadata_routing=False)
+sklearn_dual.set_config(enable_metadata_routing=False)
 
 # %%
 # Improved memory and runtime efficiency for PCA on sparse data

@@ -31,7 +31,7 @@ foreach name: name_list
     pyx,
     dependencies: [np_dep],
     cython_args: cython_args,
-    subdir: 'sklearn/neighbors',
+    subdir: 'sklearn_dual/neighbors',
     install: true
 )
 endforeach
@@ -50,7 +50,7 @@ foreach ext_name, ext_dict : neighbors_extension_metadata
     dependencies: ext_dict.get('dependencies'),
     override_options : ext_dict.get('override_options', []),
     cython_args: cython_args,
-    subdir: 'sklearn/neighbors',
+    subdir: 'sklearn_dual/neighbors',
     install: true
   )
 endforeach

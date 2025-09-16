@@ -19,5 +19,5 @@ py.extension_module(
   _loss_pyx,
   cython_args: cython_args,
   install: true,
-  subdir: 'sklearn/_loss',
+  subdir: 'sklearn_dual/_loss',
 )

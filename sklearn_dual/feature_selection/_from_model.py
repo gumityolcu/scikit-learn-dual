@@ -150,9 +150,9 @@ class SelectFromModel(MetaEstimatorMixin, SelectorMixin, BaseEstimator):
         Also accepts a string that specifies an attribute name/path
         for extracting feature importance (implemented with `attrgetter`).
         For example, give `regressor_.coef_` in case of
-        :class:`~sklearn.compose.TransformedTargetRegressor`  or
+        :class:`~sklearn_dual.compose.TransformedTargetRegressor`  or
         `named_steps.clf.feature_importances_` in case of
-        :class:`~sklearn.pipeline.Pipeline` with its last step named `clf`.
+        :class:`~sklearn_dual.pipeline.Pipeline` with its last step named `clf`.
 
         If `callable`, overrides the default feature importance getter.
         The callable is passed with the fitted estimator and it should
@@ -436,7 +436,7 @@ class SelectFromModel(MetaEstimatorMixin, SelectorMixin, BaseEstimator):
                 .. versionchanged:: 1.4
                     `**partial_fit_params` are routed to the sub-estimator, if
                     `enable_metadata_routing=True` is set via
-                    :func:`~sklearn.set_config`, which allows for aliasing.
+                    :func:`~sklearn_dual.set_config`, which allows for aliasing.
 
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
@@ -507,7 +507,7 @@ class SelectFromModel(MetaEstimatorMixin, SelectorMixin, BaseEstimator):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__).add(

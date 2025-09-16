@@ -1,6 +1,6 @@
 .. include:: _contributors.rst
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 .. _release_notes_1_3:
 
@@ -23,14 +23,14 @@ Version 1.3.2
 Changelog
 ---------
 
-:mod:`sklearn.datasets`
+:mod:`sklearn_dual.datasets`
 .......................
 
 - |Fix| All dataset fetchers now accept `data_home` as any object that implements
   the :class:`os.PathLike` interface, for instance, :class:`pathlib.Path`.
   :pr:`27468` by :user:`Yao Xiao <Charlie-XIAO>`.
 
-:mod:`sklearn.decomposition`
+:mod:`sklearn_dual.decomposition`
 ............................
 
 - |Fix| Fixes a bug in :class:`decomposition.KernelPCA` by forcing the output of
@@ -38,7 +38,7 @@ Changelog
   arpack solver is used, it expects an array with a `dtype` attribute.
   :pr:`27583` by :user:`Guillaume Lemaitre <glemaitre>`.
 
-:mod:`sklearn.metrics`
+:mod:`sklearn_dual.metrics`
 ......................
 
 - |Fix| Fixes a bug for metrics using `zero_division=np.nan`
@@ -47,7 +47,7 @@ Changelog
   will be different in the sub-processes.
   :pr:`27573` by :user:`Guillaume Lemaitre <glemaitre>`.
 
-:mod:`sklearn.tree`
+:mod:`sklearn_dual.tree`
 ...................
 
 - |Fix| Do not leak data via non-initialized memory in decision tree pickle files and make
@@ -84,14 +84,14 @@ Changes impacting all modules
 Changelog
 ---------
 
-:mod:`sklearn.calibration`
+:mod:`sklearn_dual.calibration`
 ..........................
 
 - |Fix| :class:`calibration.CalibratedClassifierCV` can now handle models that
   produce large prediction scores. Before it was numerically unstable.
   :pr:`26913` by :user:`Omar Salman <OmarManzoor>`.
 
-:mod:`sklearn.cluster`
+:mod:`sklearn_dual.cluster`
 ......................
 
 - |Fix| :class:`cluster.BisectingKMeans` could crash when predicting on data
@@ -101,14 +101,14 @@ Changelog
 - |Fix| :class:`cluster.BisectingKMeans` now works with data that has a single feature.
   :pr:`27243` by :user:`Jérémie du Boisberranger <jeremiedbb>`.
 
-:mod:`sklearn.cross_decomposition`
+:mod:`sklearn_dual.cross_decomposition`
 ..................................
 
 - |Fix| :class:`cross_decomposition.PLSRegression` now automatically ravels the output
   of `predict` if fitted with one dimensional `y`.
   :pr:`26602` by :user:`Yao Xiao <Charlie-XIAO>`.
 
-:mod:`sklearn.ensemble`
+:mod:`sklearn_dual.ensemble`
 .......................
 
 - |Fix| Fix a bug in :class:`ensemble.AdaBoostClassifier` with `algorithm="SAMME"`
@@ -116,27 +116,27 @@ Changelog
   the sum of the scores should sum to zero for a sample).
   :pr:`26521` by :user:`Guillaume Lemaitre <glemaitre>`.
 
-:mod:`sklearn.feature_selection`
+:mod:`sklearn_dual.feature_selection`
 ................................
 
 - |Fix| :func:`feature_selection.mutual_info_regression` now correctly computes the
   result when `X` is of integer dtype. :pr:`26748` by :user:`Yao Xiao <Charlie-XIAO>`.
 
-:mod:`sklearn.impute`
+:mod:`sklearn_dual.impute`
 .....................
 
 - |Fix| :class:`impute.KNNImputer` now correctly adds a missing indicator column in
   ``transform`` when ``add_indicator`` is set to ``True`` and missing values are observed
   during ``fit``. :pr:`26600` by :user:`Shreesha Kumar Bhat <Shreesha3112>`.
 
-:mod:`sklearn.metrics`
+:mod:`sklearn_dual.metrics`
 ......................
 
 - |Fix| Scorers used with :func:`metrics.get_scorer` handle properly
   multilabel-indicator matrix.
   :pr:`27002` by :user:`Guillaume Lemaitre <glemaitre>`.
 
-:mod:`sklearn.mixture`
+:mod:`sklearn_dual.mixture`
 ......................
 
 - |Fix| The initialization of :class:`mixture.GaussianMixture` from user-provided
@@ -144,18 +144,18 @@ Changelog
   and has been fixed.
   :pr:`26416` by :user:`Yang Tao <mchikyt3>`.
 
-:mod:`sklearn.neighbors`
+:mod:`sklearn_dual.neighbors`
 ........................
 
 - |Fix| :meth:`neighbors.KNeighborsClassifier.predict` no longer raises an
   exception for `pandas.DataFrames` input.
   :pr:`26772` by :user:`Jérémie du Boisberranger <jeremiedbb>`.
 
-- |Fix| Reintroduce `sklearn.neighbors.BallTree.valid_metrics` and
-  `sklearn.neighbors.KDTree.valid_metrics` as public class attributes.
+- |Fix| Reintroduce `sklearn_dual.neighbors.BallTree.valid_metrics` and
+  `sklearn_dual.neighbors.KDTree.valid_metrics` as public class attributes.
   :pr:`26754` by :user:`Julien Jerphanion <jjerphan>`.
 
-- |Fix| :class:`sklearn.model_selection.HalvingRandomSearchCV` no longer raises
+- |Fix| :class:`sklearn_dual.model_selection.HalvingRandomSearchCV` no longer raises
   when the input to the `param_distributions` parameter is a list of dicts.
   :pr:`26893` by :user:`Stefanie Senger <StefanieSenger>`.
 
@@ -163,7 +163,7 @@ Changelog
   metric parameter `p` is in the range `0 < p < 1`, regardless of the `dtype` of `X`.
   :pr:`26760` by :user:`Shreesha Kumar Bhat <Shreesha3112>`.
 
-:mod:`sklearn.preprocessing`
+:mod:`sklearn_dual.preprocessing`
 ............................
 
 - |Fix| :class:`preprocessing.LabelEncoder` correctly accepts `y` as a keyword
@@ -173,7 +173,7 @@ Changelog
   when `sparse_output=True` and the output is configured to be pandas.
   :pr:`26931` by `Thomas Fan`_.
 
-:mod:`sklearn.tree`
+:mod:`sklearn_dual.tree`
 ...................
 
 - |Fix| :func:`tree.plot_tree` now accepts `class_names=True` as documented.
@@ -294,32 +294,32 @@ Changes impacting all modules
 
   This can improve the performance of following functions and estimators:
 
-  - :func:`sklearn.metrics.pairwise_distances_argmin`
-  - :func:`sklearn.metrics.pairwise_distances_argmin_min`
-  - :class:`sklearn.cluster.AffinityPropagation`
-  - :class:`sklearn.cluster.Birch`
-  - :class:`sklearn.cluster.MeanShift`
-  - :class:`sklearn.cluster.OPTICS`
-  - :class:`sklearn.cluster.SpectralClustering`
-  - :func:`sklearn.feature_selection.mutual_info_regression`
-  - :class:`sklearn.neighbors.KNeighborsClassifier`
-  - :class:`sklearn.neighbors.KNeighborsRegressor`
-  - :class:`sklearn.neighbors.RadiusNeighborsClassifier`
-  - :class:`sklearn.neighbors.RadiusNeighborsRegressor`
-  - :class:`sklearn.neighbors.LocalOutlierFactor`
-  - :class:`sklearn.neighbors.NearestNeighbors`
-  - :class:`sklearn.manifold.Isomap`
-  - :class:`sklearn.manifold.LocallyLinearEmbedding`
-  - :class:`sklearn.manifold.TSNE`
-  - :func:`sklearn.manifold.trustworthiness`
-  - :class:`sklearn.semi_supervised.LabelPropagation`
-  - :class:`sklearn.semi_supervised.LabelSpreading`
+  - :func:`sklearn_dual.metrics.pairwise_distances_argmin`
+  - :func:`sklearn_dual.metrics.pairwise_distances_argmin_min`
+  - :class:`sklearn_dual.cluster.AffinityPropagation`
+  - :class:`sklearn_dual.cluster.Birch`
+  - :class:`sklearn_dual.cluster.MeanShift`
+  - :class:`sklearn_dual.cluster.OPTICS`
+  - :class:`sklearn_dual.cluster.SpectralClustering`
+  - :func:`sklearn_dual.feature_selection.mutual_info_regression`
+  - :class:`sklearn_dual.neighbors.KNeighborsClassifier`
+  - :class:`sklearn_dual.neighbors.KNeighborsRegressor`
+  - :class:`sklearn_dual.neighbors.RadiusNeighborsClassifier`
+  - :class:`sklearn_dual.neighbors.RadiusNeighborsRegressor`
+  - :class:`sklearn_dual.neighbors.LocalOutlierFactor`
+  - :class:`sklearn_dual.neighbors.NearestNeighbors`
+  - :class:`sklearn_dual.manifold.Isomap`
+  - :class:`sklearn_dual.manifold.LocallyLinearEmbedding`
+  - :class:`sklearn_dual.manifold.TSNE`
+  - :func:`sklearn_dual.manifold.trustworthiness`
+  - :class:`sklearn_dual.semi_supervised.LabelPropagation`
+  - :class:`sklearn_dual.semi_supervised.LabelSpreading`
 
   A typical example of this performance improvement happens when passing a sparse
   CSR matrix to the `predict` or `transform` method of estimators that rely on
   a dense NumPy representation to store their fitted parameters (or the reverse).
 
-  For instance, :meth:`sklearn.neighbors.NearestNeighbors.kneighbors` is now up
+  For instance, :meth:`sklearn_dual.neighbors.NearestNeighbors.kneighbors` is now up
   to 2 times faster for this case on commonly available laptops.
 
   :pr:`25044` by :user:`Julien Jerphanion <jjerphan>`.
@@ -341,7 +341,7 @@ Experimental / Under Development
 - |MajorFeature| :ref:`Metadata routing <metadata_routing>`'s related base
   methods are included in this release. This feature is only available via the
   `enable_metadata_routing` feature flag which can be enabled using
-  :func:`sklearn.set_config` and :func:`sklearn.config_context`. For now this
+  :func:`sklearn_dual.set_config` and :func:`sklearn_dual.config_context`. For now this
   feature is mostly useful for third party developers to prepare their code
   base for metadata routing, and we strongly recommend that they also hide it
   behind the same feature flag, rather than having it enabled by default.
@@ -362,33 +362,33 @@ Changelog
     :pr:`123456` by :user:`Joe Bloggs <joeongithub>`.
     where 123456 is the *pull request* number, not the issue number.
 
-`sklearn`
+`sklearn_dual`
 .........
 
 - |Feature| Added a new option `skip_parameter_validation`, to the function
-  :func:`sklearn.set_config` and context manager :func:`sklearn.config_context`, that
+  :func:`sklearn_dual.set_config` and context manager :func:`sklearn_dual.config_context`, that
   allows to skip the validation of the parameters passed to the estimators and public
   functions. This can be useful to speed up the code but should be used with care
   because it can lead to unexpected behaviors or raise obscure error messages when
   setting invalid parameters.
   :pr:`25815` by :user:`Jérémie du Boisberranger <jeremiedbb>`.
 
-:mod:`sklearn.base`
+:mod:`sklearn_dual.base`
 ...................
 
-- |Feature| A `__sklearn_clone__` protocol is now available to override the
+- |Feature| A `__sklearn_dual_clone__` protocol is now available to override the
   default behavior of :func:`base.clone`. :pr:`24568` by `Thomas Fan`_.
 
 - |Fix| :class:`base.TransformerMixin` now currently keeps a namedtuple's class
   if `transform` returns a namedtuple. :pr:`26121` by `Thomas Fan`_.
 
-:mod:`sklearn.calibration`
+:mod:`sklearn_dual.calibration`
 ..........................
 
 - |Fix| :class:`calibration.CalibratedClassifierCV` now does not enforce sample
   alignment on `fit_params`. :pr:`25805` by `Adrin Jalali`_.
 
-:mod:`sklearn.cluster`
+:mod:`sklearn_dual.cluster`
 ......................
 
 - |MajorFeature| Added :class:`cluster.HDBSCAN`, a modern hierarchical density-based
@@ -426,7 +426,7 @@ Changelog
 - |API| The `Xred` argument in :func:`cluster.FeatureAgglomeration.inverse_transform`
   is renamed to `Xt` and will be removed in v1.5. :pr:`26503` by `Adrin Jalali`_.
 
-:mod:`sklearn.compose`
+:mod:`sklearn_dual.compose`
 ......................
 
 - |Fix| :class:`compose.ColumnTransformer` raises an informative error when the individual
@@ -437,7 +437,7 @@ Changelog
 - |Fix| :class:`compose.ColumnTransformer` correctly sets the output of the
   remainder when `set_output` is called. :pr:`26323` by `Thomas Fan`_.
 
-:mod:`sklearn.covariance`
+:mod:`sklearn_dual.covariance`
 .........................
 
 - |Fix| Allows `alpha=0` in :class:`covariance.GraphicalLasso` to be
@@ -463,7 +463,7 @@ Changelog
   :func:`covariance.graphical_lasso`, and :class:`covariance.GraphicalLassoCV`.
   :pr:`26033` by :user:`Genesis Valencia <genvalen>`.
 
-:mod:`sklearn.datasets`
+:mod:`sklearn_dual.datasets`
 .......................
 
 - |Enhancement| Allows to overwrite the parameters used to open the ARFF file using
@@ -487,7 +487,7 @@ Changelog
   is deprecated and will be removed in v1.5.
   :pr:`25784` by :user:`Jérémie du Boisberranger`.
 
-:mod:`sklearn.decomposition`
+:mod:`sklearn_dual.decomposition`
 ............................
 
 - |Efficiency| :class:`decomposition.MiniBatchDictionaryLearning` and
@@ -508,14 +508,14 @@ Changelog
   :class:`decomposition.MiniBatchNMF.inverse_transform` is renamed to `Xt` and
   will be removed in v1.5. :pr:`26503` by `Adrin Jalali`_.
 
-:mod:`sklearn.discriminant_analysis`
+:mod:`sklearn_dual.discriminant_analysis`
 ....................................
 
 - |Enhancement| :class:`discriminant_analysis.LinearDiscriminantAnalysis` now
   supports the `PyTorch <https://pytorch.org/>`__. See
   :ref:`array_api` for more details. :pr:`25956` by `Thomas Fan`_.
 
-:mod:`sklearn.ensemble`
+:mod:`sklearn_dual.ensemble`
 .......................
 
 - |Feature| :class:`ensemble.HistGradientBoostingRegressor` now supports
@@ -569,7 +569,7 @@ Changelog
   and :class:`ensemble.AdaBoostRegressor` that was introduced in :pr:`23819`.
   :pr:`26242` by :user:`Marko Toplak <markotoplak>`.
 
-:mod:`sklearn.exceptions`
+:mod:`sklearn_dual.exceptions`
 .........................
 
 - |Feature| Added :class:`exceptions.InconsistentVersionWarning` which is raised
@@ -577,7 +577,7 @@ Changelog
   inconsistent with the sckit-learn version the estimator was pickled with.
   :pr:`25297` by `Thomas Fan`_.
 
-:mod:`sklearn.feature_extraction`
+:mod:`sklearn_dual.feature_extraction`
 .................................
 
 - |API| :class:`feature_extraction.image.PatchExtractor` now follows the
@@ -586,16 +586,16 @@ Changelog
   Parameter validation only happens at `fit` time.
   :pr:`24230` by :user:`Guillaume Lemaitre <glemaitre>`.
 
-:mod:`sklearn.feature_selection`
+:mod:`sklearn_dual.feature_selection`
 ................................
 
-- |Enhancement| All selectors in :mod:`sklearn.feature_selection` will preserve
+- |Enhancement| All selectors in :mod:`sklearn_dual.feature_selection` will preserve
   a DataFrame's dtype when transformed. :pr:`25102` by `Thomas Fan`_.
 
 - |Fix| :class:`feature_selection.SequentialFeatureSelector`'s `cv` parameter
   now supports generators. :pr:`25973` by `Yao Xiao <Charlie-XIAO>`.
 
-:mod:`sklearn.impute`
+:mod:`sklearn_dual.impute`
 .....................
 
 - |Enhancement| Added the parameter `fill_value` to :class:`impute.IterativeImputer`.
@@ -604,7 +604,7 @@ Changelog
 - |Fix| :class:`impute.IterativeImputer` now correctly preserves the Pandas
   Index when the `set_config(transform_output="pandas")`. :pr:`26454` by `Thomas Fan`_.
 
-:mod:`sklearn.inspection`
+:mod:`sklearn_dual.inspection`
 .........................
 
 - |Enhancement| Added support for `sample_weight` in
@@ -619,14 +619,14 @@ Changelog
   and the `values` key will be removed in 1.5.
   :pr:`21809` and :pr:`25732` by `Thomas Fan`_.
 
-:mod:`sklearn.kernel_approximation`
+:mod:`sklearn_dual.kernel_approximation`
 ...................................
 
 - |Fix| :class:`kernel_approximation.AdditiveChi2Sampler` is now stateless.
   The `sample_interval_` attribute is deprecated and will be removed in 1.5.
   :pr:`25190` by :user:`Vincent Maladière <Vincent-Maladiere>`.
 
-:mod:`sklearn.linear_model`
+:mod:`sklearn_dual.linear_model`
 ...........................
 
 - |Efficiency| Avoid data scaling when `sample_weight=None` and other
@@ -661,13 +661,13 @@ Changelog
   estimators consistent with the rest of estimators.
   :pr:`25697` by :user:`John Pangas <jpangas>`.
 
-:mod:`sklearn.manifold`
+:mod:`sklearn_dual.manifold`
 .......................
 
 - |Fix| :class:`manifold.Isomap` now correctly preserves the Pandas
   Index when the `set_config(transform_output="pandas")`. :pr:`26454` by `Thomas Fan`_.
 
-:mod:`sklearn.metrics`
+:mod:`sklearn_dual.metrics`
 ......................
 
 - |Feature| Adds `zero_division=np.nan` to multiple classification metrics:
@@ -747,14 +747,14 @@ Changelog
 - |API| The `eps` parameter of the :func:`metrics.log_loss` has been deprecated and
   will be removed in 1.5. :pr:`25299` by :user:`Omar Salman <OmarManzoor>`.
 
-:mod:`sklearn.gaussian_process`
+:mod:`sklearn_dual.gaussian_process`
 ...............................
 
 - |Fix| :class:`gaussian_process.GaussianProcessRegressor` has a new argument
   `n_targets`, which is used to decide the number of outputs when sampling
   from the prior distributions. :pr:`23099` by :user:`Zhehao Liu <MaxwellLZH>`.
 
-:mod:`sklearn.mixture`
+:mod:`sklearn_dual.mixture`
 ......................
 
 - |Efficiency| :class:`mixture.GaussianMixture` is more efficient now and will bypass
@@ -762,7 +762,7 @@ Changelog
   given by users.
   :pr:`26021` by :user:`Jiawei Zhang <jiawei-zhang-a>`.
 
-:mod:`sklearn.model_selection`
+:mod:`sklearn_dual.model_selection`
 ..............................
 
 - |MajorFeature| Added the class :class:`model_selection.ValidationCurveDisplay`
@@ -781,7 +781,7 @@ Changelog
   `return_indices` to return the train-test indices of each cv split.
   :pr:`25659` by :user:`Guillaume Lemaitre <glemaitre>`.
 
-:mod:`sklearn.multioutput`
+:mod:`sklearn_dual.multioutput`
 ..........................
 
 - |Fix| :func:`getattr` on :meth:`multioutput.MultiOutputRegressor.partial_fit`
@@ -789,14 +789,14 @@ Changelog
   an `AttributeError` if done before calling `fit`. :pr:`26333` by `Adrin
   Jalali`_.
 
-:mod:`sklearn.naive_bayes`
+:mod:`sklearn_dual.naive_bayes`
 ..........................
 
 - |Fix| :class:`naive_bayes.GaussianNB` does not raise anymore a `ZeroDivisionError`
   when the provided `sample_weight` reduces the problem to a single class in `fit`.
   :pr:`24140` by :user:`Jonathan Ohayon <Johayon>` and :user:`Chiara Marmo <cmarmo>`.
 
-:mod:`sklearn.neighbors`
+:mod:`sklearn_dual.neighbors`
 ........................
 
 - |Enhancement| The performance of :meth:`neighbors.KNeighborsClassifier.predict`
@@ -812,7 +812,7 @@ Changelog
   callables in :class:`neighbors.NearestNeighbors` is deprecated and will be removed in
   version 1.5. :pr:`24083` by :user:`Valentin Laurent <Valentin-Laurent>`.
 
-:mod:`sklearn.neural_network`
+:mod:`sklearn_dual.neural_network`
 .............................
 
 - |Fix| :class:`neural_network.MLPRegressor` and :class:`neural_network.MLPClassifier`
@@ -821,7 +821,7 @@ Changelog
   of iterations performed since the initialization of the estimator.
   :pr:`25443` by :user:`Marvin Krawutschke <Marvvxi>`.
 
-:mod:`sklearn.pipeline`
+:mod:`sklearn_dual.pipeline`
 .......................
 
 - |Feature| :class:`pipeline.FeatureUnion` can now use indexing notation (e.g.
@@ -838,7 +838,7 @@ Changelog
   if the last step of the pipeline does not support `fit_transform`.
   :pr:`26325` by `Adrin Jalali`_.
 
-:mod:`sklearn.preprocessing`
+:mod:`sklearn_dual.preprocessing`
 ............................
 
 - |MajorFeature| Introduces :class:`preprocessing.TargetEncoder` which is a
@@ -899,14 +899,14 @@ Changelog
   version 1.5 when `strategy="kmeans"` or `strategy="uniform"`.
   :pr:`26424` by :user:`Jérémie du Boisberranger <jeremiedbb>`.
 
-:mod:`sklearn.svm`
+:mod:`sklearn_dual.svm`
 ..................
 
 - |API| `dual` parameter now accepts `auto` option for
   :class:`svm.LinearSVC` and :class:`svm.LinearSVR`.
   :pr:`26093` by :user:`Gleb Levitski <glevv>`.
 
-:mod:`sklearn.tree`
+:mod:`sklearn_dual.tree`
 ...................
 
 - |MajorFeature| :class:`tree.DecisionTreeRegressor` and
@@ -924,7 +924,7 @@ Changelog
   `feature_names` and `class_names` as array-like rather than lists.
   :pr:`26289` by :user:`Yao Xiao <Charlie-XIAO>`
 
-:mod:`sklearn.utils`
+:mod:`sklearn_dual.utils`
 ....................
 
 - |FIX| Fixes :func:`utils.check_array` to properly convert pandas
@@ -945,7 +945,7 @@ Changelog
   :pr:`25733` by :user:`Brigitta Sipőcz <bsipocz>` and
   :user:`Jérémie du Boisberranger <jeremiedbb>`.
 
-:mod:`sklearn.semi_supervised`
+:mod:`sklearn_dual.semi_supervised`
 ..............................
 
 - |Enhancement| :meth:`semi_supervised.LabelSpreading.fit` and

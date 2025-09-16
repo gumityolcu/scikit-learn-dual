@@ -17,9 +17,9 @@ example.
 
 On the second part of the example we show how Principal Component Analysis (PCA)
 is impacted by normalization of features. To illustrate this, we compare the
-principal components found using :class:`~sklearn.decomposition.PCA` on unscaled
+principal components found using :class:`~sklearn_dual.decomposition.PCA` on unscaled
 data with those obatined when using a
-:class:`~sklearn.preprocessing.StandardScaler` to scale data first.
+:class:`~sklearn_dual.preprocessing.StandardScaler` to scale data first.
 
 In the last part of the example we show the effect of the normalization on the
 accuracy of a model trained on PCA-reduced data.
@@ -56,7 +56,7 @@ scaled_X_train = scaler.fit_transform(X_train)
 # ===========================================
 #
 # For the sake of visualizing the decision boundary of a
-# :class:`~sklearn.neighbors.KNeighborsClassifier`, in this section we select a
+# :class:`~sklearn_dual.neighbors.KNeighborsClassifier`, in this section we select a
 # subset of 2 features that have values with different orders of magnitude.
 #
 # Keep in mind that using a subset of the features to train the model may likely
@@ -106,17 +106,17 @@ _ = ax2.set_title("KNN with scaling")
 # between 1 and 10. Because of this, distances between samples are mostly
 # impacted by differences in values of "proline", while values of the "hue" will
 # be comparatively ignored. If one uses
-# :class:`~sklearn.preprocessing.StandardScaler` to normalize this database,
+# :class:`~sklearn_dual.preprocessing.StandardScaler` to normalize this database,
 # both scaled values lay approximately between -3 and 3 and the neighbors
 # structure will be impacted more or less equivalently by both variables.
 #
 # Effect of rescaling on a PCA dimensional reduction
 # ==================================================
 #
-# Dimensional reduction using :class:`~sklearn.decomposition.PCA` consists of
+# Dimensional reduction using :class:`~sklearn_dual.decomposition.PCA` consists of
 # finding the features that maximize the variance. If one feature varies more
 # than the others only because of their respective scales,
-# :class:`~sklearn.decomposition.PCA` would determine that such feature
+# :class:`~sklearn_dual.decomposition.PCA` would determine that such feature
 # dominates the direction of the principal components.
 #
 # We can inspect the first principal components using all the original features:
@@ -196,7 +196,7 @@ _ = plt.tight_layout()
 # ==========================================
 #
 # First we show how the optimal regularization of a
-# :class:`~sklearn.linear_model.LogisticRegressionCV` depends on the scaling or
+# :class:`~sklearn_dual.linear_model.LogisticRegressionCV` depends on the scaling or
 # non-scaling of the data:
 
 import numpy as np
@@ -238,10 +238,10 @@ print(f"{log_loss(y_test, y_proba_scaled):.3}")
 
 # %%
 # A clear difference in prediction accuracies is observed when the data is
-# scaled before :class:`~sklearn.decomposition.PCA`, as it vastly outperforms
+# scaled before :class:`~sklearn_dual.decomposition.PCA`, as it vastly outperforms
 # the unscaled version. This corresponds to the intuition obtained from the plot
 # in the previous section, where the components become linearly separable when
-# scaling before using :class:`~sklearn.decomposition.PCA`.
+# scaling before using :class:`~sklearn_dual.decomposition.PCA`.
 #
 # Notice that in this case the models with scaled features perform better than
 # the models with non-scaled features because all the variables are expected to

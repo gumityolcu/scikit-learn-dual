@@ -1,8 +1,8 @@
 [run]
 branch = True
-source = sklearn
+source = sklearn_dual
 parallel = True
 omit =
-    */sklearn/externals/*
-    */sklearn/_build_utils/*
+    */sklearn_dual/externals/*
+    */sklearn_dual/_build_utils/*
     */benchmarks/*

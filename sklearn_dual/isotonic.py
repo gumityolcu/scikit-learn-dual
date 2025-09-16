@@ -237,9 +237,9 @@ class IsotonicRegression(RegressorMixin, TransformerMixin, BaseEstimator):
 
     See Also
     --------
-    sklearn.linear_model.LinearRegression : Ordinary least squares Linear
+    sklearn_dual.linear_model.LinearRegression : Ordinary least squares Linear
         Regression.
-    sklearn.ensemble.HistGradientBoostingRegressor : Gradient boosting that
+    sklearn_dual.ensemble.HistGradientBoostingRegressor : Gradient boosting that
         is a non-parametric model accepting monotonicity constraints.
     isotonic_regression : Function to solve the isotonic regression model.
 

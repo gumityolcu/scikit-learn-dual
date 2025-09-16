@@ -453,7 +453,7 @@ print(scores)
 # %%
 #
 # We conclude that the claim amount is very challenging to predict. Still, the
-# :class:`~sklearn.linear_model.GammaRegressor` is able to leverage some
+# :class:`~sklearn_dual.linear_model.GammaRegressor` is able to leverage some
 # information from the input features to slightly improve upon the mean
 # baseline in terms of D².
 #
@@ -534,7 +534,7 @@ plt.tight_layout()
 # Poisson-Gamma distribution of the total claim amount. This is equivalent to
 # a Tweedie distribution with a `power` parameter between 1 and 2.
 #
-# The :func:`sklearn.metrics.mean_tweedie_deviance` depends on a `power`
+# The :func:`sklearn_dual.metrics.mean_tweedie_deviance` depends on a `power`
 # parameter. As we do not know the true value of the `power` parameter, we here
 # compute the mean deviances for a grid of possible values, and compare the
 # models side by side, i.e. we compare them at identical values of `power`.

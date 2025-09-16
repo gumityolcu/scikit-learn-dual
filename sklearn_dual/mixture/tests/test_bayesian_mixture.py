@@ -219,7 +219,7 @@ def test_bayesian_mixture_weights():
     assert_almost_equal(np.sum(dpgmm.weights_), 1.0)
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 def test_monotonic_likelihood():
     # We check that each step of the each step of variational inference without
     # regularization improve monotonically the training set of the bound
@@ -324,7 +324,7 @@ def test_compare_covar_type():
         assert_almost_equal(spherical_covariances, np.mean(diag_covariances, 1))
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 def test_check_covariance_precision():
     # We check that the dot product of the covariance and the precision
     # matrices is identity.

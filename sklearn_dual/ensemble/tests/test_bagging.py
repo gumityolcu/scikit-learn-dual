@@ -1,5 +1,5 @@
 """
-Testing for the bagging ensemble module (sklearn.ensemble.bagging).
+Testing for the bagging ensemble module (sklearn_dual.ensemble.bagging).
 """
 
 # Authors: The scikit-learn developers
@@ -957,7 +957,7 @@ def test_bagging_allow_nan_tag(bagging, expected_allow_nan):
 )
 def test_bagging_with_metadata_routing(model):
     """Make sure that metadata routing works with non-default estimator."""
-    with sklearn.config_context(enable_metadata_routing=True):
+    with sklearn_dual.config_context(enable_metadata_routing=True):
         model.fit(iris.data, iris.target)
 
 

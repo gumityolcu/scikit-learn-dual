@@ -3,5 +3,5 @@
 Cross decomposition
 -------------------
 
-Examples concerning the :mod:`sklearn.cross_decomposition` module.
+Examples concerning the :mod:`sklearn_dual.cross_decomposition` module.
 

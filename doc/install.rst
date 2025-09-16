@@ -72,8 +72,8 @@ Installing the latest release
 
           .. prompt:: powershell
 
-            python -m venv sklearn-env
-            sklearn-env\Scripts\activate  # activate
+            python -m venv sklearn_dual-env
+            sklearn_dual-env\Scripts\activate  # activate
             pip install -U scikit-learn
 
           In order to check your installation, you can use:
@@ -82,7 +82,7 @@ Installing the latest release
 
             python -m pip show scikit-learn  # show scikit-learn version and location
             python -m pip freeze             # show all installed packages in the environment
-            python -c "import sklearn; sklearn.show_versions()"
+            python -c "import sklearn_dual; sklearn_dual.show_versions()"
 
         .. tab-item:: conda
           :class-label: tab-6
@@ -111,8 +111,8 @@ Installing the latest release
 
           .. prompt:: bash
 
-            python -m venv sklearn-env
-            source sklearn-env/bin/activate  # activate
+            python -m venv sklearn_dual-env
+            source sklearn_dual-env/bin/activate  # activate
             pip install -U scikit-learn
 
           In order to check your installation, you can use:
@@ -121,7 +121,7 @@ Installing the latest release
 
             python -m pip show scikit-learn  # show scikit-learn version and location
             python -m pip freeze             # show all installed packages in the environment
-            python -c "import sklearn; sklearn.show_versions()"
+            python -c "import sklearn_dual; sklearn_dual.show_versions()"
 
         .. tab-item:: conda
           :class-label: tab-6
@@ -157,8 +157,8 @@ Installing the latest release
 
           .. prompt:: bash
 
-            python3 -m venv sklearn-env
-            source sklearn-env/bin/activate  # activate
+            python3 -m venv sklearn_dual-env
+            source sklearn_dual-env/bin/activate  # activate
             pip3 install -U scikit-learn
 
           In order to check your installation, you can use:
@@ -167,7 +167,7 @@ Installing the latest release
 
             python3 -m pip show scikit-learn  # show scikit-learn version and location
             python3 -m pip freeze             # show all installed packages in the environment
-            python3 -c "import sklearn; sklearn.show_versions()"
+            python3 -c "import sklearn_dual; sklearn_dual.show_versions()"
 
         .. tab-item:: conda
           :class-label: tab-6
@@ -254,15 +254,15 @@ Debian/Ubuntu
 -------------
 
 The Debian/Ubuntu package is split in three different packages called
-``python3-sklearn`` (python modules), ``python3-sklearn-lib`` (low-level
-implementations and bindings), ``python3-sklearn-doc`` (documentation).
+``python3-sklearn_dual`` (python modules), ``python3-sklearn_dual-lib`` (low-level
+implementations and bindings), ``python3-sklearn_dual-doc`` (documentation).
 Note that scikit-learn requires Python 3, hence the need to use the `python3-`
 suffixed package names.
 Packages can be installed using ``apt-get``:
 
 .. prompt:: bash
 
-  sudo apt-get install python3-sklearn python3-sklearn-lib python3-sklearn-doc
+  sudo apt-get install python3-sklearn_dual python3-sklearn_dual-lib python3-sklearn_dual-doc
 
 
 Fedora
@@ -330,7 +330,7 @@ documentation for more details on usage scenarios. Direct export example:
 
 .. prompt:: python >>>
 
-  from sklearnex.neighbors import NearestNeighbors
+  from sklearn_dualex.neighbors import NearestNeighbors
 
 Compatibility with the standard scikit-learn solvers is checked by running the
 full scikit-learn test suite via automated continuous integration as reported
@@ -366,7 +366,7 @@ size limit of Windows if Python is installed in a nested location such as the
     Collecting scikit-learn
     ...
     Installing collected packages: scikit-learn
-    ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory: 'C:\\Users\\username\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python37\\site-packages\\sklearn\\datasets\\tests\\data\\openml\\292\\api-v1-json-data-list-data_name-australian-limit-2-data_version-1-status-deactivated.json.gz'
+    ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory: 'C:\\Users\\username\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python37\\site-packages\\sklearn_dual\\datasets\\tests\\data\\openml\\292\\api-v1-json-data-list-data_name-australian-limit-2-data_version-1-status-deactivated.json.gz'
 
 In this case it is possible to lift that limit in the Windows registry by
 using the ``regedit`` tool:

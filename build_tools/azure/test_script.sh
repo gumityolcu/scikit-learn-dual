@@ -14,7 +14,7 @@ if [[ "$BUILD_REASON" == "Schedule" ]]; then
     export SKLEARN_TESTS_GLOBAL_RANDOM_SEED=$(($RANDOM % 100))
     echo "To reproduce this test run, set the following environment variable:"
     echo "    SKLEARN_TESTS_GLOBAL_RANDOM_SEED=$SKLEARN_TESTS_GLOBAL_RANDOM_SEED",
-    echo "See: https://scikit-learn.org/dev/computing/parallelism.html#sklearn-tests-global-random-seed"
+    echo "See: https://scikit-learn.org/dev/computing/parallelism.html#sklearn_dual-tests-global-random-seed"
 
     # Enable global dtype fixture for all nightly builds to discover
     # numerical-sensitive tests.
@@ -35,7 +35,7 @@ cd $TEST_DIR
 
 python -c "import joblib; print(f'Number of cores (physical): \
 {joblib.cpu_count()} ({joblib.cpu_count(only_physical_cores=True)})')"
-python -c "import sklearn; sklearn.show_versions()"
+python -c "import sklearn_dual; sklearn_dual.show_versions()"
 
 show_installed_libraries
 
@@ -48,7 +48,7 @@ if [[ "$COVERAGE" == "true" ]]; then
     # report that otherwise hides the test failures and forces long scrolls in
     # the CI logs.
     export COVERAGE_PROCESS_START="$BUILD_SOURCESDIRECTORY/.coveragerc"
-    TEST_CMD="$TEST_CMD --cov-config='$COVERAGE_PROCESS_START' --cov sklearn --cov-report="
+    TEST_CMD="$TEST_CMD --cov-config='$COVERAGE_PROCESS_START' --cov sklearn_dual --cov-report="
 fi
 
 if [[ "$PYTEST_XDIST_VERSION" != "none" ]]; then
@@ -63,7 +63,7 @@ if [[ -n "$SELECTED_TESTS" ]]; then
     export SKLEARN_TESTS_GLOBAL_RANDOM_SEED="all"
 fi
 
-TEST_CMD="$TEST_CMD --pyargs sklearn"
+TEST_CMD="$TEST_CMD --pyargs sklearn_dual"
 
 set -x
 eval "$TEST_CMD"

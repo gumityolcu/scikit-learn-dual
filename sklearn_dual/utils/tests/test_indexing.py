@@ -109,7 +109,7 @@ def test_determine_key_type_slice_error():
 def test_determine_key_type_array_api(array_namespace, device, dtype_name):
     xp = _array_api_for_tests(array_namespace, device)
 
-    with sklearn.config_context(array_api_dispatch=True):
+    with sklearn_dual.config_context(array_api_dispatch=True):
         int_array_key = xp.asarray([1, 2, 3])
         assert _determine_key_type(int_array_key) == "int"
 

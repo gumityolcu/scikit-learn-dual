@@ -3,7 +3,7 @@
 Visualizations with Display Objects
 ===================================
 
-.. currentmodule:: sklearn.metrics
+.. currentmodule:: sklearn_dual.metrics
 
 In this example, we will construct display objects,
 :class:`ConfusionMatrixDisplay`, :class:`RocCurveDisplay`, and

@@ -38,7 +38,7 @@ cdef class Splitter:
     cdef public float64_t min_weight_leaf   # Minimum weight in a leaf
 
     cdef object random_state             # Random state
-    cdef uint32_t rand_r_state           # sklearn_rand_r random number state
+    cdef uint32_t rand_r_state           # sklearn_dual_rand_r random number state
 
     cdef intp_t[::1] samples             # Sample indices in X, y
     cdef intp_t n_samples                # X.shape[0]

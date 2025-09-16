@@ -150,7 +150,7 @@ def get_chunk_n_rows(row_bytes, *, max_n_rows=None, working_memory=None):
     working_memory : int or float, default=None
         The number of rows to fit inside this number of MiB will be
         returned. When None (default), the value of
-        ``sklearn.get_config()['working_memory']`` is used.
+        ``sklearn_dual.get_config()['working_memory']`` is used.
 
     Returns
     -------

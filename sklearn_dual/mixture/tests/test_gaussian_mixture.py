@@ -878,7 +878,7 @@ def test_warm_start(seed):
     assert h.converged_
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 def test_convergence_detected_with_warm_start():
     # We check that convergence is detected when warm_start=True
     rng = np.random.RandomState(0)
@@ -1115,7 +1115,7 @@ def test_sample():
             assert X_s.shape == (sample_size, n_features)
 
 
-@pytest.mark.filterwarnings("ignore::sklearn.exceptions.ConvergenceWarning")
+@pytest.mark.filterwarnings("ignore::sklearn_dual.exceptions.ConvergenceWarning")
 def test_init():
     # We check that by increasing the n_init number we have a better solution
     for random_state in range(15):
@@ -1401,7 +1401,7 @@ def test_gaussian_mixture_all_init_does_not_estimate_gaussian_parameters(
 
     mock = Mock(side_effect=_estimate_gaussian_parameters)
     monkeypatch.setattr(
-        sklearn.mixture._gaussian_mixture, "_estimate_gaussian_parameters", mock
+        sklearn_dual.mixture._gaussian_mixture, "_estimate_gaussian_parameters", mock
     )
 
     rng = np.random.RandomState(global_random_seed)

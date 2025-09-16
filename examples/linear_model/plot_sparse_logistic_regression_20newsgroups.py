@@ -35,7 +35,7 @@ from sklearn_dual.linear_model import LogisticRegression
 from sklearn_dual.model_selection import train_test_split
 from sklearn_dual.multiclass import OneVsRestClassifier
 
-warnings.filterwarnings("ignore", category=ConvergenceWarning, module="sklearn")
+warnings.filterwarnings("ignore", category=ConvergenceWarning, module="sklearn_dual")
 t0 = timeit.default_timer()
 
 # We use SAGA solver

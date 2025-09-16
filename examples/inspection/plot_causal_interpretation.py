@@ -98,7 +98,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # -----------------------------------------------
 #
 # First, we train a predictive model, a
-# :class:`~sklearn.linear_model.LinearRegression` model. In this experiment,
+# :class:`~sklearn_dual.linear_model.LinearRegression` model. In this experiment,
 # we assume that all variables used by the true generative model are available.
 from sklearn_dual.linear_model import LinearRegression
 from sklearn_dual.metrics import r2_score

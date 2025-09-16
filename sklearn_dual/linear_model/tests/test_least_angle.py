@@ -620,7 +620,7 @@ def test_lasso_lars_vs_lasso_cd_positive():
 
 
 def test_lasso_lars_vs_R_implementation():
-    # Test that sklearn LassoLars implementation agrees with the LassoLars
+    # Test that sklearn_dual LassoLars implementation agrees with the LassoLars
     # implementation available in R (lars library) when fit_intercept=False.
 
     # Let's generate the data used in the bug report 7778

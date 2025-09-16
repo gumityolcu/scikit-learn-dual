@@ -94,7 +94,7 @@ def _create_importances_bunch(baseline_score, permuted_score):
 
     Returns
     -------
-    importances : :class:`~sklearn.utils.Bunch`
+    importances : :class:`~sklearn_dual.utils.Bunch`
         Dictionary-like object, with the following attributes.
         importances_mean : ndarray, shape (n_features, )
             Mean of feature importance over `n_repeats`.
@@ -231,7 +231,7 @@ def permutation_importance(
 
     Returns
     -------
-    result : :class:`~sklearn.utils.Bunch` or dict of such instances
+    result : :class:`~sklearn_dual.utils.Bunch` or dict of such instances
         Dictionary-like object, with the following attributes.
 
         importances_mean : ndarray of shape (n_features, )

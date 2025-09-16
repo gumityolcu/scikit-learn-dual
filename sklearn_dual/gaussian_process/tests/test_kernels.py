@@ -237,11 +237,11 @@ def check_hyperparameters_equal(kernel1, kernel2):
 
 @pytest.mark.parametrize("kernel", kernels)
 def test_kernel_clone(kernel):
-    # Test that sklearn's clone works correctly on kernels.
+    # Test that sklearn_dual's clone works correctly on kernels.
     kernel_cloned = clone(kernel)
 
     # XXX: Should this be fixed?
-    # This differs from the sklearn's estimators equality check.
+    # This differs from the sklearn_dual's estimators equality check.
     assert kernel == kernel_cloned
     assert id(kernel) != id(kernel_cloned)
 

@@ -526,7 +526,7 @@ def ridge_regression(
         If True and if X is sparse, the method also returns the intercept,
         and the solver is automatically changed to 'sag'. This is only a
         temporary fix for fitting the intercept with sparse data. For dense
-        data, use sklearn.linear_model._preprocess_data before your regression.
+        data, use sklearn_dual.linear_model._preprocess_data before your regression.
 
         .. versionadded:: 0.17
 
@@ -555,8 +555,8 @@ def ridge_regression(
     Regularization improves the conditioning of the problem and
     reduces the variance of the estimates. Larger values specify stronger
     regularization. Alpha corresponds to ``1 / (2C)`` in other linear
-    models such as :class:`~sklearn.linear_model.LogisticRegression` or
-    :class:`~sklearn.svm.LinearSVC`. If an array is passed, penalties are
+    models such as :class:`~sklearn_dual.linear_model.LogisticRegression` or
+    :class:`~sklearn_dual.svm.LinearSVC`. If an array is passed, penalties are
     assumed to be specific to the targets. Hence they must correspond in
     number.
 
@@ -1166,7 +1166,7 @@ class Ridge(MultiOutputMixin, RegressorMixin, _BaseRidge):
     --------
     RidgeClassifier : Ridge classifier.
     RidgeCV : Ridge regression with built-in cross validation.
-    :class:`~sklearn.kernel_ridge.KernelRidge` : Kernel ridge regression
+    :class:`~sklearn_dual.kernel_ridge.KernelRidge` : Kernel ridge regression
         combines ridge regression with the kernel trick.
 
     Notes
@@ -1174,8 +1174,8 @@ class Ridge(MultiOutputMixin, RegressorMixin, _BaseRidge):
     Regularization improves the conditioning of the problem and
     reduces the variance of the estimates. Larger values specify stronger
     regularization. Alpha corresponds to ``1 / (2C)`` in other linear
-    models such as :class:`~sklearn.linear_model.LogisticRegression` or
-    :class:`~sklearn.svm.LinearSVC`.
+    models such as :class:`~sklearn_dual.linear_model.LogisticRegression` or
+    :class:`~sklearn_dual.svm.LinearSVC`.
 
     Examples
     --------
@@ -1354,8 +1354,8 @@ class RidgeClassifier(_RidgeClassifierMixin, _BaseRidge):
         improves the conditioning of the problem and reduces the variance of
         the estimates. Larger values specify stronger regularization.
         Alpha corresponds to ``1 / (2C)`` in other linear models such as
-        :class:`~sklearn.linear_model.LogisticRegression` or
-        :class:`~sklearn.svm.LinearSVC`.
+        :class:`~sklearn_dual.linear_model.LogisticRegression` or
+        :class:`~sklearn_dual.svm.LinearSVC`.
 
     fit_intercept : bool, default=True
         Whether to calculate the intercept for this model. If set to false, no
@@ -2306,7 +2306,7 @@ class _BaseRidgeCV(LinearModel):
             .. versionadded:: 1.5
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -2454,7 +2454,7 @@ class _BaseRidgeCV(LinearModel):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = (
@@ -2498,8 +2498,8 @@ class RidgeCV(MultiOutputMixin, RegressorMixin, _BaseRidgeCV):
         improves the conditioning of the problem and reduces the variance of
         the estimates. Larger values specify stronger regularization.
         Alpha corresponds to ``1 / (2C)`` in other linear models such as
-        :class:`~sklearn.linear_model.LogisticRegression` or
-        :class:`~sklearn.svm.LinearSVC`.
+        :class:`~sklearn_dual.linear_model.LogisticRegression` or
+        :class:`~sklearn_dual.svm.LinearSVC`.
         If using Leave-One-Out cross-validation, alphas must be strictly positive.
 
     fit_intercept : bool, default=True
@@ -2523,8 +2523,8 @@ class RidgeCV(MultiOutputMixin, RegressorMixin, _BaseRidgeCV):
         - An iterable yielding (train, test) splits as arrays of indices.
 
         For integer/None inputs, if ``y`` is binary or multiclass,
-        :class:`~sklearn.model_selection.StratifiedKFold` is used, else,
-        :class:`~sklearn.model_selection.KFold` is used.
+        :class:`~sklearn_dual.model_selection.StratifiedKFold` is used, else,
+        :class:`~sklearn_dual.model_selection.KFold` is used.
 
         Refer :ref:`User Guide <cross_validation>` for the various
         cross-validation strategies that can be used here.
@@ -2649,7 +2649,7 @@ class RidgeCV(MultiOutputMixin, RegressorMixin, _BaseRidgeCV):
             .. versionadded:: 1.5
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -2688,8 +2688,8 @@ class RidgeClassifierCV(_RidgeClassifierMixin, _BaseRidgeCV):
         improves the conditioning of the problem and reduces the variance of
         the estimates. Larger values specify stronger regularization.
         Alpha corresponds to ``1 / (2C)`` in other linear models such as
-        :class:`~sklearn.linear_model.LogisticRegression` or
-        :class:`~sklearn.svm.LinearSVC`.
+        :class:`~sklearn_dual.linear_model.LogisticRegression` or
+        :class:`~sklearn_dual.svm.LinearSVC`.
         If using Leave-One-Out cross-validation, alphas must be strictly positive.
 
     fit_intercept : bool, default=True
@@ -2856,7 +2856,7 @@ class RidgeClassifierCV(_RidgeClassifierMixin, _BaseRidgeCV):
             .. versionadded:: 1.5
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 

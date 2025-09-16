@@ -1,21 +1,21 @@
 """
 ========================================
-`__sklearn_is_fitted__` as Developer API
+`__sklearn_dual_is_fitted__` as Developer API
 ========================================
 
-The `__sklearn_is_fitted__` method is a convention used in scikit-learn for
+The `__sklearn_dual_is_fitted__` method is a convention used in scikit-learn for
 checking whether an estimator object has been fitted or not. This method is
 typically implemented in custom estimator classes that are built on top of
 scikit-learn's base classes like `BaseEstimator` or its subclasses.
 
-Developers should use :func:`~sklearn.utils.validation.check_is_fitted`
+Developers should use :func:`~sklearn_dual.utils.validation.check_is_fitted`
 at the beginning of all methods except `fit`. If they need to customize or
-speed-up the check, they can implement the `__sklearn_is_fitted__` method as
+speed-up the check, they can implement the `__sklearn_dual_is_fitted__` method as
 shown below.
 
 In this example the custom estimator showcases the usage of the
-`__sklearn_is_fitted__` method and the `check_is_fitted` utility function
-as developer APIs. The `__sklearn_is_fitted__` method checks fitted status
+`__sklearn_dual_is_fitted__` method and the `check_is_fitted` utility function
+as developer APIs. The `__sklearn_dual_is_fitted__` method checks fitted status
 by verifying the presence of the `_is_fitted` attribute.
 """
 
@@ -24,7 +24,7 @@ by verifying the presence of the `_is_fitted` attribute.
 # ------------------------------------------------------------
 # This code snippet defines a custom estimator class called `CustomEstimator`
 # that extends both the `BaseEstimator` and `ClassifierMixin` classes from
-# scikit-learn and showcases the usage of the `__sklearn_is_fitted__` method
+# scikit-learn and showcases the usage of the `__sklearn_dual_is_fitted__` method
 # and the `check_is_fitted` utility function.
 
 # Authors: The scikit-learn developers
@@ -68,7 +68,7 @@ class CustomEstimator(BaseEstimator, ClassifierMixin):
         # Perform scoring logic
         return 0.5
 
-    def __sklearn_is_fitted__(self):
+    def __sklearn_dual_is_fitted__(self):
         """
         Check fitted status and return a Boolean value.
         """

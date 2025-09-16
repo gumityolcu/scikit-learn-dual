@@ -158,7 +158,7 @@ def mean_shift(
 
         If None, the bandwidth is determined using a heuristic based on
         the median of all pairwise distances. This will take quadratic time in
-        the number of samples. The sklearn.cluster.estimate_bandwidth function
+        the number of samples. The sklearn_dual.cluster.estimate_bandwidth function
         can be used to do this more efficiently.
 
     seeds : array-like of shape (n_seeds, n_features) or None
@@ -319,7 +319,7 @@ class MeanShift(ClusterMixin, BaseEstimator):
         Bandwidth used in the flat kernel.
 
         If not given, the bandwidth is estimated using
-        sklearn.cluster.estimate_bandwidth; see the documentation for that
+        sklearn_dual.cluster.estimate_bandwidth; see the documentation for that
         function for hints on scalability (see also the Notes, below).
 
     seeds : array-like of shape (n_samples, n_features), default=None

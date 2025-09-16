@@ -653,9 +653,9 @@ class OneHotEncoder(_BaseEncoder):
     OrdinalEncoder : Performs an ordinal (integer)
       encoding of the categorical features.
     TargetEncoder : Encodes categorical features using the target.
-    sklearn.feature_extraction.DictVectorizer : Performs a one-hot encoding of
+    sklearn_dual.feature_extraction.DictVectorizer : Performs a one-hot encoding of
       dictionary items (also handles string-valued features).
-    sklearn.feature_extraction.FeatureHasher : Performs an approximate one-hot
+    sklearn_dual.feature_extraction.FeatureHasher : Performs an approximate one-hot
       encoding of dictionary items or strings.
     LabelBinarizer : Binarizes labels in a one-vs-all
       fashion.
@@ -904,7 +904,7 @@ class OneHotEncoder(_BaseEncoder):
         """Compute the transformed categories used for column `i`.
 
         1. If there are infrequent categories, the category is named
-        'infrequent_sklearn'.
+        'infrequent_sklearn_dual'.
         2. Dropped columns are removed when remove_dropped=True.
         """
         cats = self.categories_[i]
@@ -913,7 +913,7 @@ class OneHotEncoder(_BaseEncoder):
             infreq_map = self._default_to_infrequent_mappings[i]
             if infreq_map is not None:
                 frequent_mask = infreq_map < infreq_map.max()
-                infrequent_cat = "infrequent_sklearn"
+                infrequent_cat = "infrequent_sklearn_dual"
                 # infrequent category is always at the end
                 cats = np.concatenate(
                     (cats[frequent_mask], np.array([infrequent_cat], dtype=object))
@@ -965,7 +965,7 @@ class OneHotEncoder(_BaseEncoder):
 
         y : None
             Ignored. This parameter exists only for compatibility with
-            :class:`~sklearn.pipeline.Pipeline`.
+            :class:`~sklearn_dual.pipeline.Pipeline`.
 
         Returns
         -------
@@ -1074,7 +1074,7 @@ class OneHotEncoder(_BaseEncoder):
         category will be its inverse.
 
         For a given input feature, if there is an infrequent category,
-        'infrequent_sklearn' will be used to represent the infrequent category.
+        'infrequent_sklearn_dual' will be used to represent the infrequent category.
 
         Parameters
         ----------
@@ -1462,7 +1462,7 @@ class OrdinalEncoder(OneToOneFeatureMixin, _BaseEncoder):
 
         y : None
             Ignored. This parameter exists only for compatibility with
-            :class:`~sklearn.pipeline.Pipeline`.
+            :class:`~sklearn_dual.pipeline.Pipeline`.
 
         Returns
         -------
@@ -1645,7 +1645,7 @@ class OrdinalEncoder(OneToOneFeatureMixin, _BaseEncoder):
                 rows_to_update = ~infrequent_masks[i]
 
                 # Remap categories to be only frequent categories. The infrequent
-                # categories will be mapped to "infrequent_sklearn" later
+                # categories will be mapped to "infrequent_sklearn_dual" later
                 frequent_categories_mask = np.ones_like(categories, dtype=bool)
                 frequent_categories_mask[infrequent_indices[i]] = False
                 categories = categories[frequent_categories_mask]
@@ -1673,6 +1673,6 @@ class OrdinalEncoder(OneToOneFeatureMixin, _BaseEncoder):
 
         if infrequent_masks:
             for idx, mask in infrequent_masks.items():
-                X_tr[mask, idx] = "infrequent_sklearn"
+                X_tr[mask, idx] = "infrequent_sklearn_dual"
 
         return X_tr

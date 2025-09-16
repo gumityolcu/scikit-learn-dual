@@ -1,8 +1,8 @@
 :html_theme.sidebar_secondary.remove:
 
-{% if module == "sklearn" -%}
-{%- set module_hook = "sklearn" -%}
-{%- elif module.startswith("sklearn.") -%}
+{% if module == "sklearn_dual" -%}
+{%- set module_hook = "sklearn_dual" -%}
+{%- elif module.startswith("sklearn_dual.") -%}
 {%- set module_hook = module[8:] -%}
 {%- else -%}
 {%- set module_hook = None -%}

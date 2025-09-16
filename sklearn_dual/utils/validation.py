@@ -153,7 +153,7 @@ def _assert_all_finite_element_wise(
             msg_err += (
                 f"\n{estimator_name} does not accept missing values"
                 " encoded as NaN natively. For supervised learning, you might want"
-                " to consider sklearn.ensemble.HistGradientBoostingClassifier and"
+                " to consider sklearn_dual.ensemble.HistGradientBoostingClassifier and"
                 " Regressor which accept missing values encoded as NaNs natively."
                 " Alternatively, it is possible to preprocess the data, for"
                 " instance by using an imputer transformer in a pipeline or drop"
@@ -1641,8 +1641,8 @@ def _is_fitted(estimator, attributes=None, all_or_any=all):
             attributes = [attributes]
         return all_or_any([hasattr(estimator, attr) for attr in attributes])
 
-    if hasattr(estimator, "__sklearn_is_fitted__"):
-        return estimator.__sklearn_is_fitted__()
+    if hasattr(estimator, "__sklearn_dual_is_fitted__"):
+        return estimator.__sklearn_dual_is_fitted__()
 
     fitted_attrs = [
         v for v in vars(estimator) if v.endswith("_") and not v.startswith("__")
@@ -1658,9 +1658,9 @@ def check_is_fitted(estimator, attributes=None, *, msg=None, all_or_any=all):
     raises a NotFittedError with the given message.
 
     If an estimator does not set any attributes with a trailing underscore, it
-    can define a ``__sklearn_is_fitted__`` method returning a boolean to
+    can define a ``__sklearn_dual_is_fitted__`` method returning a boolean to
     specify if the estimator is fitted or not. See
-    :ref:`sphx_glr_auto_examples_developing_estimators_sklearn_is_fitted.py`
+    :ref:`sphx_glr_auto_examples_developing_estimators_sklearn_dual_is_fitted.py`
     for an example on how to use the API.
 
     Parameters

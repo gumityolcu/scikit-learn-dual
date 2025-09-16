@@ -10,7 +10,7 @@ implementing custom components for your own projects, this chapter
 details how to develop objects that safely interact with scikit-learn
 Pipelines and model selection tools.
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 .. _api_overview:
 
@@ -86,7 +86,7 @@ data-independent parameters (overriding previous parameter values passed
 to ``__init__``).
 
 All estimators in the main scikit-learn codebase should inherit from
-``sklearn.base.BaseEstimator``.
+``sklearn_dual.base.BaseEstimator``.
 
 Instantiation
 ^^^^^^^^^^^^^
@@ -237,13 +237,13 @@ whether it is just for you or for contributing it to scikit-learn, there are
 several internals of scikit-learn that you should be aware of in addition to
 the scikit-learn API outlined above. You can check whether your estimator
 adheres to the scikit-learn interface and standards by running
-:func:`~sklearn.utils.estimator_checks.check_estimator` on an instance. The
-:func:`~sklearn.utils.estimator_checks.parametrize_with_checks` pytest
+:func:`~sklearn_dual.utils.estimator_checks.check_estimator` on an instance. The
+:func:`~sklearn_dual.utils.estimator_checks.parametrize_with_checks` pytest
 decorator can also be used (see its docstring for details and possible
 interactions with `pytest`)::
 
-  >>> from sklearn.utils.estimator_checks import check_estimator
-  >>> from sklearn.svm import LinearSVC
+  >>> from sklearn_dual.utils.estimator_checks import check_estimator
+  >>> from sklearn_dual.svm import LinearSVC
   >>> check_estimator(LinearSVC())  # passes
 
 The main motivation to make a class compatible to the scikit-learn estimator
@@ -277,7 +277,7 @@ the correct interface more easily.
     However, if a dependency on scikit-learn is acceptable in your code,
     you can prevent a lot of boilerplate code
     by deriving a class from ``BaseEstimator``
-    and optionally the mixin classes in ``sklearn.base``.
+    and optionally the mixin classes in ``sklearn_dual.base``.
     For example, below is a custom classifier, with more examples included
     in the scikit-learn-contrib
     `project template <https://github.com/scikit-learn-contrib/project-template/blob/master/skltemplate/_template.py>`__.
@@ -287,10 +287,10 @@ the correct interface more easily.
     MRO.
 
       >>> import numpy as np
-      >>> from sklearn.base import BaseEstimator, ClassifierMixin
-      >>> from sklearn.utils.validation import check_X_y, check_array, check_is_fitted
-      >>> from sklearn.utils.multiclass import unique_labels
-      >>> from sklearn.metrics import euclidean_distances
+      >>> from sklearn_dual.base import BaseEstimator, ClassifierMixin
+      >>> from sklearn_dual.utils.validation import check_X_y, check_array, check_is_fitted
+      >>> from sklearn_dual.utils.multiclass import unique_labels
+      >>> from sklearn_dual.metrics import euclidean_distances
       >>> class TemplateClassifier(ClassifierMixin, BaseEstimator):
       ...
       ...     def __init__(self, demo_param='demo'):
@@ -332,8 +332,8 @@ sub-estimators (for most estimators, this can be ignored). The default value
 for ``deep`` should be `True`. For instance considering the following
 estimator::
 
-    >>> from sklearn.base import BaseEstimator
-    >>> from sklearn.linear_model import LogisticRegression
+    >>> from sklearn_dual.base import BaseEstimator
+    >>> from sklearn_dual.linear_model import LogisticRegression
     >>> class MyEstimator(BaseEstimator):
     ...     def __init__(self, subestimator=None, my_extra_param="random"):
     ...         self.subestimator = subestimator
@@ -364,7 +364,7 @@ The parameter `deep` will control whether or not the parameters of the
     subestimator -> LogisticRegression()
 
 Often, the `subestimator` has a name (as e.g. named steps in a
-:class:`~sklearn.pipeline.Pipeline` object), in which case the key should
+:class:`~sklearn_dual.pipeline.Pipeline` object), in which case the key should
 become `<name>__C`, `<name>__class_weight`, etc.
 
 While when `deep=False`, the output will be::
@@ -384,7 +384,7 @@ the ``set_params`` function is necessary as it is used to set parameters during
 grid searches.
 
 The easiest way to implement these functions, and to get a sensible
-``__repr__`` method, is to inherit from ``sklearn.base.BaseEstimator``. If you
+``__repr__`` method, is to inherit from ``sklearn_dual.base.BaseEstimator``. If you
 do not want to make your code dependent on scikit-learn, the easiest way to
 implement the interface is::
 
@@ -418,7 +418,7 @@ trailing ``_`` is used to check if the estimator has been fitted.
 
 Cloning
 -------
-For use with the :mod:`~sklearn.model_selection` module,
+For use with the :mod:`~sklearn_dual.model_selection` module,
 an estimator must support the ``base.clone`` function to replicate an estimator.
 This can be done by providing a ``get_params`` method.
 If ``get_params`` is present, then ``clone(estimator)`` will be an instance of
@@ -430,8 +430,8 @@ Objects that do not provide this method will be deep-copied
 if ``safe=False`` is passed to ``clone``.
 
 Estimators can customize the behavior of :func:`base.clone` by defining a
-`__sklearn_clone__` method. `__sklearn_clone__` must return an instance of the
-estimator. `__sklearn_clone__` is useful when an estimator needs to hold on to
+`__sklearn_dual_clone__` method. `__sklearn_dual_clone__` must return an instance of the
+estimator. `__sklearn_dual_clone__` is useful when an estimator needs to hold on to
 some state when :func:`base.clone` is called on the estimator. For example, a
 frozen meta-estimator for transformers can be defined as follows::
 
@@ -443,7 +443,7 @@ frozen meta-estimator for transformers can be defined as follows::
             # `fitted_transformer`'s attributes are now accessible
             return getattr(self.fitted_transformer, name)
 
-        def __sklearn_clone__(self):
+        def __sklearn_dual_clone__(self):
             return self
 
         def fit(self, X, y):
@@ -508,11 +508,11 @@ this can be achieved with::
         return self.classes_[np.argmax(D, axis=1)]
 
 In linear models, coefficients are stored in an array called ``coef_``, and the
-independent term is stored in ``intercept_``.  ``sklearn.linear_model._base``
+independent term is stored in ``intercept_``.  ``sklearn_dual.linear_model._base``
 contains a few base classes and mixins that implement common linear model
 patterns.
 
-The :mod:`~sklearn.utils.multiclass` module contains useful functions
+The :mod:`~sklearn_dual.utils.multiclass` module contains useful functions
 for working with multiclass and multilabel problems.
 
 .. _estimator_tags:
@@ -528,8 +528,8 @@ of estimators that allow programmatic inspection of their capabilities, such as
 sparse matrix support, supported output types and supported methods. The
 estimator tags are a dictionary returned by the method ``_get_tags()``. These
 tags are used in the common checks run by the
-:func:`~sklearn.utils.estimator_checks.check_estimator` function and the
-:func:`~sklearn.utils.estimator_checks.parametrize_with_checks` decorator.
+:func:`~sklearn_dual.utils.estimator_checks.check_estimator` function and the
+:func:`~sklearn_dual.utils.estimator_checks.parametrize_with_checks` decorator.
 Tags determine which checks to run and what input data is appropriate. Tags
 can depend on estimator parameters or even system architecture and can in
 general only be determined at runtime.
@@ -572,7 +572,7 @@ pairwise (default=False)
     or a cross validation procedure that extracts a sub-sample of data intended
     for a pairwise estimator, where the data needs to be indexed on both axes.
     Specifically, this tag is used by
-    `sklearn.utils.metaestimators._safe_split` to slice rows and
+    `sklearn_dual.utils.metaestimators._safe_split` to slice rows and
     columns.
 
 preserves_dtype (default=``[np.float64]``)
@@ -589,7 +589,7 @@ poor_score (default=False)
     n_features=10, n_informative=1, bias=5.0, noise=20, random_state=42)``, and
     for classification an accuracy of 0.83 on
     ``make_blobs(n_samples=300, random_state=0)``. These datasets and values
-    are based on current estimators in sklearn and might be replaced by
+    are based on current estimators in sklearn_dual and might be replaced by
     something more systematic.
 
 requires_fit (default=True)
@@ -602,7 +602,7 @@ requires_positive_X (default=False)
 requires_y (default=False)
     whether the estimator requires y to be passed to `fit`, `fit_predict` or
     `fit_transform` methods. The tag is True for estimators inheriting from
-    `~sklearn.base.RegressorMixin` and `~sklearn.base.ClassifierMixin`.
+    `~sklearn_dual.base.RegressorMixin` and `~sklearn_dual.base.ClassifierMixin`.
 
 requires_positive_y (default=False)
     whether the estimator requires a positive y (only applicable for regression).
@@ -614,9 +614,9 @@ _skip_test (default=False)
 _xfail_checks (default=False)
     dictionary ``{check_name: reason}`` of common checks that will be marked
     as `XFAIL` for pytest, when using
-    :func:`~sklearn.utils.estimator_checks.parametrize_with_checks`. These
+    :func:`~sklearn_dual.utils.estimator_checks.parametrize_with_checks`. These
     checks will be simply ignored and not run by
-    :func:`~sklearn.utils.estimator_checks.check_estimator`, but a
+    :func:`~sklearn_dual.utils.estimator_checks.check_estimator`, but a
     `SkipTestWarning` will be raised.
     Don't use this unless there is a *very good* reason for your estimator
     not to pass the check.
@@ -718,13 +718,13 @@ for an example on how to use the API.
 Developer API for `check_is_fitted`
 ===================================
 
-By default :func:`~sklearn.utils.validation.check_is_fitted` checks if there
+By default :func:`~sklearn_dual.utils.validation.check_is_fitted` checks if there
 are any attributes in the instance with a trailing underscore, e.g. `coef_`.
-An estimator can change the behavior by implementing a `__sklearn_is_fitted__`
+An estimator can change the behavior by implementing a `__sklearn_dual_is_fitted__`
 method taking no input and returning a boolean. If this method exists,
-:func:`~sklearn.utils.validation.check_is_fitted` simply returns its output.
+:func:`~sklearn_dual.utils.validation.check_is_fitted` simply returns its output.
 
-See :ref:`sphx_glr_auto_examples_developing_estimators_sklearn_is_fitted.py`
+See :ref:`sphx_glr_auto_examples_developing_estimators_sklearn_dual_is_fitted.py`
 for an example on how to use the API.
 
 Developer API for HTML representation
@@ -734,17 +734,17 @@ Developer API for HTML representation
 
     The HTML representation API is experimental and the API is subject to change.
 
-Estimators inheriting from :class:`~sklearn.base.BaseEstimator` display
+Estimators inheriting from :class:`~sklearn_dual.base.BaseEstimator` display
 a HTML representation of themselves in interactive programming
 environments such as Jupyter notebooks. For instance, we can display this HTML
 diagram::
 
-    from sklearn.base import BaseEstimator
+    from sklearn_dual.base import BaseEstimator
 
     BaseEstimator()
 
 The raw HTML representation is obtained by invoking the function
-:func:`~sklearn.utils.estimator_html_repr` on an estimator instance.
+:func:`~sklearn_dual.utils.estimator_html_repr` on an estimator instance.
 
 To customize the URL linking to an estimator's documentation (i.e. when clicking on the
 "?" icon), override the `_doc_link_module` and `_doc_link_template` attributes. In
@@ -752,7 +752,7 @@ addition, you can provide a `_doc_link_url_param_generator` method. Set
 `_doc_link_module` to the name of the (top level) module that contains your estimator.
 If the value does not match the top level module name, the HTML representation will not
 contain a link to the documentation. For scikit-learn estimators this is set to
-`"sklearn"`.
+`"sklearn_dual"`.
 
 The `_doc_link_template` is used to construct the final URL. By default, it can contain
 two variables: `estimator_module` (the full name of the module containing the estimator)
@@ -790,9 +790,9 @@ In addition, we add the following guidelines:
 
 * Unit tests are an exception to the previous rule;
   they should use absolute imports, exactly as client code would.
-  A corollary is that, if ``sklearn.foo`` exports a class or function
-  that is implemented in ``sklearn.foo.bar.baz``,
-  the test should import it from ``sklearn.foo``.
+  A corollary is that, if ``sklearn_dual.foo`` exports a class or function
+  that is implemented in ``sklearn_dual.foo.bar.baz``,
+  the test should import it from ``sklearn_dual.foo``.
 
 * **Please don't use** ``import *`` **in any case**. It is considered harmful
   by the `official Python recommendations
@@ -814,9 +814,9 @@ A good example of code that we like can be found `here
 Input validation
 ----------------
 
-.. currentmodule:: sklearn.utils
+.. currentmodule:: sklearn_dual.utils
 
-The module :mod:`sklearn.utils` contains various functions for doing input
+The module :mod:`sklearn_dual.utils` contains various functions for doing input
 validation and conversion. Sometimes, ``np.asarray`` suffices for validation;
 do *not* use ``np.asanyarray`` or ``np.atleast_2d``, since those let NumPy's
 ``np.matrix`` through, which has a different API
@@ -837,11 +837,11 @@ If your code depends on a random number generator, do not use
 repeatability in error checking, the routine should accept a keyword
 ``random_state`` and use this to construct a
 ``numpy.random.RandomState`` object.
-See :func:`sklearn.utils.check_random_state` in :ref:`developers-utils`.
+See :func:`sklearn_dual.utils.check_random_state` in :ref:`developers-utils`.
 
 Here's a simple example of code using some of the above guidelines::
 
-    from sklearn.utils import check_array, check_random_state
+    from sklearn_dual.utils import check_array, check_random_state
 
     def choose_random_sample(X, random_state=0):
         """Choose a random point from X.
@@ -907,7 +907,7 @@ Numerical assertions in tests
 -----------------------------
 
 When asserting the quasi-equality of arrays of continuous values,
-do use `sklearn.utils._testing.assert_allclose`.
+do use `sklearn_dual.utils._testing.assert_allclose`.
 
 The relative tolerance is automatically inferred from the provided arrays
 dtypes (for float32 and float64 dtypes in particular) but you can override
@@ -917,4 +917,4 @@ When comparing arrays of zero-elements, please do provide a non-zero value for
 the absolute tolerance via ``atol``.
 
 For more information, please refer to the docstring of
-`sklearn.utils._testing.assert_allclose`.
+`sklearn_dual.utils._testing.assert_allclose`.

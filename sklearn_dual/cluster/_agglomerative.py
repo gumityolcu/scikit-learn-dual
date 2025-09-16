@@ -40,7 +40,7 @@ from ..utils._param_validation import (
 from ..utils.graph import _fix_connected_components
 from ..utils.validation import check_memory
 
-# mypy error: Module 'sklearn.cluster' has no attribute '_hierarchical_fast'
+# mypy error: Module 'sklearn_dual.cluster' has no attribute '_hierarchical_fast'
 from . import _hierarchical_fast as _hierarchical  # type: ignore
 from ._feature_agglomeration import AgglomerationTransform
 
@@ -551,7 +551,7 @@ def linkage_tree(
         if affinity == "precomputed":
             # for the linkage function of hierarchy to work on precomputed
             # data, provide as first argument an ndarray of the shape returned
-            # by sklearn.metrics.pairwise_distances.
+            # by sklearn_dual.metrics.pairwise_distances.
             if X.shape[0] != X.shape[1]:
                 raise ValueError(
                     f"Distance matrix should be square, got matrix of shape {X.shape}"
@@ -821,7 +821,7 @@ class AgglomerativeClustering(ClusterMixin, BaseEstimator):
         hierarchical clustering algorithm is unstructured.
 
         For an example of connectivity matrix using
-        :class:`~sklearn.neighbors.kneighbors_graph`, see
+        :class:`~sklearn_dual.neighbors.kneighbors_graph`, see
         :ref:`sphx_glr_auto_examples_cluster_plot_agglomerative_clustering.py`.
 
     compute_full_tree : 'auto' or bool, default='auto'

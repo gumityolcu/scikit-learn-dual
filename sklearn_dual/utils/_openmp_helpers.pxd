@@ -8,9 +8,9 @@ cdef extern from *:
     """
     #ifdef _OPENMP
         #include <omp.h>
-        #define SKLEARN_OPENMP_PARALLELISM_ENABLED 1
+        #define sklearn_dual_OPENMP_PARALLELISM_ENABLED 1
     #else
-        #define SKLEARN_OPENMP_PARALLELISM_ENABLED 0
+        #define sklearn_dual_OPENMP_PARALLELISM_ENABLED 0
         #define omp_lock_t int
         #define omp_init_lock(l) (void)0
         #define omp_destroy_lock(l) (void)0
@@ -20,7 +20,7 @@ cdef extern from *:
         #define omp_get_max_threads() 1
     #endif
     """
-    bint SKLEARN_OPENMP_PARALLELISM_ENABLED
+    bint sklearn_dual_OPENMP_PARALLELISM_ENABLED
 
     ctypedef struct omp_lock_t:
         pass

@@ -77,7 +77,7 @@ _ = plt.title(
 # ------------------------------------
 #
 # First, we would like to highlight the limitations of a linear model given
-# our dataset. We fit a :class:`~sklearn.linear_model.Ridge` and check the
+# our dataset. We fit a :class:`~sklearn_dual.linear_model.Ridge` and check the
 # predictions of this model on our dataset.
 from sklearn_dual.linear_model import Ridge
 
@@ -112,9 +112,9 @@ _ = plt.title("Limitation of a linear model such as ridge")
 # kernel.
 #
 # In our case, we know that the true generative process is a periodic function.
-# We can use a :class:`~sklearn.gaussian_process.kernels.ExpSineSquared` kernel
+# We can use a :class:`~sklearn_dual.gaussian_process.kernels.ExpSineSquared` kernel
 # which allows recovering the periodicity. The class
-# :class:`~sklearn.kernel_ridge.KernelRidge` will accept such a kernel.
+# :class:`~sklearn_dual.kernel_ridge.KernelRidge` will accept such a kernel.
 #
 # Using this model together with a kernel is equivalent to embed the data
 # using the mapping function of the kernel and then apply a ridge regression.
@@ -122,7 +122,7 @@ _ = plt.title("Limitation of a linear model such as ridge")
 # between samples in the higher dimensional feature space is computed using the
 # "kernel trick".
 #
-# Thus, let's use such a :class:`~sklearn.kernel_ridge.KernelRidge`.
+# Thus, let's use such a :class:`~sklearn_dual.kernel_ridge.KernelRidge`.
 import time
 
 from sklearn_dual.gaussian_process.kernels import ExpSineSquared
@@ -240,12 +240,12 @@ _ = plt.title(
 # ...........................
 #
 # Now, we will use a
-# :class:`~sklearn.gaussian_process.GaussianProcessRegressor` to fit the same
+# :class:`~sklearn_dual.gaussian_process.GaussianProcessRegressor` to fit the same
 # dataset. When training a Gaussian process, the hyperparameters of the kernel
 # are optimized during the fitting process. There is no need for an external
 # hyperparameter search. Here, we create a slightly more complex kernel than
 # for the kernel ridge regressor: we add a
-# :class:`~sklearn.gaussian_process.kernels.WhiteKernel` that is used to
+# :class:`~sklearn_dual.gaussian_process.kernels.WhiteKernel` that is used to
 # estimate the noise in the dataset.
 from sklearn_dual.gaussian_process import GaussianProcessRegressor
 from sklearn_dual.gaussian_process.kernels import WhiteKernel

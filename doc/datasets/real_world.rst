@@ -3,7 +3,7 @@
 Real world datasets
 ===================
 
-.. currentmodule:: sklearn.datasets
+.. currentmodule:: sklearn_dual.datasets
 
 scikit-learn provides tools to load larger datasets, downloading them if
 necessary.
@@ -23,18 +23,18 @@ They can be loaded using the following functions:
    fetch_california_housing
    fetch_species_distributions
 
-.. include:: ../../sklearn/datasets/descr/olivetti_faces.rst
+.. include:: ../../sklearn_dual/datasets/descr/olivetti_faces.rst
 
-.. include:: ../../sklearn/datasets/descr/twenty_newsgroups.rst
+.. include:: ../../sklearn_dual/datasets/descr/twenty_newsgroups.rst
 
-.. include:: ../../sklearn/datasets/descr/lfw.rst
+.. include:: ../../sklearn_dual/datasets/descr/lfw.rst
 
-.. include:: ../../sklearn/datasets/descr/covtype.rst
+.. include:: ../../sklearn_dual/datasets/descr/covtype.rst
 
-.. include:: ../../sklearn/datasets/descr/rcv1.rst
+.. include:: ../../sklearn_dual/datasets/descr/rcv1.rst
 
-.. include:: ../../sklearn/datasets/descr/kddcup99.rst
+.. include:: ../../sklearn_dual/datasets/descr/kddcup99.rst
 
-.. include:: ../../sklearn/datasets/descr/california_housing.rst
+.. include:: ../../sklearn_dual/datasets/descr/california_housing.rst
 
-.. include:: ../../sklearn/datasets/descr/species_distributions.rst
+.. include:: ../../sklearn_dual/datasets/descr/species_distributions.rst

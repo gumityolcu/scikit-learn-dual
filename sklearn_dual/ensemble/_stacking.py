@@ -411,7 +411,7 @@ class _BaseStacking(TransformerMixin, _BaseHeterogeneousEnsemble, metaclass=ABCM
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__)
@@ -466,7 +466,7 @@ class StackingClassifier(ClassifierMixin, _BaseStacking):
     final_estimator : estimator, default=None
         A classifier which will be used to combine the base estimators.
         The default classifier is a
-        :class:`~sklearn.linear_model.LogisticRegression`.
+        :class:`~sklearn_dual.linear_model.LogisticRegression`.
 
     cv : int, cross-validation generator, iterable, or "prefit", default=None
         Determines the cross-validation splitting strategy used in
@@ -482,8 +482,8 @@ class StackingClassifier(ClassifierMixin, _BaseStacking):
 
         For integer/None inputs, if the estimator is a classifier and y is
         either binary or multiclass,
-        :class:`~sklearn.model_selection.StratifiedKFold` is used.
-        In all other cases, :class:`~sklearn.model_selection.KFold` is used.
+        :class:`~sklearn_dual.model_selection.StratifiedKFold` is used.
+        In all other cases, :class:`~sklearn_dual.model_selection.KFold` is used.
         These splitters are instantiated with `shuffle=False` so the splits
         will be the same across calls.
 
@@ -542,7 +542,7 @@ class StackingClassifier(ClassifierMixin, _BaseStacking):
         will not appear in `estimators_`. When `cv="prefit"`, `estimators_`
         is set to `estimators` and is not fitted again.
 
-    named_estimators_ : :class:`~sklearn.utils.Bunch`
+    named_estimators_ : :class:`~sklearn_dual.utils.Bunch`
         Attribute to access any fitted sub-estimators by name.
 
     n_features_in_ : int
@@ -702,7 +702,7 @@ class StackingClassifier(ClassifierMixin, _BaseStacking):
             .. versionadded:: 1.6
 
                 Only available if `enable_metadata_routing=True`, which can be
-                set by using ``sklearn.set_config(enable_metadata_routing=True)``.
+                set by using ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -879,7 +879,7 @@ class StackingRegressor(RegressorMixin, _BaseStacking):
 
     final_estimator : estimator, default=None
         A regressor which will be used to combine the base estimators.
-        The default regressor is a :class:`~sklearn.linear_model.RidgeCV`.
+        The default regressor is a :class:`~sklearn_dual.linear_model.RidgeCV`.
 
     cv : int, cross-validation generator, iterable, or "prefit", default=None
         Determines the cross-validation splitting strategy used in
@@ -894,8 +894,8 @@ class StackingRegressor(RegressorMixin, _BaseStacking):
 
         For integer/None inputs, if the estimator is a classifier and y is
         either binary or multiclass,
-        :class:`~sklearn.model_selection.StratifiedKFold` is used.
-        In all other cases, :class:`~sklearn.model_selection.KFold` is used.
+        :class:`~sklearn_dual.model_selection.StratifiedKFold` is used.
+        In all other cases, :class:`~sklearn_dual.model_selection.KFold` is used.
         These splitters are instantiated with `shuffle=False` so the splits
         will be the same across calls.
 
@@ -939,7 +939,7 @@ class StackingRegressor(RegressorMixin, _BaseStacking):
         will not appear in `estimators_`. When `cv="prefit"`, `estimators_`
         is set to `estimators` and is not fitted again.
 
-    named_estimators_ : :class:`~sklearn.utils.Bunch`
+    named_estimators_ : :class:`~sklearn_dual.utils.Bunch`
         Attribute to access any fitted sub-estimators by name.
 
     n_features_in_ : int
@@ -1050,7 +1050,7 @@ class StackingRegressor(RegressorMixin, _BaseStacking):
             .. versionadded:: 1.6
 
                 Only available if `enable_metadata_routing=True`, which can be
-                set by using ``sklearn.set_config(enable_metadata_routing=True)``.
+                set by using ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -1108,7 +1108,7 @@ class StackingRegressor(RegressorMixin, _BaseStacking):
             .. versionadded:: 1.6
 
                 Only available if `enable_metadata_routing=True`, which can be
-                set by using ``sklearn.set_config(enable_metadata_routing=True)``.
+                set by using ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 

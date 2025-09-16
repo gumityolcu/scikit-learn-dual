@@ -1,9 +1,9 @@
 # utils is cimported from other subpackages so this is needed for the cimport
 # to work
 utils_cython_tree = [
-  # We add sklearn_root_cython_tree to make sure sklearn/__init__.py is copied
+  # We add sklearn_dual_root_cython_tree to make sure sklearn_dual/__init__.py is copied
   # early in the build
-  sklearn_root_cython_tree,
+  sklearn_dual_root_cython_tree,
   fs.copyfile('__init__.py'),
   fs.copyfile('_cython_blas.pxd'),
   fs.copyfile('_heap.pxd'),
@@ -42,7 +42,7 @@ foreach ext_name, ext_dict : utils_extension_metadata
     dependencies: ext_dict.get('dependencies', []),
     override_options : ext_dict.get('override_options', []),
     cython_args: cython_args,
-    subdir: 'sklearn/utils',
+    subdir: 'sklearn_dual/utils',
     install: true
   )
 endforeach
@@ -72,7 +72,7 @@ foreach name: util_extension_names
     name,
     pyx,
     cython_args: cython_args,
-    subdir: 'sklearn/utils',
+    subdir: 'sklearn_dual/utils',
     install: true
    )
 endforeach

@@ -1266,7 +1266,7 @@ def test_tfidf_transformer_sparse(csc_container, csr_container):
     ],
 )
 def test_tfidf_vectorizer_type(vectorizer_dtype, output_dtype, warning_expected):
-    X = np.array(["numpy", "scipy", "sklearn"])
+    X = np.array(["numpy", "scipy", "sklearn_dual"])
     vectorizer = TfidfVectorizer(dtype=vectorizer_dtype)
 
     warning_msg_match = "'dtype' should be used."

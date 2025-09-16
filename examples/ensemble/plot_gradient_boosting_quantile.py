@@ -77,8 +77,8 @@ for alpha in [0.05, 0.5, 0.95]:
     all_models["q %1.2f" % alpha] = gbr.fit(X_train, y_train)
 
 # %%
-# Notice that :class:`~sklearn.ensemble.HistGradientBoostingRegressor` is much
-# faster than :class:`~sklearn.ensemble.GradientBoostingRegressor` starting with
+# Notice that :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor` is much
+# faster than :class:`~sklearn_dual.ensemble.GradientBoostingRegressor` starting with
 # intermediate datasets (`n_samples >= 10_000`), which is not the case of the
 # present example.
 #
@@ -133,8 +133,8 @@ plt.show()
 # Analysis of the error metrics
 # -----------------------------
 #
-# Measure the models with :func:`~sklearn.metrics.mean_squared_error` and
-# :func:`~sklearn.metrics.mean_pinball_loss` metrics on the training dataset.
+# Measure the models with :func:`~sklearn_dual.metrics.mean_squared_error` and
+# :func:`~sklearn_dual.metrics.mean_pinball_loss` metrics on the training dataset.
 import pandas as pd
 
 

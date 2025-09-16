@@ -9,14 +9,14 @@ classification.
 
 In scikit-learn, all estimators support multiclass classification out of the
 box: the most sensible strategy was implemented for the end-user. The
-:mod:`sklearn.multiclass` module implements various strategies that one can use
+:mod:`sklearn_dual.multiclass` module implements various strategies that one can use
 for experimenting or developing third-party estimators that only support binary
 classification.
 
-:mod:`sklearn.multiclass` includes OvO/OvR strategies used to train a
+:mod:`sklearn_dual.multiclass` includes OvO/OvR strategies used to train a
 multiclass classifier by fitting a set of binary classifiers (the
-:class:`~sklearn.multiclass.OneVsOneClassifier` and
-:class:`~sklearn.multiclass.OneVsRestClassifier` meta-estimators). This example
+:class:`~sklearn_dual.multiclass.OneVsOneClassifier` and
+:class:`~sklearn_dual.multiclass.OneVsRestClassifier` meta-estimators). This example
 will review them.
 """
 
@@ -28,7 +28,7 @@ will review them.
 # ---------------------
 #
 # In this example, we use a UCI dataset [1]_, generally referred as the Yeast
-# dataset. We use the :func:`sklearn.datasets.fetch_openml` function to load
+# dataset. We use the :func:`sklearn_dual.datasets.fetch_openml` function to load
 # the dataset from OpenML.
 from sklearn_dual.datasets import fetch_openml
 
@@ -47,24 +47,24 @@ y.value_counts().sort_index()
 # ---------------------
 #
 # In the following experiment, we use a
-# :class:`~sklearn.tree.DecisionTreeClassifier` and a
-# :class:`~sklearn.model_selection.RepeatedStratifiedKFold` cross-validation
+# :class:`~sklearn_dual.tree.DecisionTreeClassifier` and a
+# :class:`~sklearn_dual.model_selection.RepeatedStratifiedKFold` cross-validation
 # with 3 splits and 5 repetitions.
 #
 # We compare the following strategies:
 #
-# * :class:~sklearn.tree.DecisionTreeClassifier can handle multiclass
+# * :class:~sklearn_dual.tree.DecisionTreeClassifier can handle multiclass
 #   classification without needing any special adjustments. It works by breaking
 #   down the training data into smaller subsets and focusing on the most common
 #   class in each subset. By repeating this process, the model can accurately
 #   classify input data into multiple different classes.
-# * :class:`~sklearn.multiclass.OneVsOneClassifier` trains a set of binary
+# * :class:`~sklearn_dual.multiclass.OneVsOneClassifier` trains a set of binary
 #   classifiers where each classifier is trained to distinguish between
 #   two classes.
-# * :class:`~sklearn.multiclass.OneVsRestClassifier`: trains a set of binary
+# * :class:`~sklearn_dual.multiclass.OneVsRestClassifier`: trains a set of binary
 #   classifiers where each classifier is trained to distinguish between
 #   one class and the rest of the classes.
-# * :class:`~sklearn.multiclass.OutputCodeClassifier`: trains a set of binary
+# * :class:`~sklearn_dual.multiclass.OutputCodeClassifier`: trains a set of binary
 #   classifiers where each classifier is trained to distinguish between
 #   a set of classes from the rest of the classes. The set of classes is
 #   defined by a codebook, which is randomly generated in scikit-learn. This

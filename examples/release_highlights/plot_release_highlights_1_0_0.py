@@ -4,7 +4,7 @@
 Release Highlights for scikit-learn 1.0
 =======================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 We are very pleased to announce the release of scikit-learn 1.0! The library
 has been stable for quite some time, releasing version 1.0 is recognizing that
@@ -113,7 +113,7 @@ spline.fit_transform(X)
 #     \sum_i PB_q(y_i - X_i w) + \alpha ||w||_1}.
 #
 # This consists of the pinball loss (also known as linear loss),
-# see also :class:`~sklearn.metrics.mean_pinball_loss`,
+# see also :class:`~sklearn_dual.metrics.mean_pinball_loss`,
 #
 # .. math::
 #     PB_q(t) = q \max(t, 0) + (1 - q) \max(-t, 0) =
@@ -227,7 +227,7 @@ pipe[:-1].get_feature_names_out()
 ##############################################################################
 # Histogram-based Gradient Boosting Models are now stable
 # --------------------------------------------------------------------------
-# :class:`~sklearn.ensemble.HistGradientBoostingRegressor` and
+# :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor` and
 # :class:`~ensemble.HistGradientBoostingClassifier` are no longer experimental
 # and can simply be imported and used as::
 #

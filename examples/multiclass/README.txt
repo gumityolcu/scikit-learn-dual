@@ -3,4 +3,4 @@
 Multiclass methods
 ------------------
 
-Examples concerning the :mod:`sklearn.multiclass` module.
+Examples concerning the :mod:`sklearn_dual.multiclass` module.

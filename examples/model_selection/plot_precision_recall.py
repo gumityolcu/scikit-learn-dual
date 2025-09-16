@@ -73,7 +73,7 @@ nth threshold. A pair :math:`(R_k, P_k)` is referred to as an
 *operating point*.
 
 AP and the trapezoidal area under the operating points
-(:func:`sklearn.metrics.auc`) are common ways to summarize a precision-recall
+(:func:`sklearn_dual.metrics.auc`) are common ways to summarize a precision-recall
 curve that lead to different results. Read more in the
 :ref:`User Guide <precision_recall_f_measure_metrics>`.
 
@@ -86,10 +86,10 @@ matrix as a binary prediction (:ref:`micro-averaging <average>`).
 
 .. note::
 
-    See also :func:`sklearn.metrics.average_precision_score`,
-             :func:`sklearn.metrics.recall_score`,
-             :func:`sklearn.metrics.precision_score`,
-             :func:`sklearn.metrics.f1_score`
+    See also :func:`sklearn_dual.metrics.average_precision_score`,
+             :func:`sklearn_dual.metrics.recall_score`,
+             :func:`sklearn_dual.metrics.precision_score`,
+             :func:`sklearn_dual.metrics.f1_score`
 """
 
 # Authors: The scikit-learn developers
@@ -123,7 +123,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 # %%
 # Linear SVC will expect each feature to have a similar range of values. Thus,
 # we will first scale the data using a
-# :class:`~sklearn.preprocessing.StandardScaler`.
+# :class:`~sklearn_dual.preprocessing.StandardScaler`.
 from sklearn_dual.pipeline import make_pipeline
 from sklearn_dual.preprocessing import StandardScaler
 from sklearn_dual.svm import LinearSVC
@@ -136,13 +136,13 @@ classifier.fit(X_train, y_train)
 # ...............................
 #
 # To plot the precision-recall curve, you should use
-# :class:`~sklearn.metrics.PrecisionRecallDisplay`. Indeed, there is two
+# :class:`~sklearn_dual.metrics.PrecisionRecallDisplay`. Indeed, there is two
 # methods available depending if you already computed the predictions of the
 # classifier or not.
 #
 # Let's first plot the precision-recall curve without the classifier
 # predictions. We use
-# :func:`~sklearn.metrics.PrecisionRecallDisplay.from_estimator` that
+# :func:`~sklearn_dual.metrics.PrecisionRecallDisplay.from_estimator` that
 # computes the predictions for us before plotting the curve.
 from sklearn_dual.metrics import PrecisionRecallDisplay
 
@@ -154,7 +154,7 @@ _ = display.ax_.set_title("2-class Precision-Recall curve")
 # %%
 # If we already got the estimated probabilities or scores for
 # our model, then we can use
-# :func:`~sklearn.metrics.PrecisionRecallDisplay.from_predictions`.
+# :func:`~sklearn_dual.metrics.PrecisionRecallDisplay.from_predictions`.
 y_score = classifier.decision_function(X_test)
 
 display = PrecisionRecallDisplay.from_predictions(
@@ -187,7 +187,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(
 )
 
 # %%
-# We use :class:`~sklearn.multiclass.OneVsRestClassifier` for multi-label
+# We use :class:`~sklearn_dual.multiclass.OneVsRestClassifier` for multi-label
 # prediction.
 from sklearn_dual.multiclass import OneVsRestClassifier
 

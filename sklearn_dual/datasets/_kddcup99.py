@@ -147,7 +147,7 @@ def fetch_kddcup99(
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
+    data : :class:`~sklearn_dual.utils.Bunch`
         Dictionary-like object, with the following attributes.
 
         data : {ndarray, dataframe} of shape (494021, 41)
@@ -289,7 +289,7 @@ def _fetch_brute_kddcup99(
 
     Returns
     -------
-    dataset : :class:`~sklearn.utils.Bunch`
+    dataset : :class:`~sklearn_dual.utils.Bunch`
         Dictionary-like object, with the following attributes.
 
         data : ndarray of shape (494021, 41)

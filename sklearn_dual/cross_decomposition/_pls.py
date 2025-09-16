@@ -1,5 +1,5 @@
 """
-The :mod:`sklearn.pls` module implements Partial Least Squares (PLS).
+The :mod:`sklearn_dual.pls` module implements Partial Least Squares (PLS).
 """
 
 # Authors: The scikit-learn developers
@@ -655,7 +655,7 @@ class PLSRegression(_PLS):
     PLSRegression()
     >>> Y_pred = pls2.predict(X)
 
-    For a comparison between PLS Regression and :class:`~sklearn.decomposition.PCA`, see
+    For a comparison between PLS Regression and :class:`~sklearn_dual.decomposition.PCA`, see
     :ref:`sphx_glr_auto_examples_cross_decomposition_plot_pcr_vs_pls.py`.
     """
 

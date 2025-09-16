@@ -374,7 +374,7 @@ class BaseBagging(BaseEnsemble, metaclass=ABCMeta):
 
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -624,7 +624,7 @@ class BaseBagging(BaseEnsemble, metaclass=ABCMeta):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__)
@@ -671,7 +671,7 @@ class BaggingClassifier(ClassifierMixin, BaseBagging):
     estimator : object, default=None
         The base estimator to fit on random subsets of the dataset.
         If None, then the base estimator is a
-        :class:`~sklearn.tree.DecisionTreeClassifier`.
+        :class:`~sklearn_dual.tree.DecisionTreeClassifier`.
 
         .. versionadded:: 1.2
            `base_estimator` was renamed to `estimator`.
@@ -1097,7 +1097,7 @@ class BaggingRegressor(RegressorMixin, BaseBagging):
     estimator : object, default=None
         The base estimator to fit on random subsets of the dataset.
         If None, then the base estimator is a
-        :class:`~sklearn.tree.DecisionTreeRegressor`.
+        :class:`~sklearn_dual.tree.DecisionTreeRegressor`.
 
         .. versionadded:: 1.2
            `base_estimator` was renamed to `estimator`.

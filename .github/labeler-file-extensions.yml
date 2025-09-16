@@ -1,8 +1,8 @@
 cython:
-- sklearn/**/*.pyx
-- sklearn/**/*.pxd
-- sklearn/**/*.pxi
+- sklearn_dual/**/*.pyx
+- sklearn_dual/**/*.pxd
+- sklearn_dual/**/*.pxi
 # Tempita templates
-- sklearn/**/*.pyx.tp
-- sklearn/**/*.pxd.tp
-- sklearn/**/*.pxi.tp
+- sklearn_dual/**/*.pyx.tp
+- sklearn_dual/**/*.pxd.tp
+- sklearn_dual/**/*.pxi.tp

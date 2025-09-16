@@ -4,8 +4,8 @@ Linear and Quadratic Discriminant Analysis with covariance ellipsoid
 ====================================================================
 
 This example plots the covariance ellipsoids of each class and the decision boundary
-learned by :class:`~sklearn.discriminant_analysis.LinearDiscriminantAnalysis` (LDA) and
-:class:`~sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis` (QDA). The
+learned by :class:`~sklearn_dual.discriminant_analysis.LinearDiscriminantAnalysis` (LDA) and
+:class:`~sklearn_dual.discriminant_analysis.QuadraticDiscriminantAnalysis` (QDA). The
 ellipsoids display the double standard deviation for each class. With LDA, the standard
 deviation is the same for all the classes, while each class has its own standard
 deviation with QDA.
@@ -75,8 +75,8 @@ X_different_covariance, y_different_covariance = make_data(
 # ------------------
 #
 # The code below is used to plot several pieces of information from the estimators used,
-# i.e., :class:`~sklearn.discriminant_analysis.LinearDiscriminantAnalysis` (LDA) and
-# :class:`~sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis` (QDA). The
+# i.e., :class:`~sklearn_dual.discriminant_analysis.LinearDiscriminantAnalysis` (LDA) and
+# :class:`~sklearn_dual.discriminant_analysis.QuadraticDiscriminantAnalysis` (QDA). The
 # displayed information includes:
 #
 # - the decision boundary based on the probability estimate of the estimator;

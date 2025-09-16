@@ -11,7 +11,7 @@ from scipy.spatial.distance import pdist, squareform
 from sklearn_dual import config_context
 from sklearn_dual.datasets import make_blobs
 
-# mypy error: Module 'sklearn.manifold' has no attribute '_barnes_hut_tsne'
+# mypy error: Module 'sklearn_dual.manifold' has no attribute '_barnes_hut_tsne'
 from sklearn_dual.manifold import (  # type: ignore
     TSNE,
     _barnes_hut_tsne,
@@ -442,7 +442,7 @@ def test_high_perplexity_precomputed_sparse_distances(csr_container):
 
 @pytest.mark.filterwarnings(
     "ignore:Precomputed sparse input was not sorted by "
-    "row values:sklearn.exceptions.EfficiencyWarning"
+    "row values:sklearn_dual.exceptions.EfficiencyWarning"
 )
 @pytest.mark.parametrize("sparse_container", CSR_CONTAINERS + LIL_CONTAINERS)
 def test_sparse_precomputed_distance(sparse_container):

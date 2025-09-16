@@ -446,7 +446,7 @@ def mst_linkage_core(
 
     dist_metric: DistanceMetric64
         A DistanceMetric64 object conforming to the API from
-        ``sklearn.metrics._dist_metrics.pxd`` that will be
+        ``sklearn_dual.metrics._dist_metrics.pxd`` that will be
         used to compute distances.
 
     Returns

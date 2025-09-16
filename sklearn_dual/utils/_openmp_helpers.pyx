@@ -13,9 +13,9 @@ def _openmp_parallelism_enabled():
 
     It allows to retrieve at runtime the information gathered at compile time.
     """
-    # SKLEARN_OPENMP_PARALLELISM_ENABLED is resolved at compile time and defined
+    # sklearn_dual_OPENMP_PARALLELISM_ENABLED is resolved at compile time and defined
     # in _openmp_helpers.pxd as a boolean. This function exposes it to Python.
-    return SKLEARN_OPENMP_PARALLELISM_ENABLED
+    return sklearn_dual_OPENMP_PARALLELISM_ENABLED
 
 
 cpdef _openmp_effective_n_threads(n_threads=None, only_physical_cores=True):
@@ -53,7 +53,7 @@ cpdef _openmp_effective_n_threads(n_threads=None, only_physical_cores=True):
     if n_threads == 0:
         raise ValueError("n_threads = 0 is invalid")
 
-    if not SKLEARN_OPENMP_PARALLELISM_ENABLED:
+    if not sklearn_dual_OPENMP_PARALLELISM_ENABLED:
         # OpenMP disabled at build-time => sequential mode
         return 1
 

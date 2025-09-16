@@ -79,7 +79,7 @@ plt.show()
 # %%
 # Learning an embedding
 # ---------------------
-# We use :class:`~sklearn.neighbors.NeighborhoodComponentsAnalysis` to learn an
+# We use :class:`~sklearn_dual.neighbors.NeighborhoodComponentsAnalysis` to learn an
 # embedding and plot the points after the transformation. We then take the
 # embedding and find the nearest neighbors.
 

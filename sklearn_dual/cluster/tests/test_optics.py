@@ -576,7 +576,7 @@ def test_compare_to_ELKI():
     ]
 
     # Tests against known extraction array
-    # Does NOT work with metric='euclidean', because sklearn euclidean has
+    # Does NOT work with metric='euclidean', because sklearn_dual euclidean has
     # worse numeric precision. 'minkowski' is slower but more accurate.
     clust1 = OPTICS(min_samples=5).fit(X)
 

@@ -25,7 +25,7 @@ class PassiveAggressiveClassifier(BaseSGDClassifier):
     max_iter : int, default=1000
         The maximum number of passes over the training data (aka epochs).
         It only impacts the behavior in the ``fit`` method, and not the
-        :meth:`~sklearn.linear_model.PassiveAggressiveClassifier.partial_fit` method.
+        :meth:`~sklearn_dual.linear_model.PassiveAggressiveClassifier.partial_fit` method.
 
         .. versionadded:: 0.19
 
@@ -249,7 +249,7 @@ class PassiveAggressiveClassifier(BaseSGDClassifier):
                 raise ValueError(
                     "class_weight 'balanced' is not supported for "
                     "partial_fit. For 'balanced' weights, use "
-                    "`sklearn.utils.compute_class_weight` with "
+                    "`sklearn_dual.utils.compute_class_weight` with "
                     "`class_weight='balanced'`. In place of y you "
                     "can use a large enough subset of the full "
                     "training set target to properly estimate the "
@@ -329,7 +329,7 @@ class PassiveAggressiveRegressor(BaseSGDRegressor):
     max_iter : int, default=1000
         The maximum number of passes over the training data (aka epochs).
         It only impacts the behavior in the ``fit`` method, and not the
-        :meth:`~sklearn.linear_model.PassiveAggressiveRegressor.partial_fit` method.
+        :meth:`~sklearn_dual.linear_model.PassiveAggressiveRegressor.partial_fit` method.
 
         .. versionadded:: 0.19
 

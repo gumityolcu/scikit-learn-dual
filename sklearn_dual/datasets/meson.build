@@ -3,6 +3,6 @@ py.extension_module(
   '_svmlight_format_fast.pyx',
   dependencies: [np_dep],
   cython_args: cython_args,
-  subdir: 'sklearn/datasets',
+  subdir: 'sklearn_dual/datasets',
   install: true
 )

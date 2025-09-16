@@ -2,7 +2,7 @@ py.extension_module(
   '_utils',
   ['_utils.pyx', utils_cython_tree],
   cython_args: cython_args,
-  subdir: 'sklearn/manifold',
+  subdir: 'sklearn_dual/manifold',
   install: true
 )
 
@@ -11,6 +11,6 @@ py.extension_module(
   '_barnes_hut_tsne.pyx',
   dependencies: [np_dep],
   cython_args: cython_args,
-  subdir: 'sklearn/manifold',
+  subdir: 'sklearn_dual/manifold',
   install: true
 )

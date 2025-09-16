@@ -43,7 +43,7 @@ class OPTICS(ClusterMixin, BaseEstimator):
     related to DBSCAN, finds core sample of high density and expands clusters
     from them [1]_. Unlike DBSCAN, keeps cluster hierarchy for a variable
     neighborhood radius. Better suited for usage on large datasets than the
-    current sklearn implementation of DBSCAN.
+    current sklearn_dual implementation of DBSCAN.
 
     Clusters are then extracted using a DBSCAN-like method
     (cluster_method = 'dbscan') or an automatic
@@ -104,7 +104,7 @@ class OPTICS(ClusterMixin, BaseEstimator):
 
     p : float, default=2
         Parameter for the Minkowski metric from
-        :class:`~sklearn.metrics.pairwise_distances`. When p = 1, this is
+        :class:`~sklearn_dual.metrics.pairwise_distances`. When p = 1, this is
         equivalent to using manhattan_distance (l1), and euclidean_distance
         (l2) for p = 2. For arbitrary p, minkowski_distance (l_p) is used.
 
@@ -142,8 +142,8 @@ class OPTICS(ClusterMixin, BaseEstimator):
     algorithm : {'auto', 'ball_tree', 'kd_tree', 'brute'}, default='auto'
         Algorithm used to compute the nearest neighbors:
 
-        - 'ball_tree' will use :class:`~sklearn.neighbors.BallTree`.
-        - 'kd_tree' will use :class:`~sklearn.neighbors.KDTree`.
+        - 'ball_tree' will use :class:`~sklearn_dual.neighbors.BallTree`.
+        - 'kd_tree' will use :class:`~sklearn_dual.neighbors.KDTree`.
         - 'brute' will use a brute-force search.
         - 'auto' (default) will attempt to decide the most appropriate
           algorithm based on the values passed to :meth:`fit` method.
@@ -152,8 +152,8 @@ class OPTICS(ClusterMixin, BaseEstimator):
         this parameter, using brute force.
 
     leaf_size : int, default=30
-        Leaf size passed to :class:`~sklearn.neighbors.BallTree` or
-        :class:`~sklearn.neighbors.KDTree`. This can affect the speed of the
+        Leaf size passed to :class:`~sklearn_dual.neighbors.BallTree` or
+        :class:`~sklearn_dual.neighbors.KDTree`. This can affect the speed of the
         construction and query, as well as the memory required to store the
         tree. The optimal value depends on the nature of the problem.
 
@@ -420,7 +420,7 @@ def _compute_core_distances_(X, neighbors, min_samples, working_memory):
     working_memory : int, default=None
         The sought maximum memory for temporary distance matrix chunks.
         When None (default), the value of
-        ``sklearn.get_config()['working_memory']`` is used.
+        ``sklearn_dual.get_config()['working_memory']`` is used.
 
     Returns
     -------
@@ -513,7 +513,7 @@ def compute_optics_graph(
 
     p : float, default=2
         Parameter for the Minkowski metric from
-        :class:`~sklearn.metrics.pairwise_distances`. When p = 1, this is
+        :class:`~sklearn_dual.metrics.pairwise_distances`. When p = 1, this is
         equivalent to using manhattan_distance (l1), and euclidean_distance
         (l2) for p = 2. For arbitrary p, minkowski_distance (l_p) is used.
 
@@ -523,8 +523,8 @@ def compute_optics_graph(
     algorithm : {'auto', 'ball_tree', 'kd_tree', 'brute'}, default='auto'
         Algorithm used to compute the nearest neighbors:
 
-        - 'ball_tree' will use :class:`~sklearn.neighbors.BallTree`.
-        - 'kd_tree' will use :class:`~sklearn.neighbors.KDTree`.
+        - 'ball_tree' will use :class:`~sklearn_dual.neighbors.BallTree`.
+        - 'kd_tree' will use :class:`~sklearn_dual.neighbors.KDTree`.
         - 'brute' will use a brute-force search.
         - 'auto' will attempt to decide the most appropriate algorithm
           based on the values passed to `fit` method. (default)
@@ -533,8 +533,8 @@ def compute_optics_graph(
         this parameter, using brute force.
 
     leaf_size : int, default=30
-        Leaf size passed to :class:`~sklearn.neighbors.BallTree` or
-        :class:`~sklearn.neighbors.KDTree`. This can affect the speed of the
+        Leaf size passed to :class:`~sklearn_dual.neighbors.BallTree` or
+        :class:`~sklearn_dual.neighbors.KDTree`. This can affect the speed of the
         construction and query, as well as the memory required to store the
         tree. The optimal value depends on the nature of the problem.
 
@@ -730,7 +730,7 @@ def cluster_optics_dbscan(*, reachability, core_distances, ordering, eps):
     """Perform DBSCAN extraction for an arbitrary epsilon.
 
     Extracting the clusters runs in linear time. Note that this results in
-    ``labels_`` which are close to a :class:`~sklearn.cluster.DBSCAN` with
+    ``labels_`` which are close to a :class:`~sklearn_dual.cluster.DBSCAN` with
     similar settings and ``eps``, only if ``eps`` is close to ``max_eps``.
 
     Parameters

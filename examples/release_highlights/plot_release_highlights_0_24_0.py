@@ -4,7 +4,7 @@
 Release Highlights for scikit-learn 0.24
 ========================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 We are pleased to announce the release of scikit-learn 0.24! Many bug fixes
 and improvements were added, as well as some new key features. We detail
@@ -26,11 +26,11 @@ or with conda::
 # ---------------------------------------------------------
 # Successive Halving, a state of the art method, is now available to
 # explore the space of the parameters and identify their best combination.
-# :class:`~sklearn.model_selection.HalvingGridSearchCV` and
-# :class:`~sklearn.model_selection.HalvingRandomSearchCV` can be
+# :class:`~sklearn_dual.model_selection.HalvingGridSearchCV` and
+# :class:`~sklearn_dual.model_selection.HalvingRandomSearchCV` can be
 # used as drop-in replacement for
-# :class:`~sklearn.model_selection.GridSearchCV` and
-# :class:`~sklearn.model_selection.RandomizedSearchCV`.
+# :class:`~sklearn_dual.model_selection.GridSearchCV` and
+# :class:`~sklearn_dual.model_selection.RandomizedSearchCV`.
 # Successive Halving is an iterative selection process illustrated in the
 # figure below. The first iteration is run with a small amount of resources,
 # where the resource typically corresponds to the number of training samples,
@@ -79,8 +79,8 @@ rsh.best_params_
 ##############################################################################
 # Native support for categorical features in HistGradientBoosting estimators
 # --------------------------------------------------------------------------
-# :class:`~sklearn.ensemble.HistGradientBoostingClassifier` and
-# :class:`~sklearn.ensemble.HistGradientBoostingRegressor` now have native
+# :class:`~sklearn_dual.ensemble.HistGradientBoostingClassifier` and
+# :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor` now have native
 # support for categorical features: they can consider splits on non-ordered,
 # categorical data. Read more in the :ref:`User Guide
 # <categorical_support_gbdt>`.
@@ -134,7 +134,7 @@ self_training_model.fit(iris.data, iris.target)
 # New SequentialFeatureSelector transformer
 # -----------------------------------------
 # A new iterative transformer to select features is available:
-# :class:`~sklearn.feature_selection.SequentialFeatureSelector`.
+# :class:`~sklearn_dual.feature_selection.SequentialFeatureSelector`.
 # Sequential Feature Selection can add features one at a time (forward
 # selection) or remove features from the list of the available features
 # (backward selection), based on a cross-validated score maximization.
@@ -157,10 +157,10 @@ print(
 ##############################################################################
 # New PolynomialCountSketch kernel approximation function
 # -------------------------------------------------------
-# The new :class:`~sklearn.kernel_approximation.PolynomialCountSketch`
+# The new :class:`~sklearn_dual.kernel_approximation.PolynomialCountSketch`
 # approximates a polynomial expansion of a feature space when used with linear
 # models, but uses much less memory than
-# :class:`~sklearn.preprocessing.PolynomialFeatures`.
+# :class:`~sklearn_dual.preprocessing.PolynomialFeatures`.
 
 from sklearn_dual.datasets import fetch_covtype
 from sklearn_dual.pipeline import make_pipeline
@@ -228,7 +228,7 @@ display.figure_.subplots_adjust(hspace=0.3)
 # New Poisson splitting criterion for DecisionTreeRegressor
 # ---------------------------------------------------------
 # The integration of Poisson regression estimation continues from version 0.23.
-# :class:`~sklearn.tree.DecisionTreeRegressor` now supports a new `'poisson'`
+# :class:`~sklearn_dual.tree.DecisionTreeRegressor` now supports a new `'poisson'`
 # splitting criterion. Setting `criterion="poisson"` might be a good choice
 # if your target is a count or a frequency.
 
@@ -256,7 +256,7 @@ regressor.fit(X_train, y_train)
 #   practices <common_pitfalls>`,
 # - an example illustrating how to :ref:`statistically compare the performance of
 #   models <sphx_glr_auto_examples_model_selection_plot_grid_search_stats.py>`
-#   evaluated using :class:`~sklearn.model_selection.GridSearchCV`,
+#   evaluated using :class:`~sklearn_dual.model_selection.GridSearchCV`,
 # - an example on how to :ref:`interpret coefficients of linear models
 #   <sphx_glr_auto_examples_inspection_plot_linear_model_coefficient_interpretation.py>`,
 # - an :ref:`example

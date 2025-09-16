@@ -3,5 +3,5 @@ py.extension_module(
   '_check_build.pyx',
   cython_args: cython_args,
   install: true,
-  subdir: 'sklearn/__check_build',
+  subdir: 'sklearn_dual/__check_build',
 )

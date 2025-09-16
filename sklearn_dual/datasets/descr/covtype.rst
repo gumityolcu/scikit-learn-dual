@@ -21,7 +21,7 @@ Dimensionality                54
 Features                     int
 =================   ============
 
-:func:`sklearn.datasets.fetch_covtype` will load the covertype dataset;
+:func:`sklearn_dual.datasets.fetch_covtype` will load the covertype dataset;
 it returns a dictionary-like 'Bunch' object
 with the feature matrix in the ``data`` member
 and the target values in ``target``. If optional argument 'as_frame' is

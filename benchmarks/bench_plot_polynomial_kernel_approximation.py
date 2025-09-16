@@ -6,7 +6,7 @@ Benchmark for explicit feature map approximation of polynomial kernels
 An example illustrating the approximation of the feature map
 of an Homogeneous Polynomial kernel.
 
-.. currentmodule:: sklearn.kernel_approximation
+.. currentmodule:: sklearn_dual.kernel_approximation
 
 It shows how to use :class:`PolynomialCountSketch` and :class:`Nystroem` to
 approximate the feature map of a polynomial kernel for

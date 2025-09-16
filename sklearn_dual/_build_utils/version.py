@@ -6,9 +6,9 @@
 
 import os
 
-sklearn_init = os.path.join(os.path.dirname(__file__), "../__init__.py")
+sklearn_dual_init = os.path.join(os.path.dirname(__file__), "../__init__.py")
 
-data = open(sklearn_init).readlines()
+data = open(sklearn_dual_init).readlines()
 version_line = next(line for line in data if line.startswith("__version__"))
 
 version = version_line.strip().split(" = ")[1].replace('"', "").replace("'", "")

@@ -446,8 +446,8 @@ class _HTMLDocumentationLinkMixin:
     """Mixin class allowing to generate a link to the API documentation.
 
     This mixin relies on three attributes:
-    - `_doc_link_module`: it corresponds to the root module (e.g. `sklearn`). Using this
-      mixin, the default value is `sklearn`.
+    - `_doc_link_module`: it corresponds to the root module (e.g. `sklearn_dual`). Using this
+      mixin, the default value is `sklearn_dual`.
     - `_doc_link_template`: it corresponds to the template used to generate the
       link to the API documentation. Using this mixin, the default value is
       `"https://scikit-learn.org/{version_url}/modules/generated/
@@ -460,7 +460,7 @@ class _HTMLDocumentationLinkMixin:
     given estimator.
 
     This useful provides all the necessary states for
-    :func:`sklearn.utils.estimator_html_repr` to generate a link to the API
+    :func:`sklearn_dual.utils.estimator_html_repr` to generate a link to the API
     documentation for the estimator HTML diagram.
 
     Examples
@@ -477,14 +477,14 @@ class _HTMLDocumentationLinkMixin:
     'https://website.com/BaseEstimator.html'
     """
 
-    _doc_link_module = "sklearn"
+    _doc_link_module = "sklearn_dual"
     _doc_link_url_param_generator = None
 
     @property
     def _doc_link_template(self):
-        sklearn_version = parse_version(__version__)
-        if sklearn_version.dev is None:
-            version_url = f"{sklearn_version.major}.{sklearn_version.minor}"
+        sklearn_dual_version = parse_version(__version__)
+        if sklearn_dual_version.dev is None:
+            version_url = f"{sklearn_dual_version.major}.{sklearn_dual_version.minor}"
         else:
             version_url = "dev"
         return getattr(

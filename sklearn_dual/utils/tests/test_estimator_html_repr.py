@@ -414,21 +414,21 @@ def test_estimator_html_repr_fitted_icon(estimator):
 
 
 @pytest.mark.parametrize("mock_version", ["1.3.0.dev0", "1.3.0"])
-def test_html_documentation_link_mixin_sklearn(mock_version):
+def test_html_documentation_link_mixin_sklearn_dual(mock_version):
     """Check the behaviour of the `_HTMLDocumentationLinkMixin` class for scikit-learn
     default.
     """
 
     # mock the `__version__` where the mixin is located
-    with patch("sklearn.utils._estimator_html_repr.__version__", mock_version):
+    with patch("sklearn_dual.utils._estimator_html_repr.__version__", mock_version):
         mixin = _HTMLDocumentationLinkMixin()
 
-        assert mixin._doc_link_module == "sklearn"
-        sklearn_version = parse_version(mock_version)
+        assert mixin._doc_link_module == "sklearn_dual"
+        sklearn_dual_version = parse_version(mock_version)
         # we need to parse the version manually to be sure that this test is passing in
         # other branches than `main` (that is "dev").
-        if sklearn_version.dev is None:
-            version = f"{sklearn_version.major}.{sklearn_version.minor}"
+        if sklearn_dual_version.dev is None:
+            version = f"{sklearn_dual_version.major}.{sklearn_dual_version.minor}"
         else:
             version = "dev"
         assert (
@@ -439,7 +439,7 @@ def test_html_documentation_link_mixin_sklearn(mock_version):
         assert (
             mixin._get_doc_link()
             == f"https://scikit-learn.org/{version}/modules/generated/"
-            "sklearn.utils._HTMLDocumentationLinkMixin.html"
+            "sklearn_dual.utils._HTMLDocumentationLinkMixin.html"
         )
 
 

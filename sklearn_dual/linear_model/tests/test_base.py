@@ -757,8 +757,8 @@ def test_linear_regression_sample_weight_consistency(
     if fit_intercept and sparse_container is None:
         # FIXME: https://github.com/scikit-learn/scikit-learn/issues/26164
         # This often fails, e.g. when calling
-        # SKLEARN_TESTS_GLOBAL_RANDOM_SEED="all" pytest \
-        # sklearn/linear_model/tests/test_base.py\
+        # sklearn_dual_TESTS_GLOBAL_RANDOM_SEED="all" pytest \
+        # sklearn_dual/linear_model/tests/test_base.py\
         # ::test_linear_regression_sample_weight_consistency
         pass
     else:

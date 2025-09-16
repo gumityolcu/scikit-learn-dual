@@ -115,7 +115,7 @@ class IterativeImputer(_BaseImputer):
     initial_strategy : {'mean', 'median', 'most_frequent', 'constant'}, \
             default='mean'
         Which strategy to use to initialize the missing values. Same as the
-        `strategy` parameter in :class:`~sklearn.impute.SimpleImputer`.
+        `strategy` parameter in :class:`~sklearn_dual.impute.SimpleImputer`.
 
     fill_value : str or numerical value, default=None
         When `strategy="constant"`, `fill_value` is used to replace all
@@ -190,7 +190,7 @@ class IterativeImputer(_BaseImputer):
 
     Attributes
     ----------
-    initial_imputer_ : object of type :class:`~sklearn.impute.SimpleImputer`
+    initial_imputer_ : object of type :class:`~sklearn_dual.impute.SimpleImputer`
         Imputer used to initialize the missing values.
 
     imputation_sequence_ : list of tuples
@@ -219,7 +219,7 @@ class IterativeImputer(_BaseImputer):
     n_features_with_missing_ : int
         Number of features with missing values.
 
-    indicator_ : :class:`~sklearn.impute.MissingIndicator`
+    indicator_ : :class:`~sklearn_dual.impute.MissingIndicator`
         Indicator used to add binary indicators for missing values.
         `None` if `add_indicator=False`.
 
@@ -393,7 +393,7 @@ class IterativeImputer(_BaseImputer):
         X_filled : ndarray
             Input data with `X_filled[missing_row_mask, feat_idx]` updated.
 
-        estimator : estimator with sklearn API
+        estimator : estimator with sklearn_dual API
             The fitted estimator used to impute
             `X_filled[missing_row_mask, feat_idx]`.
         """
@@ -711,7 +711,7 @@ class IterativeImputer(_BaseImputer):
 
             .. versionadded:: 1.5
               Only available if
-              `sklearn.set_config(enable_metadata_routing=True)` is set. See
+              `sklearn_dual.set_config(enable_metadata_routing=True)` is set. See
               :ref:`Metadata Routing User Guide <metadata_routing>` for more
               details.
 
@@ -905,7 +905,7 @@ class IterativeImputer(_BaseImputer):
 
             .. versionadded:: 1.5
               Only available if
-              `sklearn.set_config(enable_metadata_routing=True)` is set. See
+              `sklearn_dual.set_config(enable_metadata_routing=True)` is set. See
               :ref:`Metadata Routing User Guide <metadata_routing>` for more
               details.
 
@@ -953,7 +953,7 @@ class IterativeImputer(_BaseImputer):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__).add(

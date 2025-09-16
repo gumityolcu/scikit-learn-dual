@@ -3,7 +3,7 @@
 Column Transformer with Mixed Types
 ===================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 This example illustrates how to apply different preprocessing and feature
 extraction pipelines to different subsets of features, using
@@ -114,7 +114,7 @@ clf
 # When dealing with a cleaned dataset, the preprocessing can be automatic by
 # using the data types of the column to decide whether to treat a column as a
 # numerical or categorical feature.
-# :func:`sklearn.compose.make_column_selector` gives this possibility.
+# :func:`sklearn_dual.compose.make_column_selector` gives this possibility.
 # First, let's only select a subset of columns to simplify our
 # example.
 
@@ -176,10 +176,10 @@ selector(dtype_include="category")(X_train)
 # hyperparameters as part of the ``Pipeline``.
 # We will search for both the imputer strategy of the numeric preprocessing
 # and the regularization parameter of the logistic regression using
-# :class:`~sklearn.model_selection.RandomizedSearchCV`. This
+# :class:`~sklearn_dual.model_selection.RandomizedSearchCV`. This
 # hyperparameter search randomly selects a fixed number of parameter
 # settings configured by `n_iter`. Alternatively, one can use
-# :class:`~sklearn.model_selection.GridSearchCV` but the cartesian product of
+# :class:`~sklearn_dual.model_selection.GridSearchCV` but the cartesian product of
 # the parameter space will be evaluated.
 
 param_grid = {

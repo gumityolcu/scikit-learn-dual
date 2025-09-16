@@ -3,7 +3,7 @@
 Categorical Feature Support in Gradient Boosting
 ================================================
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 In this example, we will compare the training times and prediction
 performances of :class:`~ensemble.HistGradientBoostingRegressor` with

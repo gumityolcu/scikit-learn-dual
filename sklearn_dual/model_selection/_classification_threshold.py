@@ -290,9 +290,9 @@ class FixedThresholdClassifier(BaseThresholdClassifier):
 
     See Also
     --------
-    sklearn.model_selection.TunedThresholdClassifierCV : Classifier that post-tunes
+    sklearn_dual.model_selection.TunedThresholdClassifierCV : Classifier that post-tunes
         the decision threshold based on some metrics and using cross-validation.
-    sklearn.calibration.CalibratedClassifierCV : Estimator that calibrates
+    sklearn_dual.calibration.CalibratedClassifierCV : Estimator that calibrates
         probabilities.
 
     Examples
@@ -410,7 +410,7 @@ class FixedThresholdClassifier(BaseThresholdClassifier):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__).add(
@@ -545,7 +545,7 @@ class TunedThresholdClassifierCV(BaseThresholdClassifier):
 
         * a string associated to a scoring function for binary classification
           (see :ref:`scoring_parameter`);
-        * a scorer callable object created with :func:`~sklearn.metrics.make_scorer`;
+        * a scorer callable object created with :func:`~sklearn_dual.metrics.make_scorer`;
 
     response_method : {"auto", "decision_function", "predict_proba"}, default="auto"
         Methods by the classifier `estimator` corresponding to the
@@ -637,9 +637,9 @@ class TunedThresholdClassifierCV(BaseThresholdClassifier):
 
     See Also
     --------
-    sklearn.model_selection.FixedThresholdClassifier : Classifier that uses a
+    sklearn_dual.model_selection.FixedThresholdClassifier : Classifier that uses a
         constant threshold.
-    sklearn.calibration.CalibratedClassifierCV : Estimator that calibrates
+    sklearn_dual.calibration.CalibratedClassifierCV : Estimator that calibrates
         probabilities.
 
     Examples
@@ -879,7 +879,7 @@ class TunedThresholdClassifierCV(BaseThresholdClassifier):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = (

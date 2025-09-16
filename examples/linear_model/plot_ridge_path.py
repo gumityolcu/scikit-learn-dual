@@ -5,7 +5,7 @@ Plot Ridge coefficients as a function of the regularization
 
 Shows the effect of collinearity in the coefficients of an estimator.
 
-.. currentmodule:: sklearn.linear_model
+.. currentmodule:: sklearn_dual.linear_model
 
 :class:`Ridge` Regression is the estimator used in this example.
 Each color represents a different feature of the

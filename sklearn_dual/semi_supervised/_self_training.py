@@ -267,7 +267,7 @@ class SelfTrainingClassifier(MetaEstimatorMixin, BaseEstimator):
             .. versionadded:: 1.6
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -394,7 +394,7 @@ class SelfTrainingClassifier(MetaEstimatorMixin, BaseEstimator):
             .. versionadded:: 1.6
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -436,7 +436,7 @@ class SelfTrainingClassifier(MetaEstimatorMixin, BaseEstimator):
             .. versionadded:: 1.6
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -478,7 +478,7 @@ class SelfTrainingClassifier(MetaEstimatorMixin, BaseEstimator):
             .. versionadded:: 1.6
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -522,7 +522,7 @@ class SelfTrainingClassifier(MetaEstimatorMixin, BaseEstimator):
             .. versionadded:: 1.6
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -568,7 +568,7 @@ class SelfTrainingClassifier(MetaEstimatorMixin, BaseEstimator):
             .. versionadded:: 1.6
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -605,7 +605,7 @@ class SelfTrainingClassifier(MetaEstimatorMixin, BaseEstimator):
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__)

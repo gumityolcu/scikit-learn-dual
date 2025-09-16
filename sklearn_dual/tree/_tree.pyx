@@ -1484,7 +1484,7 @@ def _dtype_to_dict(dtype):
 
 
 def _dtype_dict_with_modified_bitness(dtype_dict):
-    # field names in Node struct with intp_t types (see sklearn/tree/_tree.pxd)
+    # field names in Node struct with intp_t types (see sklearn_dual/tree/_tree.pxd)
     indexing_field_names = ["left_child", "right_child", "feature", "n_node_samples"]
 
     expected_dtype_size = str(struct.calcsize("P"))

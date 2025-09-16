@@ -131,7 +131,7 @@ def contingency_matrix(
         ``eps is None``, the dtype of this array will be integer unless set
         otherwise with the ``dtype`` argument. If ``eps`` is given, the dtype
         will be float.
-        Will be a ``sklearn.sparse.csr_matrix`` if ``sparse=True``.
+        Will be a ``sklearn_dual.sparse.csr_matrix`` if ``sparse=True``.
 
     Examples
     --------
@@ -210,9 +210,9 @@ def pair_confusion_matrix(labels_true, labels_pred):
 
     See Also
     --------
-    sklearn.metrics.rand_score : Rand Score.
-    sklearn.metrics.adjusted_rand_score : Adjusted Rand Score.
-    sklearn.metrics.adjusted_mutual_info_score : Adjusted Mutual Information.
+    sklearn_dual.metrics.rand_score : Rand Score.
+    sklearn_dual.metrics.adjusted_rand_score : Adjusted Rand Score.
+    sklearn_dual.metrics.adjusted_mutual_info_score : Adjusted Mutual Information.
 
     References
     ----------
@@ -849,7 +849,7 @@ def mutual_info_score(labels_true, labels_pred, *, contingency=None):
     contingency : {array-like, sparse matrix} of shape \
             (n_classes_true, n_classes_pred), default=None
         A contingency matrix given by the
-        :func:`~sklearn.metrics.cluster.contingency_matrix` function. If value
+        :func:`~sklearn_dual.metrics.cluster.contingency_matrix` function. If value
         is ``None``, it will be computed, otherwise the given value is used,
         with ``labels_true`` and ``labels_pred`` ignored.
 

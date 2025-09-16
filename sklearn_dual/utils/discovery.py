@@ -20,7 +20,7 @@ _MODULE_TO_IGNORE = {
 
 
 def all_estimators(type_filter=None):
-    """Get a list of all estimators from `sklearn`.
+    """Get a list of all estimators from `sklearn_dual`.
 
     This function crawls the module and gets all classes that inherit
     from BaseEstimator. Classes that are defined in test-modules are not
@@ -51,24 +51,24 @@ def all_estimators(type_filter=None):
     >>> type(estimators[0])
     <class 'tuple'>
     >>> estimators[:2]
-    [('ARDRegression', <class 'sklearn.linear_model._bayes.ARDRegression'>),
+    [('ARDRegression', <class 'sklearn_dual.linear_model._bayes.ARDRegression'>),
      ('AdaBoostClassifier',
-      <class 'sklearn.ensemble._weight_boosting.AdaBoostClassifier'>)]
+      <class 'sklearn_dual.ensemble._weight_boosting.AdaBoostClassifier'>)]
     >>> classifiers = all_estimators(type_filter="classifier")
     >>> classifiers[:2]
     [('AdaBoostClassifier',
-      <class 'sklearn.ensemble._weight_boosting.AdaBoostClassifier'>),
-     ('BaggingClassifier', <class 'sklearn.ensemble._bagging.BaggingClassifier'>)]
+      <class 'sklearn_dual.ensemble._weight_boosting.AdaBoostClassifier'>),
+     ('BaggingClassifier', <class 'sklearn_dual.ensemble._bagging.BaggingClassifier'>)]
     >>> regressors = all_estimators(type_filter="regressor")
     >>> regressors[:2]
-    [('ARDRegression', <class 'sklearn.linear_model._bayes.ARDRegression'>),
+    [('ARDRegression', <class 'sklearn_dual.linear_model._bayes.ARDRegression'>),
      ('AdaBoostRegressor',
-      <class 'sklearn.ensemble._weight_boosting.AdaBoostRegressor'>)]
+      <class 'sklearn_dual.ensemble._weight_boosting.AdaBoostRegressor'>)]
     >>> both = all_estimators(type_filter=["classifier", "regressor"])
     >>> both[:2]
-    [('ARDRegression', <class 'sklearn.linear_model._bayes.ARDRegression'>),
+    [('ARDRegression', <class 'sklearn_dual.linear_model._bayes.ARDRegression'>),
      ('AdaBoostClassifier',
-      <class 'sklearn.ensemble._weight_boosting.AdaBoostClassifier'>)]
+      <class 'sklearn_dual.ensemble._weight_boosting.AdaBoostClassifier'>)]
     """
     # lazy import to avoid circular imports from sklearn_dual.base
     from ..base import (
@@ -88,11 +88,11 @@ def all_estimators(type_filter=None):
         return True
 
     all_classes = []
-    root = str(Path(__file__).parent.parent)  # sklearn package
+    root = str(Path(__file__).parent.parent)  # sklearn_dual package
     # Ignore deprecation warnings triggered at import time and from walking
     # packages
     with ignore_warnings(category=FutureWarning):
-        for _, module_name, _ in pkgutil.walk_packages(path=[root], prefix="sklearn."):
+        for _, module_name, _ in pkgutil.walk_packages(path=[root], prefix="sklearn_dual."):
             module_parts = module_name.split(".")
             if (
                 any(part in _MODULE_TO_IGNORE for part in module_parts)
@@ -151,7 +151,7 @@ def all_estimators(type_filter=None):
 
 
 def all_displays():
-    """Get a list of all displays from `sklearn`.
+    """Get a list of all displays from `sklearn_dual`.
 
     Returns
     -------
@@ -164,17 +164,17 @@ def all_displays():
     >>> from sklearn_dual.utils.discovery import all_displays
     >>> displays = all_displays()
     >>> displays[0]
-    ('CalibrationDisplay', <class 'sklearn.calibration.CalibrationDisplay'>)
+    ('CalibrationDisplay', <class 'sklearn_dual.calibration.CalibrationDisplay'>)
     """
     # lazy import to avoid circular imports from sklearn_dual.base
     from ._testing import ignore_warnings
 
     all_classes = []
-    root = str(Path(__file__).parent.parent)  # sklearn package
+    root = str(Path(__file__).parent.parent)  # sklearn_dual package
     # Ignore deprecation warnings triggered at import time and from walking
     # packages
     with ignore_warnings(category=FutureWarning):
-        for _, module_name, _ in pkgutil.walk_packages(path=[root], prefix="sklearn."):
+        for _, module_name, _ in pkgutil.walk_packages(path=[root], prefix="sklearn_dual."):
             module_parts = module_name.split(".")
             if (
                 any(part in _MODULE_TO_IGNORE for part in module_parts)
@@ -201,14 +201,14 @@ def _is_checked_function(item):
         return False
 
     mod = item.__module__
-    if not mod.startswith("sklearn.") or mod.endswith("estimator_checks"):
+    if not mod.startswith("sklearn_dual.") or mod.endswith("estimator_checks"):
         return False
 
     return True
 
 
 def all_functions():
-    """Get a list of all functions from `sklearn`.
+    """Get a list of all functions from `sklearn_dual`.
 
     Returns
     -------
@@ -228,11 +228,11 @@ def all_functions():
     from ._testing import ignore_warnings
 
     all_functions = []
-    root = str(Path(__file__).parent.parent)  # sklearn package
+    root = str(Path(__file__).parent.parent)  # sklearn_dual package
     # Ignore deprecation warnings triggered at import time and from walking
     # packages
     with ignore_warnings(category=FutureWarning):
-        for _, module_name, _ in pkgutil.walk_packages(path=[root], prefix="sklearn."):
+        for _, module_name, _ in pkgutil.walk_packages(path=[root], prefix="sklearn_dual."):
             module_parts = module_name.split(".")
             if (
                 any(part in _MODULE_TO_IGNORE for part in module_parts)

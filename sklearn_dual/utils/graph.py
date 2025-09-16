@@ -116,11 +116,11 @@ def _fix_connected_components(
         between neighbors according to the given metric.
 
     metric : str
-        Metric used in `sklearn.metrics.pairwise.pairwise_distances`.
+        Metric used in `sklearn_dual.metrics.pairwise.pairwise_distances`.
 
     kwargs : kwargs
         Keyword arguments passed to
-        `sklearn.metrics.pairwise.pairwise_distances`.
+        `sklearn_dual.metrics.pairwise.pairwise_distances`.
 
     Returns
     -------

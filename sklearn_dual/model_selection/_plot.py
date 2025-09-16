@@ -127,8 +127,8 @@ class LearningCurveDisplay(_BaseCurveDisplay):
     """Learning Curve visualization.
 
     It is recommended to use
-    :meth:`~sklearn.model_selection.LearningCurveDisplay.from_estimator` to
-    create a :class:`~sklearn.model_selection.LearningCurveDisplay` instance.
+    :meth:`~sklearn_dual.model_selection.LearningCurveDisplay.from_estimator` to
+    create a :class:`~sklearn_dual.model_selection.LearningCurveDisplay` instance.
     All parameters are stored as attributes.
 
     Read more in the :ref:`User Guide <visualizations>` for general information
@@ -183,7 +183,7 @@ class LearningCurveDisplay(_BaseCurveDisplay):
 
     See Also
     --------
-    sklearn.model_selection.learning_curve : Compute the learning curve.
+    sklearn_dual.model_selection.learning_curve : Compute the learning curve.
 
     Examples
     --------
@@ -230,7 +230,7 @@ class LearningCurveDisplay(_BaseCurveDisplay):
 
         negate_score : bool, default=False
             Whether or not to negate the scores obtained through
-            :func:`~sklearn.model_selection.learning_curve`. This is
+            :func:`~sklearn_dual.model_selection.learning_curve`. This is
             particularly useful when using the error denoted by `neg_*` in
             `scikit-learn`.
 
@@ -266,7 +266,7 @@ class LearningCurveDisplay(_BaseCurveDisplay):
 
         Returns
         -------
-        display : :class:`~sklearn.model_selection.LearningCurveDisplay`
+        display : :class:`~sklearn_dual.model_selection.LearningCurveDisplay`
             Object that stores computed values.
         """
         self._plot_curve(
@@ -358,8 +358,8 @@ class LearningCurveDisplay(_BaseCurveDisplay):
 
             For int/None inputs, if the estimator is a classifier and `y` is
             either binary or multiclass,
-            :class:`~sklearn.model_selection.StratifiedKFold` is used. In all
-            other cases, :class:`~sklearn.model_selection.KFold` is used. These
+            :class:`~sklearn_dual.model_selection.StratifiedKFold` is used. In all
+            other cases, :class:`~sklearn_dual.model_selection.KFold` is used. These
             splitters are instantiated with `shuffle=False` so the splits will
             be the same across calls.
 
@@ -413,7 +413,7 @@ class LearningCurveDisplay(_BaseCurveDisplay):
 
         negate_score : bool, default=False
             Whether or not to negate the scores obtained through
-            :func:`~sklearn.model_selection.learning_curve`. This is
+            :func:`~sklearn_dual.model_selection.learning_curve`. This is
             particularly useful when using the error denoted by `neg_*` in
             `scikit-learn`.
 
@@ -449,7 +449,7 @@ class LearningCurveDisplay(_BaseCurveDisplay):
 
         Returns
         -------
-        display : :class:`~sklearn.model_selection.LearningCurveDisplay`
+        display : :class:`~sklearn_dual.model_selection.LearningCurveDisplay`
             Object that stores computed values.
 
         Examples
@@ -508,8 +508,8 @@ class ValidationCurveDisplay(_BaseCurveDisplay):
     """Validation Curve visualization.
 
     It is recommended to use
-    :meth:`~sklearn.model_selection.ValidationCurveDisplay.from_estimator` to
-    create a :class:`~sklearn.model_selection.ValidationCurveDisplay` instance.
+    :meth:`~sklearn_dual.model_selection.ValidationCurveDisplay.from_estimator` to
+    create a :class:`~sklearn_dual.model_selection.ValidationCurveDisplay` instance.
     All parameters are stored as attributes.
 
     Read more in the :ref:`User Guide <visualizations>` for general information
@@ -565,7 +565,7 @@ class ValidationCurveDisplay(_BaseCurveDisplay):
 
     See Also
     --------
-    sklearn.model_selection.validation_curve : Compute the validation curve.
+    sklearn_dual.model_selection.validation_curve : Compute the validation curve.
 
     Examples
     --------
@@ -620,7 +620,7 @@ class ValidationCurveDisplay(_BaseCurveDisplay):
 
         negate_score : bool, default=False
             Whether or not to negate the scores obtained through
-            :func:`~sklearn.model_selection.validation_curve`. This is
+            :func:`~sklearn_dual.model_selection.validation_curve`. This is
             particularly useful when using the error denoted by `neg_*` in
             `scikit-learn`.
 
@@ -656,7 +656,7 @@ class ValidationCurveDisplay(_BaseCurveDisplay):
 
         Returns
         -------
-        display : :class:`~sklearn.model_selection.ValidationCurveDisplay`
+        display : :class:`~sklearn_dual.model_selection.ValidationCurveDisplay`
             Object that stores computed values.
         """
         self._plot_curve(
@@ -741,8 +741,8 @@ class ValidationCurveDisplay(_BaseCurveDisplay):
 
             For int/None inputs, if the estimator is a classifier and `y` is
             either binary or multiclass,
-            :class:`~sklearn.model_selection.StratifiedKFold` is used. In all
-            other cases, :class:`~sklearn.model_selection.KFold` is used. These
+            :class:`~sklearn_dual.model_selection.StratifiedKFold` is used. In all
+            other cases, :class:`~sklearn_dual.model_selection.KFold` is used. These
             splitters are instantiated with `shuffle=False` so the splits will
             be the same across calls.
 
@@ -783,7 +783,7 @@ class ValidationCurveDisplay(_BaseCurveDisplay):
 
         negate_score : bool, default=False
             Whether or not to negate the scores obtained through
-            :func:`~sklearn.model_selection.validation_curve`. This is
+            :func:`~sklearn_dual.model_selection.validation_curve`. This is
             particularly useful when using the error denoted by `neg_*` in
             `scikit-learn`.
 
@@ -819,7 +819,7 @@ class ValidationCurveDisplay(_BaseCurveDisplay):
 
         Returns
         -------
-        display : :class:`~sklearn.model_selection.ValidationCurveDisplay`
+        display : :class:`~sklearn_dual.model_selection.ValidationCurveDisplay`
             Object that stores computed values.
 
         Examples

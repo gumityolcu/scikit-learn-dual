@@ -657,7 +657,7 @@ class BaseForest(MultiOutputMixin, BaseEnsemble, metaclass=ABCMeta):
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
         Returns
         -------
@@ -1171,7 +1171,7 @@ class RandomForestClassifier(ForestClassifier):
     classifiers on various sub-samples of the dataset and uses averaging to
     improve the predictive accuracy and control over-fitting.
     Trees in the forest use the best split strategy, i.e. equivalent to passing
-    `splitter="best"` to the underlying :class:`~sklearn.tree.DecisionTreeRegressor`.
+    `splitter="best"` to the underlying :class:`~sklearn_dual.tree.DecisionTreeRegressor`.
     The sub-sample size is controlled with the `max_samples` parameter if
     `bootstrap=True` (default), otherwise the whole dataset is used to build
     each tree.
@@ -1279,7 +1279,7 @@ class RandomForestClassifier(ForestClassifier):
 
     oob_score : bool or callable, default=False
         Whether to use out-of-bag samples to estimate the generalization score.
-        By default, :func:`~sklearn.metrics.accuracy_score` is used.
+        By default, :func:`~sklearn_dual.metrics.accuracy_score` is used.
         Provide a callable with signature `metric(y_true, y_pred)` to use a
         custom metric. Only available if `bootstrap=True`.
 
@@ -1372,7 +1372,7 @@ class RandomForestClassifier(ForestClassifier):
 
     Attributes
     ----------
-    estimator_ : :class:`~sklearn.tree.DecisionTreeClassifier`
+    estimator_ : :class:`~sklearn_dual.tree.DecisionTreeClassifier`
         The child estimator template used to create the collection of fitted
         sub-estimators.
 
@@ -1413,7 +1413,7 @@ class RandomForestClassifier(ForestClassifier):
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
     oob_score_ : float
         Score of the training dataset obtained using an out-of-bag estimate.
@@ -1435,10 +1435,10 @@ class RandomForestClassifier(ForestClassifier):
 
     See Also
     --------
-    sklearn.tree.DecisionTreeClassifier : A decision tree classifier.
-    sklearn.ensemble.ExtraTreesClassifier : Ensemble of extremely randomized
+    sklearn_dual.tree.DecisionTreeClassifier : A decision tree classifier.
+    sklearn_dual.ensemble.ExtraTreesClassifier : Ensemble of extremely randomized
         tree classifiers.
-    sklearn.ensemble.HistGradientBoostingClassifier : A Histogram-based Gradient
+    sklearn_dual.ensemble.HistGradientBoostingClassifier : A Histogram-based Gradient
         Boosting Classification Tree, very fast for big datasets (n_samples >=
         10_000).
 
@@ -1556,7 +1556,7 @@ class RandomForestRegressor(ForestRegressor):
     regressors on various sub-samples of the dataset and uses averaging to
     improve the predictive accuracy and control over-fitting.
     Trees in the forest use the best split strategy, i.e. equivalent to passing
-    `splitter="best"` to the underlying :class:`~sklearn.tree.DecisionTreeRegressor`.
+    `splitter="best"` to the underlying :class:`~sklearn_dual.tree.DecisionTreeRegressor`.
     The sub-sample size is controlled with the `max_samples` parameter if
     `bootstrap=True` (default), otherwise the whole dataset is used to build
     each tree.
@@ -1681,7 +1681,7 @@ class RandomForestRegressor(ForestRegressor):
 
     oob_score : bool or callable, default=False
         Whether to use out-of-bag samples to estimate the generalization score.
-        By default, :func:`~sklearn.metrics.r2_score` is used.
+        By default, :func:`~sklearn_dual.metrics.r2_score` is used.
         Provide a callable with signature `metric(y_true, y_pred)` to use a
         custom metric. Only available if `bootstrap=True`.
 
@@ -1745,7 +1745,7 @@ class RandomForestRegressor(ForestRegressor):
 
     Attributes
     ----------
-    estimator_ : :class:`~sklearn.tree.DecisionTreeRegressor`
+    estimator_ : :class:`~sklearn_dual.tree.DecisionTreeRegressor`
         The child estimator template used to create the collection of fitted
         sub-estimators.
 
@@ -1764,7 +1764,7 @@ class RandomForestRegressor(ForestRegressor):
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
     n_features_in_ : int
         Number of features seen during :term:`fit`.
@@ -1796,10 +1796,10 @@ class RandomForestRegressor(ForestRegressor):
 
     See Also
     --------
-    sklearn.tree.DecisionTreeRegressor : A decision tree regressor.
-    sklearn.ensemble.ExtraTreesRegressor : Ensemble of extremely randomized
+    sklearn_dual.tree.DecisionTreeRegressor : A decision tree regressor.
+    sklearn_dual.ensemble.ExtraTreesRegressor : Ensemble of extremely randomized
         tree regressors.
-    sklearn.ensemble.HistGradientBoostingRegressor : A Histogram-based Gradient
+    sklearn_dual.ensemble.HistGradientBoostingRegressor : A Histogram-based Gradient
         Boosting Regression Tree, very fast for big datasets (n_samples >=
         10_000).
 
@@ -2016,7 +2016,7 @@ class ExtraTreesClassifier(ForestClassifier):
 
     oob_score : bool or callable, default=False
         Whether to use out-of-bag samples to estimate the generalization score.
-        By default, :func:`~sklearn.metrics.accuracy_score` is used.
+        By default, :func:`~sklearn_dual.metrics.accuracy_score` is used.
         Provide a callable with signature `metric(y_true, y_pred)` to use a
         custom metric. Only available if `bootstrap=True`.
 
@@ -2113,7 +2113,7 @@ class ExtraTreesClassifier(ForestClassifier):
 
     Attributes
     ----------
-    estimator_ : :class:`~sklearn.tree.ExtraTreeClassifier`
+    estimator_ : :class:`~sklearn_dual.tree.ExtraTreeClassifier`
         The child estimator template used to create the collection of fitted
         sub-estimators.
 
@@ -2140,7 +2140,7 @@ class ExtraTreesClassifier(ForestClassifier):
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
     n_features_in_ : int
         Number of features seen during :term:`fit`.
@@ -2401,7 +2401,7 @@ class ExtraTreesRegressor(ForestRegressor):
 
     oob_score : bool or callable, default=False
         Whether to use out-of-bag samples to estimate the generalization score.
-        By default, :func:`~sklearn.metrics.r2_score` is used.
+        By default, :func:`~sklearn_dual.metrics.r2_score` is used.
         Provide a callable with signature `metric(y_true, y_pred)` to use a
         custom metric. Only available if `bootstrap=True`.
 
@@ -2469,7 +2469,7 @@ class ExtraTreesRegressor(ForestRegressor):
 
     Attributes
     ----------
-    estimator_ : :class:`~sklearn.tree.ExtraTreeRegressor`
+    estimator_ : :class:`~sklearn_dual.tree.ExtraTreeRegressor`
         The child estimator template used to create the collection of fitted
         sub-estimators.
 
@@ -2488,7 +2488,7 @@ class ExtraTreesRegressor(ForestRegressor):
 
         Warning: impurity-based feature importances can be misleading for
         high cardinality features (many unique values). See
-        :func:`sklearn.inspection.permutation_importance` as an alternative.
+        :func:`sklearn_dual.inspection.permutation_importance` as an alternative.
 
     n_features_in_ : int
         Number of features seen during :term:`fit`.
@@ -2727,14 +2727,14 @@ class RandomTreesEmbedding(TransformerMixin, BaseForest):
 
     Attributes
     ----------
-    estimator_ : :class:`~sklearn.tree.ExtraTreeRegressor` instance
+    estimator_ : :class:`~sklearn_dual.tree.ExtraTreeRegressor` instance
         The child estimator template used to create the collection of fitted
         sub-estimators.
 
         .. versionadded:: 1.2
            `base_estimator_` was renamed to `estimator_`.
 
-    estimators_ : list of :class:`~sklearn.tree.ExtraTreeRegressor` instances
+    estimators_ : list of :class:`~sklearn_dual.tree.ExtraTreeRegressor` instances
         The collection of fitted sub-estimators.
 
     feature_importances_ : ndarray of shape (n_features,)
@@ -2769,9 +2769,9 @@ class RandomTreesEmbedding(TransformerMixin, BaseForest):
     ExtraTreesRegressor : An extra-trees regressor.
     RandomForestClassifier : A random forest classifier.
     RandomForestRegressor : A random forest regressor.
-    sklearn.tree.ExtraTreeClassifier: An extremely randomized
+    sklearn_dual.tree.ExtraTreeClassifier: An extremely randomized
         tree classifier.
-    sklearn.tree.ExtraTreeRegressor : An extremely randomized
+    sklearn_dual.tree.ExtraTreeRegressor : An extremely randomized
         tree regressor.
 
     References

@@ -59,7 +59,7 @@ X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_st
 # %%
 # Model Training and Comparison
 # -----------------------------
-# Two :class:`~sklearn.ensemble.GradientBoostingRegressor` models are trained:
+# Two :class:`~sklearn_dual.ensemble.GradientBoostingRegressor` models are trained:
 # one with and another without early stopping. The purpose is to compare their
 # performance. It also calculates the training time and the `n_estimators_`
 # used by both models.
@@ -86,7 +86,7 @@ estimators_early_stopping = gbm_early_stopping.n_estimators_
 # %%
 # Error Calculation
 # -----------------
-# The code calculates the :func:`~sklearn.metrics.mean_squared_error` for both
+# The code calculates the :func:`~sklearn_dual.metrics.mean_squared_error` for both
 # training and validation datasets for the models trained in the previous
 # section. It computes the errors for each boosting iteration. The purpose is
 # to assess the performance and convergence of the models.
@@ -171,7 +171,7 @@ plt.show()
 # %%
 # Summary
 # -------
-# In our example with the :class:`~sklearn.ensemble.GradientBoostingRegressor`
+# In our example with the :class:`~sklearn_dual.ensemble.GradientBoostingRegressor`
 # model on the California Housing Prices dataset, we have demonstrated the
 # practical benefits of early stopping:
 #

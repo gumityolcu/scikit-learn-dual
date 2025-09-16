@@ -208,7 +208,7 @@ class _BaseHeterogeneousEnsemble(
 
         Returns
         -------
-        :class:`~sklearn.utils.Bunch`
+        :class:`~sklearn_dual.utils.Bunch`
         """
         return Bunch(**dict(self.estimators))
 

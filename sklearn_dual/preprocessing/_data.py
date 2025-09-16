@@ -163,7 +163,7 @@ def scale(X, *, axis=0, with_mean=True, with_std=True, copy=True):
     --------
     StandardScaler : Performs scaling to unit variance using the Transformer
         API (e.g. as part of a preprocessing
-        :class:`~sklearn.pipeline.Pipeline`).
+        :class:`~sklearn_dual.pipeline.Pipeline`).
 
     Notes
     -----
@@ -190,13 +190,13 @@ def scale(X, *, axis=0, with_mean=True, with_std=True, copy=True):
 
     .. warning:: Risk of data leak
 
-        Do not use :func:`~sklearn.preprocessing.scale` unless you know
+        Do not use :func:`~sklearn_dual.preprocessing.scale` unless you know
         what you are doing. A common mistake is to apply it to the entire data
         *before* splitting into training and test sets. This will bias the
         model evaluation because information would have leaked from the test
         set to the training set.
         In general, we recommend using
-        :class:`~sklearn.preprocessing.StandardScaler` within a
+        :class:`~sklearn_dual.preprocessing.StandardScaler` within a
         :ref:`Pipeline <pipeline>` in order to prevent most risks of data
         leaking: `pipe = make_pipeline(StandardScaler(), LogisticRegression())`.
 
@@ -606,7 +606,7 @@ def minmax_scale(X, feature_range=(0, 1), *, axis=0, copy=True):
 
     .. versionadded:: 0.17
        *minmax_scale* function interface
-       to :class:`~sklearn.preprocessing.MinMaxScaler`.
+       to :class:`~sklearn_dual.preprocessing.MinMaxScaler`.
 
     Parameters
     ----------
@@ -633,13 +633,13 @@ def minmax_scale(X, feature_range=(0, 1), *, axis=0, copy=True):
 
     .. warning:: Risk of data leak
 
-        Do not use :func:`~sklearn.preprocessing.minmax_scale` unless you know
+        Do not use :func:`~sklearn_dual.preprocessing.minmax_scale` unless you know
         what you are doing. A common mistake is to apply it to the entire data
         *before* splitting into training and test sets. This will bias the
         model evaluation because information would have leaked from the test
         set to the training set.
         In general, we recommend using
-        :class:`~sklearn.preprocessing.MinMaxScaler` within a
+        :class:`~sklearn_dual.preprocessing.MinMaxScaler` within a
         :ref:`Pipeline <pipeline>` in order to prevent most risks of data
         leaking: `pipe = make_pipeline(MinMaxScaler(), LogisticRegression())`.
 
@@ -647,7 +647,7 @@ def minmax_scale(X, feature_range=(0, 1), *, axis=0, copy=True):
     --------
     MinMaxScaler : Performs scaling to a given range using the Transformer
         API (e.g. as part of a preprocessing
-        :class:`~sklearn.pipeline.Pipeline`).
+        :class:`~sklearn_dual.pipeline.Pipeline`).
 
     Notes
     -----
@@ -794,7 +794,7 @@ class StandardScaler(OneToOneFeatureMixin, TransformerMixin, BaseEstimator):
     --------
     scale : Equivalent function without the estimator API.
 
-    :class:`~sklearn.decomposition.PCA` : Further removes the linear
+    :class:`~sklearn_dual.decomposition.PCA` : Further removes the linear
         correlation across features with 'whiten=True'.
 
     Notes
@@ -1377,13 +1377,13 @@ def maxabs_scale(X, *, axis=0, copy=True):
 
     .. warning:: Risk of data leak
 
-        Do not use :func:`~sklearn.preprocessing.maxabs_scale` unless you know
+        Do not use :func:`~sklearn_dual.preprocessing.maxabs_scale` unless you know
         what you are doing. A common mistake is to apply it to the entire data
         *before* splitting into training and test sets. This will bias the
         model evaluation because information would have leaked from the test
         set to the training set.
         In general, we recommend using
-        :class:`~sklearn.preprocessing.MaxAbsScaler` within a
+        :class:`~sklearn_dual.preprocessing.MaxAbsScaler` within a
         :ref:`Pipeline <pipeline>` in order to prevent most risks of data
         leaking: `pipe = make_pipeline(MaxAbsScaler(), LogisticRegression())`.
 
@@ -1391,7 +1391,7 @@ def maxabs_scale(X, *, axis=0, copy=True):
     --------
     MaxAbsScaler : Performs scaling to the [-1, 1] range using
         the Transformer API (e.g. as part of a preprocessing
-        :class:`~sklearn.pipeline.Pipeline`).
+        :class:`~sklearn_dual.pipeline.Pipeline`).
 
     Notes
     -----
@@ -1525,7 +1525,7 @@ class RobustScaler(OneToOneFeatureMixin, TransformerMixin, BaseEstimator):
     See Also
     --------
     robust_scale : Equivalent function without the estimator API.
-    sklearn.decomposition.PCA : Further removes the linear correlation across
+    sklearn_dual.decomposition.PCA : Further removes the linear correlation across
         features with 'whiten=True'.
 
     Notes
@@ -1779,7 +1779,7 @@ def robust_scale(
     See Also
     --------
     RobustScaler : Performs centering and scaling using the Transformer API
-        (e.g. as part of a preprocessing :class:`~sklearn.pipeline.Pipeline`).
+        (e.g. as part of a preprocessing :class:`~sklearn_dual.pipeline.Pipeline`).
 
     Notes
     -----
@@ -1799,13 +1799,13 @@ def robust_scale(
 
     .. warning:: Risk of data leak
 
-        Do not use :func:`~sklearn.preprocessing.robust_scale` unless you know
+        Do not use :func:`~sklearn_dual.preprocessing.robust_scale` unless you know
         what you are doing. A common mistake is to apply it to the entire data
         *before* splitting into training and test sets. This will bias the
         model evaluation because information would have leaked from the test
         set to the training set.
         In general, we recommend using
-        :class:`~sklearn.preprocessing.RobustScaler` within a
+        :class:`~sklearn_dual.preprocessing.RobustScaler` within a
         :ref:`Pipeline <pipeline>` in order to prevent most risks of data
         leaking: `pipe = make_pipeline(RobustScaler(), LogisticRegression())`.
 
@@ -1903,7 +1903,7 @@ def normalize(X, norm="l2", *, axis=1, copy=True, return_norm=False):
     See Also
     --------
     Normalizer : Performs normalization using the Transformer API
-        (e.g. as part of a preprocessing :class:`~sklearn.pipeline.Pipeline`).
+        (e.g. as part of a preprocessing :class:`~sklearn_dual.pipeline.Pipeline`).
 
     Notes
     -----
@@ -2145,7 +2145,7 @@ def binarize(X, *, threshold=0.0, copy=True):
     See Also
     --------
     Binarizer : Performs binarization using the Transformer API
-        (e.g. as part of a preprocessing :class:`~sklearn.pipeline.Pipeline`).
+        (e.g. as part of a preprocessing :class:`~sklearn_dual.pipeline.Pipeline`).
 
     Examples
     --------
@@ -2331,7 +2331,7 @@ class KernelCenterer(ClassNamePrefixFeaturesOutMixin, TransformerMixin, BaseEsti
     `KernelCenterer` centers the features without explicitly computing the
     mapping :math:`\phi(\cdot)`. Working with centered kernels is sometime
     expected when dealing with algebra computation such as eigendecomposition
-    for :class:`~sklearn.decomposition.KernelPCA` for instance.
+    for :class:`~sklearn_dual.decomposition.KernelPCA` for instance.
 
     Read more in the :ref:`User Guide <kernel_centering>`.
 
@@ -2356,7 +2356,7 @@ class KernelCenterer(ClassNamePrefixFeaturesOutMixin, TransformerMixin, BaseEsti
 
     See Also
     --------
-    sklearn.kernel_approximation.Nystroem : Approximate a kernel map
+    sklearn_dual.kernel_approximation.Nystroem : Approximate a kernel map
         using a subset of the training data.
 
     References
@@ -3059,7 +3059,7 @@ def quantile_transform(
     --------
     QuantileTransformer : Performs quantile-based scaling using the
         Transformer API (e.g. as part of a preprocessing
-        :class:`~sklearn.pipeline.Pipeline`).
+        :class:`~sklearn_dual.pipeline.Pipeline`).
     power_transform : Maps data to a normal distribution using a
         power transformation.
     scale : Performs standardization that is faster, but less robust
@@ -3074,14 +3074,14 @@ def quantile_transform(
 
     .. warning:: Risk of data leak
 
-        Do not use :func:`~sklearn.preprocessing.quantile_transform` unless
+        Do not use :func:`~sklearn_dual.preprocessing.quantile_transform` unless
         you know what you are doing. A common mistake is to apply it
         to the entire data *before* splitting into training and
         test sets. This will bias the model evaluation because
         information would have leaked from the test set to the
         training set.
         In general, we recommend using
-        :class:`~sklearn.preprocessing.QuantileTransformer` within a
+        :class:`~sklearn_dual.preprocessing.QuantileTransformer` within a
         :ref:`Pipeline <pipeline>` in order to prevent most risks of data
         leaking:`pipe = make_pipeline(QuantileTransformer(),
         LogisticRegression())`.
@@ -3594,7 +3594,7 @@ def power_transform(X, method="yeo-johnson", *, standardize=True, copy=True):
     --------
     PowerTransformer : Equivalent transformation with the
         Transformer API (e.g. as part of a preprocessing
-        :class:`~sklearn.pipeline.Pipeline`).
+        :class:`~sklearn_dual.pipeline.Pipeline`).
 
     quantile_transform : Maps data to a standard normal distribution with
         the parameter `output_distribution='normal'`.
@@ -3628,13 +3628,13 @@ def power_transform(X, method="yeo-johnson", *, standardize=True, copy=True):
      [ 1.076...  1.414...]]
 
     .. warning:: Risk of data leak.
-        Do not use :func:`~sklearn.preprocessing.power_transform` unless you
+        Do not use :func:`~sklearn_dual.preprocessing.power_transform` unless you
         know what you are doing. A common mistake is to apply it to the entire
         data *before* splitting into training and test sets. This will bias the
         model evaluation because information would have leaked from the test
         set to the training set.
         In general, we recommend using
-        :class:`~sklearn.preprocessing.PowerTransformer` within a
+        :class:`~sklearn_dual.preprocessing.PowerTransformer` within a
         :ref:`Pipeline <pipeline>` in order to prevent most risks of data
         leaking, e.g.: `pipe = make_pipeline(PowerTransformer(),
         LogisticRegression())`.

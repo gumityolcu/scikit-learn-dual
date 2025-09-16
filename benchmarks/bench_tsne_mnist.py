@@ -124,7 +124,7 @@ if __name__ == "__main__":
         verbose=args.verbose,
         n_iter=1000,
     )
-    methods.append(("sklearn TSNE", lambda data: tsne_fit_transform(tsne, data)))
+    methods.append(("sklearn_dual TSNE", lambda data: tsne_fit_transform(tsne, data)))
 
     if args.bhtsne:
         try:

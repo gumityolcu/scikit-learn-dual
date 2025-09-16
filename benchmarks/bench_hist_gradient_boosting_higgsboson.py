@@ -108,7 +108,7 @@ est = HistGradientBoostingClassifier(
     interaction_cst=interaction_cst,
     max_features=max_features,
 )
-fit(est, data_train, target_train, "sklearn")
+fit(est, data_train, target_train, "sklearn_dual")
 predict(est, data_test, target_test)
 
 if args.lightgbm:

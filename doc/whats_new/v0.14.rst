@@ -1,6 +1,6 @@
 .. include:: _contributors.rst
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 ============
 Version 0.14
@@ -33,11 +33,11 @@ Changelog
   optimization. By `Andreas Müller`_.
 
 - Added :ref:`biclustering <biclustering>` algorithms
-  (`sklearn.cluster.bicluster.SpectralCoclustering` and
-  `sklearn.cluster.bicluster.SpectralBiclustering`), data
-  generation methods (:func:`sklearn.datasets.make_biclusters` and
-  :func:`sklearn.datasets.make_checkerboard`), and scoring metrics
-  (:func:`sklearn.metrics.consensus_score`). By `Kemal Eren`_.
+  (`sklearn_dual.cluster.bicluster.SpectralCoclustering` and
+  `sklearn_dual.cluster.bicluster.SpectralBiclustering`), data
+  generation methods (:func:`sklearn_dual.datasets.make_biclusters` and
+  :func:`sklearn_dual.datasets.make_checkerboard`), and scoring metrics
+  (:func:`sklearn_dual.metrics.consensus_score`). By `Kemal Eren`_.
 
 - Added :ref:`Restricted Boltzmann Machines<rbm>`
   (:class:`neural_network.BernoulliRBM`). By `Yann Dauphin`_.
@@ -49,7 +49,7 @@ Changelog
 - Ability to pass one penalty (alpha value) per target in
   :class:`linear_model.Ridge`, by @eickenberg and `Mathieu Blondel`_.
 
-- Fixed `sklearn.linear_model.stochastic_gradient.py` L2 regularization
+- Fixed `sklearn_dual.linear_model.stochastic_gradient.py` L2 regularization
   issue (minor practical significance).
   By :user:`Norbert Crombach <norbert>` and `Mathieu Blondel`_ .
 
@@ -64,7 +64,7 @@ Changelog
   scoring function such as area under the ROC curve and f-beta scores.
   See :ref:`scoring_parameter` for details. By `Andreas Müller`_
   and `Lars Buitinck`_.
-  Passing a function from :mod:`sklearn.metrics` as ``score_func`` is
+  Passing a function from :mod:`sklearn_dual.metrics` as ``score_func`` is
   deprecated.
 
 - Multi-label classification output is now supported by
@@ -132,7 +132,7 @@ Changelog
 - Refactored and vectorized implementation of :func:`metrics.roc_curve`
   and :func:`metrics.precision_recall_curve`. By `Joel Nothman`_.
 
-- The new estimator :class:`sklearn.decomposition.TruncatedSVD`
+- The new estimator :class:`sklearn_dual.decomposition.TruncatedSVD`
   performs dimensionality reduction using SVD on sparse matrices,
   and can be used for latent semantic analysis (LSA).
   By `Lars Buitinck`_.
@@ -142,22 +142,22 @@ Changelog
   By :user:`Eustache Diemert <oddskool>`.
 
 - The default number of components for
-  `sklearn.decomposition.RandomizedPCA` is now correctly documented
+  `sklearn_dual.decomposition.RandomizedPCA` is now correctly documented
   to be ``n_features``. This was the default behavior, so programs using it
   will continue to work as they did.
 
-- :class:`sklearn.cluster.KMeans` now fits several orders of magnitude
+- :class:`sklearn_dual.cluster.KMeans` now fits several orders of magnitude
   faster on sparse data (the speedup depends on the sparsity). By
   `Lars Buitinck`_.
 
 - Reduce memory footprint of FastICA by `Denis Engemann`_ and
   `Alexandre Gramfort`_.
 
-- Verbose output in `sklearn.ensemble.gradient_boosting` now uses
+- Verbose output in `sklearn_dual.ensemble.gradient_boosting` now uses
   a column format and prints progress in decreasing frequency.
   It also shows the remaining time. By `Peter Prettenhofer`_.
 
-- `sklearn.ensemble.gradient_boosting` provides out-of-bag improvement
+- `sklearn_dual.ensemble.gradient_boosting` provides out-of-bag improvement
   `oob_improvement_`
   rather than the OOB score for model selection. An example that shows
   how to use OOB estimates to select the number of trees was added.
@@ -169,11 +169,11 @@ Changelog
 - New OrthogonalMatchingPursuitCV class by `Alexandre Gramfort`_
   and `Vlad Niculae`_.
 
-- Fixed a bug in `sklearn.covariance.GraphLassoCV`: the
+- Fixed a bug in `sklearn_dual.covariance.GraphLassoCV`: the
   'alphas' parameter now works as expected when given a list of
   values. By Philippe Gervais.
 
-- Fixed an important bug in `sklearn.covariance.GraphLassoCV`
+- Fixed an important bug in `sklearn_dual.covariance.GraphLassoCV`
   that prevented all folds provided by a CV object to be used (only
   the first 3 were used). When providing a CV object, execution
   time may thus increase significantly compared to the previous
@@ -198,8 +198,8 @@ Changelog
   `Vlad Niculae`_.
 
 - Out-of-core learning support for discrete naive Bayes classifiers
-  :class:`sklearn.naive_bayes.MultinomialNB` and
-  :class:`sklearn.naive_bayes.BernoulliNB` by adding the ``partial_fit``
+  :class:`sklearn_dual.naive_bayes.MultinomialNB` and
+  :class:`sklearn_dual.naive_bayes.BernoulliNB` by adding the ``partial_fit``
   method by `Olivier Grisel`_.
 
 - New website design and navigation by `Gilles Louppe`_, `Nelle Varoquaux`_,
@@ -208,12 +208,12 @@ Changelog
 - Improved documentation on :ref:`multi-class, multi-label and multi-output
   classification <multiclass>` by `Yannick Schwartz`_ and `Arnaud Joly`_.
 
-- Better input and error handling in the :mod:`sklearn.metrics` module by
+- Better input and error handling in the :mod:`sklearn_dual.metrics` module by
   `Arnaud Joly`_ and `Joel Nothman`_.
 
 - Speed optimization of the `hmm` module by :user:`Mikhail Korobov <kmike>`
 
-- Significant speed improvements for :class:`sklearn.cluster.DBSCAN`
+- Significant speed improvements for :class:`sklearn_dual.cluster.DBSCAN`
   by `cleverless <https://github.com/cleverless>`_
 
 
@@ -222,8 +222,8 @@ API changes summary
 
 - The `auc_score` was renamed :func:`metrics.roc_auc_score`.
 
-- Testing scikit-learn with ``sklearn.test()`` is deprecated. Use
-  ``nosetests sklearn`` from the command line.
+- Testing scikit-learn with ``sklearn_dual.test()`` is deprecated. Use
+  ``nosetests sklearn_dual`` from the command line.
 
 - Feature importances in :class:`tree.DecisionTreeClassifier`,
   :class:`tree.DecisionTreeRegressor` and all derived ensemble estimators
@@ -242,8 +242,8 @@ API changes summary
 - Fixed bug in `KFold` causing imperfect class balance in some
   cases. By `Alexandre Gramfort`_ and Tadej Janež.
 
-- :class:`sklearn.neighbors.BallTree` has been refactored, and a
-  :class:`sklearn.neighbors.KDTree` has been
+- :class:`sklearn_dual.neighbors.BallTree` has been refactored, and a
+  :class:`sklearn_dual.neighbors.KDTree` has been
   added which shares the same interface.  The Ball Tree now works with
   a wide variety of distance metrics.  Both classes have many new
   methods, including single-tree and dual-tree queries, breadth-first
@@ -253,21 +253,21 @@ API changes summary
 
 - Support for scipy.spatial.cKDTree within neighbors queries has been
   removed, and the functionality replaced with the new
-  :class:`sklearn.neighbors.KDTree` class.
+  :class:`sklearn_dual.neighbors.KDTree` class.
 
-- :class:`sklearn.neighbors.KernelDensity` has been added, which performs
+- :class:`sklearn_dual.neighbors.KernelDensity` has been added, which performs
   efficient kernel density estimation with a variety of kernels.
 
-- :class:`sklearn.decomposition.KernelPCA` now always returns output with
+- :class:`sklearn_dual.decomposition.KernelPCA` now always returns output with
   ``n_components`` components, unless the new parameter ``remove_zero_eig``
   is set to ``True``. This new behavior is consistent with the way
   kernel PCA was always documented; previously, the removal of components
   with zero eigenvalues was tacitly performed on all data.
 
 - ``gcv_mode="auto"`` no longer tries to perform SVD on a densified
-  sparse matrix in :class:`sklearn.linear_model.RidgeCV`.
+  sparse matrix in :class:`sklearn_dual.linear_model.RidgeCV`.
 
-- Sparse matrix support in `sklearn.decomposition.RandomizedPCA`
+- Sparse matrix support in `sklearn_dual.decomposition.RandomizedPCA`
   is now deprecated in favor of the new ``TruncatedSVD``.
 
 - `cross_validation.KFold` and
@@ -277,19 +277,19 @@ API changes summary
 - :func:`datasets.load_files`'s ``charset`` and ``charset_errors``
   parameters were renamed ``encoding`` and ``decode_errors``.
 
-- Attribute ``oob_score_`` in :class:`sklearn.ensemble.GradientBoostingRegressor`
-  and :class:`sklearn.ensemble.GradientBoostingClassifier`
+- Attribute ``oob_score_`` in :class:`sklearn_dual.ensemble.GradientBoostingRegressor`
+  and :class:`sklearn_dual.ensemble.GradientBoostingClassifier`
   is deprecated and has been replaced by ``oob_improvement_`` .
 
 - Attributes in OrthogonalMatchingPursuit have been deprecated
   (copy_X, Gram, ...) and precompute_gram renamed precompute
   for consistency. See #2224.
 
-- :class:`sklearn.preprocessing.StandardScaler` now converts integer input
+- :class:`sklearn_dual.preprocessing.StandardScaler` now converts integer input
   to float, and raises a warning. Previously it rounded for dense integer
   input.
 
-- :class:`sklearn.multiclass.OneVsRestClassifier` now has a
+- :class:`sklearn_dual.multiclass.OneVsRestClassifier` now has a
   ``decision_function`` method. This will return the distance of each
   sample from the decision boundary for each class, as long as the
   underlying estimators implement the ``decision_function`` method.

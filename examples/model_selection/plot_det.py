@@ -18,10 +18,10 @@ corner) is the "ideal" point.
 
 .. note::
 
-    - See :func:`sklearn.metrics.roc_curve` for further information about ROC
+    - See :func:`sklearn_dual.metrics.roc_curve` for further information about ROC
       curves.
 
-    - See :func:`sklearn.metrics.det_curve` for further information about
+    - See :func:`sklearn_dual.metrics.det_curve` for further information about
       DET curves.
 
     - This example is loosely based on
@@ -81,7 +81,7 @@ classifiers = {
 #
 # DET curves are commonly plotted in normal deviate scale. To achieve this the
 # DET display transforms the error rates as returned by the
-# :func:`~sklearn.metrics.det_curve` and the axis scale using
+# :func:`~sklearn_dual.metrics.det_curve` and the axis scale using
 # `scipy.stats.norm`.
 
 import matplotlib.pyplot as plt

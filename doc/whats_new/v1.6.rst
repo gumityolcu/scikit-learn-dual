@@ -1,6 +1,6 @@
 .. include:: _contributors.rst
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 .. _release_notes_1_6:
 
@@ -32,24 +32,24 @@ See :ref:`array_api` for more details.
 
 **Functions:**
 
-- :func:`sklearn.metrics.cluster.entropy` :pr:`29141` by :user:`Yaroslav Korobko <Tialo>`;
-- :func:`sklearn.metrics.d2_tweedie_score` :pr:`29207` by :user:`Emily Chen <EmilyXinyi>`;
-- :func:`sklearn.metrics.max_error` :pr:`29212` by :user:`Edoardo Abati <EdAbati>`;
-- :func:`sklearn.metrics.mean_absolute_error` :pr:`27736` by :user:`Edoardo Abati <EdAbati>`
+- :func:`sklearn_dual.metrics.cluster.entropy` :pr:`29141` by :user:`Yaroslav Korobko <Tialo>`;
+- :func:`sklearn_dual.metrics.d2_tweedie_score` :pr:`29207` by :user:`Emily Chen <EmilyXinyi>`;
+- :func:`sklearn_dual.metrics.max_error` :pr:`29212` by :user:`Edoardo Abati <EdAbati>`;
+- :func:`sklearn_dual.metrics.mean_absolute_error` :pr:`27736` by :user:`Edoardo Abati <EdAbati>`
   and :pr:`29143` by :user:`Tialo <Tialo>` and :user:`Loïc Estève <lesteve>`;
-- :func:`sklearn.metrics.mean_absolute_percentage_error` :pr:`29300` by :user:`Emily Chen <EmilyXinyi>`;
-- :func:`sklearn.metrics.mean_gamma_deviance` :pr:`29239` by :user:`Emily Chen <EmilyXinyi>`;
-- :func:`sklearn.metrics.mean_poisson_deviance` :pr:`29227` by :user:`Emily Chen <EmilyXinyi>`;
-- :func:`sklearn.metrics.mean_squared_error` :pr:`29142` by :user:`Yaroslav Korobko <Tialo>`;
-- :func:`sklearn.metrics.mean_tweedie_deviance` :pr:`28106` by :user:`Thomas Li <lithomas1>`;
-- :func:`sklearn.metrics.pairwise.additive_chi2_kernel` :pr:`29144` by :user:`Yaroslav Korobko <Tialo>`;
-- :func:`sklearn.metrics.pairwise.chi2_kernel` :pr:`29267` by :user:`Yaroslav Korobko <Tialo>`;
-- :func:`sklearn.metrics.pairwise.cosine_distances` :pr:`29265` by :user:`Emily Chen <EmilyXinyi>`;
-- :func:`sklearn.metrics.pairwise.cosine_similarity` :pr:`29014` by :user:`Edoardo Abati <EdAbati>`;
-- :func:`sklearn.metrics.pairwise.paired_cosine_distances` :pr:`29112` by :user:`Edoardo Abati <EdAbati>`.
-- :func:`sklearn.metrics.pairwise.paired_euclidean_distances` :pr:`29389` by :user:`Emily Chen <EmilyXinyi>`;
-- :func:`sklearn.metrics.pairwise.euclidean_distances` :pr:`29433` by :user:`Omar Salman <OmarManzoor>`;
-- :func:`sklearn.metrics.pairwise.rbf_kernel` :pr:`29433` by :user:`Omar Salman <OmarManzoor>`.
+- :func:`sklearn_dual.metrics.mean_absolute_percentage_error` :pr:`29300` by :user:`Emily Chen <EmilyXinyi>`;
+- :func:`sklearn_dual.metrics.mean_gamma_deviance` :pr:`29239` by :user:`Emily Chen <EmilyXinyi>`;
+- :func:`sklearn_dual.metrics.mean_poisson_deviance` :pr:`29227` by :user:`Emily Chen <EmilyXinyi>`;
+- :func:`sklearn_dual.metrics.mean_squared_error` :pr:`29142` by :user:`Yaroslav Korobko <Tialo>`;
+- :func:`sklearn_dual.metrics.mean_tweedie_deviance` :pr:`28106` by :user:`Thomas Li <lithomas1>`;
+- :func:`sklearn_dual.metrics.pairwise.additive_chi2_kernel` :pr:`29144` by :user:`Yaroslav Korobko <Tialo>`;
+- :func:`sklearn_dual.metrics.pairwise.chi2_kernel` :pr:`29267` by :user:`Yaroslav Korobko <Tialo>`;
+- :func:`sklearn_dual.metrics.pairwise.cosine_distances` :pr:`29265` by :user:`Emily Chen <EmilyXinyi>`;
+- :func:`sklearn_dual.metrics.pairwise.cosine_similarity` :pr:`29014` by :user:`Edoardo Abati <EdAbati>`;
+- :func:`sklearn_dual.metrics.pairwise.paired_cosine_distances` :pr:`29112` by :user:`Edoardo Abati <EdAbati>`.
+- :func:`sklearn_dual.metrics.pairwise.paired_euclidean_distances` :pr:`29389` by :user:`Emily Chen <EmilyXinyi>`;
+- :func:`sklearn_dual.metrics.pairwise.euclidean_distances` :pr:`29433` by :user:`Omar Salman <OmarManzoor>`;
+- :func:`sklearn_dual.metrics.pairwise.rbf_kernel` :pr:`29433` by :user:`Omar Salman <OmarManzoor>`.
 
 **Classes:**
 
@@ -135,14 +135,14 @@ Changelog
     :pr:`123456` by :user:`Joe Bloggs <joeongithub>`.
     where 123455 is the *pull request* number, not the issue number.
 
-:mod:`sklearn.base`
+:mod:`sklearn_dual.base`
 ...................
 
 - |Enhancement| Added a function :func:`base.is_clusterer` which determines
   whether a given estimator is of category clusterer.
   :pr:`28936` by :user:`Christian Veenhuis <ChVeen>`.
 
-:mod:`sklearn.cluster`
+:mod:`sklearn_dual.cluster`
 ......................
 
 - |API| The `copy` parameter of :class:`cluster.Birch` was deprecated in 1.6 and will be
@@ -150,14 +150,14 @@ Changelog
   on the input data.
   :pr:`29124` by :user:`Yao Xiao <Charlie-XIAO>`.
 
-:mod:`sklearn.compose`
+:mod:`sklearn_dual.compose`
 ......................
 
-- |Enhancement| :func:`sklearn.compose.ColumnTransformer` `verbose_feature_names_out`
+- |Enhancement| :func:`sklearn_dual.compose.ColumnTransformer` `verbose_feature_names_out`
   now accepts string format or callable to generate feature names. :pr:`28934` by
   :user:`Marc Bresson <MarcBresson>`.
 
-:mod:`sklearn.datasets`
+:mod:`sklearn_dual.datasets`
 .......................
 
 - |Feature| :func:`datasets.fetch_file` allows downloading arbitrary data-file
@@ -165,7 +165,7 @@ Changelog
   and automatic retries in case of HTTP errors. :pr:`29354` by :user:`Olivier
   Grisel <ogrisel>`.
 
-:mod:`sklearn.decomposition`
+:mod:`sklearn_dual.decomposition`
 ............................
 
 - |Fix| Increase rank defficiency threshold in the whitening step of
@@ -173,7 +173,7 @@ Changelog
   platform-agnosticity of the estimator. :pr:`29612` by :user:`Olivier Grisel
   <ogrisel>`.
 
-:mod:`sklearn.discriminant_analysis`
+:mod:`sklearn_dual.discriminant_analysis`
 ....................................
 
 - |Fix| :class:`discriminant_analysis.QuadraticDiscriminantAnalysis`
@@ -181,7 +181,7 @@ Changelog
   can be silenced using the `reg_param` attribute.
   :pr:`19731` by :user:`Alihan Zihna <azihna>`.
 
-:mod:`sklearn.ensemble`
+:mod:`sklearn_dual.ensemble`
 .......................
 
 - |Efficiency| Small runtime improvement of fitting
@@ -208,21 +208,21 @@ Changelog
   right child node as the tree is traversed.
   :pr:`28268` by :user:`Adam Li <adam2392>`.
 
-:mod:`sklearn.impute`
+:mod:`sklearn_dual.impute`
 .....................
 
 - |Fix| :class:`impute.KNNImputer` excludes samples with nan distances when
   computing the mean value for uniform weights.
   :pr:`29135` by :user:`Xuefeng Xu <xuefeng-xu>`.
 
-:mod:`sklearn.linear_model`
+:mod:`sklearn_dual.linear_model`
 ...........................
 
 - |API| Deprecates `copy_X` in :class:`linear_model.TheilSenRegressor` as the parameter
   has no effect. `copy_X` will be removed in 1.8.
   :pr:`29105` by :user:`Adam Li <adam2392>`.
 
-:mod:`sklearn.manifold`
+:mod:`sklearn_dual.manifold`
 .......................
 
 - |Efficiency| :func:`manifold.locally_linear_embedding` and
@@ -230,10 +230,10 @@ Changelog
   sparse matrices in the Hessian, Modified and LTSA methods.
   :pr:`28096` by :user:`Giorgio Angelotti <giorgioangel>`.
 
-:mod:`sklearn.metrics`
+:mod:`sklearn_dual.metrics`
 ......................
 
-- |Enhancement| :func:`sklearn.metrics.check_scoring` now accepts `raise_exc` to specify
+- |Enhancement| :func:`sklearn_dual.metrics.check_scoring` now accepts `raise_exc` to specify
   whether to raise an exception if a subset of the scorers in multimetric scoring fails
   or to return an error code. :pr:`28992` by :user:`Stefanie Senger <StefanieSenger>`.
 
@@ -251,7 +251,7 @@ Changelog
   is renamed into `ensure_all_finite`. `force_all_finite` will be removed in 1.8.
   :pr:`29404` by :user:`Jérémie du Boisberranger <jeremiedb>`.
 
-:mod:`sklearn.model_selection`
+:mod:`sklearn_dual.model_selection`
 ..............................
 
 - |Enhancement| Add the parameter `prefit` to
@@ -263,28 +263,28 @@ Changelog
   is called without a `y` argument
   :pr:`29402` by :user:`Anurag Varma <Anurag-Varma>`.
 
-:mod:`sklearn.neighbors`
+:mod:`sklearn_dual.neighbors`
 ........................
 
 - |Fix| :class:`neighbors.LocalOutlierFactor` raises a warning in the `fit` method
   when duplicate values in the training data lead to inaccurate outlier detection.
   :pr:`28773` by :user:`Henrique Caroço <HenriqueProj>`.
 
-:mod:`sklearn.preprocessing`
+:mod:`sklearn_dual.preprocessing`
 ............................
 
 - |Enhancement| The HTML representation of :class:`preprocessing.FunctionTransformer`
   will show the function name in the label.
   :pr:`29158` by :user:`Yao Xiao <Charlie-XIAO>`.
 
-:mod:`sklearn.semi_supervised`
+:mod:`sklearn_dual.semi_supervised`
 ..............................
 
 - |API| :class:`semi_supervised.SelfTrainingClassifier`
   deprecated the `base_estimator` parameter in favor of `estimator`.
   :pr:`28494` by :user:`Adam Li <adam2392>`.
 
-:mod:`sklearn.tree`
+:mod:`sklearn_dual.tree`
 ...................
 
 - |Feature| :class:`tree.ExtraTreeClassifier` and :class:`tree.ExtraTreeRegressor` now
@@ -293,7 +293,7 @@ Changelog
   traversed.
   :pr:`27966` by :user:`Adam Li <adam2392>`.
 
-:mod:`sklearn.utils`
+:mod:`sklearn_dual.utils`
 ....................
 
 - |Enhancement| :func:`utils.validation.check_array` now accepts `ensure_non_negative`

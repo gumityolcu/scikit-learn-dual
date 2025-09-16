@@ -470,7 +470,7 @@ def mean_squared_error(
 
         .. deprecated:: 1.4
            `squared` is deprecated in 1.4 and will be removed in 1.6.
-           Use :func:`~sklearn.metrics.root_mean_squared_error`
+           Use :func:`~sklearn_dual.metrics.root_mean_squared_error`
            instead to calculate the root mean squared error.
 
     Returns
@@ -659,7 +659,7 @@ def mean_squared_log_error(
 
         .. deprecated:: 1.4
            `squared` is deprecated in 1.4 and will be removed in 1.6.
-           Use :func:`~sklearn.metrics.root_mean_squared_log_error`
+           Use :func:`~sklearn_dual.metrics.root_mean_squared_log_error`
            instead to calculate the root mean squared logarithmic error.
 
     Returns

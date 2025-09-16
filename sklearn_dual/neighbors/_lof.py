@@ -63,7 +63,7 @@ class LocalOutlierFactor(KNeighborsMixin, OutlierMixin, NeighborsBase):
         documentation of `scipy.spatial.distance
         <https://docs.scipy.org/doc/scipy/reference/spatial.distance.html>`_ and
         the metrics listed in
-        :class:`~sklearn.metrics.pairwise.distance_metrics` for valid metric
+        :class:`~sklearn_dual.metrics.pairwise.distance_metrics` for valid metric
         values.
 
         If metric is "precomputed", X is assumed to be a distance matrix and
@@ -77,7 +77,7 @@ class LocalOutlierFactor(KNeighborsMixin, OutlierMixin, NeighborsBase):
 
     p : float, default=2
         Parameter for the Minkowski metric from
-        :func:`sklearn.metrics.pairwise_distances`. When p = 1, this
+        :func:`sklearn_dual.metrics.pairwise_distances`. When p = 1, this
         is equivalent to using manhattan_distance (l1), and euclidean_distance
         (l2) for p = 2. For arbitrary p, minkowski_distance (l_p) is used.
 
@@ -162,7 +162,7 @@ class LocalOutlierFactor(KNeighborsMixin, OutlierMixin, NeighborsBase):
 
     See Also
     --------
-    sklearn.svm.OneClassSVM: Unsupervised Outlier Detection using
+    sklearn_dual.svm.OneClassSVM: Unsupervised Outlier Detection using
         Support Vector Machine.
 
     References

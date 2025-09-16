@@ -1351,7 +1351,7 @@ def paired_distances(X, Y, *, metric="euclidean", **kwds):
 
     See Also
     --------
-    sklearn.metrics.pairwise_distances : Computes the distance between every pair of
+    sklearn_dual.metrics.pairwise_distances : Computes the distance between every pair of
         samples.
 
     Examples
@@ -1763,7 +1763,7 @@ def additive_chi2_kernel(X, Y=None):
     --------
     chi2_kernel : The exponentiated version of the kernel, which is usually
         preferable.
-    sklearn.kernel_approximation.AdditiveChi2Sampler : A Fourier approximation
+    sklearn_dual.kernel_approximation.AdditiveChi2Sampler : A Fourier approximation
         to this kernel.
 
     Notes
@@ -1852,7 +1852,7 @@ def chi2_kernel(X, Y=None, gamma=1.0):
     See Also
     --------
     additive_chi2_kernel : The additive version of this kernel.
-    sklearn.kernel_approximation.AdditiveChi2Sampler : A Fourier approximation
+    sklearn_dual.kernel_approximation.AdditiveChi2Sampler : A Fourier approximation
         to the additive version of this kernel.
 
     References
@@ -2128,7 +2128,7 @@ def pairwise_distances_chunked(
     working_memory : float, default=None
         The sought maximum memory for temporary distance matrix chunks.
         When None (default), the value of
-        ``sklearn.get_config()['working_memory']`` is used.
+        ``sklearn_dual.get_config()['working_memory']`` is used.
 
     **kwds : optional keyword parameters
         Any further parameters are passed directly to the distance function.
@@ -2300,7 +2300,7 @@ def pairwise_distances(
     valid scipy.spatial.distance metrics), the scikit-learn implementation
     will be used, which is faster and has support for sparse matrices (except
     for 'cityblock'). For a verbose description of the metrics from
-    scikit-learn, see :func:`sklearn.metrics.pairwise.distance_metrics`
+    scikit-learn, see :func:`sklearn_dual.metrics.pairwise.distance_metrics`
     function.
 
     Read more in the :ref:`User Guide <metrics>`.
@@ -2393,7 +2393,7 @@ def pairwise_distances(
     pairwise_distances_chunked : Performs the same calculation as this
         function, but returns a generator of chunks of the distance matrix, in
         order to limit memory usage.
-    sklearn.metrics.pairwise.paired_distances : Computes the distances between
+    sklearn_dual.metrics.pairwise.paired_distances : Computes the distances between
         corresponding elements of two arrays.
 
     Examples
@@ -2496,15 +2496,15 @@ def kernel_metrics():
       ===============   ========================================
       metric            Function
       ===============   ========================================
-      'additive_chi2'   sklearn.pairwise.additive_chi2_kernel
-      'chi2'            sklearn.pairwise.chi2_kernel
-      'linear'          sklearn.pairwise.linear_kernel
-      'poly'            sklearn.pairwise.polynomial_kernel
-      'polynomial'      sklearn.pairwise.polynomial_kernel
-      'rbf'             sklearn.pairwise.rbf_kernel
-      'laplacian'       sklearn.pairwise.laplacian_kernel
-      'sigmoid'         sklearn.pairwise.sigmoid_kernel
-      'cosine'          sklearn.pairwise.cosine_similarity
+      'additive_chi2'   sklearn_dual.pairwise.additive_chi2_kernel
+      'chi2'            sklearn_dual.pairwise.chi2_kernel
+      'linear'          sklearn_dual.pairwise.linear_kernel
+      'poly'            sklearn_dual.pairwise.polynomial_kernel
+      'polynomial'      sklearn_dual.pairwise.polynomial_kernel
+      'rbf'             sklearn_dual.pairwise.rbf_kernel
+      'laplacian'       sklearn_dual.pairwise.laplacian_kernel
+      'sigmoid'         sklearn_dual.pairwise.sigmoid_kernel
+      'cosine'          sklearn_dual.pairwise.cosine_similarity
       ===============   ========================================
 
     Read more in the :ref:`User Guide <metrics>`.
@@ -2585,7 +2585,7 @@ def pairwise_kernels(
         pair of instances (rows) and the resulting value recorded. The callable
         should take two rows from X as input and return the corresponding
         kernel value as a single number. This means that callables from
-        :mod:`sklearn.metrics.pairwise` are not allowed, as they operate on
+        :mod:`sklearn_dual.metrics.pairwise` are not allowed, as they operate on
         matrices, not single samples. Use the string identifying the kernel
         instead.
 

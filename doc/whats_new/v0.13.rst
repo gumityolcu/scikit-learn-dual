@@ -1,6 +1,6 @@
 .. include:: _contributors.rst
 
-.. currentmodule:: sklearn
+.. currentmodule:: sklearn_dual
 
 ============
 Version 0.13
@@ -208,10 +208,10 @@ Changelog
   positives of a given class in earlier releases.
 
 - Improve narrative documentation and consistency in
-  :mod:`sklearn.metrics` for regression and classification metrics
+  :mod:`sklearn_dual.metrics` for regression and classification metrics
   by `Arnaud Joly`_.
 
-- Fixed a bug in :class:`sklearn.svm.SVC` when using csr-matrices with
+- Fixed a bug in :class:`sklearn_dual.svm.SVC` when using csr-matrices with
   unsorted indices by Xinfan Meng and `Andreas Müller`_.
 
 - :class:`cluster.MiniBatchKMeans`: Add random reassignment of cluster centers
@@ -233,10 +233,10 @@ API changes summary
   consistency in `ensemble.BaseGradientBoosting` and
   :class:`ensemble.GradientBoostingRegressor`.
 
-- The module ``sklearn.linear_model.sparse`` is gone. Sparse matrix support
+- The module ``sklearn_dual.linear_model.sparse`` is gone. Sparse matrix support
   was already integrated into the "regular" linear models.
 
-- `sklearn.metrics.mean_square_error`, which incorrectly returned the
+- `sklearn_dual.metrics.mean_square_error`, which incorrectly returned the
   accumulated error, was removed. Use :func:`metrics.mean_squared_error` instead.
 
 - Passing ``class_weight`` parameters to ``fit`` methods is no longer
@@ -310,10 +310,10 @@ API changes summary
   `cross_validation.ShuffleSplit` and
   `cross_validation.StratifiedShuffleSplit`.
 
-- Renamed function `sklearn.metrics.zero_one` to
-  `sklearn.metrics.zero_one_loss`. Be aware that the default behavior
-  in `sklearn.metrics.zero_one_loss` is different from
-  `sklearn.metrics.zero_one`: ``normalize=False`` is changed to
+- Renamed function `sklearn_dual.metrics.zero_one` to
+  `sklearn_dual.metrics.zero_one_loss`. Be aware that the default behavior
+  in `sklearn_dual.metrics.zero_one_loss` is different from
+  `sklearn_dual.metrics.zero_one`: ``normalize=False`` is changed to
   ``normalize=True``.
 
 - Renamed function `metrics.zero_one_score` to

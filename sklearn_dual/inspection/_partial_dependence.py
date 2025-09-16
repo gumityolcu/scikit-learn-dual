@@ -141,7 +141,7 @@ def _partial_dependence_recursion(est, grid, features):
     values.
 
     This method is more efficient in terms of speed than the `'brute'` method
-    (:func:`~sklearn.inspection._partial_dependence._partial_dependence_brute`).
+    (:func:`~sklearn_dual.inspection._partial_dependence._partial_dependence_brute`).
     However, here, the partial dependence computation is done explicitly with the
     `X` used during training of `est`.
 
@@ -152,12 +152,12 @@ def _partial_dependence_recursion(est, grid, features):
         :term:`decision_function`. Multioutput-multiclass classifiers are not
         supported. Note that `'recursion'` is only supported for some tree-based
         estimators (namely
-        :class:`~sklearn.ensemble.GradientBoostingClassifier`,
-        :class:`~sklearn.ensemble.GradientBoostingRegressor`,
-        :class:`~sklearn.ensemble.HistGradientBoostingClassifier`,
-        :class:`~sklearn.ensemble.HistGradientBoostingRegressor`,
-        :class:`~sklearn.tree.DecisionTreeRegressor`,
-        :class:`~sklearn.ensemble.RandomForestRegressor`,
+        :class:`~sklearn_dual.ensemble.GradientBoostingClassifier`,
+        :class:`~sklearn_dual.ensemble.GradientBoostingRegressor`,
+        :class:`~sklearn_dual.ensemble.HistGradientBoostingClassifier`,
+        :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`,
+        :class:`~sklearn_dual.tree.DecisionTreeRegressor`,
+        :class:`~sklearn_dual.ensemble.RandomForestRegressor`,
         ).
 
     grid : array-like of shape (n_points, n_target_features)
@@ -199,7 +199,7 @@ def _partial_dependence_brute(
     and averaged across the samples.
 
     This method is slower than the `'recursion'`
-    (:func:`~sklearn.inspection._partial_dependence._partial_dependence_recursion`)
+    (:func:`~sklearn_dual.inspection._partial_dependence._partial_dependence_recursion`)
     version for estimators with this second option. However, with the `'brute'`
     force method, the average will be done with the given `X` and not the `X`
     used during training, as it is done in the `'recursion'` version. Therefore
@@ -386,8 +386,8 @@ def partial_dependence(
 
     .. warning::
 
-        For :class:`~sklearn.ensemble.GradientBoostingClassifier` and
-        :class:`~sklearn.ensemble.GradientBoostingRegressor`, the
+        For :class:`~sklearn_dual.ensemble.GradientBoostingClassifier` and
+        :class:`~sklearn_dual.ensemble.GradientBoostingRegressor`, the
         `'recursion'` method (used by default) will not account for the `init`
         predictor of the boosting process. In practice, this will produce
         the same values as `'brute'` up to a constant offset in the target
@@ -396,10 +396,10 @@ def partial_dependence(
         partial dependence values are incorrect for `'recursion'` because the
         offset will be sample-dependent. It is preferable to use the `'brute'`
         method. Note that this only applies to
-        :class:`~sklearn.ensemble.GradientBoostingClassifier` and
-        :class:`~sklearn.ensemble.GradientBoostingRegressor`, not to
-        :class:`~sklearn.ensemble.HistGradientBoostingClassifier` and
-        :class:`~sklearn.ensemble.HistGradientBoostingRegressor`.
+        :class:`~sklearn_dual.ensemble.GradientBoostingClassifier` and
+        :class:`~sklearn_dual.ensemble.GradientBoostingRegressor`, not to
+        :class:`~sklearn_dual.ensemble.HistGradientBoostingClassifier` and
+        :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`.
 
     Parameters
     ----------
@@ -470,12 +470,12 @@ def partial_dependence(
 
         - `'recursion'` is only supported for some tree-based estimators
           (namely
-          :class:`~sklearn.ensemble.GradientBoostingClassifier`,
-          :class:`~sklearn.ensemble.GradientBoostingRegressor`,
-          :class:`~sklearn.ensemble.HistGradientBoostingClassifier`,
-          :class:`~sklearn.ensemble.HistGradientBoostingRegressor`,
-          :class:`~sklearn.tree.DecisionTreeRegressor`,
-          :class:`~sklearn.ensemble.RandomForestRegressor`,
+          :class:`~sklearn_dual.ensemble.GradientBoostingClassifier`,
+          :class:`~sklearn_dual.ensemble.GradientBoostingRegressor`,
+          :class:`~sklearn_dual.ensemble.HistGradientBoostingClassifier`,
+          :class:`~sklearn_dual.ensemble.HistGradientBoostingRegressor`,
+          :class:`~sklearn_dual.tree.DecisionTreeRegressor`,
+          :class:`~sklearn_dual.ensemble.RandomForestRegressor`,
           ) when `kind='average'`.
           This is more efficient in terms of speed.
           With this method, the target response of a
@@ -509,7 +509,7 @@ def partial_dependence(
 
     Returns
     -------
-    predictions : :class:`~sklearn.utils.Bunch`
+    predictions : :class:`~sklearn_dual.utils.Bunch`
         Dictionary-like object, with the following attributes.
 
         individual : ndarray of shape (n_outputs, n_instances, \

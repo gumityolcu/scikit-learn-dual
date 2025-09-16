@@ -95,8 +95,8 @@ class SequentialFeatureSelector(SelectorMixin, MetaEstimatorMixin, BaseEstimator
 
         For integer/None inputs, if the estimator is a classifier and ``y`` is
         either binary or multiclass,
-        :class:`~sklearn.model_selection.StratifiedKFold` is used. In all other
-        cases, :class:`~sklearn.model_selection.KFold` is used. These splitters
+        :class:`~sklearn_dual.model_selection.StratifiedKFold` is used. In all other
+        cases, :class:`~sklearn_dual.model_selection.KFold` is used. These splitters
         are instantiated with `shuffle=False` so the splits will be the same
         across calls.
 
@@ -216,7 +216,7 @@ class SequentialFeatureSelector(SelectorMixin, MetaEstimatorMixin, BaseEstimator
 
                 Only available if `enable_metadata_routing=True`,
                 which can be set by using
-                ``sklearn.set_config(enable_metadata_routing=True)``.
+                ``sklearn_dual.set_config(enable_metadata_routing=True)``.
                 See :ref:`Metadata Routing User Guide <metadata_routing>` for
                 more details.
 
@@ -338,7 +338,7 @@ class SequentialFeatureSelector(SelectorMixin, MetaEstimatorMixin, BaseEstimator
         Returns
         -------
         routing : MetadataRouter
-            A :class:`~sklearn.utils.metadata_routing.MetadataRouter` encapsulating
+            A :class:`~sklearn_dual.utils.metadata_routing.MetadataRouter` encapsulating
             routing information.
         """
         router = MetadataRouter(owner=self.__class__.__name__)

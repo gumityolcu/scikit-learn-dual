@@ -39,8 +39,8 @@ kernel and its parameters.
 
 import matplotlib.pyplot as plt
 
-from sklearn import datasets, svm
-from sklearn.inspection import DecisionBoundaryDisplay
+from sklearn_dual import datasets, svm
+from sklearn_dual.inspection import DecisionBoundaryDisplay
 
 # import some data to play with
 iris = datasets.load_iris()

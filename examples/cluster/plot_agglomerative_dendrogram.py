@@ -14,8 +14,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 from scipy.cluster.hierarchy import dendrogram
 
-from sklearn.cluster import AgglomerativeClustering
-from sklearn.datasets import load_iris
+from sklearn_dual.cluster import AgglomerativeClustering
+from sklearn_dual.datasets import load_iris
 
 
 def plot_dendrogram(model, **kwargs):

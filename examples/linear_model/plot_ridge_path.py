@@ -33,7 +33,7 @@ in such a way that a balance is maintained between both.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import linear_model
+from sklearn_dual import linear_model
 
 # X is the 10x10 Hilbert matrix
 X = 1.0 / (np.arange(1, 11) + np.arange(0, 10)[:, np.newaxis])

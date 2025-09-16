@@ -16,9 +16,9 @@ assigning different length-scales to the two feature dimensions.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import datasets
-from sklearn.gaussian_process import GaussianProcessClassifier
-from sklearn.gaussian_process.kernels import RBF
+from sklearn_dual import datasets
+from sklearn_dual.gaussian_process import GaussianProcessClassifier
+from sklearn_dual.gaussian_process.kernels import RBF
 
 # import some data to play with
 iris = datasets.load_iris()

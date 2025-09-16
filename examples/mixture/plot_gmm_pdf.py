@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import LogNorm
 
-from sklearn import mixture
+from sklearn_dual import mixture
 
 n_samples = 300
 

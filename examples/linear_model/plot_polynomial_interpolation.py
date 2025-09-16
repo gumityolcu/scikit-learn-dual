@@ -42,9 +42,9 @@ infinite) dimensional feature spaces.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.linear_model import Ridge
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import PolynomialFeatures, SplineTransformer
+from sklearn_dual.linear_model import Ridge
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import PolynomialFeatures, SplineTransformer
 
 # %%
 # We start by defining a function that we intend to approximate and prepare

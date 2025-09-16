@@ -36,17 +36,17 @@ from time import time
 import numpy as np
 from joblib import Memory
 
-from sklearn.datasets import fetch_openml, get_data_home
-from sklearn.dummy import DummyClassifier
-from sklearn.ensemble import ExtraTreesClassifier, RandomForestClassifier
-from sklearn.kernel_approximation import Nystroem, RBFSampler
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import zero_one_loss
-from sklearn.neural_network import MLPClassifier
-from sklearn.pipeline import make_pipeline
-from sklearn.svm import LinearSVC
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.utils import check_array
+from sklearn_dual.datasets import fetch_openml, get_data_home
+from sklearn_dual.dummy import DummyClassifier
+from sklearn_dual.ensemble import ExtraTreesClassifier, RandomForestClassifier
+from sklearn_dual.kernel_approximation import Nystroem, RBFSampler
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.metrics import zero_one_loss
+from sklearn_dual.neural_network import MLPClassifier
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.svm import LinearSVC
+from sklearn_dual.tree import DecisionTreeClassifier
+from sklearn_dual.utils import check_array
 
 # Memoize the data extraction and memory map the resulting
 # train / test splits in readonly mode

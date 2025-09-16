@@ -33,9 +33,9 @@ up the data anywhere.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import KBinsDiscretizer
-from sklearn.tree import DecisionTreeRegressor
+from sklearn_dual.linear_model import LinearRegression
+from sklearn_dual.preprocessing import KBinsDiscretizer
+from sklearn_dual.tree import DecisionTreeRegressor
 
 # construct the dataset
 rnd = np.random.RandomState(42)

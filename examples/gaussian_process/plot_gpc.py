@@ -28,9 +28,9 @@ hyperparameters used in the first figure by black dots.
 import numpy as np
 from matplotlib import pyplot as plt
 
-from sklearn.gaussian_process import GaussianProcessClassifier
-from sklearn.gaussian_process.kernels import RBF
-from sklearn.metrics import accuracy_score, log_loss
+from sklearn_dual.gaussian_process import GaussianProcessClassifier
+from sklearn_dual.gaussian_process.kernels import RBF
+from sklearn_dual.metrics import accuracy_score, log_loss
 
 # Generate data
 train_size = 50

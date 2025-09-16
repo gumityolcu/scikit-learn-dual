@@ -25,11 +25,11 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import datasets, ensemble
-from sklearn.inspection import permutation_importance
-from sklearn.metrics import mean_squared_error
-from sklearn.model_selection import train_test_split
-from sklearn.utils.fixes import parse_version
+from sklearn_dual import datasets, ensemble
+from sklearn_dual.inspection import permutation_importance
+from sklearn_dual.metrics import mean_squared_error
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.utils.fixes import parse_version
 
 # %%
 # Load the data

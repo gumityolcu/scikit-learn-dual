@@ -56,7 +56,7 @@ import seaborn as sns
 # We fetch the data from `OpenML <http://openml.org/>`_.
 # Note that setting the parameter `as_frame` to True will retrieve the data
 # as a pandas dataframe.
-from sklearn.datasets import fetch_openml
+from sklearn_dual.datasets import fetch_openml
 
 survey = fetch_openml(data_id=534, as_frame=True)
 
@@ -89,7 +89,7 @@ survey.target.head()
 # an unknown target, and we don't want our analysis and decisions to be biased
 # by our knowledge of the test data.
 
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
@@ -140,8 +140,8 @@ survey.data.info()
 # - as a first approach (we will see after how the normalisation of numerical
 #   values will affect our discussion), keep numerical values as they are.
 
-from sklearn.compose import make_column_transformer
-from sklearn.preprocessing import OneHotEncoder
+from sklearn_dual.compose import make_column_transformer
+from sklearn_dual.preprocessing import OneHotEncoder
 
 categorical_columns = ["RACE", "OCCUPATION", "SECTOR", "MARR", "UNION", "SEX", "SOUTH"]
 numerical_columns = ["EDUCATION", "EXPERIENCE", "AGE"]
@@ -156,9 +156,9 @@ preprocessor = make_column_transformer(
 # To describe the dataset as a linear model we use a ridge regressor
 # with a very small regularization and to model the logarithm of the WAGE.
 
-from sklearn.compose import TransformedTargetRegressor
-from sklearn.linear_model import Ridge
-from sklearn.pipeline import make_pipeline
+from sklearn_dual.compose import TransformedTargetRegressor
+from sklearn_dual.linear_model import Ridge
+from sklearn_dual.pipeline import make_pipeline
 
 model = make_pipeline(
     preprocessor,
@@ -180,7 +180,7 @@ model.fit(X_train, y_train)
 # on the test set and computing,
 # for example, the median absolute error of the model.
 
-from sklearn.metrics import PredictionErrorDisplay, median_absolute_error
+from sklearn_dual.metrics import PredictionErrorDisplay, median_absolute_error
 
 mae_train = median_absolute_error(y_train, model.predict(X_train))
 y_pred = model.predict(X_test)
@@ -348,7 +348,7 @@ plt.subplots_adjust(left=0.3)
 # their robustness is not guaranteed, and they should probably be interpreted
 # with caution.
 
-from sklearn.model_selection import RepeatedKFold, cross_validate
+from sklearn_dual.model_selection import RepeatedKFold, cross_validate
 
 cv = RepeatedKFold(n_splits=5, n_repeats=5, random_state=0)
 cv_model = cross_validate(
@@ -454,7 +454,7 @@ plt.subplots_adjust(left=0.3)
 # The preprocessor is redefined in order to subtract the mean and scale
 # variables to unit variance.
 
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.preprocessing import StandardScaler
 
 preprocessor = make_column_transformer(
     (OneHotEncoder(drop="if_binary"), categorical_columns),
@@ -551,7 +551,7 @@ plt.subplots_adjust(left=0.3)
 # in order to determine which value of the regularization parameter (`alpha`)
 # is best suited for prediction.
 
-from sklearn.linear_model import RidgeCV
+from sklearn_dual.linear_model import RidgeCV
 
 alphas = np.logspace(-10, 10, 21)  # alpha values to be chosen from by cross-validation
 model = make_pipeline(
@@ -653,7 +653,7 @@ _ = plt.title("Co-variations of coefficients for AGE and EXPERIENCE across folds
 # validation in order to determine which value of the regularization parameter
 # (`alpha`) is best suited for the model estimation.
 
-from sklearn.linear_model import LassoCV
+from sklearn_dual.linear_model import LassoCV
 
 alphas = np.logspace(-10, 10, 21)  # alpha values to be chosen from by cross-validation
 model = make_pipeline(

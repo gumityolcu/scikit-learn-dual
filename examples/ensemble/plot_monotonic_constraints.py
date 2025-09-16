@@ -27,8 +27,8 @@ This example was inspired by the `XGBoost documentation
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.ensemble import HistGradientBoostingRegressor
-from sklearn.inspection import PartialDependenceDisplay
+from sklearn_dual.ensemble import HistGradientBoostingRegressor
+from sklearn_dual.inspection import PartialDependenceDisplay
 
 rng = np.random.RandomState(0)
 

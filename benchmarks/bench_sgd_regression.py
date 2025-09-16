@@ -7,9 +7,9 @@ from time import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import make_regression
-from sklearn.linear_model import ElasticNet, Ridge, SGDRegressor
-from sklearn.metrics import mean_squared_error
+from sklearn_dual.datasets import make_regression
+from sklearn_dual.linear_model import ElasticNet, Ridge, SGDRegressor
+from sklearn_dual.metrics import mean_squared_error
 
 """
 Benchmark for SGD regression

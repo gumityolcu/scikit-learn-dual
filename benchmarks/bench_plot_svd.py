@@ -10,8 +10,8 @@ from time import time
 import numpy as np
 from scipy.linalg import svd
 
-from sklearn.datasets import make_low_rank_matrix
-from sklearn.utils.extmath import randomized_svd
+from sklearn_dual.datasets import make_low_rank_matrix
+from sklearn_dual.utils.extmath import randomized_svd
 
 
 def compute_bench(samples_range, features_range, n_iter=3, rank=50):

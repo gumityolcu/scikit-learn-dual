@@ -105,8 +105,8 @@ matrix as a binary prediction (:ref:`micro-averaging <average>`).
 # We will use a Linear SVC classifier to differentiate two types of irises.
 import numpy as np
 
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
+from sklearn_dual.datasets import load_iris
+from sklearn_dual.model_selection import train_test_split
 
 X, y = load_iris(return_X_y=True)
 
@@ -124,9 +124,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 # Linear SVC will expect each feature to have a similar range of values. Thus,
 # we will first scale the data using a
 # :class:`~sklearn.preprocessing.StandardScaler`.
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.svm import LinearSVC
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import StandardScaler
+from sklearn_dual.svm import LinearSVC
 
 classifier = make_pipeline(StandardScaler(), LinearSVC(random_state=random_state))
 classifier.fit(X_train, y_train)
@@ -144,7 +144,7 @@ classifier.fit(X_train, y_train)
 # predictions. We use
 # :func:`~sklearn.metrics.PrecisionRecallDisplay.from_estimator` that
 # computes the predictions for us before plotting the curve.
-from sklearn.metrics import PrecisionRecallDisplay
+from sklearn_dual.metrics import PrecisionRecallDisplay
 
 display = PrecisionRecallDisplay.from_estimator(
     classifier, X_test, y_test, name="LinearSVC", plot_chance_level=True
@@ -175,7 +175,7 @@ _ = display.ax_.set_title("2-class Precision-Recall curve")
 # We create a multi-label dataset, to illustrate the precision-recall in
 # multi-label settings.
 
-from sklearn.preprocessing import label_binarize
+from sklearn_dual.preprocessing import label_binarize
 
 # Use label_binarize to be multi-label like settings
 Y = label_binarize(y, classes=[0, 1, 2])
@@ -189,7 +189,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(
 # %%
 # We use :class:`~sklearn.multiclass.OneVsRestClassifier` for multi-label
 # prediction.
-from sklearn.multiclass import OneVsRestClassifier
+from sklearn_dual.multiclass import OneVsRestClassifier
 
 classifier = OneVsRestClassifier(
     make_pipeline(StandardScaler(), LinearSVC(random_state=random_state))
@@ -201,7 +201,7 @@ y_score = classifier.decision_function(X_test)
 # %%
 # The average precision score in multi-label settings
 # ...................................................
-from sklearn.metrics import average_precision_score, precision_recall_curve
+from sklearn_dual.metrics import average_precision_score, precision_recall_curve
 
 # For each class
 precision = dict()

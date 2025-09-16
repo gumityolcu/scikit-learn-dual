@@ -68,8 +68,8 @@ plt.show()
 # The best set of parameters and estimator are stored in `best_parameters_` and
 # `best_estimator_`, respectively.
 
-from sklearn.mixture import GaussianMixture
-from sklearn.model_selection import GridSearchCV
+from sklearn_dual.mixture import GaussianMixture
+from sklearn_dual.model_selection import GridSearchCV
 
 
 def gmm_bic_score(estimator, X):

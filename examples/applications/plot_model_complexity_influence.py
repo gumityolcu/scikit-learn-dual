@@ -44,12 +44,12 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import datasets
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.linear_model import SGDClassifier
-from sklearn.metrics import hamming_loss, mean_squared_error
-from sklearn.model_selection import train_test_split
-from sklearn.svm import NuSVR
+from sklearn_dual import datasets
+from sklearn_dual.ensemble import GradientBoostingRegressor
+from sklearn_dual.linear_model import SGDClassifier
+from sklearn_dual.metrics import hamming_loss, mean_squared_error
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.svm import NuSVR
 
 # Initialize random generator
 np.random.seed(0)

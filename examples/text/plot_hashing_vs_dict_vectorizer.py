@@ -38,7 +38,7 @@ learning on text documents.
 # one for testing. For the sake of simplicity and reducing the computational
 # cost, we select a subset of 7 topics and use the training set only.
 
-from sklearn.datasets import fetch_20newsgroups
+from sklearn_dual.datasets import fetch_20newsgroups
 
 categories = [
     "alt.atheism",
@@ -117,7 +117,7 @@ token_freqs("That is one example, but this is another one")
 
 from time import time
 
-from sklearn.feature_extraction import DictVectorizer
+from sklearn_dual.feature_extraction import DictVectorizer
 
 dict_count_vectorizers = defaultdict(list)
 
@@ -181,7 +181,7 @@ def n_nonzero_columns(X):
 #
 # **FeatureHasher on frequency dictionaries**
 
-from sklearn.feature_extraction import FeatureHasher
+from sklearn_dual.feature_extraction import FeatureHasher
 
 t0 = time()
 hasher = FeatureHasher(n_features=2**18)
@@ -275,7 +275,7 @@ _ = ax.set_xlabel("speed (MB/s)")
 # is more flexible. In particular it accepts various regex patterns through the
 # `token_pattern` parameter.
 
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn_dual.feature_extraction.text import CountVectorizer
 
 t0 = time()
 vectorizer = CountVectorizer()
@@ -302,7 +302,7 @@ print(f"Found {len(vectorizer.get_feature_names_out())} unique terms")
 # preprocessing and tokenization of the
 # :func:`~sklearn.feature_extraction.text.CountVectorizer`.
 
-from sklearn.feature_extraction.text import HashingVectorizer
+from sklearn_dual.feature_extraction.text import HashingVectorizer
 
 t0 = time()
 vectorizer = HashingVectorizer(n_features=2**18)
@@ -337,7 +337,7 @@ print(f"done in {duration:.3f} s at {data_size_mb / duration:.1f} MB/s")
 # normalizing and weighting from a
 # :func:`~sklearn.feature_extraction.text.TfidfTransformer`.
 
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn_dual.feature_extraction.text import TfidfVectorizer
 
 t0 = time()
 vectorizer = TfidfVectorizer()

@@ -27,10 +27,10 @@ training data.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import cross_val_score
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import PolynomialFeatures
+from sklearn_dual.linear_model import LinearRegression
+from sklearn_dual.model_selection import cross_val_score
+from sklearn_dual.pipeline import Pipeline
+from sklearn_dual.preprocessing import PolynomialFeatures
 
 
 def true_fun(X):

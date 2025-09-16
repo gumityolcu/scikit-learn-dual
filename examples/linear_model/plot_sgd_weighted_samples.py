@@ -14,7 +14,7 @@ is proportional to its weight.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import linear_model
+from sklearn_dual import linear_model
 
 # we create 20 points
 np.random.seed(0)

@@ -24,7 +24,7 @@ threshold, depending on a metric of interest.
 # To illustrate the tuning of the decision threshold, we will use the diabetes dataset.
 # This dataset is available on OpenML: https://www.openml.org/d/37. We use the
 # :func:`~sklearn.datasets.fetch_openml` function to fetch this dataset.
-from sklearn.datasets import fetch_openml
+from sklearn_dual.datasets import fetch_openml
 
 diabetes = fetch_openml(data_id=37, as_frame=True, parser="pandas")
 data, target = diabetes.data, diabetes.target
@@ -50,9 +50,9 @@ neg_label, pos_label = target.value_counts().index
 #
 # We define a basic predictive model composed of a scaler followed by a logistic
 # regression classifier.
-from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import StandardScaler
 
 model = make_pipeline(StandardScaler(), LogisticRegression())
 model
@@ -70,7 +70,7 @@ model
 # repetitions of 5-fold cross-validation.
 import pandas as pd
 
-from sklearn.model_selection import RepeatedStratifiedKFold, cross_validate
+from sklearn_dual.model_selection import RepeatedStratifiedKFold, cross_validate
 
 scoring = ["accuracy", "balanced_accuracy"]
 cv_scores = [
@@ -113,7 +113,7 @@ cv_results_vanilla_model[cv_scores].aggregate(["mean", "std"]).T
 # We create a :class:`~sklearn.model_selection.TunedThresholdClassifierCV` and
 # configure it to maximize the balanced accuracy. We evaluate the model using the same
 # cross-validation strategy as previously.
-from sklearn.model_selection import TunedThresholdClassifierCV
+from sklearn_dual.model_selection import TunedThresholdClassifierCV
 
 tuned_model = TunedThresholdClassifierCV(estimator=model, scoring="balanced_accuracy")
 cv_results_tuned_model = pd.DataFrame(

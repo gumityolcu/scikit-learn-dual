@@ -32,7 +32,7 @@ class of an instance (red: class 1, green: class 2, blue: class 3).
 
 import numpy as np
 
-from sklearn.datasets import make_blobs
+from sklearn_dual.datasets import make_blobs
 
 np.random.seed(0)
 
@@ -52,7 +52,7 @@ X_test, y_test = X[1000:], y[1000:]
 # with 25 base estimators (trees) on the concatenated train and validation
 # data (1000 samples). This is the uncalibrated classifier.
 
-from sklearn.ensemble import RandomForestClassifier
+from sklearn_dual.ensemble import RandomForestClassifier
 
 clf = RandomForestClassifier(n_estimators=25)
 clf.fit(X_train_valid, y_train_valid)
@@ -63,7 +63,7 @@ clf.fit(X_train_valid, y_train_valid)
 # the train data subset (600 samples) then calibrate, with `method='sigmoid'`,
 # using the valid data subset (400 samples) in a 2-stage process.
 
-from sklearn.calibration import CalibratedClassifierCV
+from sklearn_dual.calibration import CalibratedClassifierCV
 
 clf = RandomForestClassifier(n_estimators=25)
 clf.fit(X_train, y_train)
@@ -209,7 +209,7 @@ _ = plt.legend(loc="best")
 # :class:`~sklearn.ensemble.RandomForestClassifier` which would have resulted
 # in a similar decrease in :ref:`log loss <log_loss>`.
 
-from sklearn.metrics import log_loss
+from sklearn_dual.metrics import log_loss
 
 score = log_loss(y_test, clf_probs)
 cal_score = log_loss(y_test, cal_clf_probs)

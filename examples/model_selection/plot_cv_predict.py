@@ -15,8 +15,8 @@ errors.
 # %%
 # We will load the diabetes dataset and create an instance of a linear
 # regression model.
-from sklearn.datasets import load_diabetes
-from sklearn.linear_model import LinearRegression
+from sklearn_dual.datasets import load_diabetes
+from sklearn_dual.linear_model import LinearRegression
 
 X, y = load_diabetes(return_X_y=True)
 lr = LinearRegression()
@@ -25,7 +25,7 @@ lr = LinearRegression()
 # :func:`~sklearn.model_selection.cross_val_predict` returns an array of the
 # same size of `y` where each entry is a prediction obtained by cross
 # validation.
-from sklearn.model_selection import cross_val_predict
+from sklearn_dual.model_selection import cross_val_predict
 
 y_pred = cross_val_predict(lr, X, y, cv=10)
 
@@ -41,7 +41,7 @@ y_pred = cross_val_predict(lr, X, y, cv=10)
 # values) vs. the predicted values.
 import matplotlib.pyplot as plt
 
-from sklearn.metrics import PredictionErrorDisplay
+from sklearn_dual.metrics import PredictionErrorDisplay
 
 fig, axs = plt.subplots(ncols=2, figsize=(8, 4))
 PredictionErrorDisplay.from_predictions(

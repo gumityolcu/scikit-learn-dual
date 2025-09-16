@@ -79,7 +79,7 @@ _ = plt.title(
 # First, we would like to highlight the limitations of a linear model given
 # our dataset. We fit a :class:`~sklearn.linear_model.Ridge` and check the
 # predictions of this model on our dataset.
-from sklearn.linear_model import Ridge
+from sklearn_dual.linear_model import Ridge
 
 ridge = Ridge().fit(training_data, training_noisy_target)
 
@@ -125,8 +125,8 @@ _ = plt.title("Limitation of a linear model such as ridge")
 # Thus, let's use such a :class:`~sklearn.kernel_ridge.KernelRidge`.
 import time
 
-from sklearn.gaussian_process.kernels import ExpSineSquared
-from sklearn.kernel_ridge import KernelRidge
+from sklearn_dual.gaussian_process.kernels import ExpSineSquared
+from sklearn_dual.kernel_ridge import KernelRidge
 
 kernel_ridge = KernelRidge(kernel=ExpSineSquared())
 
@@ -178,7 +178,7 @@ kernel_ridge.kernel
 # %%
 from scipy.stats import loguniform
 
-from sklearn.model_selection import RandomizedSearchCV
+from sklearn_dual.model_selection import RandomizedSearchCV
 
 param_distributions = {
     "alpha": loguniform(1e0, 1e3),
@@ -247,8 +247,8 @@ _ = plt.title(
 # for the kernel ridge regressor: we add a
 # :class:`~sklearn.gaussian_process.kernels.WhiteKernel` that is used to
 # estimate the noise in the dataset.
-from sklearn.gaussian_process import GaussianProcessRegressor
-from sklearn.gaussian_process.kernels import WhiteKernel
+from sklearn_dual.gaussian_process import GaussianProcessRegressor
+from sklearn_dual.gaussian_process.kernels import WhiteKernel
 
 kernel = 1.0 * ExpSineSquared(1.0, 5.0, periodicity_bounds=(1e-2, 1e1)) + WhiteKernel(
     1e-1
@@ -340,7 +340,7 @@ _ = plt.title("Comparison between kernel ridge and gaussian process regressor")
 # Gaussian process allows to combine kernels together. Thus, we could associate
 # the exponential sine squared kernel together with a radial basis function
 # kernel.
-from sklearn.gaussian_process.kernels import RBF
+from sklearn_dual.gaussian_process.kernels import RBF
 
 kernel = 1.0 * ExpSineSquared(1.0, 5.0, periodicity_bounds=(1e-2, 1e1)) * RBF(
     length_scale=15, length_scale_bounds="fixed"

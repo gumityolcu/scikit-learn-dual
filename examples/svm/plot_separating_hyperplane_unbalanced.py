@@ -31,9 +31,9 @@ unbalanced classes.
 import matplotlib.lines as mlines
 import matplotlib.pyplot as plt
 
-from sklearn import svm
-from sklearn.datasets import make_blobs
-from sklearn.inspection import DecisionBoundaryDisplay
+from sklearn_dual import svm
+from sklearn_dual.datasets import make_blobs
+from sklearn_dual.inspection import DecisionBoundaryDisplay
 
 # we create two clusters of random points
 n_samples_1 = 1000

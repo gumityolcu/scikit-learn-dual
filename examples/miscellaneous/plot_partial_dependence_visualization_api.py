@@ -19,12 +19,12 @@ customize the plot with the visualization API.
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from sklearn.datasets import load_diabetes
-from sklearn.inspection import PartialDependenceDisplay
-from sklearn.neural_network import MLPRegressor
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.tree import DecisionTreeRegressor
+from sklearn_dual.datasets import load_diabetes
+from sklearn_dual.inspection import PartialDependenceDisplay
+from sklearn_dual.neural_network import MLPRegressor
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import StandardScaler
+from sklearn_dual.tree import DecisionTreeRegressor
 
 # %%
 # Train models on the diabetes dataset

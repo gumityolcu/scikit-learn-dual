@@ -50,9 +50,9 @@ or with conda::
 # making it more robust to parameter selection than :class:`cluster.DBSCAN`.
 # More details in the :ref:`User Guide <hdbscan>`.
 import numpy as np
-from sklearn.cluster import HDBSCAN
-from sklearn.datasets import load_digits
-from sklearn.metrics import v_measure_score
+from sklearn_dual.cluster import HDBSCAN
+from sklearn_dual.datasets import load_digits
+from sklearn_dual.metrics import v_measure_score
 
 X, true_labels = load_digits(return_X_y=True)
 print(f"number of digits: {len(np.unique(true_labels))}")
@@ -71,7 +71,7 @@ print(v_measure_score(true_labels[hdbscan.labels_ != -1], non_noisy_labels))
 # estimate of the average target values for observations belonging to that category.
 # More details in the :ref:`User Guide <target_encoder>`.
 import numpy as np
-from sklearn.preprocessing import TargetEncoder
+from sklearn_dual.preprocessing import TargetEncoder
 
 X = np.array([["cat"] * 30 + ["dog"] * 20 + ["snake"] * 38], dtype=object).T
 y = [90.3] * 30 + [20.4] * 20 + [21.2] * 38
@@ -92,7 +92,7 @@ enc.encodings_
 # :ref:`sphx_glr_auto_examples_ensemble_plot_hgbt_regression.py` for a usecase
 # example of this feature in :class:`~ensemble.HistGradientBoostingRegressor`.
 import numpy as np
-from sklearn.tree import DecisionTreeClassifier
+from sklearn_dual.tree import DecisionTreeClassifier
 
 X = np.array([0, 1, 6, np.nan]).reshape(-1, 1)
 y = [0, 0, 1, 1]
@@ -105,9 +105,9 @@ tree.predict(X)
 # ------------------------------------------------------------
 # :class:`model_selection.ValidationCurveDisplay` is now available to plot results
 # from :func:`model_selection.validation_curve`.
-from sklearn.datasets import make_classification
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import ValidationCurveDisplay
+from sklearn_dual.datasets import make_classification
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.model_selection import ValidationCurveDisplay
 
 X, y = make_classification(1000, 10, random_state=0)
 
@@ -128,9 +128,9 @@ _ = ValidationCurveDisplay.from_estimator(
 # Gamma deviance loss function via `loss="gamma"`. This loss function is useful for
 # modeling strictly positive targets with a right-skewed distribution.
 import numpy as np
-from sklearn.model_selection import cross_val_score
-from sklearn.datasets import make_low_rank_matrix
-from sklearn.ensemble import HistGradientBoostingRegressor
+from sklearn_dual.model_selection import cross_val_score
+from sklearn_dual.datasets import make_low_rank_matrix
+from sklearn_dual.ensemble import HistGradientBoostingRegressor
 
 n_samples, n_features = 500, 10
 rng = np.random.RandomState(0)
@@ -148,7 +148,7 @@ cross_val_score(gbdt, X, y).mean()
 # into a single output for each feature. The parameters to enable the gathering of
 # infrequent categories are `min_frequency` and `max_categories`.
 # See the :ref:`User Guide <encoder_infrequent_categories>` for more details.
-from sklearn.preprocessing import OrdinalEncoder
+from sklearn_dual.preprocessing import OrdinalEncoder
 import numpy as np
 
 X = np.array(

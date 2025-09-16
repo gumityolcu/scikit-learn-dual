@@ -24,7 +24,7 @@ for handling categorical features: :class:`TargetEncoder`,
 # ========================
 # First, we load the wine reviews dataset, where the target is the points given
 # be a reviewer:
-from sklearn.datasets import fetch_openml
+from sklearn_dual.datasets import fetch_openml
 
 wine_reviews = fetch_openml(data_id=42074, as_frame=True)
 
@@ -57,8 +57,8 @@ _ = y.hist()
 # :class:`~sklearn.ensemble.HistGradientBoostingRegressor` with different encoding
 # strategies. First, we list out the encoders we will be using to preprocess
 # the categorical features:
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, TargetEncoder
+from sklearn_dual.compose import ColumnTransformer
+from sklearn_dual.preprocessing import OneHotEncoder, OrdinalEncoder, TargetEncoder
 
 categorical_preprocessors = [
     ("drop", "drop"),
@@ -72,9 +72,9 @@ categorical_preprocessors = [
 
 # %%
 # Next, we evaluate the models using cross validation and record the results:
-from sklearn.ensemble import HistGradientBoostingRegressor
-from sklearn.model_selection import cross_validate
-from sklearn.pipeline import make_pipeline
+from sklearn_dual.ensemble import HistGradientBoostingRegressor
+from sklearn_dual.model_selection import cross_validate
+from sklearn_dual.pipeline import make_pipeline
 
 n_cv_folds = 3
 max_iter = 20

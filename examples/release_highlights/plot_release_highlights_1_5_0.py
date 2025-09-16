@@ -29,10 +29,10 @@ or with conda::
 # predictions. However, 0.5 is almost never the desired threshold for a given
 # problem. :class:`~model_selection.FixedThresholdClassifier` allows wrapping any
 # binary classifier and setting a custom decision threshold.
-from sklearn.datasets import make_classification
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import ConfusionMatrixDisplay
+from sklearn_dual.datasets import make_classification
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.metrics import ConfusionMatrixDisplay
 
 
 X, y = make_classification(n_samples=10_000, weights=[0.9, 0.1], random_state=0)
@@ -45,7 +45,7 @@ _ = ConfusionMatrixDisplay.from_estimator(classifier_05, X_test, y_test)
 # Lowering the threshold, i.e. allowing more samples to be classified as the positive
 # class, increases the number of true positives at the cost of more false positives
 # (as is well known from the concavity of the ROC curve).
-from sklearn.model_selection import FixedThresholdClassifier
+from sklearn_dual.model_selection import FixedThresholdClassifier
 
 classifier_01 = FixedThresholdClassifier(classifier_05, threshold=0.1)
 classifier_01.fit(X_train, y_train)
@@ -72,7 +72,7 @@ _ = ConfusionMatrixDisplay.from_estimator(classifier_01, X_test, y_test)
 #
 # Our metric quantifies the average profit per sample, which is defined by the
 # following Python function:
-from sklearn.metrics import confusion_matrix
+from sklearn_dual.metrics import confusion_matrix
 
 
 def custom_score(y_observed, y_pred):
@@ -90,8 +90,8 @@ print(f"Custom score: {custom_score(y_test, classifier_05.predict(X_test)):.2f}"
 # Tuning the threshold to optimize this custom metric gives a smaller threshold
 # that allows more samples to be classified as the positive class. As a result,
 # the average gain per prediction improves.
-from sklearn.model_selection import TunedThresholdClassifierCV
-from sklearn.metrics import make_scorer
+from sklearn_dual.model_selection import TunedThresholdClassifierCV
+from sklearn_dual.metrics import make_scorer
 
 custom_scorer = make_scorer(
     custom_score, response_method="predict", greater_is_better=True
@@ -125,8 +125,8 @@ print(f"Custom score: {custom_score(y_test, tuned_classifier.predict(X_test)):.2
 # :class:`~decomposition.PCA` has a new solver, `"covariance_eigh"`, which is
 # up to an order of magnitude faster and more memory efficient than the other
 # solvers for datasets with many data points and few features.
-from sklearn.datasets import make_low_rank_matrix
-from sklearn.decomposition import PCA
+from sklearn_dual.datasets import make_low_rank_matrix
+from sklearn_dual.decomposition import PCA
 
 X = make_low_rank_matrix(
     n_samples=10_000, n_features=100, tail_strength=0.1, random_state=0
@@ -161,8 +161,8 @@ print(f"Explained variance: {pca.explained_variance_ratio_.sum():.2f}")
 # The transformers of a :class:`~compose.ColumnTransformer` can now be directly
 # accessed using indexing by name.
 import numpy as np
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn_dual.compose import ColumnTransformer
+from sklearn_dual.preprocessing import StandardScaler, OneHotEncoder
 
 X = np.array([[0, 1, 2], [3, 4, 5]])
 column_transformer = ColumnTransformer(
@@ -180,7 +180,7 @@ print(column_transformer["one_hot"])
 # :class:`~impute.SimpleImputer` now supports custom strategies for imputation,
 # using a callable that computes a scalar value from the non missing values of
 # a column vector.
-from sklearn.impute import SimpleImputer
+from sklearn_dual.impute import SimpleImputer
 
 X = np.array(
     [
@@ -208,7 +208,7 @@ imputer.fit_transform(X)
 # ------------------------------------------
 # :func:`~metrics.pairwise_distances` can now compute distances between
 # non-numeric arrays using a callable metric.
-from sklearn.metrics import pairwise_distances
+from sklearn_dual.metrics import pairwise_distances
 
 X = ["cat", "dog"]
 Y = ["cat", "fox"]

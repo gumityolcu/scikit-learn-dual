@@ -17,8 +17,8 @@ stationary kernels often obtain better results.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.gaussian_process import GaussianProcessClassifier
-from sklearn.gaussian_process.kernels import RBF, DotProduct
+from sklearn_dual.gaussian_process import GaussianProcessClassifier
+from sklearn_dual.gaussian_process.kernels import RBF, DotProduct
 
 xx, yy = np.meshgrid(np.linspace(-3, 3, 50), np.linspace(-3, 3, 50))
 rng = np.random.RandomState(0)

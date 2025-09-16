@@ -71,7 +71,7 @@ capable of generalizing well to unseen data while avoiding overfitting.
 # target variable (their true coefficients are 0). Please note that in this
 # example the data is non-noisy, hence we can expect our regression model to
 # recover exactly the true coefficients w.
-from sklearn.datasets import make_regression
+from sklearn_dual.datasets import make_regression
 
 X, y, w = make_regression(
     n_samples=100, n_features=10, n_informative=8, coef=True, random_state=1
@@ -93,8 +93,8 @@ print(f"The true coefficient of this regression problem are:\n{w}")
 # makes it convenient for us to plot them.
 import numpy as np
 
-from sklearn.linear_model import Ridge
-from sklearn.metrics import mean_squared_error
+from sklearn_dual.linear_model import Ridge
+from sklearn_dual.metrics import mean_squared_error
 
 clf = Ridge()
 

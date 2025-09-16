@@ -25,9 +25,9 @@ feature extraction.
 import numpy as np
 from scipy.ndimage import convolve
 
-from sklearn import datasets
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import minmax_scale
+from sklearn_dual import datasets
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.preprocessing import minmax_scale
 
 
 def nudge_dataset(X, Y):
@@ -67,9 +67,9 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_
 # a :class:`LogisticRegression <sklearn.linear_model.LogisticRegression>`
 # classifier.
 
-from sklearn import linear_model
-from sklearn.neural_network import BernoulliRBM
-from sklearn.pipeline import Pipeline
+from sklearn_dual import linear_model
+from sklearn_dual.neural_network import BernoulliRBM
+from sklearn_dual.pipeline import Pipeline
 
 logistic = linear_model.LogisticRegression(solver="newton-cg", tol=1)
 rbm = BernoulliRBM(random_state=0, verbose=True)
@@ -84,7 +84,7 @@ rbm_features_classifier = Pipeline(steps=[("rbm", rbm), ("logistic", logistic)])
 # regularization) were optimized by grid search, but the search is not
 # reproduced here because of runtime constraints.
 
-from sklearn.base import clone
+from sklearn_dual.base import clone
 
 # Hyper-parameters. These were set by cross-validation,
 # using a GridSearchCV. Here we are not performing cross-validation to
@@ -109,7 +109,7 @@ raw_pixel_classifier.fit(X_train, Y_train)
 # Evaluation
 # ----------
 
-from sklearn import metrics
+from sklearn_dual import metrics
 
 Y_pred = rbm_features_classifier.predict(X_test)
 print(

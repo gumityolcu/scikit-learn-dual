@@ -14,8 +14,8 @@ For details, see
 
 # %%
 # First, we load the iris dataset as a DataFrame to demonstrate the `set_output` API.
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
+from sklearn_dual.datasets import load_iris
+from sklearn_dual.model_selection import train_test_split
 
 X, y = load_iris(as_frame=True, return_X_y=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=0)
@@ -25,7 +25,7 @@ X_train.head()
 # To configure an estimator such as :class:`preprocessing.StandardScaler` to return
 # DataFrames, call `set_output`. This feature requires pandas to be installed.
 
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.preprocessing import StandardScaler
 
 scaler = StandardScaler().set_output(transform="pandas")
 
@@ -48,9 +48,9 @@ print(f"Configured pandas output type: {type(X_test_df).__name__}")
 # %%
 # In a :class:`pipeline.Pipeline`, `set_output` configures all steps to output
 # DataFrames.
-from sklearn.feature_selection import SelectPercentile
-from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import make_pipeline
+from sklearn_dual.feature_selection import SelectPercentile
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.pipeline import make_pipeline
 
 clf = make_pipeline(
     StandardScaler(), SelectPercentile(percentile=75), LogisticRegression()
@@ -81,7 +81,7 @@ clf[-1].feature_names_in_
 # %%
 # Next we load the titanic dataset to demonstrate `set_output` with
 # :class:`compose.ColumnTransformer` and heterogeneous data.
-from sklearn.datasets import fetch_openml
+from sklearn_dual.datasets import fetch_openml
 
 X, y = fetch_openml("titanic", version=1, as_frame=True, return_X_y=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y)
@@ -89,10 +89,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y)
 # %%
 # The `set_output` API can be configured globally by using :func:`set_config` and
 # setting `transform_output` to `"pandas"`.
-from sklearn import set_config
-from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn_dual import set_config
+from sklearn_dual.compose import ColumnTransformer
+from sklearn_dual.impute import SimpleImputer
+from sklearn_dual.preprocessing import OneHotEncoder, StandardScaler
 
 set_config(transform_output="pandas")
 
@@ -134,7 +134,7 @@ set_config(transform_output="default")
 # configuration at the time when `transform` or `fit_transform` are
 # called is what counts. Setting these only when you construct or fit
 # the transformer has no effect.
-from sklearn import config_context
+from sklearn_dual import config_context
 
 scaler = StandardScaler()
 scaler.fit(X_train[num_cols])

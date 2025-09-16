@@ -46,10 +46,10 @@ import time
 
 import matplotlib.pyplot as plt
 
-from sklearn.datasets import fetch_california_housing
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.metrics import mean_squared_error
-from sklearn.model_selection import train_test_split
+from sklearn_dual.datasets import fetch_california_housing
+from sklearn_dual.ensemble import GradientBoostingRegressor
+from sklearn_dual.metrics import mean_squared_error
+from sklearn_dual.model_selection import train_test_split
 
 data = fetch_california_housing()
 X, y = data.data[:600], data.target[:600]

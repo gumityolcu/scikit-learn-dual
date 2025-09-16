@@ -42,8 +42,8 @@ References
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import fetch_species_distributions
-from sklearn.neighbors import KernelDensity
+from sklearn_dual.datasets import fetch_species_distributions
+from sklearn_dual.neighbors import KernelDensity
 
 # if basemap is available, we'll use it.
 # otherwise, we'll improvise later...

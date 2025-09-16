@@ -35,7 +35,7 @@ Isolation Forest trained on a toy dataset.
 
 import numpy as np
 
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
 n_samples, n_outliers = 120, 40
 rng = np.random.RandomState(0)
@@ -67,7 +67,7 @@ plt.show()
 # Training of the model
 # ---------------------
 
-from sklearn.ensemble import IsolationForest
+from sklearn_dual.ensemble import IsolationForest
 
 clf = IsolationForest(max_samples=100, random_state=0)
 clf.fit(X_train)
@@ -83,7 +83,7 @@ clf.fit(X_train)
 
 import matplotlib.pyplot as plt
 
-from sklearn.inspection import DecisionBoundaryDisplay
+from sklearn_dual.inspection import DecisionBoundaryDisplay
 
 disp = DecisionBoundaryDisplay.from_estimator(
     clf,

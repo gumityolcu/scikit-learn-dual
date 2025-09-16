@@ -15,9 +15,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
 
-from sklearn import datasets
-from sklearn.inspection import DecisionBoundaryDisplay
-from sklearn.neighbors import NearestCentroid
+from sklearn_dual import datasets
+from sklearn_dual.inspection import DecisionBoundaryDisplay
+from sklearn_dual.neighbors import NearestCentroid
 
 # import some data to play with
 iris = datasets.load_iris()

@@ -25,7 +25,7 @@ of the standard linear regression
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import linear_model
+from sklearn_dual import linear_model
 
 X_train = np.c_[0.5, 1].T
 y_train = [0.5, 1]

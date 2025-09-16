@@ -4,13 +4,13 @@ from time import time
 import numpy as np
 import pandas as pd
 
-from sklearn.compose import make_column_selector, make_column_transformer
-from sklearn.datasets import fetch_openml
-from sklearn.ensemble import HistGradientBoostingClassifier
-from sklearn.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
-from sklearn.metrics import accuracy_score, roc_auc_score
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import OrdinalEncoder
+from sklearn_dual.compose import make_column_selector, make_column_transformer
+from sklearn_dual.datasets import fetch_openml
+from sklearn_dual.ensemble import HistGradientBoostingClassifier
+from sklearn_dual.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
+from sklearn_dual.metrics import accuracy_score, roc_auc_score
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.preprocessing import OrdinalEncoder
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--n-leaf-nodes", type=int, default=31)

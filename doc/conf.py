@@ -19,8 +19,8 @@ from datetime import datetime
 from pathlib import Path
 from urllib.request import urlopen
 
-from sklearn.externals._packaging.version import parse
-from sklearn.utils._testing import turn_warnings_into_errors
+from sklearn_dual.externals._packaging.version import parse
+from sklearn_dual.utils._testing import turn_warnings_into_errors
 
 # If extensions (or modules to document with autodoc) are in another
 # directory, add these directories to sys.path here. If the directory
@@ -152,7 +152,7 @@ copyright = f"2007 - {datetime.now().year}, scikit-learn developers (BSD License
 # built documents.
 #
 # The short X.Y version.
-import sklearn
+import sklearn_dual
 
 parsed_version = parse(sklearn.__version__)
 version = ".".join(parsed_version.base_version.split(".")[:2])
@@ -596,7 +596,7 @@ def notebook_modification_function(notebook_content, notebook_filename):
     message = (
         "Running the scikit-learn examples in JupyterLite is experimental and you may"
         " encounter some unexpected behavior.\n\nThe main difference is that imports"
-        " will take a lot longer than usual, for example the first `import sklearn` can"
+        " will take a lot longer than usual, for example the first `import sklearn_dual` can"
         " take roughly 10-20s.\n\nIf you notice problems, feel free to open an"
         " [issue](https://github.com/scikit-learn/scikit-learn/issues/new/choose)"
         " about it."
@@ -708,8 +708,8 @@ carousel_thumbs = {"sphx_glr_plot_classifier_comparison_001.png": 600}
 
 # enable experimental module so that experimental estimators can be
 # discovered properly by sphinx
-from sklearn.experimental import enable_iterative_imputer  # noqa
-from sklearn.experimental import enable_halving_search_cv  # noqa
+from sklearn_dual.experimental import enable_iterative_imputer  # noqa
+from sklearn_dual.experimental import enable_halving_search_cv  # noqa
 
 
 def make_carousel_thumbs(app, exception):
@@ -943,7 +943,7 @@ def infer_next_release_versions():
 
 from api_reference import API_REFERENCE, DEPRECATED_API_REFERENCE
 
-from sklearn._min_dependencies import dependent_packages
+from sklearn_dual._min_dependencies import dependent_packages
 
 # If development build, link to local page in the top navbar; otherwise link to the
 # development version; see https://github.com/scikit-learn/scikit-learn/pull/22550

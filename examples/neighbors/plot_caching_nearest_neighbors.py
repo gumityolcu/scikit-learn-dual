@@ -25,10 +25,10 @@ from tempfile import TemporaryDirectory
 
 import matplotlib.pyplot as plt
 
-from sklearn.datasets import load_digits
-from sklearn.model_selection import GridSearchCV
-from sklearn.neighbors import KNeighborsClassifier, KNeighborsTransformer
-from sklearn.pipeline import Pipeline
+from sklearn_dual.datasets import load_digits
+from sklearn_dual.model_selection import GridSearchCV
+from sklearn_dual.neighbors import KNeighborsClassifier, KNeighborsTransformer
+from sklearn_dual.pipeline import Pipeline
 
 X, y = load_digits(return_X_y=True)
 n_neighbors_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]

@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 import mpl_toolkits.mplot3d  # noqa: F401
 import numpy as np
 
-from sklearn import datasets, decomposition
+from sklearn_dual import datasets, decomposition
 
 np.random.seed(5)
 

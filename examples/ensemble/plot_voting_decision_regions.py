@@ -30,12 +30,12 @@ from itertools import product
 
 import matplotlib.pyplot as plt
 
-from sklearn import datasets
-from sklearn.ensemble import VotingClassifier
-from sklearn.inspection import DecisionBoundaryDisplay
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
+from sklearn_dual import datasets
+from sklearn_dual.ensemble import VotingClassifier
+from sklearn_dual.inspection import DecisionBoundaryDisplay
+from sklearn_dual.neighbors import KNeighborsClassifier
+from sklearn_dual.svm import SVC
+from sklearn_dual.tree import DecisionTreeClassifier
 
 # Loading some example data
 iris = datasets.load_iris()

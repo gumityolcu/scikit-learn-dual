@@ -43,7 +43,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy import ndimage, sparse
 
-from sklearn.linear_model import Lasso, Ridge
+from sklearn_dual.linear_model import Lasso, Ridge
 
 
 def _weights(x, dx=1, orig=0):

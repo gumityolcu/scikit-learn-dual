@@ -49,7 +49,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy import linalg
 
-from sklearn import mixture
+from sklearn_dual import mixture
 
 color_iter = itertools.cycle(["navy", "c", "cornflowerblue", "gold", "darkorange"])
 

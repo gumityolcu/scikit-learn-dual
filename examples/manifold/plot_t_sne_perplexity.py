@@ -33,7 +33,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.ticker import NullFormatter
 
-from sklearn import datasets, manifold
+from sklearn_dual import datasets, manifold
 
 n_samples = 150
 n_components = 2

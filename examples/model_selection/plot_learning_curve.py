@@ -26,9 +26,9 @@ accuracy.
 #
 # Here, we compute the learning curve of a naive Bayes classifier and a SVM
 # classifier with a RBF kernel using the digits dataset.
-from sklearn.datasets import load_digits
-from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import SVC
+from sklearn_dual.datasets import load_digits
+from sklearn_dual.naive_bayes import GaussianNB
+from sklearn_dual.svm import SVC
 
 X, y = load_digits(return_X_y=True)
 naive_bayes = GaussianNB()
@@ -42,7 +42,7 @@ svc = SVC(kernel="rbf", gamma=0.001)
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.model_selection import LearningCurveDisplay, ShuffleSplit
+from sklearn_dual.model_selection import LearningCurveDisplay, ShuffleSplit
 
 fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(10, 6), sharey=True)
 
@@ -92,7 +92,7 @@ for ax_idx, estimator in enumerate([naive_bayes, svc]):
 # the plot manually.
 
 # %%
-from sklearn.model_selection import learning_curve
+from sklearn_dual.model_selection import learning_curve
 
 common_params = {
     "X": X,

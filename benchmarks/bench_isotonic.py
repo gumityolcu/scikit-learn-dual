@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.special import expit
 
-from sklearn.isotonic import isotonic_regression
+from sklearn_dual.isotonic import isotonic_regression
 
 
 def generate_perturbed_logarithm_dataset(size):

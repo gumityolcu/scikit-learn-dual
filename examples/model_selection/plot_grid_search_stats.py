@@ -20,7 +20,7 @@ trained and evaluated using :class:`~sklearn.model_selection.GridSearchCV`.
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from sklearn.datasets import make_moons
+from sklearn_dual.datasets import make_moons
 
 X, y = make_moons(noise=0.352, random_state=1, n_samples=100)
 
@@ -39,8 +39,8 @@ plt.show()
 # data in each repetition. The performance will be evaluated using
 # :class:`~sklearn.metrics.roc_auc_score`.
 
-from sklearn.model_selection import GridSearchCV, RepeatedStratifiedKFold
-from sklearn.svm import SVC
+from sklearn_dual.model_selection import GridSearchCV, RepeatedStratifiedKFold
+from sklearn_dual.svm import SVC
 
 param_grid = [
     {"kernel": ["linear"]},

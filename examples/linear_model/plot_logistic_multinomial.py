@@ -15,10 +15,10 @@ are represented by the dashed lines.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import make_blobs
-from sklearn.inspection import DecisionBoundaryDisplay
-from sklearn.linear_model import LogisticRegression
-from sklearn.multiclass import OneVsRestClassifier
+from sklearn_dual.datasets import make_blobs
+from sklearn_dual.inspection import DecisionBoundaryDisplay
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.multiclass import OneVsRestClassifier
 
 # make 3-class dataset for classification
 centers = [[-5, 0], [0, 1.5], [5, -1]]

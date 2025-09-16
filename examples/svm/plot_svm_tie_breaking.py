@@ -20,8 +20,8 @@ create a non-convex decision boundary in that area.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import make_blobs
-from sklearn.svm import SVC
+from sklearn_dual.datasets import make_blobs
+from sklearn_dual.svm import SVC
 
 X, y = make_blobs(random_state=27)
 

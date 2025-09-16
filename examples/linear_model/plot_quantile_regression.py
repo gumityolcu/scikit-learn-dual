@@ -111,7 +111,7 @@ _ = axs[1, 1].set_xlabel("Residuals")
 # sample beyond the central 90% interval.
 
 # %%
-from sklearn.linear_model import QuantileRegressor
+from sklearn_dual.linear_model import QuantileRegressor
 
 quantiles = [0.05, 0.5, 0.95]
 predictions = {}
@@ -245,8 +245,8 @@ _ = plt.title("Quantiles of asymmetric Pareto distributed target")
 # squared error and mean absolute error. We will use the asymmetric Pareto
 # distributed target to make it more interesting as mean and median are not
 # equal.
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn_dual.linear_model import LinearRegression
+from sklearn_dual.metrics import mean_absolute_error, mean_squared_error
 
 linear_regression = LinearRegression()
 quantile_regression = QuantileRegressor(quantile=0.5, alpha=0)
@@ -277,7 +277,7 @@ print(
 #
 # We can make a similar evaluation by looking at the test error obtained by
 # cross-validation.
-from sklearn.model_selection import cross_validate
+from sklearn_dual.model_selection import cross_validate
 
 cv_results_lr = cross_validate(
     linear_regression,

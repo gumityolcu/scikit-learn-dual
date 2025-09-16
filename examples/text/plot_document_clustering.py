@@ -44,7 +44,7 @@ For document analysis via a supervised learning approach, see the example script
 
 import numpy as np
 
-from sklearn.datasets import fetch_20newsgroups
+from sklearn_dual.datasets import fetch_20newsgroups
 
 categories = [
     "alt.atheism",
@@ -105,7 +105,7 @@ print(f"{len(dataset.data)} documents - {true_k} categories")
 from collections import defaultdict
 from time import time
 
-from sklearn import metrics
+from sklearn_dual import metrics
 
 evaluations = []
 evaluations_std = []
@@ -179,7 +179,7 @@ def fit_and_evaluate(km, X, name=None, n_runs=5):
 # IDF normalization as provided by
 # :class:`~sklearn.feature_extraction.text.TfidfVectorizer`.
 
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn_dual.feature_extraction.text import TfidfVectorizer
 
 vectorizer = TfidfVectorizer(
     max_df=0.5,
@@ -220,7 +220,7 @@ print(f"{X_tfidf.nnz / np.prod(X_tfidf.shape):.3f}")
 # The following code illustrates how the previous phenomenon can sometimes lead
 # to highly imbalanced clusters, depending on the random initialization:
 
-from sklearn.cluster import KMeans
+from sklearn_dual.cluster import KMeans
 
 for seed in range(5):
     kmeans = KMeans(
@@ -273,9 +273,9 @@ fit_and_evaluate(kmeans, X_tfidf, name="KMeans\non tf-idf vectors")
 # analysis <https://en.wikipedia.org/wiki/Latent_semantic_analysis>`_ (LSA) in
 # the information retrieval and text mining literature.
 
-from sklearn.decomposition import TruncatedSVD
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import Normalizer
+from sklearn_dual.decomposition import TruncatedSVD
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import Normalizer
 
 lsa = make_pipeline(TruncatedSVD(n_components=100), Normalizer(copy=False))
 t0 = time()
@@ -305,7 +305,7 @@ fit_and_evaluate(kmeans, X_lsa, name="KMeans\nwith LSA on tf-idf vectors")
 # clustering evaluation metrics have improved. We repeat the experiment with
 # :class:`~sklearn.cluster.MiniBatchKMeans`.
 
-from sklearn.cluster import MiniBatchKMeans
+from sklearn_dual.cluster import MiniBatchKMeans
 
 minibatch_kmeans = MiniBatchKMeans(
     n_clusters=true_k,
@@ -352,7 +352,7 @@ for i in range(true_k):
 # case we also add LSA to the pipeline to reduce the dimension and sparcity of
 # the hashed vector space.
 
-from sklearn.feature_extraction.text import HashingVectorizer, TfidfTransformer
+from sklearn_dual.feature_extraction.text import HashingVectorizer, TfidfTransformer
 
 lsa_vectorizer = make_pipeline(
     HashingVectorizer(stop_words="english", n_features=50_000),

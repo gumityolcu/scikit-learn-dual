@@ -27,8 +27,8 @@ import logging
 import matplotlib.pyplot as plt
 from numpy.random import RandomState
 
-from sklearn import cluster, decomposition
-from sklearn.datasets import fetch_olivetti_faces
+from sklearn_dual import cluster, decomposition
+from sklearn_dual.datasets import fetch_olivetti_faces
 
 rng = RandomState(0)
 

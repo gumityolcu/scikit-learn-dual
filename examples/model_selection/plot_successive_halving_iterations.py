@@ -18,10 +18,10 @@ import numpy as np
 import pandas as pd
 from scipy.stats import randint
 
-from sklearn import datasets
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.experimental import enable_halving_search_cv  # noqa
-from sklearn.model_selection import HalvingRandomSearchCV
+from sklearn_dual import datasets
+from sklearn_dual.ensemble import RandomForestClassifier
+from sklearn_dual.experimental import enable_halving_search_cv  # noqa
+from sklearn_dual.model_selection import HalvingRandomSearchCV
 
 # %%
 # We first define the parameter space and train a

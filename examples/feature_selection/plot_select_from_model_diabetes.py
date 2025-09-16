@@ -28,7 +28,7 @@ License: BSD 3 clause
 #
 # We first load the diabetes dataset which is available from within
 # scikit-learn, and print its description:
-from sklearn.datasets import load_diabetes
+from sklearn_dual.datasets import load_diabetes
 
 diabetes = load_diabetes()
 X, y = diabetes.data, diabetes.target
@@ -50,7 +50,7 @@ print(diabetes.DESCR)
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.linear_model import RidgeCV
+from sklearn_dual.linear_model import RidgeCV
 
 ridge = RidgeCV(alphas=np.logspace(-6, 6, num=5)).fit(X, y)
 importance = np.abs(ridge.coef_)
@@ -73,7 +73,7 @@ plt.show()
 # above the coefficient of third most important feature.
 from time import time
 
-from sklearn.feature_selection import SelectFromModel
+from sklearn_dual.feature_selection import SelectFromModel
 
 threshold = np.sort(importance)[-3] + 0.01
 
@@ -99,7 +99,7 @@ print(f"Done in {toc - tic:.3f}s")
 # the features and greedily choose features to remove one by one. We illustrate
 # both approaches here.
 
-from sklearn.feature_selection import SequentialFeatureSelector
+from sklearn_dual.feature_selection import SequentialFeatureSelector
 
 tic_fwd = time()
 sfs_forward = SequentialFeatureSelector(
@@ -158,7 +158,7 @@ print(f"Done in {toc_bwd - tic_bwd:.3f}s")
 # features and 569 samples.
 import numpy as np
 
-from sklearn.datasets import load_breast_cancer
+from sklearn_dual.datasets import load_breast_cancer
 
 breast_cancer_data = load_breast_cancer()
 X, y = breast_cancer_data.data, breast_cancer_data.target
@@ -169,10 +169,10 @@ print(breast_cancer_data.DESCR)
 # We will make use of the :class:`~sklearn.linear_model.LogisticRegression`
 # estimator with :class:`~sklearn.feature_selection.SequentialFeatureSelector`
 # to perform the feature selection.
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import roc_auc_score
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.metrics import roc_auc_score
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import StandardScaler
 
 for tol in [-1e-2, -1e-3, -1e-4]:
     start = time()

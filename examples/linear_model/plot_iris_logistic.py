@@ -15,9 +15,9 @@ are colored according to their labels.
 
 import matplotlib.pyplot as plt
 
-from sklearn import datasets
-from sklearn.inspection import DecisionBoundaryDisplay
-from sklearn.linear_model import LogisticRegression
+from sklearn_dual import datasets
+from sklearn_dual.inspection import DecisionBoundaryDisplay
+from sklearn_dual.linear_model import LogisticRegression
 
 # import some data to play with
 iris = datasets.load_iris()

@@ -52,7 +52,7 @@ setting.
 # Originally, it is a classification task, but here we use it for the regression
 # task to predict the scheduled electricity transfer between states.
 
-from sklearn.datasets import fetch_openml
+from sklearn_dual.datasets import fetch_openml
 
 electricity = fetch_openml(
     name="electricity", version=1, as_frame=True, parser="pandas"
@@ -98,8 +98,8 @@ _ = ax.legend(handles, ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"])
 # evaluate the performance of the model and its capacity to generalize but
 # rather its capability to learn from the training data.
 
-from sklearn.ensemble import HistGradientBoostingRegressor
-from sklearn.model_selection import train_test_split
+from sklearn_dual.ensemble import HistGradientBoostingRegressor
+from sklearn_dual.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, shuffle=False)
 
@@ -218,7 +218,7 @@ hgbt = HistGradientBoostingRegressor(**common_params)
 
 import numpy as np
 
-from sklearn.metrics import root_mean_squared_error
+from sklearn_dual.metrics import root_mean_squared_error
 
 rng = np.random.RandomState(42)
 first_week = slice(0, 336)  # first week in the test set as 7 * 48 = 336
@@ -269,7 +269,7 @@ _ = ax.legend(loc="lower right")
 # percentiles can provide a 90% prediction interval, i.e. the range within which
 # we expect a new observed value to fall with 90% probability.
 
-from sklearn.metrics import mean_pinball_loss
+from sklearn_dual.metrics import mean_pinball_loss
 
 quantiles = [0.95, 0.05]
 predictions = []
@@ -348,7 +348,7 @@ _ = ax.legend(loc="lower right")
 # Alternatively, one can pass an array-like object encoding the above convention by
 # position.
 
-from sklearn.inspection import PartialDependenceDisplay
+from sklearn_dual.inspection import PartialDependenceDisplay
 
 monotonic_cst = {
     "date": 0,
@@ -409,8 +409,8 @@ _ = plt.legend()
 # guarantee that the training data does not succeed the testing data, which is
 # crucial when dealing with data that have a temporal relationship.
 
-from sklearn.metrics import make_scorer, root_mean_squared_error
-from sklearn.model_selection import TimeSeriesSplit, cross_validate
+from sklearn_dual.metrics import make_scorer, root_mean_squared_error
+from sklearn_dual.model_selection import TimeSeriesSplit, cross_validate
 
 ts_cv = TimeSeriesSplit(n_splits=5, gap=48, test_size=336)  # a week has 336 samples
 scorer = make_scorer(root_mean_squared_error)

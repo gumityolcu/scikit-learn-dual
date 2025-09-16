@@ -21,14 +21,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import interp1d
 
-from sklearn.datasets import fetch_covtype, fetch_kddcup99
-from sklearn.kernel_approximation import Nystroem
-from sklearn.linear_model import SGDOneClassSVM
-from sklearn.metrics import auc, roc_curve
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import LabelBinarizer, StandardScaler
-from sklearn.svm import OneClassSVM
-from sklearn.utils import shuffle
+from sklearn_dual.datasets import fetch_covtype, fetch_kddcup99
+from sklearn_dual.kernel_approximation import Nystroem
+from sklearn_dual.linear_model import SGDOneClassSVM
+from sklearn_dual.metrics import auc, roc_curve
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import LabelBinarizer, StandardScaler
+from sklearn_dual.svm import OneClassSVM
+from sklearn_dual.utils import shuffle
 
 font = {"weight": "normal", "size": 15}
 

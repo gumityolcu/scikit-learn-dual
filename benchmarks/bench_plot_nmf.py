@@ -15,14 +15,14 @@ import numpy as np
 import pandas
 from joblib import Memory
 
-from sklearn.decomposition import NMF
-from sklearn.decomposition._nmf import _beta_divergence, _check_init, _initialize_nmf
-from sklearn.exceptions import ConvergenceWarning
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.utils import check_array
-from sklearn.utils._testing import ignore_warnings
-from sklearn.utils.extmath import safe_sparse_dot, squared_norm
-from sklearn.utils.validation import check_is_fitted, check_non_negative
+from sklearn_dual.decomposition import NMF
+from sklearn_dual.decomposition._nmf import _beta_divergence, _check_init, _initialize_nmf
+from sklearn_dual.exceptions import ConvergenceWarning
+from sklearn_dual.feature_extraction.text import TfidfVectorizer
+from sklearn_dual.utils import check_array
+from sklearn_dual.utils._testing import ignore_warnings
+from sklearn_dual.utils.extmath import safe_sparse_dot, squared_norm
+from sklearn_dual.utils.validation import check_is_fitted, check_non_negative
 
 mem = Memory(cachedir=".", verbose=0)
 
@@ -409,7 +409,7 @@ def run_bench(X, clfs, plot_name, n_components, tol, alpha, l1_ratio):
 def load_20news():
     print("Loading 20 newsgroups dataset")
     print("-----------------------------")
-    from sklearn.datasets import fetch_20newsgroups
+    from sklearn_dual.datasets import fetch_20newsgroups
 
     dataset = fetch_20newsgroups(
         shuffle=True, random_state=1, remove=("headers", "footers", "quotes")
@@ -422,7 +422,7 @@ def load_20news():
 def load_faces():
     print("Loading Olivetti face dataset")
     print("-----------------------------")
-    from sklearn.datasets import fetch_olivetti_faces
+    from sklearn_dual.datasets import fetch_olivetti_faces
 
     faces = fetch_olivetti_faces(shuffle=True)
     return faces.data

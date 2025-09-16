@@ -54,9 +54,9 @@ X_hetero = X + rng.randn(n_samples, n_features) * sigmas
 
 import matplotlib.pyplot as plt
 
-from sklearn.covariance import LedoitWolf, ShrunkCovariance
-from sklearn.decomposition import PCA, FactorAnalysis
-from sklearn.model_selection import GridSearchCV, cross_val_score
+from sklearn_dual.covariance import LedoitWolf, ShrunkCovariance
+from sklearn_dual.decomposition import PCA, FactorAnalysis
+from sklearn_dual.model_selection import GridSearchCV, cross_val_score
 
 n_components = np.arange(0, n_features, 5)  # options for n_components
 

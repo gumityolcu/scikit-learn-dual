@@ -20,8 +20,8 @@ We first define a couple utility functions for convenience.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.cluster import DBSCAN, HDBSCAN
-from sklearn.datasets import make_blobs
+from sklearn_dual.cluster import DBSCAN, HDBSCAN
+from sklearn_dual.datasets import make_blobs
 
 
 def plot(X, labels, probabilities=None, parameters=None, ground_truth=False, ax=None):

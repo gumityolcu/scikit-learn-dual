@@ -30,13 +30,13 @@ fitting of a transformer is costly.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import load_digits
-from sklearn.decomposition import NMF, PCA
-from sklearn.feature_selection import SelectKBest, mutual_info_classif
-from sklearn.model_selection import GridSearchCV
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.svm import LinearSVC
+from sklearn_dual.datasets import load_digits
+from sklearn_dual.decomposition import NMF, PCA
+from sklearn_dual.feature_selection import SelectKBest, mutual_info_classif
+from sklearn_dual.model_selection import GridSearchCV
+from sklearn_dual.pipeline import Pipeline
+from sklearn_dual.preprocessing import MinMaxScaler
+from sklearn_dual.svm import LinearSVC
 
 X, y = load_digits(return_X_y=True)
 

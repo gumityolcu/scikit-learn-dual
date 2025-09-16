@@ -26,11 +26,11 @@ plot functions.
 # problem where the target is whether an individual donated blood. Then the
 # data is split into a train and test dataset and a logistic regression is
 # fitted with the train dataset.
-from sklearn.datasets import fetch_openml
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.datasets import fetch_openml
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import StandardScaler
 
 X, y = fetch_openml(data_id=1464, return_X_y=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y)
@@ -44,7 +44,7 @@ clf.fit(X_train, y_train)
 # With the fitted model, we compute the predictions of the model on the test
 # dataset. These predictions are used to compute the confusion matrix which
 # is plotted with the :class:`ConfusionMatrixDisplay`
-from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
+from sklearn_dual.metrics import ConfusionMatrixDisplay, confusion_matrix
 
 y_pred = clf.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)
@@ -58,7 +58,7 @@ cm_display = ConfusionMatrixDisplay(cm).plot()
 # The roc curve requires either the probabilities or the non-thresholded
 # decision values from the estimator. Since the logistic regression provides
 # a decision function, we will use it to plot the roc curve:
-from sklearn.metrics import RocCurveDisplay, roc_curve
+from sklearn_dual.metrics import RocCurveDisplay, roc_curve
 
 y_score = clf.decision_function(X_test)
 
@@ -70,7 +70,7 @@ roc_display = RocCurveDisplay(fpr=fpr, tpr=tpr).plot()
 ##############################################################################
 # Similarly, the precision recall curve can be plotted using `y_score` from
 # the prevision sections.
-from sklearn.metrics import PrecisionRecallDisplay, precision_recall_curve
+from sklearn_dual.metrics import PrecisionRecallDisplay, precision_recall_curve
 
 prec, recall, _ = precision_recall_curve(y_test, y_score, pos_label=clf.classes_[1])
 pr_display = PrecisionRecallDisplay(precision=prec, recall=recall).plot()

@@ -29,7 +29,7 @@ the best model.
 
 # %%
 # We will use the diabetes dataset.
-from sklearn.datasets import load_diabetes
+from sklearn_dual.datasets import load_diabetes
 
 X, y = load_diabetes(return_X_y=True, as_frame=True)
 n_samples = X.shape[0]
@@ -44,9 +44,9 @@ X.head()
 #
 # In the following, we are going to fit two models to compare the values
 # reported by AIC and BIC.
-from sklearn.linear_model import LassoLarsIC
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.linear_model import LassoLarsIC
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import StandardScaler
 
 lasso_lars_ic = make_pipeline(StandardScaler(), LassoLarsIC(criterion="aic")).fit(X, y)
 

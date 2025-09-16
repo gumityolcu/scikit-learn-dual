@@ -28,9 +28,9 @@ from time import time
 
 import matplotlib.pyplot as plt
 
-from sklearn.datasets import fetch_20newsgroups
-from sklearn.decomposition import NMF, LatentDirichletAllocation, MiniBatchNMF
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn_dual.datasets import fetch_20newsgroups
+from sklearn_dual.decomposition import NMF, LatentDirichletAllocation, MiniBatchNMF
+from sklearn_dual.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 n_samples = 2000
 n_features = 1000

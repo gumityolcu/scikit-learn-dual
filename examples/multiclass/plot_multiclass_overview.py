@@ -30,7 +30,7 @@ will review them.
 # In this example, we use a UCI dataset [1]_, generally referred as the Yeast
 # dataset. We use the :func:`sklearn.datasets.fetch_openml` function to load
 # the dataset from OpenML.
-from sklearn.datasets import fetch_openml
+from sklearn_dual.datasets import fetch_openml
 
 X, y = fetch_openml(data_id=181, as_frame=True, return_X_y=True)
 
@@ -73,13 +73,13 @@ y.value_counts().sort_index()
 #   representation.
 import pandas as pd
 
-from sklearn.model_selection import RepeatedStratifiedKFold, cross_validate
-from sklearn.multiclass import (
+from sklearn_dual.model_selection import RepeatedStratifiedKFold, cross_validate
+from sklearn_dual.multiclass import (
     OneVsOneClassifier,
     OneVsRestClassifier,
     OutputCodeClassifier,
 )
-from sklearn.tree import DecisionTreeClassifier
+from sklearn_dual.tree import DecisionTreeClassifier
 
 cv = RepeatedStratifiedKFold(n_splits=3, n_repeats=5, random_state=0)
 
@@ -130,7 +130,7 @@ _ = ax.set_title(
 #
 # Here we try to reproduce such result by at least optimizing the depth of the
 # base decision tree.
-from sklearn.model_selection import GridSearchCV
+from sklearn_dual.model_selection import GridSearchCV
 
 param_grid = {"max_depth": [3, 5, 8]}
 tree_optimized = GridSearchCV(tree, param_grid=param_grid, cv=3)

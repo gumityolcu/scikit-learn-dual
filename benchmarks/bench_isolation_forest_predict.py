@@ -40,7 +40,7 @@ import numpy as np
 import pandas as pd
 from joblib import parallel_config
 
-from sklearn.ensemble import IsolationForest
+from sklearn_dual.ensemble import IsolationForest
 
 print(__doc__)
 

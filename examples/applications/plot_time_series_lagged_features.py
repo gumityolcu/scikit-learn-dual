@@ -35,7 +35,7 @@ engineering.
 import numpy as np
 import polars as pl
 
-from sklearn.datasets import fetch_file
+from sklearn_dual.datasets import fetch_file
 
 pl.Config.set_fmt_str_lengths(20)
 
@@ -118,8 +118,8 @@ print("X shape: {}\ny shape: {}".format(X.shape, y.shape))
 # the "i.i.d" (independent and identically distributed) assumption does not
 # hold true as the data points are not independent and have a temporal
 # relationship.
-from sklearn.ensemble import HistGradientBoostingRegressor
-from sklearn.model_selection import train_test_split
+from sklearn_dual.ensemble import HistGradientBoostingRegressor
+from sklearn_dual.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
@@ -129,7 +129,7 @@ model = HistGradientBoostingRegressor().fit(X_train, y_train)
 
 # %%
 # Taking a look at the performance of the model.
-from sklearn.metrics import mean_absolute_percentage_error
+from sklearn_dual.metrics import mean_absolute_percentage_error
 
 y_pred = model.predict(X_test)
 mean_absolute_percentage_error(y_test, y_pred)
@@ -141,7 +141,7 @@ mean_absolute_percentage_error(y_test, y_pred)
 # the temporal structure of the dataset to evaluate our model's ability to
 # predict data points in the future (to avoid cheating by reading values from
 # the lagged features in the training set).
-from sklearn.model_selection import TimeSeriesSplit
+from sklearn_dual.model_selection import TimeSeriesSplit
 
 ts_cv = TimeSeriesSplit(
     n_splits=3,  # to keep the notebook fast enough on common laptops
@@ -167,7 +167,7 @@ mean_absolute_percentage_error(y_test, y_pred)
 # be more representative of the true performance of the regression model.
 # Let's assess this variability of our error evaluation with proper
 # cross-validation:
-from sklearn.model_selection import cross_val_score
+from sklearn_dual.model_selection import cross_val_score
 
 cv_mape_scores = -cross_val_score(
     model, X, y, cv=ts_cv, scoring="neg_mean_absolute_percentage_error"
@@ -185,13 +185,13 @@ print(f"CV MAPE: {cv_mape_scores.mean():.3f} ± {cv_mape_scores.std():.3f}")
 # which are reported a bit below.
 from collections import defaultdict
 
-from sklearn.metrics import (
+from sklearn_dual.metrics import (
     make_scorer,
     mean_absolute_error,
     mean_pinball_loss,
     root_mean_squared_error,
 )
-from sklearn.model_selection import cross_validate
+from sklearn_dual.model_selection import cross_validate
 
 
 def consolidate_scores(cv_results, scores, metric):
@@ -385,7 +385,7 @@ _ = ax.legend()
 #
 # Looking at the performance of non-linear regression models vs
 # the best models:
-from sklearn.metrics import PredictionErrorDisplay
+from sklearn_dual.metrics import PredictionErrorDisplay
 
 fig, axes = plt.subplots(ncols=3, figsize=(15, 6), sharey=True)
 fig.suptitle("Non-linear regression models")

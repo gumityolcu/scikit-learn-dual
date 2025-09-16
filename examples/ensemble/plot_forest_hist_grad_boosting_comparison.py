@@ -34,7 +34,7 @@ example showcasing some other features of HGBT models.
 # Load dataset
 # ------------
 
-from sklearn.datasets import fetch_california_housing
+from sklearn_dual.datasets import fetch_california_housing
 
 X, y = fetch_california_housing(return_X_y=True, as_frame=True)
 n_samples, n_features = X.shape
@@ -81,8 +81,8 @@ print(f"Number of physical cores: {N_CORES}")
 
 import pandas as pd
 
-from sklearn.ensemble import HistGradientBoostingRegressor, RandomForestRegressor
-from sklearn.model_selection import GridSearchCV, KFold
+from sklearn_dual.ensemble import HistGradientBoostingRegressor, RandomForestRegressor
+from sklearn_dual.model_selection import GridSearchCV, KFold
 
 models = {
     "Random Forest": RandomForestRegressor(

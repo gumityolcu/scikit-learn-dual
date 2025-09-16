@@ -35,7 +35,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import norm
 
-from sklearn.neighbors import KernelDensity
+from sklearn_dual.neighbors import KernelDensity
 
 # ----------------------------------------------------------------------
 # Plot the progression of histograms to kernels

@@ -41,9 +41,9 @@ from timeit import default_timer as timer
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets._samples_generator import make_blobs
-from sklearn.mixture import GaussianMixture
-from sklearn.utils.extmath import row_norms
+from sklearn_dual.datasets._samples_generator import make_blobs
+from sklearn_dual.mixture import GaussianMixture
+from sklearn_dual.utils.extmath import row_norms
 
 print(__doc__)
 

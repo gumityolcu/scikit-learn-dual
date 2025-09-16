@@ -19,12 +19,12 @@ dataset and is only used to illustrate the usage of FeatureUnion.
 # Authors: The scikit-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
-from sklearn.datasets import load_iris
-from sklearn.decomposition import PCA
-from sklearn.feature_selection import SelectKBest
-from sklearn.model_selection import GridSearchCV
-from sklearn.pipeline import FeatureUnion, Pipeline
-from sklearn.svm import SVC
+from sklearn_dual.datasets import load_iris
+from sklearn_dual.decomposition import PCA
+from sklearn_dual.feature_selection import SelectKBest
+from sklearn_dual.model_selection import GridSearchCV
+from sklearn_dual.pipeline import FeatureUnion, Pipeline
+from sklearn_dual.svm import SVC
 
 iris = load_iris()
 

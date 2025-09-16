@@ -24,14 +24,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import cm
 
-from sklearn import datasets
-from sklearn.gaussian_process import GaussianProcessClassifier
-from sklearn.gaussian_process.kernels import RBF
-from sklearn.inspection import DecisionBoundaryDisplay
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
-from sklearn.multiclass import OneVsRestClassifier
-from sklearn.svm import SVC
+from sklearn_dual import datasets
+from sklearn_dual.gaussian_process import GaussianProcessClassifier
+from sklearn_dual.gaussian_process.kernels import RBF
+from sklearn_dual.inspection import DecisionBoundaryDisplay
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.metrics import accuracy_score
+from sklearn_dual.multiclass import OneVsRestClassifier
+from sklearn_dual.svm import SVC
 
 iris = datasets.load_iris()
 X = iris.data[:, 0:2]  # we only take the first two features for visualization

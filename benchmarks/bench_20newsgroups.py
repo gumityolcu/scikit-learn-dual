@@ -3,17 +3,17 @@ from time import time
 
 import numpy as np
 
-from sklearn.datasets import fetch_20newsgroups_vectorized
-from sklearn.dummy import DummyClassifier
-from sklearn.ensemble import (
+from sklearn_dual.datasets import fetch_20newsgroups_vectorized
+from sklearn_dual.dummy import DummyClassifier
+from sklearn_dual.ensemble import (
     AdaBoostClassifier,
     ExtraTreesClassifier,
     RandomForestClassifier,
 )
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.utils.validation import check_array
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.metrics import accuracy_score
+from sklearn_dual.naive_bayes import MultinomialNB
+from sklearn_dual.utils.validation import check_array
 
 ESTIMATORS = {
     "dummy": DummyClassifier(),

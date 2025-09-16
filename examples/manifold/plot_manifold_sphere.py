@@ -37,8 +37,8 @@ import mpl_toolkits.mplot3d  # noqa: F401
 import numpy as np
 from matplotlib.ticker import NullFormatter
 
-from sklearn import manifold
-from sklearn.utils import check_random_state
+from sklearn_dual import manifold
+from sklearn_dual.utils import check_random_state
 
 # Variables for manifold learning.
 n_neighbors = 10

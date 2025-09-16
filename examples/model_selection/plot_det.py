@@ -40,9 +40,9 @@ corner) is the "ideal" point.
 # Generate synthetic data
 # -----------------------
 
-from sklearn.datasets import make_classification
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.datasets import make_classification
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.preprocessing import StandardScaler
 
 X, y = make_classification(
     n_samples=1_000,
@@ -64,9 +64,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_
 # is no particular reason why these classifiers are chosen other classifiers
 # available in scikit-learn.
 
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.pipeline import make_pipeline
-from sklearn.svm import LinearSVC
+from sklearn_dual.ensemble import RandomForestClassifier
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.svm import LinearSVC
 
 classifiers = {
     "Linear SVM": make_pipeline(StandardScaler(), LinearSVC(C=0.025)),
@@ -86,7 +86,7 @@ classifiers = {
 
 import matplotlib.pyplot as plt
 
-from sklearn.metrics import DetCurveDisplay, RocCurveDisplay
+from sklearn_dual.metrics import DetCurveDisplay, RocCurveDisplay
 
 fig, [ax_roc, ax_det] = plt.subplots(1, 2, figsize=(11, 5))
 

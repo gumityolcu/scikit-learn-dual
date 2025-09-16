@@ -28,8 +28,8 @@ import matplotlib.pyplot as plt
 import mpl_toolkits.mplot3d  # noqa: F401
 import numpy as np
 
-from sklearn import datasets
-from sklearn.cluster import KMeans
+from sklearn_dual import datasets
+from sklearn_dual.cluster import KMeans
 
 np.random.seed(5)
 

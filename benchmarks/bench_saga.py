@@ -11,19 +11,19 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import (
+from sklearn_dual.datasets import (
     fetch_20newsgroups_vectorized,
     fetch_rcv1,
     load_digits,
     load_iris,
 )
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import log_loss
-from sklearn.model_selection import train_test_split
-from sklearn.multiclass import OneVsRestClassifier
-from sklearn.preprocessing import LabelBinarizer, LabelEncoder
-from sklearn.utils.extmath import safe_sparse_dot, softmax
-from sklearn.utils.parallel import Parallel, delayed
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.metrics import log_loss
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.multiclass import OneVsRestClassifier
+from sklearn_dual.preprocessing import LabelBinarizer, LabelEncoder
+from sklearn_dual.utils.extmath import safe_sparse_dot, softmax
+from sklearn_dual.utils.parallel import Parallel, delayed
 
 
 def fit_single(

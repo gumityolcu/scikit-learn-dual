@@ -14,8 +14,8 @@ measurement encoded with a dictionary
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import make_sparse_coded_signal
-from sklearn.linear_model import OrthogonalMatchingPursuit, OrthogonalMatchingPursuitCV
+from sklearn_dual.datasets import make_sparse_coded_signal
+from sklearn_dual.linear_model import OrthogonalMatchingPursuit, OrthogonalMatchingPursuitCV
 
 n_components, n_features = 512, 100
 n_nonzero_coefs = 17

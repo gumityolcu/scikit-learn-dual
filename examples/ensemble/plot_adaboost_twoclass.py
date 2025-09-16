@@ -23,10 +23,10 @@ with a decision score above some value.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import make_gaussian_quantiles
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.inspection import DecisionBoundaryDisplay
-from sklearn.tree import DecisionTreeClassifier
+from sklearn_dual.datasets import make_gaussian_quantiles
+from sklearn_dual.ensemble import AdaBoostClassifier
+from sklearn_dual.inspection import DecisionBoundaryDisplay
+from sklearn_dual.tree import DecisionTreeClassifier
 
 # Construct dataset
 X1, y1 = make_gaussian_quantiles(

@@ -17,12 +17,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import polars as pl
 
-from sklearn import datasets
-from sklearn.decomposition import PCA
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import GridSearchCV
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual import datasets
+from sklearn_dual.decomposition import PCA
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.model_selection import GridSearchCV
+from sklearn_dual.pipeline import Pipeline
+from sklearn_dual.preprocessing import StandardScaler
 
 # Define a pipeline to search for the best combination of PCA truncation
 # and classifier regularization.

@@ -27,9 +27,9 @@ analogous to the random splits in Random Forests
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import datasets, ensemble
-from sklearn.metrics import log_loss
-from sklearn.model_selection import train_test_split
+from sklearn_dual import datasets, ensemble
+from sklearn_dual.metrics import log_loss
+from sklearn_dual.model_selection import train_test_split
 
 X, y = datasets.make_hastie_10_2(n_samples=4000, random_state=1)
 

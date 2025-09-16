@@ -6,14 +6,14 @@ from time import time
 import numpy as np
 from threadpoolctl import threadpool_limits
 
-import sklearn
-from sklearn.datasets import make_classification, make_regression
-from sklearn.ensemble import (
+import sklearn_dual
+from sklearn_dual.datasets import make_classification, make_regression
+from sklearn_dual.ensemble import (
     HistGradientBoostingClassifier,
     HistGradientBoostingRegressor,
 )
-from sklearn.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
-from sklearn.model_selection import train_test_split
+from sklearn_dual.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
+from sklearn_dual.model_selection import train_test_split
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--n-leaf-nodes", type=int, default=31)

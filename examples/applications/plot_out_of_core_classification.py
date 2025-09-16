@@ -31,10 +31,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import rcParams
 
-from sklearn.datasets import get_data_home
-from sklearn.feature_extraction.text import HashingVectorizer
-from sklearn.linear_model import PassiveAggressiveClassifier, Perceptron, SGDClassifier
-from sklearn.naive_bayes import MultinomialNB
+from sklearn_dual.datasets import get_data_home
+from sklearn_dual.feature_extraction.text import HashingVectorizer
+from sklearn_dual.linear_model import PassiveAggressiveClassifier, Perceptron, SGDClassifier
+from sklearn_dual.naive_bayes import MultinomialNB
 
 
 def _not_in_sphinx():

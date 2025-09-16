@@ -31,14 +31,14 @@ model.
 # %%
 import numpy as np
 
-from sklearn.compose import ColumnTransformer
-from sklearn.datasets import fetch_openml
-from sklearn.feature_selection import SelectPercentile, chi2
-from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import RandomizedSearchCV, train_test_split
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn_dual.compose import ColumnTransformer
+from sklearn_dual.datasets import fetch_openml
+from sklearn_dual.feature_selection import SelectPercentile, chi2
+from sklearn_dual.impute import SimpleImputer
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.model_selection import RandomizedSearchCV, train_test_split
+from sklearn_dual.pipeline import Pipeline
+from sklearn_dual.preprocessing import OneHotEncoder, StandardScaler
 
 np.random.seed(0)
 
@@ -140,7 +140,7 @@ X_train.info()
 #    refer to their documentation regarding `Categorical data
 #    <https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html>`_.
 
-from sklearn.compose import make_column_selector as selector
+from sklearn_dual.compose import make_column_selector as selector
 
 preprocessor = ColumnTransformer(
     transformers=[

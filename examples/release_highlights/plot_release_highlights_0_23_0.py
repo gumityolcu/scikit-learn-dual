@@ -35,9 +35,9 @@ or with conda::
 # 'poisson' loss as well.
 
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import PoissonRegressor
-from sklearn.ensemble import HistGradientBoostingRegressor
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.linear_model import PoissonRegressor
+from sklearn_dual.ensemble import HistGradientBoostingRegressor
 
 n_samples, n_features = 1000, 20
 rng = np.random.RandomState(0)
@@ -62,12 +62,12 @@ print(gbdt.score(X_test, y_test))
 # elements.  See :ref:`visualizing_composite_estimators` for how you can use
 # this feature.
 
-from sklearn import set_config
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
-from sklearn.impute import SimpleImputer
-from sklearn.compose import make_column_transformer
-from sklearn.linear_model import LogisticRegression
+from sklearn_dual import set_config
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import OneHotEncoder, StandardScaler
+from sklearn_dual.impute import SimpleImputer
+from sklearn_dual.compose import make_column_transformer
+from sklearn_dual.linear_model import LogisticRegression
 
 set_config(display="diagram")
 
@@ -96,10 +96,10 @@ clf
 # please refer to our :ref:`parallelism` notes.
 import scipy
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.cluster import KMeans
-from sklearn.datasets import make_blobs
-from sklearn.metrics import completeness_score
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.cluster import KMeans
+from sklearn_dual.datasets import make_blobs
+from sklearn_dual.metrics import completeness_score
 
 rng = np.random.RandomState(0)
 X, y = make_blobs(random_state=rng)
@@ -126,11 +126,11 @@ print(completeness_score(kmeans.predict(X_test), y_test))
 # example, see :ref:`sphx_glr_auto_examples_ensemble_plot_hgbt_regression.py`.
 import numpy as np
 from matplotlib import pyplot as plt
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
-# from sklearn.inspection import plot_partial_dependence
-from sklearn.inspection import PartialDependenceDisplay
-from sklearn.ensemble import HistGradientBoostingRegressor
+# from sklearn_dual.inspection import plot_partial_dependence
+from sklearn_dual.inspection import PartialDependenceDisplay
+from sklearn_dual.ensemble import HistGradientBoostingRegressor
 
 n_samples = 500
 rng = np.random.RandomState(0)
@@ -173,9 +173,9 @@ plt.show()
 # The two linear regressors :class:`~sklearn.linear_model.Lasso` and
 # :class:`~sklearn.linear_model.ElasticNet` now support sample weights.
 
-from sklearn.model_selection import train_test_split
-from sklearn.datasets import make_regression
-from sklearn.linear_model import Lasso
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.datasets import make_regression
+from sklearn_dual.linear_model import Lasso
 import numpy as np
 
 n_samples, n_features = 1000, 20

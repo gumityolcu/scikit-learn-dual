@@ -48,8 +48,8 @@ curves.
 
 import numpy as np
 
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
+from sklearn_dual.datasets import load_iris
+from sklearn_dual.model_selection import train_test_split
 
 iris = load_iris()
 target_names = iris.target_names
@@ -72,7 +72,7 @@ X = np.concatenate([X, random_state.randn(n_samples, 200 * n_features)], axis=1)
 # naturally handle multiclass problems, thanks to the use of the multinomial
 # formulation.
 
-from sklearn.linear_model import LogisticRegression
+from sklearn_dual.linear_model import LogisticRegression
 
 classifier = LogisticRegression()
 y_score = classifier.fit(X_train, y_train).predict_proba(X_test)
@@ -98,7 +98,7 @@ y_score = classifier.fit(X_train, y_train).predict_proba(X_test)
 # target of shape (`n_samples`,) is mapped to a target of shape (`n_samples`,
 # `n_classes`).
 
-from sklearn.preprocessing import LabelBinarizer
+from sklearn_dual.preprocessing import LabelBinarizer
 
 label_binarizer = LabelBinarizer().fit(y_train)
 y_onehot_test = label_binarizer.transform(y_test)
@@ -123,7 +123,7 @@ class_id
 # %%
 import matplotlib.pyplot as plt
 
-from sklearn.metrics import RocCurveDisplay
+from sklearn_dual.metrics import RocCurveDisplay
 
 display = RocCurveDisplay.from_predictions(
     y_onehot_test[:, class_id],
@@ -178,7 +178,7 @@ _ = display.ax_.set(
 # itself, we can reproduce the value shown in the plot using
 # :class:`~sklearn.metrics.roc_auc_score`.
 
-from sklearn.metrics import roc_auc_score
+from sklearn_dual.metrics import roc_auc_score
 
 micro_roc_auc_ovr = roc_auc_score(
     y_test,
@@ -194,7 +194,7 @@ print(f"Micro-averaged One-vs-Rest ROC AUC score:\n{micro_roc_auc_ovr:.2f}")
 # :class:`~sklearn.metrics.roc_curve` and then the area under the curve with
 # :class:`~sklearn.metrics.auc` for the raveled true and predicted classes.
 
-from sklearn.metrics import auc, roc_curve
+from sklearn_dual.metrics import auc, roc_curve
 
 # store the fpr, tpr, and roc_auc for all averaging strategies
 fpr, tpr, roc_auc = dict(), dict(), dict()

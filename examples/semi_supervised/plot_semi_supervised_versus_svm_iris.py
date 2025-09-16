@@ -20,9 +20,9 @@ identical to training the SVC on 100% of the data.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import datasets
-from sklearn.semi_supervised import LabelSpreading, SelfTrainingClassifier
-from sklearn.svm import SVC
+from sklearn_dual import datasets
+from sklearn_dual.semi_supervised import LabelSpreading, SelfTrainingClassifier
+from sklearn_dual.svm import SVC
 
 iris = datasets.load_iris()
 

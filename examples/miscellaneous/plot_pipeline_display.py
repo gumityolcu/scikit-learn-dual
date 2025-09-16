@@ -22,10 +22,10 @@ steps in the pipeline.
 # :class:`~sklearn.linear_model.LogisticRegression`, and displays its visual
 # representation.
 
-from sklearn import set_config
-from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual import set_config
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.pipeline import Pipeline
+from sklearn_dual.preprocessing import StandardScaler
 
 steps = [
     ("preprocessing", StandardScaler()),
@@ -56,9 +56,9 @@ set_config(display="diagram")
 # :class:`~sklearn.linear_model.LogisticRegression`, and displays its visual
 # representation.
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import PolynomialFeatures, StandardScaler
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.pipeline import Pipeline
+from sklearn_dual.preprocessing import PolynomialFeatures, StandardScaler
 
 steps = [
     ("standard_scaler", StandardScaler()),
@@ -76,9 +76,9 @@ pipe  # click on the diagram below to see the details of each step
 # a classifier, :class:`~sklearn.svm.SVC`, and displays its visual
 # representation.
 
-from sklearn.decomposition import PCA
-from sklearn.pipeline import Pipeline
-from sklearn.svm import SVC
+from sklearn_dual.decomposition import PCA
+from sklearn_dual.pipeline import Pipeline
+from sklearn_dual.svm import SVC
 
 steps = [("reduce_dim", PCA(n_components=4)), ("classifier", SVC(kernel="linear"))]
 pipe = Pipeline(steps)
@@ -94,11 +94,11 @@ pipe  # click on the diagram below to see the details of each step
 
 import numpy as np
 
-from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import Pipeline, make_pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn_dual.compose import ColumnTransformer
+from sklearn_dual.impute import SimpleImputer
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.pipeline import Pipeline, make_pipeline
+from sklearn_dual.preprocessing import OneHotEncoder, StandardScaler
 
 numeric_preprocessor = Pipeline(
     steps=[
@@ -137,12 +137,12 @@ pipe  # click on the diagram below to see the details of each step
 
 import numpy as np
 
-from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.impute import SimpleImputer
-from sklearn.model_selection import GridSearchCV
-from sklearn.pipeline import Pipeline, make_pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn_dual.compose import ColumnTransformer
+from sklearn_dual.ensemble import RandomForestClassifier
+from sklearn_dual.impute import SimpleImputer
+from sklearn_dual.model_selection import GridSearchCV
+from sklearn_dual.pipeline import Pipeline, make_pipeline
+from sklearn_dual.preprocessing import OneHotEncoder, StandardScaler
 
 numeric_preprocessor = Pipeline(
     steps=[

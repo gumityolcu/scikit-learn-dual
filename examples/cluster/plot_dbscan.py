@@ -21,8 +21,8 @@ for a demo of different clustering algorithms on 2D datasets.
 #
 # We use :class:`~sklearn.datasets.make_blobs` to create 3 synthetic clusters.
 
-from sklearn.datasets import make_blobs
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.datasets import make_blobs
+from sklearn_dual.preprocessing import StandardScaler
 
 centers = [[1, 1], [-1, -1], [1, -1]]
 X, labels_true = make_blobs(
@@ -48,8 +48,8 @@ plt.show()
 
 import numpy as np
 
-from sklearn import metrics
-from sklearn.cluster import DBSCAN
+from sklearn_dual import metrics
+from sklearn_dual.cluster import DBSCAN
 
 db = DBSCAN(eps=0.3, min_samples=10).fit(X)
 labels = db.labels_

@@ -36,8 +36,8 @@ models: :ref:`Logistic_regression`, :ref:`gaussian_naive_bayes`,
 # balanced splits but this would make the code of this example more complicated
 # to follow.
 
-from sklearn.datasets import make_classification
-from sklearn.model_selection import train_test_split
+from sklearn_dual.datasets import make_classification
+from sklearn_dual.model_selection import train_test_split
 
 X, y = make_classification(
     n_samples=100_000, n_features=20, n_informative=2, n_redundant=2, random_state=42
@@ -66,7 +66,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 import numpy as np
 
-from sklearn.svm import LinearSVC
+from sklearn_dual.svm import LinearSVC
 
 
 class NaivelyCalibratedLinearSVC(LinearSVC):
@@ -91,10 +91,10 @@ class NaivelyCalibratedLinearSVC(LinearSVC):
 
 # %%
 
-from sklearn.calibration import CalibrationDisplay
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegressionCV
-from sklearn.naive_bayes import GaussianNB
+from sklearn_dual.calibration import CalibrationDisplay
+from sklearn_dual.ensemble import RandomForestClassifier
+from sklearn_dual.linear_model import LogisticRegressionCV
+from sklearn_dual.naive_bayes import GaussianNB
 
 # Define the classifiers to be compared in the study.
 #

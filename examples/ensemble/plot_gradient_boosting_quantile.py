@@ -18,7 +18,7 @@ for an example showcasing some other features of
 # function f to uniformly sampled random inputs.
 import numpy as np
 
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
 
 def f(x):
@@ -61,8 +61,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 # The model trained with alpha=0.5 produces a regression of the median: on
 # average, there should be the same number of target observations above and
 # below the predicted values.
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.metrics import mean_pinball_loss, mean_squared_error
+from sklearn_dual.ensemble import GradientBoostingRegressor
+from sklearn_dual.metrics import mean_pinball_loss, mean_squared_error
 
 all_models = {}
 common_params = dict(
@@ -243,9 +243,9 @@ coverage_fraction(
 # cross-validation on the pinball loss with alpha=0.05:
 
 # %%
-from sklearn.experimental import enable_halving_search_cv  # noqa
-from sklearn.model_selection import HalvingRandomSearchCV
-from sklearn.metrics import make_scorer
+from sklearn_dual.experimental import enable_halving_search_cv  # noqa
+from sklearn_dual.model_selection import HalvingRandomSearchCV
+from sklearn_dual.metrics import make_scorer
 from pprint import pprint
 
 param_grid = dict(
@@ -282,7 +282,7 @@ pprint(search_05p.best_params_)
 # need to redefine the `scoring` metric used to select the best model, along
 # with adjusting the alpha parameter of the inner gradient boosting estimator
 # itself:
-from sklearn.base import clone
+from sklearn_dual.base import clone
 
 alpha = 0.95
 neg_mean_pinball_loss_95p_scorer = make_scorer(

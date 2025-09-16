@@ -35,15 +35,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
 
-from sklearn.datasets import make_circles, make_classification, make_moons
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.exceptions import ConvergenceWarning
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import GridSearchCV, train_test_split
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import KBinsDiscretizer, StandardScaler
-from sklearn.svm import SVC, LinearSVC
-from sklearn.utils._testing import ignore_warnings
+from sklearn_dual.datasets import make_circles, make_classification, make_moons
+from sklearn_dual.ensemble import GradientBoostingClassifier
+from sklearn_dual.exceptions import ConvergenceWarning
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.model_selection import GridSearchCV, train_test_split
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import KBinsDiscretizer, StandardScaler
+from sklearn_dual.svm import SVC, LinearSVC
+from sklearn_dual.utils._testing import ignore_warnings
 
 h = 0.02  # step size in the mesh
 

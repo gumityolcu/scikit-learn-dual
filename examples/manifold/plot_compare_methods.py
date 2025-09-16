@@ -35,7 +35,7 @@ import matplotlib.pyplot as plt
 import mpl_toolkits.mplot3d  # noqa: F401
 from matplotlib import ticker
 
-from sklearn import datasets, manifold
+from sklearn_dual import datasets, manifold
 
 n_samples = 1500
 S_points, S_color = datasets.make_s_curve(n_samples, random_state=0)

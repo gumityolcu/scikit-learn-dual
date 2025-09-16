@@ -29,9 +29,9 @@ example dataset.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.ensemble import RandomForestClassifier, VotingClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.naive_bayes import GaussianNB
+from sklearn_dual.ensemble import RandomForestClassifier, VotingClassifier
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.naive_bayes import GaussianNB
 
 clf1 = LogisticRegression(max_iter=1000, random_state=123)
 clf2 = RandomForestClassifier(n_estimators=100, random_state=123)

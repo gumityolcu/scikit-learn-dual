@@ -34,7 +34,7 @@ plot the biclusters found.
 # relatively well distinguishable.
 from matplotlib import pyplot as plt
 
-from sklearn.datasets import make_checkerboard
+from sklearn_dual.datasets import make_checkerboard
 
 n_clusters = (4, 3)
 data, rows, columns = make_checkerboard(
@@ -71,8 +71,8 @@ _ = plt.show()
 # that when creating the model we specify the same number of clusters that we
 # used to create the dataset (`n_clusters = (4, 3)`), which will contribute to
 # obtain a good result.
-from sklearn.cluster import SpectralBiclustering
-from sklearn.metrics import consensus_score
+from sklearn_dual.cluster import SpectralBiclustering
+from sklearn_dual.metrics import consensus_score
 
 model = SpectralBiclustering(n_clusters=n_clusters, method="log", random_state=0)
 model.fit(data)

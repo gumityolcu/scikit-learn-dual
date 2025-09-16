@@ -21,7 +21,7 @@ information on this dataset.
 # %%
 # Loading the iris dataset
 # ------------------------
-from sklearn import datasets
+from sklearn_dual import datasets
 
 iris = datasets.load_iris()
 
@@ -57,7 +57,7 @@ _ = ax.legend(
 # unused but required import for doing 3d projections with matplotlib < 3.2
 import mpl_toolkits.mplot3d  # noqa: F401
 
-from sklearn.decomposition import PCA
+from sklearn_dual.decomposition import PCA
 
 fig = plt.figure(1, figsize=(8, 6))
 ax = fig.add_subplot(111, projection="3d", elev=-150, azim=110)

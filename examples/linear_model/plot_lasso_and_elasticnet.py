@@ -94,7 +94,7 @@ _ = plt.title("Superposition of sinusoidal signals")
 # `shuffle="False"` as we must not use training data that succeed the testing
 # data when dealing with data that have a temporal relationship.
 
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, shuffle=False)
 
@@ -115,8 +115,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, shuffle
 # execute, we directly set the optimal value for alpha here.
 from time import time
 
-from sklearn.linear_model import Lasso
-from sklearn.metrics import r2_score
+from sklearn_dual.linear_model import Lasso
+from sklearn_dual.metrics import r2_score
 
 t0 = time()
 lasso = Lasso(alpha=0.14).fit(X_train, y_train)
@@ -137,7 +137,7 @@ print(f"Lasso r^2 on test data : {r2_score_lasso:.3f}")
 # comparison of :class:`~sklearn.linear_model.ARDRegression` and
 # :class:`~sklearn.linear_model.BayesianRidge` regressors.
 
-from sklearn.linear_model import ARDRegression
+from sklearn_dual.linear_model import ARDRegression
 
 t0 = time()
 ard = ARDRegression().fit(X_train, y_train)
@@ -165,7 +165,7 @@ print(f"ARD r^2 on test data : {r2_score_ard:.3f}")
 # :class:`~sklearn.linear_model.ElasticNetCV`, not shown here to keep the
 # example simple.
 
-from sklearn.linear_model import ElasticNet
+from sklearn_dual.linear_model import ElasticNet
 
 t0 = time()
 enet = ElasticNet(alpha=0.08, l1_ratio=0.5).fit(X_train, y_train)

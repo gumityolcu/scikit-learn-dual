@@ -16,8 +16,8 @@ from datetime import datetime
 import numpy as np
 import scipy.sparse as sp
 
-from sklearn import clone
-from sklearn.random_projection import (
+from sklearn_dual import clone
+from sklearn_dual.random_projection import (
     GaussianRandomProjection,
     SparseRandomProjection,
     johnson_lindenstrauss_min_dim,

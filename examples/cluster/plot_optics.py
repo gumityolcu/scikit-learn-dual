@@ -24,7 +24,7 @@ import matplotlib.gridspec as gridspec
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.cluster import OPTICS, cluster_optics_dbscan
+from sklearn_dual.cluster import OPTICS, cluster_optics_dbscan
 
 # Generate sample data
 

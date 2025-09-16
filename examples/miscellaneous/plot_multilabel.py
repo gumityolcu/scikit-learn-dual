@@ -35,11 +35,11 @@ have a label.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.cross_decomposition import CCA
-from sklearn.datasets import make_multilabel_classification
-from sklearn.decomposition import PCA
-from sklearn.multiclass import OneVsRestClassifier
-from sklearn.svm import SVC
+from sklearn_dual.cross_decomposition import CCA
+from sklearn_dual.datasets import make_multilabel_classification
+from sklearn_dual.decomposition import PCA
+from sklearn_dual.multiclass import OneVsRestClassifier
+from sklearn_dual.svm import SVC
 
 
 def plot_hyperplane(clf, min_x, max_x, linestyle, label):

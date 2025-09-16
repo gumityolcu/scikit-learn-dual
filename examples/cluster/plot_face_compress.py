@@ -72,7 +72,7 @@ _ = fig.suptitle("Original image of a raccoon face")
 # them equally spaced, which correspond to setting `strategy="uniform"`. From
 # the previous histogram, we know that this strategy is certainly not optimal.
 
-from sklearn.preprocessing import KBinsDiscretizer
+from sklearn_dual.preprocessing import KBinsDiscretizer
 
 n_bins = 8
 encoder = KBinsDiscretizer(

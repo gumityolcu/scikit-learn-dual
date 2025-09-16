@@ -107,7 +107,7 @@ X[-n_outliers:] = np.dot(np.random.randn(n_outliers, n_features), outliers_cov)
 
 import matplotlib.pyplot as plt
 
-from sklearn.covariance import EmpiricalCovariance, MinCovDet
+from sklearn_dual.covariance import EmpiricalCovariance, MinCovDet
 
 # fit a MCD robust estimator to data
 robust_cov = MinCovDet().fit(X)

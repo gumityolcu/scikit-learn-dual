@@ -22,10 +22,10 @@ show how to retrieve:
 import numpy as np
 from matplotlib import pyplot as plt
 
-from sklearn import tree
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
+from sklearn_dual import tree
+from sklearn_dual.datasets import load_iris
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.tree import DecisionTreeClassifier
 
 ##############################################################################
 # Train tree classifier

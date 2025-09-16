@@ -23,11 +23,11 @@ at the center of the image tend to be more predictive than those near the edges.
 
 import matplotlib.pyplot as plt
 
-from sklearn.datasets import load_digits
-from sklearn.feature_selection import RFE
-from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import MinMaxScaler
+from sklearn_dual.datasets import load_digits
+from sklearn_dual.feature_selection import RFE
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.pipeline import Pipeline
+from sklearn_dual.preprocessing import MinMaxScaler
 
 # Load the digits dataset
 digits = load_digits()

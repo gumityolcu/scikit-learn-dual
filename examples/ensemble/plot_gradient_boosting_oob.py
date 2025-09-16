@@ -29,9 +29,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.special import expit
 
-from sklearn import ensemble
-from sklearn.metrics import log_loss
-from sklearn.model_selection import KFold, train_test_split
+from sklearn_dual import ensemble
+from sklearn_dual.metrics import log_loss
+from sklearn_dual.model_selection import KFold, train_test_split
 
 # Generate data (adapted from G. Ridgeway's gbm example)
 n_samples = 1000

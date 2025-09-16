@@ -37,8 +37,8 @@ from pprint import pprint
 
 import numpy as np
 
-from sklearn import set_config
-from sklearn.base import (
+from sklearn_dual import set_config
+from sklearn_dual.base import (
     BaseEstimator,
     ClassifierMixin,
     MetaEstimatorMixin,
@@ -46,15 +46,15 @@ from sklearn.base import (
     TransformerMixin,
     clone,
 )
-from sklearn.linear_model import LinearRegression
-from sklearn.utils import metadata_routing
-from sklearn.utils.metadata_routing import (
+from sklearn_dual.linear_model import LinearRegression
+from sklearn_dual.utils import metadata_routing
+from sklearn_dual.utils.metadata_routing import (
     MetadataRouter,
     MethodMapping,
     get_routing_for_object,
     process_routing,
 )
-from sklearn.utils.validation import check_is_fitted
+from sklearn_dual.utils.validation import check_is_fitted
 
 n_samples, n_features = 100, 4
 rng = np.random.RandomState(42)

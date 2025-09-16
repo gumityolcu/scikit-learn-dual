@@ -14,9 +14,9 @@ Shrinkage (OAS) estimators of covariance can improve classification.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.covariance import OAS
-from sklearn.datasets import make_blobs
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn_dual.covariance import OAS
+from sklearn_dual.datasets import make_blobs
+from sklearn_dual.discriminant_analysis import LinearDiscriminantAnalysis
 
 n_train = 20  # samples for training
 n_test = 200  # samples for testing

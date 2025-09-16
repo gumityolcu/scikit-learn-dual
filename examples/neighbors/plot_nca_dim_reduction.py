@@ -34,13 +34,13 @@ meaningful despite the large reduction in dimension.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import datasets
-from sklearn.decomposition import PCA
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier, NeighborhoodComponentsAnalysis
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual import datasets
+from sklearn_dual.decomposition import PCA
+from sklearn_dual.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.neighbors import KNeighborsClassifier, NeighborhoodComponentsAnalysis
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import StandardScaler
 
 n_neighbors = 3
 random_state = 0

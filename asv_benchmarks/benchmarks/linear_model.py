@@ -1,4 +1,4 @@
-from sklearn.linear_model import (
+from sklearn_dual.linear_model import (
     ElasticNet,
     Lasso,
     LinearRegression,

@@ -30,8 +30,8 @@ import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.cluster import KMeans, MiniBatchKMeans
-from sklearn.utils import check_random_state, shuffle
+from sklearn_dual.cluster import KMeans, MiniBatchKMeans
+from sklearn_dual.utils import check_random_state, shuffle
 
 random_state = np.random.RandomState(0)
 

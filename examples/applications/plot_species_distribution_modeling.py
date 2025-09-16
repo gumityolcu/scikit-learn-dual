@@ -44,9 +44,9 @@ from time import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import metrics, svm
-from sklearn.datasets import fetch_species_distributions
-from sklearn.utils import Bunch
+from sklearn_dual import metrics, svm
+from sklearn_dual.datasets import fetch_species_distributions
+from sklearn_dual.utils import Bunch
 
 # if basemap is available, we'll use it.
 # otherwise, we'll improvise later...

@@ -30,9 +30,9 @@ using :ref:`grid_search`.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import datasets, svm
-from sklearn.metrics import ConfusionMatrixDisplay
-from sklearn.model_selection import train_test_split
+from sklearn_dual import datasets, svm
+from sklearn_dual.metrics import ConfusionMatrixDisplay
+from sklearn_dual.model_selection import train_test_split
 
 # import some data to play with
 iris = datasets.load_iris()

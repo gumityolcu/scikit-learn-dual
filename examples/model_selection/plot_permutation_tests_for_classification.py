@@ -19,7 +19,7 @@ significance of a cross-validated score using permutations.
 # We will use the :ref:`iris_dataset`, which consists of measurements taken
 # from 3 types of irises.
 
-from sklearn.datasets import load_iris
+from sklearn_dual.datasets import load_iris
 
 iris = load_iris()
 X = iris.data
@@ -57,8 +57,8 @@ X_rand = rng.normal(size=(X.shape[0], n_uncorrelated_features))
 # the percentage of permutations for which the score obtained is greater
 # that the score obtained using the original data.
 
-from sklearn.model_selection import StratifiedKFold, permutation_test_score
-from sklearn.svm import SVC
+from sklearn_dual.model_selection import StratifiedKFold, permutation_test_score
+from sklearn_dual.svm import SVC
 
 clf = SVC(kernel="linear", random_state=7)
 cv = StratifiedKFold(2, shuffle=True, random_state=0)

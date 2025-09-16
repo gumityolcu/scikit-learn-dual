@@ -31,8 +31,8 @@ from scipy.ndimage import gaussian_filter
 from skimage.data import coins
 from skimage.transform import rescale
 
-from sklearn.cluster import spectral_clustering
-from sklearn.feature_extraction import image
+from sklearn_dual.cluster import spectral_clustering
+from sklearn_dual.feature_extraction import image
 
 # load the coins as a numpy array
 orig_coins = coins()

@@ -75,7 +75,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy as sp
 
-from sklearn.datasets import (
+from sklearn_dual.datasets import (
     fetch_20newsgroups_vectorized,
     fetch_lfw_people,
     fetch_olivetti_faces,
@@ -84,10 +84,10 @@ from sklearn.datasets import (
     make_low_rank_matrix,
     make_sparse_uncorrelated,
 )
-from sklearn.utils import gen_batches
-from sklearn.utils._arpack import _init_arpack_v0
-from sklearn.utils.extmath import randomized_svd
-from sklearn.utils.validation import check_random_state
+from sklearn_dual.utils import gen_batches
+from sklearn_dual.utils._arpack import _init_arpack_v0
+from sklearn_dual.utils.extmath import randomized_svd
+from sklearn_dual.utils.validation import check_random_state
 
 try:
     import fbpca

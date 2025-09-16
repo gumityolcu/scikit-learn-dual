@@ -41,7 +41,7 @@ feature distinguishes a particular class.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import make_multilabel_classification as make_ml_clf
+from sklearn_dual.datasets import make_multilabel_classification as make_ml_clf
 
 COLORS = np.array(
     [

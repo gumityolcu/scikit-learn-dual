@@ -20,7 +20,7 @@ target using both barycenter and constant weights.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import neighbors
+from sklearn_dual import neighbors
 
 rng = np.random.RandomState(0)
 X_train = np.sort(5 * rng.rand(40, 1), axis=0)

@@ -47,7 +47,7 @@ example, it does not suffer from the issue we just mentioned.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.decomposition import PCA
+from sklearn_dual.decomposition import PCA
 
 rng = np.random.RandomState(0)
 n_samples = 500
@@ -103,12 +103,12 @@ plt.show()
 # For both models, we plot the projected data onto the first component against
 # the target. In both cases, this projected data is what the regressors will
 # use as training data.
-from sklearn.cross_decomposition import PLSRegression
-from sklearn.decomposition import PCA
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.cross_decomposition import PLSRegression
+from sklearn_dual.decomposition import PCA
+from sklearn_dual.linear_model import LinearRegression
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import StandardScaler
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=rng)
 

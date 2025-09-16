@@ -51,17 +51,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from sklearn.datasets import fetch_california_housing
-from sklearn.ensemble import RandomForestRegressor
+from sklearn_dual.datasets import fetch_california_housing
+from sklearn_dual.ensemble import RandomForestRegressor
 
 # To use this experimental feature, we need to explicitly ask for it:
-from sklearn.experimental import enable_iterative_imputer  # noqa
-from sklearn.impute import IterativeImputer, SimpleImputer
-from sklearn.kernel_approximation import Nystroem
-from sklearn.linear_model import BayesianRidge, Ridge
-from sklearn.model_selection import cross_val_score
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.pipeline import make_pipeline
+from sklearn_dual.experimental import enable_iterative_imputer  # noqa
+from sklearn_dual.impute import IterativeImputer, SimpleImputer
+from sklearn_dual.kernel_approximation import Nystroem
+from sklearn_dual.linear_model import BayesianRidge, Ridge
+from sklearn_dual.model_selection import cross_val_score
+from sklearn_dual.neighbors import KNeighborsRegressor
+from sklearn_dual.pipeline import make_pipeline
 
 N_SPLITS = 5
 

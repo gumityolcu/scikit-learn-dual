@@ -37,7 +37,7 @@ prevalence of the positive class.
 # disease indicators `y` (ground truth). Most of the people in the population do
 # not carry the disease but a minority (in this case around 10%) does:
 
-from sklearn.datasets import make_classification
+from sklearn_dual.datasets import make_classification
 
 X, y = make_classification(n_samples=10_000, weights=[0.9, 0.1], random_state=0)
 print(f"Percentage of people carrying the disease: {100*y.mean():.2f}%")
@@ -47,7 +47,7 @@ print(f"Percentage of people carrying the disease: {100*y.mean():.2f}%")
 # physiological measurements is likely to carry the disease of interest. To
 # evaluate the model, we need to assess its performance on a held-out test set:
 
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 
@@ -56,8 +56,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 # ratio to evaluate the usefulness of this classifier as a disease diagnosis
 # tool:
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import class_likelihood_ratios
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.metrics import class_likelihood_ratios
 
 estimator = LogisticRegression().fit(X_train, y_train)
 y_pred = estimator.predict(X_test)
@@ -99,7 +99,7 @@ def extract_score(cv_results):
 # We first validate the :class:`~sklearn.linear_model.LogisticRegression` model
 # with default hyperparameters as used in the previous section.
 
-from sklearn.model_selection import cross_validate
+from sklearn_dual.model_selection import cross_validate
 
 estimator = LogisticRegression()
 extract_score(cross_validate(estimator, X, y, scoring=scoring, cv=10))
@@ -112,7 +112,7 @@ extract_score(cross_validate(estimator, X, y, scoring=scoring, cv=10))
 # predictions with similar odds as the average disease prevalence in the
 # training set:
 
-from sklearn.dummy import DummyClassifier
+from sklearn_dual.dummy import DummyClassifier
 
 estimator = DummyClassifier(strategy="stratified", random_state=1234)
 extract_score(cross_validate(estimator, X, y, scoring=scoring, cv=10))
@@ -172,7 +172,7 @@ from collections import defaultdict
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.inspection import DecisionBoundaryDisplay
+from sklearn_dual.inspection import DecisionBoundaryDisplay
 
 populations = defaultdict(list)
 common_params = {

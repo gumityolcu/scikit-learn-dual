@@ -14,8 +14,8 @@ plot the decision surface and the support vectors.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import datasets, svm
-from sklearn.inspection import DecisionBoundaryDisplay
+from sklearn_dual import datasets, svm
+from sklearn_dual.inspection import DecisionBoundaryDisplay
 
 # import some data to play with
 iris = datasets.load_iris()

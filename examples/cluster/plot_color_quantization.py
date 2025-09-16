@@ -27,10 +27,10 @@ from time import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.cluster import KMeans
-from sklearn.datasets import load_sample_image
-from sklearn.metrics import pairwise_distances_argmin
-from sklearn.utils import shuffle
+from sklearn_dual.cluster import KMeans
+from sklearn_dual.datasets import load_sample_image
+from sklearn_dual.metrics import pairwise_distances_argmin
+from sklearn_dual.utils import shuffle
 
 n_colors = 64
 

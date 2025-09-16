@@ -40,14 +40,14 @@ or with conda::
 import matplotlib
 import matplotlib.pyplot as plt
 
-from sklearn.datasets import make_classification
-from sklearn.ensemble import RandomForestClassifier
+from sklearn_dual.datasets import make_classification
+from sklearn_dual.ensemble import RandomForestClassifier
 
-# from sklearn.metrics import plot_roc_curve
-from sklearn.metrics import RocCurveDisplay
-from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
-from sklearn.utils.fixes import parse_version
+# from sklearn_dual.metrics import plot_roc_curve
+from sklearn_dual.metrics import RocCurveDisplay
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.svm import SVC
+from sklearn_dual.utils.fixes import parse_version
 
 X, y = make_classification(random_state=0)
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
@@ -83,13 +83,13 @@ plt.show()
 #
 # Read more in the :ref:`User Guide <stacking>`.
 
-from sklearn.datasets import load_iris
-from sklearn.ensemble import StackingClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.svm import LinearSVC
+from sklearn_dual.datasets import load_iris
+from sklearn_dual.ensemble import StackingClassifier
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import StandardScaler
+from sklearn_dual.svm import LinearSVC
 
 X, y = load_iris(return_X_y=True)
 estimators = [
@@ -110,9 +110,9 @@ clf.fit(X_train, y_train).score(X_test, y_test)
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import make_classification
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.inspection import permutation_importance
+from sklearn_dual.datasets import make_classification
+from sklearn_dual.ensemble import RandomForestClassifier
+from sklearn_dual.inspection import permutation_importance
 
 X, y = make_classification(random_state=0, n_features=5, n_informative=3)
 feature_names = np.array([f"x_{i}" for i in range(X.shape[1])])
@@ -148,7 +148,7 @@ plt.show()
 # support for missing values (NaNs). This means that there is no need for
 # imputing data when training or predicting.
 
-from sklearn.ensemble import HistGradientBoostingClassifier
+from sklearn_dual.ensemble import HistGradientBoostingClassifier
 
 X = np.array([0, 1, 2, np.nan]).reshape(-1, 1)
 y = [0, 0, 1, 1]
@@ -171,9 +171,9 @@ print(gbdt.predict(X))
 
 from tempfile import TemporaryDirectory
 
-from sklearn.manifold import Isomap
-from sklearn.neighbors import KNeighborsTransformer
-from sklearn.pipeline import make_pipeline
+from sklearn_dual.manifold import Isomap
+from sklearn_dual.neighbors import KNeighborsTransformer
+from sklearn_dual.pipeline import make_pipeline
 
 X, y = make_classification(random_state=0)
 
@@ -206,7 +206,7 @@ with TemporaryDirectory(prefix="sklearn_cache_") as tmpdir:
 #
 # Read more in the :ref:`User Guide <knnimpute>`.
 
-from sklearn.impute import KNNImputer
+from sklearn_dual.impute import KNNImputer
 
 X = [[1, 2, np.nan], [3, 4, 3], [np.nan, 6, 5], [8, 8, 7]]
 imputer = KNNImputer(n_neighbors=2)
@@ -242,7 +242,7 @@ print(
 # :func:`datasets.fetch_openml` can now return pandas dataframe and thus
 # properly handle datasets with heterogeneous data:
 
-from sklearn.datasets import fetch_openml
+from sklearn_dual.datasets import fetch_openml
 
 titanic = fetch_openml("titanic", version=1, as_frame=True, parser="pandas")
 print(titanic.data.head()[["pclass", "embarked"]])
@@ -261,9 +261,9 @@ print(titanic.data.head()[["pclass", "embarked"]])
 #   This entry was slightly updated in version 0.24, where passing classes
 #   isn't supported anymore: pass instances instead.
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.utils.estimator_checks import parametrize_with_checks
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.tree import DecisionTreeRegressor
+from sklearn_dual.utils.estimator_checks import parametrize_with_checks
 
 
 @parametrize_with_checks([LogisticRegression(), DecisionTreeRegressor()])
@@ -287,9 +287,9 @@ def test_sklearn_compatible_estimator(estimator, check):
 # Read more in the :ref:`User Guide <roc_metrics>`.
 
 
-from sklearn.datasets import make_classification
-from sklearn.metrics import roc_auc_score
-from sklearn.svm import SVC
+from sklearn_dual.datasets import make_classification
+from sklearn_dual.metrics import roc_auc_score
+from sklearn_dual.svm import SVC
 
 X, y = make_classification(n_classes=4, n_informative=16)
 clf = SVC(decision_function_shape="ovo", probability=True).fit(X, y)

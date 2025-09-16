@@ -38,9 +38,9 @@ import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.cluster import KMeans
-from sklearn.datasets import make_blobs
-from sklearn.metrics import silhouette_samples, silhouette_score
+from sklearn_dual.cluster import KMeans
+from sklearn_dual.datasets import make_blobs
+from sklearn_dual.metrics import silhouette_samples, silhouette_score
 
 # Generating the sample data from make_blobs
 # This particular setting has one distinct cluster and 3 clusters placed close

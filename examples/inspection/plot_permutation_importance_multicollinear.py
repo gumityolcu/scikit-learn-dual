@@ -31,8 +31,8 @@ picking a threshold, and keeping a single feature from each cluster.
 # First, we define a function to ease the plotting:
 import matplotlib
 
-from sklearn.inspection import permutation_importance
-from sklearn.utils.fixes import parse_version
+from sklearn_dual.inspection import permutation_importance
+from sklearn_dual.utils.fixes import parse_version
 
 
 def plot_permutation_importance(clf, X, y, ax):
@@ -57,9 +57,9 @@ def plot_permutation_importance(clf, X, y, ax):
 # %%
 # We then train a :class:`~sklearn.ensemble.RandomForestClassifier` on the
 # :ref:`breast_cancer_dataset` and evaluate its accuracy on a test set:
-from sklearn.datasets import load_breast_cancer
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
+from sklearn_dual.datasets import load_breast_cancer
+from sklearn_dual.ensemble import RandomForestClassifier
+from sklearn_dual.model_selection import train_test_split
 
 X, y = load_breast_cancer(return_X_y=True, as_frame=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)

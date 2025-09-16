@@ -41,9 +41,9 @@ X_plot = np.linspace(0, 5, 100000)[:, None]
 # Construct the kernel-based regression models
 # --------------------------------------------
 
-from sklearn.kernel_ridge import KernelRidge
-from sklearn.model_selection import GridSearchCV
-from sklearn.svm import SVR
+from sklearn_dual.kernel_ridge import KernelRidge
+from sklearn_dual.model_selection import GridSearchCV
+from sklearn_dual.svm import SVR
 
 train_size = 100
 
@@ -190,7 +190,7 @@ _ = plt.legend(loc="best")
 # %%
 # Visualize the learning curves
 # -----------------------------
-from sklearn.model_selection import LearningCurveDisplay
+from sklearn_dual.model_selection import LearningCurveDisplay
 
 _, ax = plt.subplots()
 

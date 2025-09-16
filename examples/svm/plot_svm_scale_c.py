@@ -48,7 +48,7 @@ optimally adjust C to account for the different amount of training samples?"
 # regularization to shrink the coefficients towards zero (L2 penalty) or exactly
 # zero (L1 penalty).
 
-from sklearn.datasets import make_classification
+from sklearn_dual.datasets import make_classification
 
 n_samples, n_features = 100, 300
 X, y = make_classification(
@@ -67,7 +67,7 @@ X, y = make_classification(
 #
 # We define a linear SVC with the L1 penalty.
 
-from sklearn.svm import LinearSVC
+from sklearn_dual.svm import LinearSVC
 
 model_l1 = LinearSVC(penalty="l1", loss="squared_hinge", dual=False, tol=1e-3)
 
@@ -78,7 +78,7 @@ model_l1 = LinearSVC(penalty="l1", loss="squared_hinge", dual=False, tol=1e-3)
 import numpy as np
 import pandas as pd
 
-from sklearn.model_selection import ShuffleSplit, validation_curve
+from sklearn_dual.model_selection import ShuffleSplit, validation_curve
 
 Cs = np.logspace(-2.3, -1.3, 10)
 train_sizes = np.linspace(0.3, 0.7, 3)

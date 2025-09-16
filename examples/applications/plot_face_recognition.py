@@ -21,12 +21,12 @@ from time import time
 import matplotlib.pyplot as plt
 from scipy.stats import loguniform
 
-from sklearn.datasets import fetch_lfw_people
-from sklearn.decomposition import PCA
-from sklearn.metrics import ConfusionMatrixDisplay, classification_report
-from sklearn.model_selection import RandomizedSearchCV, train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC
+from sklearn_dual.datasets import fetch_lfw_people
+from sklearn_dual.decomposition import PCA
+from sklearn_dual.metrics import ConfusionMatrixDisplay, classification_report
+from sklearn_dual.model_selection import RandomizedSearchCV, train_test_split
+from sklearn_dual.preprocessing import StandardScaler
+from sklearn_dual.svm import SVC
 
 # %%
 # Download the data, if not already on disk and load it as numpy arrays

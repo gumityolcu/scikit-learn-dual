@@ -35,7 +35,7 @@ example showcasing some other features of
 # -------------------------
 # First, we load the Ames Housing data as a pandas dataframe. The features
 # are either categorical or numerical:
-from sklearn.datasets import fetch_openml
+from sklearn_dual.datasets import fetch_openml
 
 X, y = fetch_openml(data_id=42165, as_frame=True, return_X_y=True)
 
@@ -84,9 +84,9 @@ print(f"Number of numerical features: {n_numerical_features}")
 # As a baseline, we create an estimator where the categorical features are
 # dropped:
 
-from sklearn.compose import make_column_selector, make_column_transformer
-from sklearn.ensemble import HistGradientBoostingRegressor
-from sklearn.pipeline import make_pipeline
+from sklearn_dual.compose import make_column_selector, make_column_transformer
+from sklearn_dual.ensemble import HistGradientBoostingRegressor
+from sklearn_dual.pipeline import make_pipeline
 
 dropper = make_column_transformer(
     ("drop", make_column_selector(dtype_include="category")), remainder="passthrough"
@@ -99,7 +99,7 @@ hist_dropped = make_pipeline(dropper, HistGradientBoostingRegressor(random_state
 # Next, we create a pipeline that will one-hot encode the categorical features
 # and let the rest of the numerical data to passthrough:
 
-from sklearn.preprocessing import OneHotEncoder
+from sklearn_dual.preprocessing import OneHotEncoder
 
 one_hot_encoder = make_column_transformer(
     (
@@ -122,7 +122,7 @@ hist_one_hot = make_pipeline(
 
 import numpy as np
 
-from sklearn.preprocessing import OrdinalEncoder
+from sklearn_dual.preprocessing import OrdinalEncoder
 
 ordinal_encoder = make_column_transformer(
     (
@@ -166,7 +166,7 @@ hist_native = HistGradientBoostingRegressor(
 
 import matplotlib.pyplot as plt
 
-from sklearn.model_selection import cross_validate
+from sklearn_dual.model_selection import cross_validate
 
 scoring = "neg_mean_absolute_percentage_error"
 n_cv_folds = 3

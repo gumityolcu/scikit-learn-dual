@@ -19,7 +19,7 @@ for more information about this dataset.
 
 import matplotlib.pyplot as plt
 
-from sklearn import datasets
+from sklearn_dual import datasets
 
 # Load the digits dataset
 digits = datasets.load_digits()

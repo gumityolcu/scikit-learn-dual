@@ -33,7 +33,7 @@ print(__doc__)
 # regression model and using it for prediction.
 import numpy as np
 
-from sklearn.datasets import make_regression
+from sklearn_dual.datasets import make_regression
 
 X, y = make_regression(n_samples=10_000, noise=100, random_state=0)
 y = np.expm1((y + abs(y.min())) / 200)
@@ -44,7 +44,7 @@ y_trans = np.log1p(y)
 # before and after applying the logarithmic functions.
 import matplotlib.pyplot as plt
 
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
 f, (ax0, ax1) = plt.subplots(1, 2)
 
@@ -70,7 +70,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 # prediction. Subsequently, a logarithmic function is used to linearize the
 # targets, allowing better prediction even with a similar linear model as
 # reported by the median absolute error (MedAE).
-from sklearn.metrics import median_absolute_error, r2_score
+from sklearn_dual.metrics import median_absolute_error, r2_score
 
 
 def compute_score(y_true, y_pred):
@@ -81,9 +81,9 @@ def compute_score(y_true, y_pred):
 
 
 # %%
-from sklearn.compose import TransformedTargetRegressor
-from sklearn.linear_model import RidgeCV
-from sklearn.metrics import PredictionErrorDisplay
+from sklearn_dual.compose import TransformedTargetRegressor
+from sklearn_dual.linear_model import RidgeCV
+from sklearn_dual.metrics import PredictionErrorDisplay
 
 f, (ax0, ax1) = plt.subplots(1, 2, sharey=True)
 
@@ -128,8 +128,8 @@ plt.tight_layout()
 # In a similar manner, the Ames housing data set is used to show the impact
 # of transforming the targets before learning a model. In this example, the
 # target to be predicted is the selling price of each house.
-from sklearn.datasets import fetch_openml
-from sklearn.preprocessing import quantile_transform
+from sklearn_dual.datasets import fetch_openml
+from sklearn_dual.preprocessing import quantile_transform
 
 ames = fetch_openml(name="house_prices", as_frame=True)
 # Keep only numeric columns
@@ -172,7 +172,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
 # shape due to residual values that vary depending on the value of predicted
 # target. With target transformation, the shape is more linear indicating
 # better model fit.
-from sklearn.preprocessing import QuantileTransformer
+from sklearn_dual.preprocessing import QuantileTransformer
 
 f, (ax0, ax1) = plt.subplots(2, 2, sharey="row", figsize=(6.5, 8))
 

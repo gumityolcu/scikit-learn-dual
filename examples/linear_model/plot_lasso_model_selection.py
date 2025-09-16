@@ -20,7 +20,7 @@ In what follows, we will discuss in details the different strategies.
 # Dataset
 # -------
 # In this example, we will use the diabetes dataset.
-from sklearn.datasets import load_diabetes
+from sklearn_dual.datasets import load_diabetes
 
 X, y = load_diabetes(return_X_y=True, as_frame=True)
 X.head()
@@ -57,9 +57,9 @@ X[X.columns[::3]].head()
 # We will first fit a Lasso model with the AIC criterion.
 import time
 
-from sklearn.linear_model import LassoLarsIC
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.linear_model import LassoLarsIC
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import StandardScaler
 
 start_time = time.time()
 lasso_lars_ic = make_pipeline(StandardScaler(), LassoLarsIC(criterion="aic")).fit(X, y)
@@ -152,7 +152,7 @@ _ = ax.set_title(
 # ............................
 # Let's start by making the hyperparameter tuning using
 # :class:`~sklearn.linear_model.LassoCV`.
-from sklearn.linear_model import LassoCV
+from sklearn_dual.linear_model import LassoCV
 
 start_time = time.time()
 model = make_pipeline(StandardScaler(), LassoCV(cv=20)).fit(X, y)
@@ -186,7 +186,7 @@ _ = plt.title(
 # ................................
 # Let's start by making the hyperparameter tuning using
 # :class:`~sklearn.linear_model.LassoLarsCV`.
-from sklearn.linear_model import LassoLarsCV
+from sklearn_dual.linear_model import LassoLarsCV
 
 start_time = time.time()
 model = make_pipeline(StandardScaler(), LassoLarsCV(cv=20)).fit(X, y)

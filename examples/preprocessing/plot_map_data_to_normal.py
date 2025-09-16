@@ -40,8 +40,8 @@ is prone to overfitting. The use of the power transform is then recommended.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import PowerTransformer, QuantileTransformer
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.preprocessing import PowerTransformer, QuantileTransformer
 
 N_SAMPLES = 1000
 FONT_SIZE = 6

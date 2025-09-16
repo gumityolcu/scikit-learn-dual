@@ -38,11 +38,11 @@ and displayed using :class:`~sklearn.metrics.RocCurveDisplay`.
 # for instance :ref:`neighbors_scaling`). In the presence of outliers, a good
 # option is to use a :class:`~sklearn.preprocessing.RobustScaler`.
 
-from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import IsolationForest
-from sklearn.neighbors import LocalOutlierFactor
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import (
+from sklearn_dual.compose import ColumnTransformer
+from sklearn_dual.ensemble import IsolationForest
+from sklearn_dual.neighbors import LocalOutlierFactor
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import (
     OneHotEncoder,
     OrdinalEncoder,
     RobustScaler,
@@ -120,8 +120,8 @@ def fit_predict(estimator, X):
 # %%
 import numpy as np
 
-from sklearn.datasets import fetch_kddcup99
-from sklearn.model_selection import train_test_split
+from sklearn_dual.datasets import fetch_kddcup99
+from sklearn_dual.model_selection import train_test_split
 
 X, y = fetch_kddcup99(
     subset="SA", percent10=True, random_state=42, return_X_y=True, as_frame=True
@@ -163,7 +163,7 @@ for model_name in model_names:
 # samples encoded with label 2 and outliers as those with label 4.
 
 # %%
-from sklearn.datasets import fetch_covtype
+from sklearn_dual.datasets import fetch_covtype
 
 X, y = fetch_covtype(return_X_y=True, as_frame=True)
 s = (y == 2) + (y == 4)
@@ -200,7 +200,7 @@ for model_name in model_names:
 # %%
 import matplotlib.pyplot as plt
 
-from sklearn.datasets import fetch_openml
+from sklearn_dual.datasets import fetch_openml
 
 X, y = fetch_openml(name="ames_housing", version=1, return_X_y=True, as_frame=True)
 y = y.div(X["Lot_Area"])
@@ -229,7 +229,7 @@ print(f"{n_samples} datapoints with {y.sum()} anomalies ({anomaly_frac:.02%})")
 # a list made by hand.
 
 # %%
-from sklearn.compose import make_column_selector as selector
+from sklearn_dual.compose import make_column_selector as selector
 
 categorical_columns_selector = selector(dtype_include="category")
 cat_columns = categorical_columns_selector(X)
@@ -286,7 +286,7 @@ for model_name in model_names:
 # %%
 import math
 
-from sklearn.metrics import RocCurveDisplay
+from sklearn_dual.metrics import RocCurveDisplay
 
 cols = 2
 pos_label = 0  # mean 0 belongs to positive class
@@ -368,7 +368,7 @@ _ = ax.set_title("RobustScaler with varying n_neighbors\non forestcover dataset"
 # contamination.
 
 # %%
-from sklearn.preprocessing import MinMaxScaler, SplineTransformer, StandardScaler
+from sklearn_dual.preprocessing import MinMaxScaler, SplineTransformer, StandardScaler
 
 preprocessor_list = [
     None,

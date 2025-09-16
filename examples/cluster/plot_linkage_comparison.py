@@ -33,8 +33,8 @@ from itertools import cycle, islice
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import cluster, datasets
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual import cluster, datasets
+from sklearn_dual.preprocessing import StandardScaler
 
 # %%
 # Generate datasets. We choose the size big enough to see the scalability

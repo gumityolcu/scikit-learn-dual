@@ -23,15 +23,15 @@ helpful, but serves to illustrate the technique.
 
 import numpy as np
 
-from sklearn.compose import ColumnTransformer
-from sklearn.datasets import fetch_20newsgroups
-from sklearn.decomposition import PCA
-from sklearn.feature_extraction import DictVectorizer
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import classification_report
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import FunctionTransformer
-from sklearn.svm import LinearSVC
+from sklearn_dual.compose import ColumnTransformer
+from sklearn_dual.datasets import fetch_20newsgroups
+from sklearn_dual.decomposition import PCA
+from sklearn_dual.feature_extraction import DictVectorizer
+from sklearn_dual.feature_extraction.text import TfidfVectorizer
+from sklearn_dual.metrics import classification_report
+from sklearn_dual.pipeline import Pipeline
+from sklearn_dual.preprocessing import FunctionTransformer
+from sklearn_dual.svm import LinearSVC
 
 ##############################################################################
 # 20 newsgroups dataset

@@ -37,8 +37,8 @@ greater than that of the set independent base models.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import fetch_openml
-from sklearn.model_selection import train_test_split
+from sklearn_dual.datasets import fetch_openml
+from sklearn_dual.model_selection import train_test_split
 
 # Load a multi-label dataset from https://www.openml.org/d/40597
 X, Y = fetch_openml("yeast", version=4, return_X_y=True)
@@ -59,9 +59,9 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_
 # :class:`~sklearn.multiclass.OneVsRestClassifier`.
 # After fitting the model we calculate Jaccard similarity.
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import jaccard_score
-from sklearn.multiclass import OneVsRestClassifier
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.metrics import jaccard_score
+from sklearn_dual.multiclass import OneVsRestClassifier
 
 base_lr = LogisticRegression()
 ovr = OneVsRestClassifier(base_lr)
@@ -82,7 +82,7 @@ ovr_jaccard_score = jaccard_score(Y_test, Y_pred_ovr, average="samples")
 # the score of each chain in the ensemble (although this is not guaranteed
 # with randomly ordered chains).
 
-from sklearn.multioutput import ClassifierChain
+from sklearn_dual.multioutput import ClassifierChain
 
 chains = [ClassifierChain(base_lr, order="random", random_state=i) for i in range(10)]
 for chain in chains:

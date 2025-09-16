@@ -43,7 +43,7 @@ from urllib.request import urlopen
 import numpy as np
 from scipy import sparse
 
-from sklearn.decomposition import randomized_svd
+from sklearn_dual.decomposition import randomized_svd
 
 # %%
 # Download data, if not already on disk

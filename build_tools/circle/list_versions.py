@@ -11,7 +11,7 @@ import re
 import sys
 from urllib.request import urlopen
 
-from sklearn.utils.fixes import parse_version
+from sklearn_dual.utils.fixes import parse_version
 
 
 def json_urlread(url):

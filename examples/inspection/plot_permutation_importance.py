@@ -43,8 +43,8 @@ can mitigate those limitations.
 #   values).
 import numpy as np
 
-from sklearn.datasets import fetch_openml
-from sklearn.model_selection import train_test_split
+from sklearn_dual.datasets import fetch_openml
+from sklearn_dual.model_selection import train_test_split
 
 X, y = fetch_openml("titanic", version=1, as_frame=True, return_X_y=True)
 rng = np.random.RandomState(seed=42)
@@ -65,11 +65,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_sta
 #   categorical features;
 # - use :class:`~sklearn.impute.SimpleImputer` to fill missing values for
 #   numerical features using a mean strategy.
-from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.impute import SimpleImputer
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OrdinalEncoder
+from sklearn_dual.compose import ColumnTransformer
+from sklearn_dual.ensemble import RandomForestClassifier
+from sklearn_dual.impute import SimpleImputer
+from sklearn_dual.pipeline import Pipeline
+from sklearn_dual.preprocessing import OrdinalEncoder
 
 categorical_encoder = OrdinalEncoder(
     handle_unknown="use_encoded_value", unknown_value=-1, encoded_missing_value=-1
@@ -161,7 +161,7 @@ ax.figure.tight_layout()
 #
 # Also note that both random features have very low importances (close to 0) as
 # expected.
-from sklearn.inspection import permutation_importance
+from sklearn_dual.inspection import permutation_importance
 
 result = permutation_importance(
     rf, X_test, y_test, n_repeats=10, random_state=42, n_jobs=2

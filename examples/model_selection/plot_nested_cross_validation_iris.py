@@ -50,9 +50,9 @@ between their scores.
 import numpy as np
 from matplotlib import pyplot as plt
 
-from sklearn.datasets import load_iris
-from sklearn.model_selection import GridSearchCV, KFold, cross_val_score
-from sklearn.svm import SVC
+from sklearn_dual.datasets import load_iris
+from sklearn_dual.model_selection import GridSearchCV, KFold, cross_val_score
+from sklearn_dual.svm import SVC
 
 # Number of random trials
 NUM_TRIALS = 30

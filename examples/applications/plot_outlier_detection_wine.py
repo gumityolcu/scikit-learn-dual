@@ -37,9 +37,9 @@ and can therefore model the complex shape of the data much better.
 # out the presence of two clusters (Support Vector Machines, Gaussian Mixture
 # Models, univariate outlier detection, ...). But had it been a high-dimensional
 # example, none of these could be applied that easily.
-from sklearn.covariance import EllipticEnvelope
-from sklearn.inspection import DecisionBoundaryDisplay
-from sklearn.svm import OneClassSVM
+from sklearn_dual.covariance import EllipticEnvelope
+from sklearn_dual.inspection import DecisionBoundaryDisplay
+from sklearn_dual.svm import OneClassSVM
 
 estimators = {
     "Empirical Covariance": EllipticEnvelope(support_fraction=1.0, contamination=0.25),
@@ -53,7 +53,7 @@ estimators = {
 import matplotlib.lines as mlines
 import matplotlib.pyplot as plt
 
-from sklearn.datasets import load_wine
+from sklearn_dual.datasets import load_wine
 
 X = load_wine()["data"][:, [1, 2]]  # two clusters
 

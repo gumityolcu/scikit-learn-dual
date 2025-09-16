@@ -51,18 +51,18 @@ from time import time
 import numpy as np
 from joblib import Memory
 
-from sklearn.datasets import fetch_covtype, get_data_home
-from sklearn.ensemble import (
+from sklearn_dual.datasets import fetch_covtype, get_data_home
+from sklearn_dual.ensemble import (
     ExtraTreesClassifier,
     GradientBoostingClassifier,
     RandomForestClassifier,
 )
-from sklearn.linear_model import LogisticRegression, SGDClassifier
-from sklearn.metrics import zero_one_loss
-from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import LinearSVC
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.utils import check_array
+from sklearn_dual.linear_model import LogisticRegression, SGDClassifier
+from sklearn_dual.metrics import zero_one_loss
+from sklearn_dual.naive_bayes import GaussianNB
+from sklearn_dual.svm import LinearSVC
+from sklearn_dual.tree import DecisionTreeClassifier
+from sklearn_dual.utils import check_array
 
 # Memoize the data extraction and memory map the resulting
 # train / test splits in readonly mode

@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.linalg import cholesky, toeplitz
 
-from sklearn.covariance import OAS, LedoitWolf
+from sklearn_dual.covariance import OAS, LedoitWolf
 
 np.random.seed(0)
 # %%

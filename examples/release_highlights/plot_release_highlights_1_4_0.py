@@ -28,7 +28,7 @@ or with conda::
 # :class:`ensemble.HistGradientBoostingRegressor` now directly supports dataframes with
 # categorical features.  Here we have a dataset with a mixture of
 # categorical and numerical features:
-from sklearn.datasets import fetch_openml
+from sklearn_dual.datasets import fetch_openml
 
 X_adult, y_adult = fetch_openml("adult", version=2, return_X_y=True)
 
@@ -40,9 +40,9 @@ X_adult.dtypes
 # By setting `categorical_features="from_dtype"`, the gradient boosting classifier
 # treats the columns with categorical dtypes as categorical features in the
 # algorithm:
-from sklearn.ensemble import HistGradientBoostingClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score
+from sklearn_dual.ensemble import HistGradientBoostingClassifier
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.metrics import roc_auc_score
 
 X_train, X_test, y_train, y_test = train_test_split(X_adult, y_adult, random_state=0)
 hist = HistGradientBoostingClassifier(categorical_features="from_dtype")
@@ -56,9 +56,9 @@ print(f"ROC AUC score is {roc_auc_score(y_test, y_decision)}")
 # -----------------------------
 # scikit-learn's transformers now support polars output with the `set_output` API.
 import polars as pl
-from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.compose import ColumnTransformer
+from sklearn_dual.preprocessing import StandardScaler
+from sklearn_dual.preprocessing import OneHotEncoder
+from sklearn_dual.compose import ColumnTransformer
 
 df = pl.DataFrame(
     {"height": [120, 140, 150, 110, 100], "pet": ["dog", "cat", "dog", "cat", "cat"]}
@@ -87,7 +87,7 @@ print(f"Output type: {type(df_out)}")
 # missing values going to the left and right nodes. More details in the
 # :ref:`User Guide <tree_missing_value_support>`.
 import numpy as np
-from sklearn.ensemble import RandomForestClassifier
+from sklearn_dual.ensemble import RandomForestClassifier
 
 X = np.array([0, 1, 6, np.nan]).reshape(-1, 1)
 y = [0, 0, 1, 1]
@@ -103,8 +103,8 @@ forest.predict(X)
 # trees, random forests, extra-trees, and exact gradient boosting. Here, we show this
 # feature for random forest on a regression problem.
 import matplotlib.pyplot as plt
-from sklearn.inspection import PartialDependenceDisplay
-from sklearn.ensemble import RandomForestRegressor
+from sklearn_dual.inspection import PartialDependenceDisplay
+from sklearn_dual.ensemble import RandomForestRegressor
 
 n_samples = 500
 rng = np.random.RandomState(0)
@@ -149,7 +149,7 @@ forest
 #
 # In addition, the display changes color, from orange to blue, when the estimator is
 # fitted. You can also get this information by hovering on the icon "i".
-from sklearn.base import clone
+from sklearn_dual.base import clone
 
 clone(forest)  # the clone is not fitted
 
@@ -160,11 +160,11 @@ clone(forest)  # the clone is not fitted
 # routing, which are listed in the :ref:`user guide
 # <metadata_routing_models>`. For instance, this is how you can do a nested
 # cross-validation with sample weights and :class:`~model_selection.GroupKFold`:
-import sklearn
-from sklearn.metrics import get_scorer
-from sklearn.datasets import make_regression
-from sklearn.linear_model import Lasso
-from sklearn.model_selection import GridSearchCV, cross_validate, GroupKFold
+import sklearn_dual
+from sklearn_dual.metrics import get_scorer
+from sklearn_dual.datasets import make_regression
+from sklearn_dual.linear_model import Lasso
+from sklearn_dual.model_selection import GridSearchCV, cross_validate, GroupKFold
 
 # For now by default metadata routing is disabled, and need to be explicitly
 # enabled.
@@ -216,7 +216,7 @@ sklearn.set_config(enable_metadata_routing=False)
 # materializing large sparse matrices when performing the
 # eigenvalue decomposition of the data set covariance matrix.
 #
-from sklearn.decomposition import PCA
+from sklearn_dual.decomposition import PCA
 import scipy.sparse as sp
 from time import time
 

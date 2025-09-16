@@ -49,7 +49,7 @@ import pandas as pd
 #
 # Let's load the motor claim dataset from OpenML:
 # https://www.openml.org/d/41214
-from sklearn.datasets import fetch_openml
+from sklearn_dual.datasets import fetch_openml
 
 df = fetch_openml(data_id=41214, as_frame=True).frame
 df
@@ -92,9 +92,9 @@ _ = df["Frequency"].hist(bins=30, log=True, ax=ax2)
 # In order to fit linear models with those predictors it is therefore
 # necessary to perform standard feature transformations as follows:
 
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import (
+from sklearn_dual.compose import ColumnTransformer
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import (
     FunctionTransformer,
     KBinsDiscretizer,
     OneHotEncoder,
@@ -136,9 +136,9 @@ linear_model_preprocessor = ColumnTransformer(
 # baseline a "dummy" estimator that constantly predicts the mean frequency of
 # the training sample.
 
-from sklearn.dummy import DummyRegressor
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
+from sklearn_dual.dummy import DummyRegressor
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.pipeline import Pipeline
 
 df_train, df_test = train_test_split(df, test_size=0.33, random_state=0)
 
@@ -154,7 +154,7 @@ dummy = Pipeline(
 # Let's compute the performance of this constant prediction baseline with 3
 # different regression metrics:
 
-from sklearn.metrics import (
+from sklearn_dual.metrics import (
     mean_absolute_error,
     mean_poisson_deviance,
     mean_squared_error,
@@ -211,7 +211,7 @@ score_estimator(dummy, df_test)
 # use a low penalization `alpha`, as we expect such a linear model to under-fit
 # on such a large dataset.
 
-from sklearn.linear_model import Ridge
+from sklearn_dual.linear_model import Ridge
 
 ridge_glm = Pipeline(
     [
@@ -243,7 +243,7 @@ score_estimator(ridge_glm, df_test)
 # Poisson regressor is called a Generalized Linear Model (GLM) rather than a
 # vanilla linear model as is the case for Ridge regression.
 
-from sklearn.linear_model import PoissonRegressor
+from sklearn_dual.linear_model import PoissonRegressor
 
 n_samples = df_train.shape[0]
 
@@ -281,8 +281,8 @@ score_estimator(poisson_glm, df_test)
 # least-squares loss. Here we only fit trees with the Poisson loss to keep this
 # example concise.
 
-from sklearn.ensemble import HistGradientBoostingRegressor
-from sklearn.preprocessing import OrdinalEncoder
+from sklearn_dual.ensemble import HistGradientBoostingRegressor
+from sklearn_dual.preprocessing import OrdinalEncoder
 
 tree_preprocessor = ColumnTransformer(
     [
@@ -385,7 +385,7 @@ plt.tight_layout()
 # by each model. Then for each bin, we compare the mean predicted ``y_pred``,
 # with the mean observed target:
 
-from sklearn.utils import gen_even_slices
+from sklearn_dual.utils import gen_even_slices
 
 
 def _mean_frequency_by_risk_group(y_true, y_pred, sample_weight=None, n_bins=100):
@@ -487,7 +487,7 @@ plt.tight_layout()
 #
 # This plot is called a Lorenz curve and can be summarized by the Gini index:
 
-from sklearn.metrics import auc
+from sklearn_dual.metrics import auc
 
 
 def lorenz_curve(y_true, y_pred, exposure):

@@ -33,7 +33,7 @@ import matplotlib.lines as mlines
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.neighbors import LocalOutlierFactor
+from sklearn_dual.neighbors import LocalOutlierFactor
 
 np.random.seed(42)
 

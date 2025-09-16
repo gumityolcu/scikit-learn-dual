@@ -20,8 +20,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from sklearn import config_context
-from sklearn.decomposition import PCA
+from sklearn_dual import config_context
+from sklearn_dual.decomposition import PCA
 
 REF_DIMS = [100, 1000, 10_000]
 data_shapes = []

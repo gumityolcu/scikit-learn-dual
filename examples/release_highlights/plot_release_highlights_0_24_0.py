@@ -51,10 +51,10 @@ or with conda::
 
 import numpy as np
 from scipy.stats import randint
-from sklearn.experimental import enable_halving_search_cv  # noqa
-from sklearn.model_selection import HalvingRandomSearchCV
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.datasets import make_classification
+from sklearn_dual.experimental import enable_halving_search_cv  # noqa
+from sklearn_dual.model_selection import HalvingRandomSearchCV
+from sklearn_dual.ensemble import RandomForestClassifier
+from sklearn_dual.datasets import make_classification
 
 rng = np.random.RandomState(0)
 
@@ -118,9 +118,9 @@ rsh.best_params_
 # Read more in the :ref:`User guide <self_training>`.
 
 import numpy as np
-from sklearn import datasets
-from sklearn.semi_supervised import SelfTrainingClassifier
-from sklearn.svm import SVC
+from sklearn_dual import datasets
+from sklearn_dual.semi_supervised import SelfTrainingClassifier
+from sklearn_dual.svm import SVC
 
 rng = np.random.RandomState(42)
 iris = datasets.load_iris()
@@ -140,9 +140,9 @@ self_training_model.fit(iris.data, iris.target)
 # (backward selection), based on a cross-validated score maximization.
 # See the :ref:`User Guide <sequential_feature_selection>`.
 
-from sklearn.feature_selection import SequentialFeatureSelector
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.datasets import load_iris
+from sklearn_dual.feature_selection import SequentialFeatureSelector
+from sklearn_dual.neighbors import KNeighborsClassifier
+from sklearn_dual.datasets import load_iris
 
 X, y = load_iris(return_X_y=True, as_frame=True)
 feature_names = X.columns
@@ -162,12 +162,12 @@ print(
 # models, but uses much less memory than
 # :class:`~sklearn.preprocessing.PolynomialFeatures`.
 
-from sklearn.datasets import fetch_covtype
-from sklearn.pipeline import make_pipeline
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.kernel_approximation import PolynomialCountSketch
-from sklearn.linear_model import LogisticRegression
+from sklearn_dual.datasets import fetch_covtype
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.preprocessing import MinMaxScaler
+from sklearn_dual.kernel_approximation import PolynomialCountSketch
+from sklearn_dual.linear_model import LogisticRegression
 
 X, y = fetch_covtype(return_X_y=True)
 pipe = make_pipeline(
@@ -194,11 +194,11 @@ linear_baseline.fit(X_train, y_train).score(X_test, y_test)
 # prediction on a feature for each sample separately, with one line per sample.
 # See the :ref:`User Guide <individual_conditional>`
 
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.datasets import fetch_california_housing
+from sklearn_dual.ensemble import RandomForestRegressor
+from sklearn_dual.datasets import fetch_california_housing
 
-# from sklearn.inspection import plot_partial_dependence
-from sklearn.inspection import PartialDependenceDisplay
+# from sklearn_dual.inspection import plot_partial_dependence
+from sklearn_dual.inspection import PartialDependenceDisplay
 
 X, y = fetch_california_housing(return_X_y=True, as_frame=True)
 features = ["MedInc", "AveOccup", "HouseAge", "AveRooms"]
@@ -232,8 +232,8 @@ display.figure_.subplots_adjust(hspace=0.3)
 # splitting criterion. Setting `criterion="poisson"` might be a good choice
 # if your target is a count or a frequency.
 
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.model_selection import train_test_split
+from sklearn_dual.tree import DecisionTreeRegressor
+from sklearn_dual.model_selection import train_test_split
 import numpy as np
 
 n_samples, n_features = 1000, 20

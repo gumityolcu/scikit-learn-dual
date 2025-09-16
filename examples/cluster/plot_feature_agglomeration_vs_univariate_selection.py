@@ -26,12 +26,12 @@ import numpy as np
 from joblib import Memory
 from scipy import linalg, ndimage
 
-from sklearn import feature_selection
-from sklearn.cluster import FeatureAgglomeration
-from sklearn.feature_extraction.image import grid_to_graph
-from sklearn.linear_model import BayesianRidge
-from sklearn.model_selection import GridSearchCV, KFold
-from sklearn.pipeline import Pipeline
+from sklearn_dual import feature_selection
+from sklearn_dual.cluster import FeatureAgglomeration
+from sklearn_dual.feature_extraction.image import grid_to_graph
+from sklearn_dual.linear_model import BayesianRidge
+from sklearn_dual.model_selection import GridSearchCV, KFold
+from sklearn_dual.pipeline import Pipeline
 
 # %%
 # Set parameters

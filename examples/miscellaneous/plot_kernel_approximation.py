@@ -44,9 +44,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Import datasets, classifiers and performance metrics
-from sklearn import datasets, pipeline, svm
-from sklearn.decomposition import PCA
-from sklearn.kernel_approximation import Nystroem, RBFSampler
+from sklearn_dual import datasets, pipeline, svm
+from sklearn_dual.decomposition import PCA
+from sklearn_dual.kernel_approximation import Nystroem, RBFSampler
 
 # The digits dataset
 digits = datasets.load_digits(n_class=9)

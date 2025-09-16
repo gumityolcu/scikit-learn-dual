@@ -50,13 +50,13 @@ from time import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import load_digits
-from sklearn.kernel_approximation import Nystroem, PolynomialCountSketch
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
+from sklearn_dual.datasets import load_digits
+from sklearn_dual.kernel_approximation import Nystroem, PolynomialCountSketch
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.pipeline import Pipeline
 
 # Import SVM classifiers and feature map approximation algorithms
-from sklearn.svm import SVC, LinearSVC
+from sklearn_dual.svm import SVC, LinearSVC
 
 # Split data in train and test sets
 X, y = load_digits()["data"], load_digits()["target"]

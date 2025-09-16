@@ -30,8 +30,8 @@ by verifying the presence of the `_is_fitted` attribute.
 # Authors: The scikit-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
-from sklearn.base import BaseEstimator, ClassifierMixin
-from sklearn.utils.validation import check_is_fitted
+from sklearn_dual.base import BaseEstimator, ClassifierMixin
+from sklearn_dual.utils.validation import check_is_fitted
 
 
 class CustomEstimator(BaseEstimator, ClassifierMixin):

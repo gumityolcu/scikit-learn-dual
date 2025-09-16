@@ -24,7 +24,7 @@ of the predictions can be parallelized within multiple jobs.
 # method is that it cannot be evaluated on a separate test set. For this
 # example, we are interested in representing the information learned from
 # the full dataset. Also, we'll set the number of cores to use for the tasks.
-from sklearn.datasets import fetch_olivetti_faces
+from sklearn_dual.datasets import fetch_olivetti_faces
 
 # %%
 # We select the number of cores to use to perform parallel fitting of
@@ -44,7 +44,7 @@ y = y[mask]
 
 # %%
 # A random forest classifier will be fitted to compute the feature importances.
-from sklearn.ensemble import RandomForestClassifier
+from sklearn_dual.ensemble import RandomForestClassifier
 
 forest = RandomForestClassifier(n_estimators=750, n_jobs=n_jobs, random_state=42)
 

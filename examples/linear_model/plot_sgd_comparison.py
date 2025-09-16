@@ -12,14 +12,14 @@ on the hand-written digits dataset.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import datasets
-from sklearn.linear_model import (
+from sklearn_dual import datasets
+from sklearn_dual.linear_model import (
     LogisticRegression,
     PassiveAggressiveClassifier,
     Perceptron,
     SGDClassifier,
 )
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
 heldout = [0.95, 0.90, 0.75, 0.50, 0.01]
 # Number of rounds to fit and evaluate an estimator.

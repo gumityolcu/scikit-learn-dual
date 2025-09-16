@@ -9,7 +9,7 @@ from datetime import datetime
 
 import numpy as np
 
-from sklearn import linear_model
+from sklearn_dual import linear_model
 
 if __name__ == "__main__":
     import matplotlib.pyplot as plt

@@ -17,7 +17,7 @@ classifying new data as similar or different to the training set.
 # %%
 import numpy as np
 
-from sklearn import svm
+from sklearn_dual import svm
 
 # Generate train data
 X = 0.3 * np.random.randn(100, 2)
@@ -43,7 +43,7 @@ import matplotlib.font_manager
 import matplotlib.lines as mlines
 import matplotlib.pyplot as plt
 
-from sklearn.inspection import DecisionBoundaryDisplay
+from sklearn_dual.inspection import DecisionBoundaryDisplay
 
 _, ax = plt.subplots()
 

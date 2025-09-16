@@ -19,9 +19,9 @@ is good but the validation score is poor.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import load_digits
-from sklearn.model_selection import ValidationCurveDisplay
-from sklearn.svm import SVC
+from sklearn_dual.datasets import load_digits
+from sklearn_dual.model_selection import ValidationCurveDisplay
+from sklearn_dual.svm import SVC
 
 X, y = load_digits(return_X_y=True)
 subset_mask = np.isin(y, [1, 2])  # binary classification: 1 vs 2

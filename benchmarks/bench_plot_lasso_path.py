@@ -10,8 +10,8 @@ from time import time
 
 import numpy as np
 
-from sklearn.datasets import make_regression
-from sklearn.linear_model import lars_path, lars_path_gram, lasso_path
+from sklearn_dual.datasets import make_regression
+from sklearn_dual.linear_model import lars_path, lars_path_gram, lasso_path
 
 
 def compute_bench(samples_range, features_range):

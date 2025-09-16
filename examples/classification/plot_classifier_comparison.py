@@ -26,20 +26,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
 
-from sklearn.datasets import make_circles, make_classification, make_moons
-from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
-from sklearn.ensemble import AdaBoostClassifier, RandomForestClassifier
-from sklearn.gaussian_process import GaussianProcessClassifier
-from sklearn.gaussian_process.kernels import RBF
-from sklearn.inspection import DecisionBoundaryDisplay
-from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import GaussianNB
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.neural_network import MLPClassifier
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
+from sklearn_dual.datasets import make_circles, make_classification, make_moons
+from sklearn_dual.discriminant_analysis import QuadraticDiscriminantAnalysis
+from sklearn_dual.ensemble import AdaBoostClassifier, RandomForestClassifier
+from sklearn_dual.gaussian_process import GaussianProcessClassifier
+from sklearn_dual.gaussian_process.kernels import RBF
+from sklearn_dual.inspection import DecisionBoundaryDisplay
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.naive_bayes import GaussianNB
+from sklearn_dual.neighbors import KNeighborsClassifier
+from sklearn_dual.neural_network import MLPClassifier
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import StandardScaler
+from sklearn_dual.svm import SVC
+from sklearn_dual.tree import DecisionTreeClassifier
 
 names = [
     "Nearest Neighbors",

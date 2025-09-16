@@ -16,13 +16,13 @@ from time import time
 import numpy as np
 from joblib import Memory
 
-from sklearn.datasets import fetch_openml
-from sklearn.decomposition import PCA
-from sklearn.manifold import TSNE
-from sklearn.neighbors import NearestNeighbors
-from sklearn.utils import check_array
-from sklearn.utils import shuffle as _shuffle
-from sklearn.utils._openmp_helpers import _openmp_effective_n_threads
+from sklearn_dual.datasets import fetch_openml
+from sklearn_dual.decomposition import PCA
+from sklearn_dual.manifold import TSNE
+from sklearn_dual.neighbors import NearestNeighbors
+from sklearn_dual.utils import check_array
+from sklearn_dual.utils import shuffle as _shuffle
+from sklearn_dual.utils._openmp_helpers import _openmp_effective_n_threads
 
 LOG_DIR = "mnist_tsne_output"
 if not os.path.exists(LOG_DIR):

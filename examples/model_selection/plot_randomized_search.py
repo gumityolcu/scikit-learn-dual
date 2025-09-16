@@ -28,9 +28,9 @@ from time import time
 import numpy as np
 import scipy.stats as stats
 
-from sklearn.datasets import load_digits
-from sklearn.linear_model import SGDClassifier
-from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
+from sklearn_dual.datasets import load_digits
+from sklearn_dual.linear_model import SGDClassifier
+from sklearn_dual.model_selection import GridSearchCV, RandomizedSearchCV
 
 # get some data
 X, y = load_digits(return_X_y=True, n_class=3)

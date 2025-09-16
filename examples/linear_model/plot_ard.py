@@ -36,7 +36,7 @@ non-linear relationship between `X` and `y`.
 # potentially to arbitrary large weights. Having a prior on the weights and a
 # penalty alleviates the problem. Finally, gaussian noise is added.
 
-from sklearn.datasets import make_regression
+from sklearn_dual.datasets import make_regression
 
 X, y, true_weights = make_regression(
     n_samples=100,
@@ -56,7 +56,7 @@ X, y, true_weights = make_regression(
 
 import pandas as pd
 
-from sklearn.linear_model import ARDRegression, BayesianRidge, LinearRegression
+from sklearn_dual.linear_model import ARDRegression, BayesianRidge, LinearRegression
 
 olr = LinearRegression().fit(X, y)
 brr = BayesianRidge(compute_score=True, max_iter=30).fit(X, y)
@@ -127,8 +127,8 @@ _ = plt.title("Models log-likelihood")
 # We create a target that is a non-linear function of the input feature.
 # Noise following a standard uniform distribution is added.
 
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import PolynomialFeatures, StandardScaler
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import PolynomialFeatures, StandardScaler
 
 rng = np.random.RandomState(0)
 n_samples = 110

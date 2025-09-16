@@ -17,7 +17,7 @@ from time import time
 
 import numpy as np
 
-from sklearn.datasets import make_regression
+from sklearn_dual.datasets import make_regression
 
 
 def compute_bench(alpha, n_samples, n_features, precompute):
@@ -63,7 +63,7 @@ def compute_bench(alpha, n_samples, n_features, precompute):
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
-    from sklearn.linear_model import Lasso, LassoLars
+    from sklearn_dual.linear_model import Lasso, LassoLars
 
     alpha = 0.01  # regularization parameter
 

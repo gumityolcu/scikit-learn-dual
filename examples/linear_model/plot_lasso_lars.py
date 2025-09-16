@@ -16,7 +16,7 @@ of the regularization parameter.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import datasets, linear_model
+from sklearn_dual import datasets, linear_model
 
 X, y = datasets.load_diabetes(return_X_y=True)
 

@@ -16,8 +16,8 @@ Machine Intelligence. 2002. pp. 603-619.
 
 import numpy as np
 
-from sklearn.cluster import MeanShift, estimate_bandwidth
-from sklearn.datasets import make_blobs
+from sklearn_dual.cluster import MeanShift, estimate_bandwidth
+from sklearn_dual.datasets import make_blobs
 
 # %%
 # Generate sample data

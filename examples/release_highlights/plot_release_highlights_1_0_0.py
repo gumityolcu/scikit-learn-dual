@@ -89,7 +89,7 @@ or with conda::
 # refer to the :ref:`User Guide <spline_transformer>`.
 
 import numpy as np
-from sklearn.preprocessing import SplineTransformer
+from sklearn_dual.preprocessing import SplineTransformer
 
 X = np.arange(5).reshape(5, 1)
 spline = SplineTransformer(degree=2, n_knots=3)
@@ -145,7 +145,7 @@ spline.fit_transform(X)
 # is used to check that the column names of the dataframe passed in
 # non-:term:`fit`, such as :term:`predict`, are consistent with features in
 # :term:`fit`:
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.preprocessing import StandardScaler
 import pandas as pd
 
 X = pd.DataFrame([[1, 2, 3], [4, 5, 6]], columns=["a", "b", "c"])
@@ -160,8 +160,8 @@ scalar.feature_names_in_
 # will be added to all other transformers in future releases. Additionally,
 # :meth:`compose.ColumnTransformer.get_feature_names_out` is available to
 # combine feature names of its transformers:
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OneHotEncoder
+from sklearn_dual.compose import ColumnTransformer
+from sklearn_dual.preprocessing import OneHotEncoder
 import pandas as pd
 
 X = pd.DataFrame({"pet": ["dog", "cat", "fish"], "age": [3, 7, 1]})
@@ -179,8 +179,8 @@ preprocessor.get_feature_names_out()
 # When this ``preprocessor`` is used with a pipeline, the feature names used
 # by the classifier are obtained by slicing and calling
 # :term:`get_feature_names_out`:
-from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import make_pipeline
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.pipeline import make_pipeline
 
 y = [1, 0, 1]
 pipe = make_pipeline(preprocessor, LogisticRegression())
@@ -231,7 +231,7 @@ pipe[:-1].get_feature_names_out()
 # :class:`~ensemble.HistGradientBoostingClassifier` are no longer experimental
 # and can simply be imported and used as::
 #
-#     from sklearn.ensemble import HistGradientBoostingClassifier
+#     from sklearn_dual.ensemble import HistGradientBoostingClassifier
 
 ##############################################################################
 # New documentation improvements

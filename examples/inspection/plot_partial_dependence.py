@@ -43,7 +43,7 @@ bike sharing dataset. The example is inspired by [1]_.
 #
 # We will use the bike sharing dataset. The goal is to predict the number of bike
 # rentals using weather and season data as well as the datetime information.
-from sklearn.datasets import fetch_openml
+from sklearn_dual.datasets import fetch_openml
 
 bikes = fetch_openml("Bike_Sharing_Demand", version=2, as_frame=True)
 # Make an explicit copy to avoid "SettingWithCopyWarning" from pandas
@@ -165,8 +165,8 @@ for ax, (idx, df) in zip(axs, average_bike_rentals.groupby("year")):
 # We will use a :class:`~sklearn.preprocessing.QuantileTransformer` to scale the
 # numerical features and encode the categorical features with a
 # :class:`~sklearn.preprocessing.OneHotEncoder`.
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OneHotEncoder, QuantileTransformer
+from sklearn_dual.compose import ColumnTransformer
+from sklearn_dual.preprocessing import OneHotEncoder, QuantileTransformer
 
 mlp_preprocessor = ColumnTransformer(
     transformers=[
@@ -183,7 +183,7 @@ mlp_preprocessor
 # For the gradient boosting model, we leave the numerical features as-is and only
 # encode the categorical features using a
 # :class:`~sklearn.preprocessing.OrdinalEncoder`.
-from sklearn.preprocessing import OrdinalEncoder
+from sklearn_dual.preprocessing import OrdinalEncoder
 
 hgbdt_preprocessor = ColumnTransformer(
     transformers=[
@@ -212,8 +212,8 @@ hgbdt_preprocessor
 # single-variable partial dependence plots.
 from time import time
 
-from sklearn.neural_network import MLPRegressor
-from sklearn.pipeline import make_pipeline
+from sklearn_dual.neural_network import MLPRegressor
+from sklearn_dual.pipeline import make_pipeline
 
 print("Training MLPRegressor...")
 tic = time()
@@ -252,7 +252,7 @@ print(f"Test R2 score: {mlp_model.score(X_test, y_test):.2f}")
 # We will plot the averaged partial dependence.
 import matplotlib.pyplot as plt
 
-from sklearn.inspection import PartialDependenceDisplay
+from sklearn_dual.inspection import PartialDependenceDisplay
 
 common_params = {
     "subsample": 50,
@@ -295,7 +295,7 @@ _ = display.figure_.suptitle(
 # Let's now fit a :class:`~sklearn.ensemble.HistGradientBoostingRegressor` and
 # compute the partial dependence on the same features. We also use the
 # specific preprocessor we created for this model.
-from sklearn.ensemble import HistGradientBoostingRegressor
+from sklearn_dual.ensemble import HistGradientBoostingRegressor
 
 print("Training HistGradientBoostingRegressor...")
 tic = time()
@@ -403,7 +403,7 @@ _ = display.figure_.suptitle("ICE and PDP representations", fontsize=16)
 # interactions between features. We can repeat the experiment by constraining the
 # gradient boosting model to not use any interactions between features using the
 # parameter `interaction_cst`:
-from sklearn.base import clone
+from sklearn_dual.base import clone
 
 interaction_cst = [[i] for i in range(X_train.shape[1])]
 hgbdt_model_without_interactions = (
@@ -543,7 +543,7 @@ _ = display.figure_.suptitle(
 import mpl_toolkits.mplot3d  # noqa: F401
 import numpy as np
 
-from sklearn.inspection import partial_dependence
+from sklearn_dual.inspection import partial_dependence
 
 fig = plt.figure(figsize=(5.5, 5))
 

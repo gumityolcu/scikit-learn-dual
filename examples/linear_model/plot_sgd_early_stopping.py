@@ -47,12 +47,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from sklearn import linear_model
-from sklearn.datasets import fetch_openml
-from sklearn.exceptions import ConvergenceWarning
-from sklearn.model_selection import train_test_split
-from sklearn.utils import shuffle
-from sklearn.utils._testing import ignore_warnings
+from sklearn_dual import linear_model
+from sklearn_dual.datasets import fetch_openml
+from sklearn_dual.exceptions import ConvergenceWarning
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.utils import shuffle
+from sklearn_dual.utils._testing import ignore_warnings
 
 
 def load_mnist(n_samples=None, class_0="0", class_1="8"):

@@ -48,8 +48,8 @@ import numpy as np
 from matplotlib import cm
 from matplotlib import pyplot as plt
 
-from sklearn.datasets import fetch_california_housing
-from sklearn.preprocessing import (
+from sklearn_dual.datasets import fetch_california_housing
+from sklearn_dual.preprocessing import (
     MaxAbsScaler,
     MinMaxScaler,
     Normalizer,

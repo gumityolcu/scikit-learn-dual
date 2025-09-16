@@ -32,8 +32,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from joblib import cpu_count
 
-from sklearn.cluster import Birch, MiniBatchKMeans
-from sklearn.datasets import make_blobs
+from sklearn_dual.cluster import Birch, MiniBatchKMeans
+from sklearn_dual.datasets import make_blobs
 
 # Generate centers for the blobs so that it forms a 10 X 10 grid.
 xx = np.linspace(-22, 22, 10)

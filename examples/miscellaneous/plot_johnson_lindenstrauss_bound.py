@@ -22,9 +22,9 @@ from time import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import fetch_20newsgroups_vectorized, load_digits
-from sklearn.metrics.pairwise import euclidean_distances
-from sklearn.random_projection import (
+from sklearn_dual.datasets import fetch_20newsgroups_vectorized, load_digits
+from sklearn_dual.metrics.pairwise import euclidean_distances
+from sklearn_dual.random_projection import (
     SparseRandomProjection,
     johnson_lindenstrauss_min_dim,
 )

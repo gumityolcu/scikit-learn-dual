@@ -18,8 +18,8 @@ import numpy as np
 from matplotlib import cm
 from scipy.special import logsumexp
 
-from sklearn.datasets import make_classification
-from sklearn.neighbors import NeighborhoodComponentsAnalysis
+from sklearn_dual.datasets import make_classification
+from sklearn_dual.neighbors import NeighborhoodComponentsAnalysis
 
 # %%
 # Original points

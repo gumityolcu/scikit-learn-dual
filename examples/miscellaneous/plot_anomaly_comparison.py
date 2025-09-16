@@ -71,14 +71,14 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn import svm
-from sklearn.covariance import EllipticEnvelope
-from sklearn.datasets import make_blobs, make_moons
-from sklearn.ensemble import IsolationForest
-from sklearn.kernel_approximation import Nystroem
-from sklearn.linear_model import SGDOneClassSVM
-from sklearn.neighbors import LocalOutlierFactor
-from sklearn.pipeline import make_pipeline
+from sklearn_dual import svm
+from sklearn_dual.covariance import EllipticEnvelope
+from sklearn_dual.datasets import make_blobs, make_moons
+from sklearn_dual.ensemble import IsolationForest
+from sklearn_dual.kernel_approximation import Nystroem
+from sklearn_dual.linear_model import SGDOneClassSVM
+from sklearn_dual.neighbors import LocalOutlierFactor
+from sklearn_dual.pipeline import make_pipeline
 
 matplotlib.rcParams["contour.negative_linestyle"] = "solid"
 

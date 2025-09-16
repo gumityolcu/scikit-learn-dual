@@ -23,13 +23,13 @@ from collections import defaultdict
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import make_regression
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.linear_model import Ridge, SGDRegressor
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVR
-from sklearn.utils import shuffle
+from sklearn_dual.datasets import make_regression
+from sklearn_dual.ensemble import RandomForestRegressor
+from sklearn_dual.linear_model import Ridge, SGDRegressor
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.preprocessing import StandardScaler
+from sklearn_dual.svm import SVR
+from sklearn_dual.utils import shuffle
 
 
 def _not_in_sphinx():

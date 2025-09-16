@@ -26,7 +26,7 @@ sections on :ref:`cross_validation` and :ref:`grid_search`.
 # digits images.
 # We transform the problem into a binary classification for easier
 # understanding: the goal is to identify whether a digit is `8` or not.
-from sklearn import datasets
+from sklearn_dual import datasets
 
 digits = datasets.load_digits()
 
@@ -44,7 +44,7 @@ print(
 # %%
 # As presented in the introduction, the data will be split into a training
 # and a testing set of equal size.
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=0)
 
@@ -174,8 +174,8 @@ def refit_strategy(cv_results):
 #
 # Once we defined our strategy to select the best model, we define the values
 # of the hyper-parameters and create the grid-search instance:
-from sklearn.model_selection import GridSearchCV
-from sklearn.svm import SVC
+from sklearn_dual.model_selection import GridSearchCV
+from sklearn_dual.svm import SVC
 
 tuned_parameters = [
     {"kernel": ["rbf"], "gamma": [1e-3, 1e-4], "C": [1, 10, 100, 1000]},
@@ -200,7 +200,7 @@ grid_search.best_params_
 #
 # We can use the classification report to compute standard classification
 # metrics on the left-out set:
-from sklearn.metrics import classification_report
+from sklearn_dual.metrics import classification_report
 
 y_pred = grid_search.predict(X_test)
 print(classification_report(y_test, y_pred))

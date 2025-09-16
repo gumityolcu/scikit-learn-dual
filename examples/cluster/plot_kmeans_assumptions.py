@@ -21,7 +21,7 @@ unintuitive and possibly undesirable clusters.
 
 import numpy as np
 
-from sklearn.datasets import make_blobs
+from sklearn_dual.datasets import make_blobs
 
 n_samples = 1500
 random_state = 170
@@ -82,7 +82,7 @@ plt.show()
 #   high-dimensional the problem is, the higher is the need to run the algorithm
 #   with different centroid seeds to ensure a global minimal inertia.
 
-from sklearn.cluster import KMeans
+from sklearn_dual.cluster import KMeans
 
 common_params = {
     "n_init": "auto",
@@ -147,7 +147,7 @@ plt.show()
 # unequal variance blobs, see the example
 # :ref:`sphx_glr_auto_examples_cluster_plot_cluster_comparison.py`.
 
-from sklearn.mixture import GaussianMixture
+from sklearn_dual.mixture import GaussianMixture
 
 fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize=(12, 6))
 

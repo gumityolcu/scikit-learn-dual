@@ -88,7 +88,7 @@ X_different_covariance, y_different_covariance = make_data(
 import matplotlib as mpl
 from matplotlib import colors
 
-from sklearn.inspection import DecisionBoundaryDisplay
+from sklearn_dual.inspection import DecisionBoundaryDisplay
 
 
 def plot_ellipse(mean, cov, color, ax):
@@ -175,7 +175,7 @@ def plot_result(estimator, X, y, ax):
 # We compare the two estimators LDA and QDA on all three datasets.
 import matplotlib.pyplot as plt
 
-from sklearn.discriminant_analysis import (
+from sklearn_dual.discriminant_analysis import (
     LinearDiscriminantAnalysis,
     QuadraticDiscriminantAnalysis,
 )

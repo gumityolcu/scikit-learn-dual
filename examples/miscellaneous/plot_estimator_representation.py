@@ -10,11 +10,11 @@ displayed.
 # Authors: The scikit-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
-from sklearn.compose import make_column_transformer
-from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn_dual.compose import make_column_transformer
+from sklearn_dual.impute import SimpleImputer
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import OneHotEncoder, StandardScaler
 
 # %%
 # Compact text representation

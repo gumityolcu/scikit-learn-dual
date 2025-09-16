@@ -31,7 +31,7 @@ fitting procedure to prevent overfitting.
 # First, we generate the informative feature:
 import numpy as np
 
-from sklearn.preprocessing import KBinsDiscretizer
+from sklearn_dual.preprocessing import KBinsDiscretizer
 
 n_samples = 50_000
 
@@ -75,7 +75,7 @@ X_near_unique_categories = rng.choice(
 # Finally, we assemble the dataset and perform a train test split:
 import pandas as pd
 
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
 X = pd.DataFrame(
     np.concatenate(
@@ -95,8 +95,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 # raw features will have low performance. This is because we permuted the order
 # of the informative feature meaning `X_informative` is not informative when
 # raw:
-import sklearn
-from sklearn.linear_model import Ridge
+import sklearn_dual
+from sklearn_dual.linear_model import Ridge
 
 # Configure transformers to always output DataFrames
 sklearn.set_config(transform_output="pandas")
@@ -111,8 +111,8 @@ print("Raw Model score on test set: ", raw_model.score(X_test, y_test))
 # Next, we create a pipeline with the target encoder and ridge model. The pipeline
 # uses :meth:`TargetEncoder.fit_transform` which uses :term:`cross fitting`. We
 # see that the model fits the data well and generalizes to the test set:
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import TargetEncoder
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import TargetEncoder
 
 model_with_cf = make_pipeline(TargetEncoder(random_state=0), ridge)
 model_with_cf.fit(X_train, y_train)

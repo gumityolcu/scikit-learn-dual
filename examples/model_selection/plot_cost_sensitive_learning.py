@@ -52,8 +52,8 @@ case, the business metric depends on the amount of each individual transaction.
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 #
 # We fetch the German credit dataset from OpenML.
-import sklearn
-from sklearn.datasets import fetch_openml
+import sklearn_dual
+from sklearn_dual.datasets import fetch_openml
 
 sklearn.set_config(transform_output="pandas")
 
@@ -82,7 +82,7 @@ pos_label, neg_label = "bad", "good"
 
 # %%
 # To carry our analysis, we split our dataset using a single stratified split.
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=0)
 
@@ -102,7 +102,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_sta
 #
 # From these four metrics, scikit-learn does not provide a scorer for the FPR. We
 # therefore need to define a small custom function to compute it.
-from sklearn.metrics import confusion_matrix
+from sklearn_dual.metrics import confusion_matrix
 
 
 def fpr_score(y, y_pred, neg_label, pos_label):
@@ -121,7 +121,7 @@ def fpr_score(y, y_pred, neg_label, pos_label):
 # :func:`~sklearn.metrics.make_scorer` where the information is passed. We store all
 # the custom scorers in a dictionary. To use them, we need to pass the fitted model,
 # the data and the target on which we want to evaluate the predictive model.
-from sklearn.metrics import make_scorer, precision_score, recall_score
+from sklearn_dual.metrics import make_scorer, precision_score, recall_score
 
 tpr_score = recall_score  # TPR and recall are the same metric
 scoring = {
@@ -184,7 +184,7 @@ scoring["credit_gain"] = make_scorer(
 #
 # We use :class:`~sklearn.ensemble.HistGradientBoostingClassifier` as a predictive model
 # that natively handles categorical features and missing values.
-from sklearn.ensemble import HistGradientBoostingClassifier
+from sklearn_dual.ensemble import HistGradientBoostingClassifier
 
 model = HistGradientBoostingClassifier(
     categorical_features="from_dtype", random_state=0
@@ -196,7 +196,7 @@ model
 # curves.
 import matplotlib.pyplot as plt
 
-from sklearn.metrics import PrecisionRecallDisplay, RocCurveDisplay
+from sklearn_dual.metrics import PrecisionRecallDisplay, RocCurveDisplay
 
 fig, axs = plt.subplots(nrows=1, ncols=2, figsize=(14, 6))
 
@@ -271,7 +271,7 @@ print(f"Business defined metric: {scoring['credit_gain'](model, X_test, y_test)}
 # positive label. Internally, the optimum cut-off point is chosen such that it maximizes
 # the business metric via cross-validation. By default a 5-fold stratified
 # cross-validation is used.
-from sklearn.model_selection import TunedThresholdClassifierCV
+from sklearn_dual.model_selection import TunedThresholdClassifierCV
 
 tuned_model = TunedThresholdClassifierCV(
     estimator=model,
@@ -541,7 +541,7 @@ business_scorer = make_scorer(business_metric).set_score_request(amount=True)
 amount = credit_card.frame["Amount"].to_numpy()
 
 # %%
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
 data_train, data_test, target_train, target_test, amount_train, amount_test = (
     train_test_split(
@@ -552,7 +552,7 @@ data_train, data_test, target_train, target_test, amount_train, amount_test = (
 # %%
 # We first evaluate some baseline policies to serve as reference. Recall that
 # class "0" is the legitimate class and class "1" is the fraudulent class.
-from sklearn.dummy import DummyClassifier
+from sklearn_dual.dummy import DummyClassifier
 
 always_accept_policy = DummyClassifier(strategy="constant", constant=0)
 always_accept_policy.fit(data_train, target_train)
@@ -588,10 +588,10 @@ print(f"Benefit of the 'always reject' policy: {benefit:,.2f}€")
 # predictions returned by its `predict_proba` method are as accurate as
 # possible, irrespectively of the choice of the value of the decision
 # threshold.
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import GridSearchCV
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.linear_model import LogisticRegression
+from sklearn_dual.model_selection import GridSearchCV
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import StandardScaler
 
 logistic_regression = make_pipeline(StandardScaler(), LogisticRegression())
 param_grid = {"logisticregression__C": np.logspace(-6, 6, 13)}
@@ -664,7 +664,7 @@ print(
 #
 # Here, we will reuse the decision threshold found in the previous section to create a
 # new model and check that it gives the same results.
-from sklearn.model_selection import FixedThresholdClassifier
+from sklearn_dual.model_selection import FixedThresholdClassifier
 
 model_fixed_threshold = FixedThresholdClassifier(
     estimator=model, threshold=tuned_model.best_threshold_, prefit=True

@@ -28,7 +28,7 @@ cluster.
 # Load the data
 # -------------
 
-from sklearn import datasets
+from sklearn_dual import datasets
 
 faces = datasets.fetch_olivetti_faces()
 
@@ -40,8 +40,8 @@ import time
 
 import numpy as np
 
-from sklearn.cluster import MiniBatchKMeans
-from sklearn.feature_extraction.image import extract_patches_2d
+from sklearn_dual.cluster import MiniBatchKMeans
+from sklearn_dual.feature_extraction.image import extract_patches_2d
 
 print("Learning the dictionary... ")
 rng = np.random.RandomState(0)

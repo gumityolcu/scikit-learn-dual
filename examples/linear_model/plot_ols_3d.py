@@ -17,7 +17,7 @@ give us much regarding `y` when compared to just feature 1.
 
 import numpy as np
 
-from sklearn import datasets
+from sklearn_dual import datasets
 
 X, y = datasets.load_diabetes(return_X_y=True)
 indices = (0, 1)
@@ -30,7 +30,7 @@ y_test = y[-20:]
 # %%
 # Next we fit a linear regression model.
 
-from sklearn import linear_model
+from sklearn_dual import linear_model
 
 ols = linear_model.LinearRegression()
 _ = ols.fit(X_train, y_train)

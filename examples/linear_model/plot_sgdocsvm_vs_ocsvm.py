@@ -28,10 +28,10 @@ import matplotlib.lines as mlines
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.kernel_approximation import Nystroem
-from sklearn.linear_model import SGDOneClassSVM
-from sklearn.pipeline import make_pipeline
-from sklearn.svm import OneClassSVM
+from sklearn_dual.kernel_approximation import Nystroem
+from sklearn_dual.linear_model import SGDOneClassSVM
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.svm import OneClassSVM
 
 font = {"weight": "normal", "size": 15}
 
@@ -79,7 +79,7 @@ n_error_outliers_sgd = y_pred_outliers_sgd[y_pred_outliers_sgd == 1].size
 
 
 # %%
-from sklearn.inspection import DecisionBoundaryDisplay
+from sklearn_dual.inspection import DecisionBoundaryDisplay
 
 _, ax = plt.subplots(figsize=(9, 6))
 

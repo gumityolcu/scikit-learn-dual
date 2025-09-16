@@ -44,7 +44,7 @@ missing values imputed using different techniques.
 
 import numpy as np
 
-from sklearn.datasets import fetch_california_housing, load_diabetes
+from sklearn_dual.datasets import fetch_california_housing, load_diabetes
 
 rng = np.random.RandomState(42)
 
@@ -89,13 +89,13 @@ X_miss_diabetes, y_miss_diabetes = add_missing_values(X_diabetes, y_diabetes)
 
 rng = np.random.RandomState(0)
 
-from sklearn.ensemble import RandomForestRegressor
+from sklearn_dual.ensemble import RandomForestRegressor
 
 # To use the experimental IterativeImputer, we need to explicitly ask for it:
-from sklearn.experimental import enable_iterative_imputer  # noqa
-from sklearn.impute import IterativeImputer, KNNImputer, SimpleImputer
-from sklearn.model_selection import cross_val_score
-from sklearn.pipeline import make_pipeline
+from sklearn_dual.experimental import enable_iterative_imputer  # noqa
+from sklearn_dual.impute import IterativeImputer, KNNImputer, SimpleImputer
+from sklearn_dual.model_selection import cross_val_score
+from sklearn_dual.pipeline import make_pipeline
 
 N_SPLITS = 4
 regressor = RandomForestRegressor(random_state=0)

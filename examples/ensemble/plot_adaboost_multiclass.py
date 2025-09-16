@@ -36,7 +36,7 @@ the difficult-to-classify samples.
 # separated by nested concentric ten-dimensional spheres such that roughly equal
 # numbers of samples are in each class (quantiles of the :math:`\chi^2`
 # distribution).
-from sklearn.datasets import make_gaussian_quantiles
+from sklearn_dual.datasets import make_gaussian_quantiles
 
 X, y = make_gaussian_quantiles(
     n_samples=2_000, n_features=10, n_classes=3, random_state=1
@@ -45,7 +45,7 @@ X, y = make_gaussian_quantiles(
 # %%
 # We split the dataset into 2 sets: 70 percent of the samples are used for
 # training and the remaining 30 percent for testing.
-from sklearn.model_selection import train_test_split
+from sklearn_dual.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, train_size=0.7, random_state=42
@@ -71,8 +71,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 # the weak learner itself is calculated based on its accuracy in classifying the
 # training examples. The weight of the weak learner determines its influence on
 # the final ensemble prediction.
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.tree import DecisionTreeClassifier
+from sklearn_dual.ensemble import AdaBoostClassifier
+from sklearn_dual.tree import DecisionTreeClassifier
 
 weak_learner = DecisionTreeClassifier(max_leaf_nodes=8)
 n_estimators = 300
@@ -97,8 +97,8 @@ adaboost_clf = AdaBoostClassifier(
 # point. The second baseline score is obtained from the
 # :class:`~sklearn.dummy.DummyClassifier`, which predicts the most prevalent
 # class in a dataset.
-from sklearn.dummy import DummyClassifier
-from sklearn.metrics import accuracy_score
+from sklearn_dual.dummy import DummyClassifier
+from sklearn_dual.metrics import accuracy_score
 
 dummy_clf = DummyClassifier()
 

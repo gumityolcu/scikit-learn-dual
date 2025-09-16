@@ -36,15 +36,15 @@ What we can see that:
 import numpy as np
 from matplotlib import pyplot as plt
 
-from sklearn.linear_model import (
+from sklearn_dual.linear_model import (
     HuberRegressor,
     LinearRegression,
     RANSACRegressor,
     TheilSenRegressor,
 )
-from sklearn.metrics import mean_squared_error
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import PolynomialFeatures
+from sklearn_dual.metrics import mean_squared_error
+from sklearn_dual.pipeline import make_pipeline
+from sklearn_dual.preprocessing import PolynomialFeatures
 
 np.random.seed(42)
 

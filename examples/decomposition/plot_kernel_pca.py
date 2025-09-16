@@ -26,8 +26,8 @@ Finally, we show that inverting this projection is an approximation with
 # In this section, we show the advantages of using a kernel when
 # projecting data using a Principal Component Analysis (PCA). We create a
 # dataset made of two nested circles.
-from sklearn.datasets import make_circles
-from sklearn.model_selection import train_test_split
+from sklearn_dual.datasets import make_circles
+from sklearn_dual.model_selection import train_test_split
 
 X, y = make_circles(n_samples=1_000, factor=0.3, noise=0.05, random_state=0)
 X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=0)
@@ -55,7 +55,7 @@ _ = test_ax.set_title("Testing data")
 # Now, we will use PCA with and without a kernel to see what is the effect of
 # using such a kernel. The kernel used here is a radial basis function (RBF)
 # kernel.
-from sklearn.decomposition import PCA, KernelPCA
+from sklearn_dual.decomposition import PCA, KernelPCA
 
 pca = PCA(n_components=2)
 kernel_pca = KernelPCA(

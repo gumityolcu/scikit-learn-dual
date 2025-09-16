@@ -17,10 +17,10 @@ of the data.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.datasets import load_digits
-from sklearn.decomposition import PCA
-from sklearn.model_selection import GridSearchCV
-from sklearn.neighbors import KernelDensity
+from sklearn_dual.datasets import load_digits
+from sklearn_dual.decomposition import PCA
+from sklearn_dual.model_selection import GridSearchCV
+from sklearn_dual.neighbors import KernelDensity
 
 # load the data
 digits = load_digits()

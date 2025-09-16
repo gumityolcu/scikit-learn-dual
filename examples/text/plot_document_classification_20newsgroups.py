@@ -34,8 +34,8 @@ script :ref:`sphx_glr_auto_examples_text_plot_document_clustering.py`.
 
 from time import time
 
-from sklearn.datasets import fetch_20newsgroups
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn_dual.datasets import fetch_20newsgroups
+from sklearn_dual.feature_extraction.text import TfidfVectorizer
 
 categories = [
     "alt.atheism",
@@ -144,7 +144,7 @@ X_train, X_test, y_train, y_test, feature_names, target_names = load_dataset(
 # provide probabilistic predictions (no `predict_proba` method),
 # but it is often faster to train.
 
-from sklearn.linear_model import RidgeClassifier
+from sklearn_dual.linear_model import RidgeClassifier
 
 clf = RidgeClassifier(tol=1e-2, solver="sparse_cg")
 clf.fit(X_train, y_train)
@@ -156,7 +156,7 @@ pred = clf.predict(X_test)
 
 import matplotlib.pyplot as plt
 
-from sklearn.metrics import ConfusionMatrixDisplay
+from sklearn_dual.metrics import ConfusionMatrixDisplay
 
 fig, ax = plt.subplots(figsize=(10, 5))
 ConfusionMatrixDisplay.from_predictions(y_test, pred, ax=ax)
@@ -313,8 +313,8 @@ _ = plot_feature_effects().set_title("Average feature effects on filtered docume
 # training time and testing time. For such purpose we define the following
 # benchmarking utilities:
 
-from sklearn import metrics
-from sklearn.utils.extmath import density
+from sklearn_dual import metrics
+from sklearn_dual.utils.extmath import density
 
 
 def benchmark(clf, custom_name=False):
@@ -359,11 +359,11 @@ def benchmark(clf, custom_name=False):
 # :ref:`sphx_glr_auto_examples_model_selection_plot_grid_search_text_feature_extraction.py`  # noqa: E501
 # for a demo on how such tuning can be done.
 
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression, SGDClassifier
-from sklearn.naive_bayes import ComplementNB
-from sklearn.neighbors import KNeighborsClassifier, NearestCentroid
-from sklearn.svm import LinearSVC
+from sklearn_dual.ensemble import RandomForestClassifier
+from sklearn_dual.linear_model import LogisticRegression, SGDClassifier
+from sklearn_dual.naive_bayes import ComplementNB
+from sklearn_dual.neighbors import KNeighborsClassifier, NearestCentroid
+from sklearn_dual.svm import LinearSVC
 
 results = []
 for clf, name in (

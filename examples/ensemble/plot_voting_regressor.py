@@ -28,13 +28,13 @@ measure of disease progression one year after baseline.
 
 import matplotlib.pyplot as plt
 
-from sklearn.datasets import load_diabetes
-from sklearn.ensemble import (
+from sklearn_dual.datasets import load_diabetes
+from sklearn_dual.ensemble import (
     GradientBoostingRegressor,
     RandomForestRegressor,
     VotingRegressor,
 )
-from sklearn.linear_model import LinearRegression
+from sklearn_dual.linear_model import LinearRegression
 
 # %%
 # Training classifiers

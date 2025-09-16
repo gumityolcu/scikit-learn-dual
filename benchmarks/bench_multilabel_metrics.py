@@ -13,14 +13,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.sparse as sp
 
-from sklearn.datasets import make_multilabel_classification
-from sklearn.metrics import (
+from sklearn_dual.datasets import make_multilabel_classification
+from sklearn_dual.metrics import (
     accuracy_score,
     f1_score,
     hamming_loss,
     jaccard_similarity_score,
 )
-from sklearn.utils._testing import ignore_warnings
+from sklearn_dual.utils._testing import ignore_warnings
 
 METRICS = {
     "f1": partial(f1_score, average="micro"),

@@ -4,7 +4,7 @@ import numpy as np
 import scipy.sparse as sp
 from joblib import Memory
 
-from sklearn.datasets import (
+from sklearn_dual.datasets import (
     fetch_20newsgroups,
     fetch_olivetti_faces,
     fetch_openml,
@@ -13,10 +13,10 @@ from sklearn.datasets import (
     make_classification,
     make_regression,
 )
-from sklearn.decomposition import TruncatedSVD
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MaxAbsScaler, StandardScaler
+from sklearn_dual.decomposition import TruncatedSVD
+from sklearn_dual.feature_extraction.text import TfidfVectorizer
+from sklearn_dual.model_selection import train_test_split
+from sklearn_dual.preprocessing import MaxAbsScaler, StandardScaler
 
 # memory location for caching datasets
 M = Memory(location=str(Path(__file__).resolve().parent / "cache"))

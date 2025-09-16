@@ -41,7 +41,7 @@ X_test = np.dot(base_X_test, coloring_matrix)
 
 from scipy import linalg
 
-from sklearn.covariance import ShrunkCovariance, empirical_covariance, log_likelihood
+from sklearn_dual.covariance import ShrunkCovariance, empirical_covariance, log_likelihood
 
 # spanning a range of possible shrinkage coefficient values
 shrinkages = np.logspace(-2, 0, 30)
@@ -76,8 +76,8 @@ loglik_real = -log_likelihood(emp_cov, linalg.inv(real_cov))
 #   are Gaussian, in particular for small samples.
 
 
-from sklearn.covariance import OAS, LedoitWolf
-from sklearn.model_selection import GridSearchCV
+from sklearn_dual.covariance import OAS, LedoitWolf
+from sklearn_dual.model_selection import GridSearchCV
 
 # GridSearch for an optimal shrinkage coefficient
 tuned_parameters = [{"shrinkage": shrinkages}]

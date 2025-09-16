@@ -25,7 +25,7 @@ notebook.
 # calling the dataset loader :func:`~sklearn.datasets.fetch_20newsgroups` to get
 # the 20 of them.
 
-from sklearn.datasets import fetch_20newsgroups
+from sklearn_dual.datasets import fetch_20newsgroups
 
 categories = [
     "alt.atheism",
@@ -59,9 +59,9 @@ print(f"{len(data_train.data)} documents")
 # We define a pipeline combining a text feature vectorizer with a simple
 # classifier yet effective for text classification.
 
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.naive_bayes import ComplementNB
-from sklearn.pipeline import Pipeline
+from sklearn_dual.feature_extraction.text import TfidfVectorizer
+from sklearn_dual.naive_bayes import ComplementNB
+from sklearn_dual.pipeline import Pipeline
 
 pipeline = Pipeline(
     [
@@ -103,7 +103,7 @@ parameter_grid = {
 
 from pprint import pprint
 
-from sklearn.model_selection import RandomizedSearchCV
+from sklearn_dual.model_selection import RandomizedSearchCV
 
 random_search = RandomizedSearchCV(
     estimator=pipeline,

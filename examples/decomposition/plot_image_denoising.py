@@ -102,7 +102,7 @@ show_with_diff(distorted, raccoon_face, "Distorted image")
 # ----------------------------
 from time import time
 
-from sklearn.feature_extraction.image import extract_patches_2d
+from sklearn_dual.feature_extraction.image import extract_patches_2d
 
 # Extract all reference patches from the left half of the image
 print("Extracting reference patches...")
@@ -118,7 +118,7 @@ print(f"{data.shape[0]} patches extracted in %.2fs." % (time() - t0))
 # %%
 # Learn the dictionary from reference patches
 # -------------------------------------------
-from sklearn.decomposition import MiniBatchDictionaryLearning
+from sklearn_dual.decomposition import MiniBatchDictionaryLearning
 
 print("Learning the dictionary...")
 t0 = time()
@@ -151,7 +151,7 @@ plt.subplots_adjust(0.08, 0.02, 0.92, 0.85, 0.08, 0.23)
 # %%
 # Extract noisy patches and reconstruct them using the dictionary
 # ---------------------------------------------------------------
-from sklearn.feature_extraction.image import reconstruct_from_patches_2d
+from sklearn_dual.feature_extraction.image import reconstruct_from_patches_2d
 
 print("Extracting noisy patches... ")
 t0 = time()

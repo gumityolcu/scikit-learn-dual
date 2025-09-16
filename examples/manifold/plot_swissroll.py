@@ -20,7 +20,7 @@ in the data.
 
 import matplotlib.pyplot as plt
 
-from sklearn import datasets, manifold
+from sklearn_dual import datasets, manifold
 
 sr_points, sr_color = datasets.make_swiss_roll(n_samples=1500, random_state=0)
 

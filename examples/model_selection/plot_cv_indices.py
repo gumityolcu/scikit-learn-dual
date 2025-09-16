@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Patch
 
-from sklearn.model_selection import (
+from sklearn_dual.model_selection import (
     GroupKFold,
     GroupShuffleSplit,
     KFold,

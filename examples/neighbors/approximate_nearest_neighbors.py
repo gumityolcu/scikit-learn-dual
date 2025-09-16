@@ -41,9 +41,9 @@ import joblib
 import numpy as np
 from scipy.sparse import csr_matrix
 
-from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.datasets import fetch_openml
-from sklearn.utils import shuffle
+from sklearn_dual.base import BaseEstimator, TransformerMixin
+from sklearn_dual.datasets import fetch_openml
+from sklearn_dual.utils import shuffle
 
 
 class NMSlibTransformer(TransformerMixin, BaseEstimator):
@@ -112,9 +112,9 @@ def load_mnist(n_samples):
 # We benchmark the different exact/approximate nearest neighbors transformers.
 import time
 
-from sklearn.manifold import TSNE
-from sklearn.neighbors import KNeighborsTransformer
-from sklearn.pipeline import make_pipeline
+from sklearn_dual.manifold import TSNE
+from sklearn_dual.neighbors import KNeighborsTransformer
+from sklearn_dual.pipeline import make_pipeline
 
 datasets = [
     ("MNIST_10000", load_mnist(n_samples=10_000)),

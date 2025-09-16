@@ -1,4 +1,4 @@
-from sklearn.ensemble import (
+from sklearn_dual.ensemble import (
     GradientBoostingClassifier,
     HistGradientBoostingClassifier,
     RandomForestClassifier,

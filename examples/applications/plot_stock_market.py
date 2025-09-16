@@ -118,7 +118,7 @@ variation = close_prices - open_prices
 # symbol, the symbols that it is connected to are those useful to explain
 # its fluctuations.
 
-from sklearn import covariance
+from sklearn_dual import covariance
 
 alphas = np.logspace(-1.5, 1, num=10)
 edge_model = covariance.GraphicalLassoCV(alphas=alphas)
@@ -145,7 +145,7 @@ edge_model.fit(X)
 # be considered as having a similar impact at the level of the full stock
 # market.
 
-from sklearn import cluster
+from sklearn_dual import cluster
 
 _, labels = cluster.affinity_propagation(edge_model.covariance_, random_state=0)
 n_labels = labels.max()
@@ -167,7 +167,7 @@ for i in range(n_labels + 1):
 # Finding a low-dimension embedding for visualization: find the best position of
 # the nodes (the stocks) on a 2D plane
 
-from sklearn import manifold
+from sklearn_dual import manifold
 
 node_position_model = manifold.LocallyLinearEmbedding(
     n_components=2, eigen_solver="dense", n_neighbors=6

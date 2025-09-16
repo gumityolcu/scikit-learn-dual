@@ -17,8 +17,8 @@ decision boundary obtained with regards to the parameter `weights`.
 #
 # In this example, we use the iris dataset. We split the data into a train and test
 # dataset.
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
+from sklearn_dual.datasets import load_iris
+from sklearn_dual.model_selection import train_test_split
 
 iris = load_iris(as_frame=True)
 X = iris.data[["sepal length (cm)", "sepal width (cm)"]]
@@ -38,9 +38,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_sta
 #
 # Thus, we use a :class:`~sklearn.pipeline.Pipeline` to chain a scaler before to use
 # our classifier.
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn_dual.neighbors import KNeighborsClassifier
+from sklearn_dual.pipeline import Pipeline
+from sklearn_dual.preprocessing import StandardScaler
 
 clf = Pipeline(
     steps=[("scaler", StandardScaler()), ("knn", KNeighborsClassifier(n_neighbors=11))]
@@ -55,7 +55,7 @@ clf = Pipeline(
 # dataset to observe the difference.
 import matplotlib.pyplot as plt
 
-from sklearn.inspection import DecisionBoundaryDisplay
+from sklearn_dual.inspection import DecisionBoundaryDisplay
 
 _, axs = plt.subplots(ncols=2, figsize=(12, 5))
 

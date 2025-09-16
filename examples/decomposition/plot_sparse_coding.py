@@ -22,7 +22,7 @@ is performed in order to stay on the same order of magnitude.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.decomposition import SparseCoder
+from sklearn_dual.decomposition import SparseCoder
 
 
 def ricker_function(resolution, center, width):

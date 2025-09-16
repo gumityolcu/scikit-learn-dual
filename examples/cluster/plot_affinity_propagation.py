@@ -14,9 +14,9 @@ Between Data Points", Science Feb. 2007
 
 import numpy as np
 
-from sklearn import metrics
-from sklearn.cluster import AffinityPropagation
-from sklearn.datasets import make_blobs
+from sklearn_dual import metrics
+from sklearn_dual.cluster import AffinityPropagation
+from sklearn_dual.datasets import make_blobs
 
 # %%
 # Generate sample data

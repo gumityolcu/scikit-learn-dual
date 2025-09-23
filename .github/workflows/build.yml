@@ -26,13 +26,13 @@ jobs:
 
       - name: Upgrade pip
         run: pip install --upgrade pip setuptools wheel meson ninja cython
-
       - name: Install cibuildwheel
         run: pip install cibuildwheel
-
+      - name: Delete build directory if it exists
+        run: rm -rf ./build_cibw || true
       - name: Build wheels
         # cibuildwheel automatically detects OS and Python version
-        run: cibuildwheel --output-dir wheelhouse
+        run: --output-dir wheelhouse --build-dir ./build_cibw
         env:
           CIBW_ARCHS_WINDOWS: AMD64   # only build 64-bit wheels
           CIBW_ARCHS_LINUX: x86_64   # only build 64-bit wheels

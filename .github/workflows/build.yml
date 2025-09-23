@@ -32,7 +32,9 @@ jobs:
         # cibuildwheel automatically detects OS and Python version
         run: cibuildwheel --output-dir wheelhouse
         env:
-          CIBW_ARCHS: x64   # only build 64-bit wheels
+          CIBW_ARCHS_WINDOWS: AMD64   # only build 64-bit wheels
+          CIBW_ARCHS_LINUX: x86_64   # only build 64-bit wheels
+          CIBW_ARCHS_MACOS: x86_64   # only build 64-bit wheels
 
       - name: Upload built wheels
         uses: actions/upload-artifact@v4

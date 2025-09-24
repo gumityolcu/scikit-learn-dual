@@ -33,7 +33,7 @@ jobs:
         shell: bash
       - name: Build wheels
         # cibuildwheel automatically detects OS and Python version
-        run: --output-dir wheelhouse --build-dir ./build_cibw
+        run: cibuildwheel --output-dir wheelhouse --build-dir ./build_cibw
         env:
           CIBW_ARCHS_WINDOWS: AMD64   # only build 64-bit wheels
           CIBW_ARCHS_LINUX: x86_64   # only build 64-bit wheels

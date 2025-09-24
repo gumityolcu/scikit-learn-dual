@@ -30,6 +30,7 @@ jobs:
         run: pip install cibuildwheel
       - name: Delete build directory if it exists
         run: rm -rf ./build_cibw || true
+        shell: bash
       - name: Build wheels
         # cibuildwheel automatically detects OS and Python version
         run: --output-dir wheelhouse --build-dir ./build_cibw

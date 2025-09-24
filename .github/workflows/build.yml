@@ -13,7 +13,7 @@ jobs:
         os: [ubuntu-latest]
         # , macos-latest]
         #, windows-latest]
-        python-version: ['3.9', '3.10', '3.11', '3.12']
+        python-version: ['3.10', '3.11', '3.12']
         # exclude:
         #     - os: windows-latest
         #       python-version: '3.9'
@@ -22,12 +22,38 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Upgrade pip
         run: pip install --upgrade pip setuptools wheel meson ninja cython
+
+      # Install OpenBLAS/LAPACK where needed
+      - name: Install SciPy dependencies on Ubuntu
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libopenblas-dev liblapack-dev gfortran
+
+      - name: Install OpenBLAS on macOS
+        if: runner.os == 'macOS'
+        run: |
+          brew install openblas
+          export OPENBLAS=$(brew --prefix openblas)
+          export CFLAGS="-I$OPENBLAS/include"
+          export LDFLAGS="-L$OPENBLAS/lib"
+
+      # Install SciPy from source on Windows only if needed
+      - name: Install SciPy from wheel (Windows)
+        if: runner.os == 'Windows'
+        run: pip install scipy
+
+      # For Linux/macOS, install from source to get .pxd files
+      - name: Install SciPy from source
+        if: runner.os != 'Windows'
+        run: pip install --no-binary :all: scipy
+
       - name: Install cibuildwheel
         run: pip install cibuildwheel
       - name: Build wheels

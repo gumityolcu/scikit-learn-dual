@@ -32,30 +32,32 @@ jobs:
         run: pip install --upgrade pip setuptools wheel meson ninja cython
 
       # Install OpenBLAS/LAPACK where needed
-      - name: Install SciPy dependencies on Ubuntu
+      - name: Install SciPy dependencies and build on Ubuntu
         if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y libopenblas-dev liblapack-dev gfortran
-
-      - name: Install OpenBLAS on macOS
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libopenblas-dev liblapack-dev gfortran
+          export BLAS_LIBS="-lopenblas"
+          export LAPACK_LIBS="-llapack"
+          export PKG_CONFIG_PATH="/usr/lib/x86_64-linux-gnu/pkgconfig"
+          "pip install --no-binary :all: scipy"
+      - name: Install OpenBLAS and build scipy on macOS
         if: runner.os == 'macOS'
         run: |
           brew install openblas
           export OPENBLAS=$(brew --prefix openblas)
           export CFLAGS="-I$OPENBLAS/include"
+          export PKG_CONFIG_PATH="$OPENBLAS/lib/pkgconfig:$PKG_CONFIG_PATH"
           export LDFLAGS="-L$OPENBLAS/lib"
-
+          "pip install --no-binary :all: scipy"
       # Install SciPy from source on Windows only if needed
       - name: Install SciPy from wheel (Windows)
         if: runner.os == 'Windows'
         run: pip install scipy
 
-      # For Linux/macOS, install from source to get .pxd files
-      - name: Install SciPy from source
-        if: runner.os != 'Windows'
-        run: "pip install --no-binary :all: scipy"
-
       - name: Install cibuildwheel
         run: pip install cibuildwheel
+
       - name: Build wheels
         # cibuildwheel automatically detects OS and Python version
         run: cibuildwheel --output-dir wheelhouse
@@ -63,6 +65,7 @@ jobs:
           CIBW_ARCHS_WINDOWS: AMD64   # only build 64-bit wheels
           CIBW_ARCHS_LINUX: x86_64   # only build 64-bit wheels
           CIBW_ARCHS_MACOS: x86_64   # only build 64-bit wheels
+
       - name: Upload built wheels
         uses: actions/upload-artifact@v4
         with:

@@ -29,6 +29,7 @@ jobs:
       - name: Install cibuildwheel
         run: pip install cibuildwheel
       - name: Enable long paths
+        if: runner.os == 'Windows'
         run: |
           reg add "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /v LongPathsEnabled /t REG_DWORD /d 1 /f
         shell: powershell
@@ -39,6 +40,7 @@ jobs:
           CIBW_ARCHS_WINDOWS: AMD64   # only build 64-bit wheels
           CIBW_ARCHS_LINUX: x86_64   # only build 64-bit wheels
           CIBW_ARCHS_MACOS: x86_64   # only build 64-bit wheels
+          CIBW_BUILD_VERBOSITY: 3   # increase verbosity for debugging
           TMP: C:\b
           TEMP: C:\b
       - name: Upload built wheels

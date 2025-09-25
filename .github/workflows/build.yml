@@ -42,7 +42,7 @@ jobs:
           export LAPACK_LIBS="-llapack"
           export PKG_CONFIG_PATH="/usr/lib/x86_64-linux-gnu/pkgconfig"
           export CFLAGS="-I/usr/include/x86_64-linux-gnu"
-          export LDFLAGS="-L/usr/lib/x86_64-linux-gnu"          
+          export LDFLAGS="-L/usr/lib/x86_64-linux-gnu -lopenblas"          
           pip install --no-binary=:all: scipy
       - name: Install OpenBLAS and build scipy on macOS
         if: runner.os == 'macOS'

@@ -32,11 +32,27 @@ jobs:
       - name: Install cibuildwheel
         run: pip install cibuildwheel
 
-      - name: Build wheels
+      - name: Enable long paths for Windows
+        if: matrix.os == 'windows-latest'
+        shell: powershell
+        run: |
+          New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+
+      - name: Build wheels for Windows
+        run: cibuildwheel --output-dir wheelhouse
+        if: matrix.os == 'windows-latest'
+        env:
+          CIBW_BUILD: "cp310-*"
+          CIBW_SKIP: "pp*"
+          CIBW_ARCHS_WINDOWS: AMD64
+        shell: powershell
+        working-directory: C:/b
+
+      - name: Build wheels for MacOS and Linux
         # cibuildwheel automatically detects OS and Python version
         run: cibuildwheel --output-dir wheelhouse
+        if: matrix.os != 'windows-latest'
         env:
-          CIBW_ARCHS_WINDOWS: AMD64   # only build 64-bit wheels
           CIBW_ARCHS_LINUX: x86_64
           CIBW_ARCHS_MACOS: x86_64
           CIBW_BUILD: "cp39-* cp310-* cp311-* cp312-* cp313-*"

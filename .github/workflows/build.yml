@@ -33,24 +33,24 @@ jobs:
         run: pip install --upgrade pip setuptools wheel meson ninja cython
 
       # Install OpenBLAS/LAPACK where needed
-      - name: Install SciPy dependencies and build on Ubuntu
-        if: runner.os == 'Linux'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libopenblas64-pthread-dev liblapack-dev gfortran pkg-config
-          pip install --no-binary=:all: scipy      
-      - name: Install OpenBLAS and build scipy on macOS
-        if: runner.os == 'macOS'
-        run: |
-          brew install openblas
-          export OPENBLAS=$(brew --prefix openblas)
-          export CFLAGS="-I$OPENBLAS/include"
-          export PKG_CONFIG_PATH="$OPENBLAS/lib/pkgconfig:$PKG_CONFIG_PATH"
-          export LDFLAGS="-L$OPENBLAS/lib"
-          pip install --no-binary=:all: scipy
+      # - name: Install SciPy dependencies and build on Ubuntu
+      #   if: runner.os == 'Linux'
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install -y libopenblas64-pthread-dev liblapack-dev gfortran pkg-config
+      #     pip install --no-binary=:all: scipy      
+      # - name: Install OpenBLAS and build scipy on macOS
+      #   if: runner.os == 'macOS'
+      #   run: |
+      #     brew install openblas
+      #     export OPENBLAS=$(brew --prefix openblas)
+      #     export CFLAGS="-I$OPENBLAS/include"
+      #     export PKG_CONFIG_PATH="$OPENBLAS/lib/pkgconfig:$PKG_CONFIG_PATH"
+      #     export LDFLAGS="-L$OPENBLAS/lib"
+      #     pip install --no-binary=:all: scipy
       # Install SciPy from source on Windows only if needed
       - name: Install SciPy from wheel (Windows)
-        if: runner.os == 'Windows'
+        # if: runner.os == 'Windows'
         run: pip install scipy
 
       - name: Install cibuildwheel
@@ -61,9 +61,10 @@ jobs:
         run: cibuildwheel --output-dir wheelhouse
         env:
           CIBW_ARCHS_WINDOWS: AMD64   # only build 64-bit wheels
-          CIBW_ARCHS_LINUX: x86_64   # only build 64-bit wheels
-          CIBW_ARCHS_MACOS: x86_64   # only build 64-bit wheels
-
+          CIBW_ARCHS_LINUX: x86_64
+          CIBW_ARCHS_MACOS: x86_64
+          CIBW_BUILD: "cp39-* cp310-* cp311-* cp312-* cp313-*"
+          CIBW_SKIP: "pp*"
       - name: Upload built wheels
         uses: actions/upload-artifact@v4
         with:

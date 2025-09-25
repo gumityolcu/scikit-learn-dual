@@ -10,7 +10,7 @@ jobs:
     # Matrix for OS and Python version
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [macos-latest]
   
     runs-on: ${{ matrix.os }}
 

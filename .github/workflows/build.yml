@@ -37,13 +37,8 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y libopenblas-dev liblapack-dev gfortran pkg-config
-          export BLAS_LIBS="-lopenblas"
-          export LAPACK_LIBS="-llapack"
-          export PKG_CONFIG_PATH="/usr/lib/x86_64-linux-gnu/pkgconfig"
-          export CFLAGS="-I/usr/include/x86_64-linux-gnu"
-          export LDFLAGS="-L/usr/lib/x86_64-linux-gnu -lopenblas"          
-          pip install --no-binary=:all: scipy
+          sudo apt-get install -y libopenblas64-pthread-dev liblapack-dev gfortran pkg-config
+          pip install --no-binary=:all: scipy      
       - name: Install OpenBLAS and build scipy on macOS
         if: runner.os == 'macOS'
         run: |

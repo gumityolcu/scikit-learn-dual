@@ -1,6 +1,6 @@
 [project]
 name = "dualxda_skl"
-version = "1.6.0.dev0+dualxda"
+version = "1.6.0.dev0"
 description = "A fork of scikit-learn that lets the user reach the dual variables for the LinearSVC class."
 readme = "README.rst"
 maintainers = [
